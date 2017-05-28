@@ -6,10 +6,14 @@
 package dps.simplemailing.back;
 
 import dps.simplemailing.entities.User;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,29 +32,33 @@ public class Users extends Crud<User> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
-    /*
-    public void create(User entity) {
-        em.persist(entity);
+    
+    public Map<String,String> getPlaceholders(User user)
+    {
+        Map<String,String> placeholders = new HashMap<String,String>();
+        placeholders.put("firstname", user.getFirstName());
+        placeholders.put("email", user.getEmail());
+        placeholders.put("id", user.getId().toString());
+        return placeholders;
     }
-
-    public void edit(User entity) {
-        em.merge(entity);
+    
+    public List<User> getActive()
+    {
+        Query query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        query.setParameter("status", User.Status.subscribed);
+        return query.getResultList();
     }
-
-    public void remove(User entity) {
-        em.remove(em.merge(entity));
+    
+    public List<User> getTest()
+    {
+        Query query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        query.setParameter("status", User.Status.test);
+        return query.getResultList();
     }
-
-    public User find(Object id) {
-        return em.find(User.class, id);
+    
+    public void unsubscribe(User user)
+    {
+        user.setStatus(User.Status.unsubscribed);
     }
-
-    public List<User> getAll() {
-        javax.persistence.criteria.CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-        cq.select(cq.from(User.class));
-        return em.createQuery(cq).getResultList();
-    }
-    */
 
 }

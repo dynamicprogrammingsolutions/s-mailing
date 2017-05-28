@@ -6,10 +6,13 @@
 package dps.simplemailing.back;
 
 import dps.simplemailing.entities.Mail;
+import dps.simplemailing.entities.User;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -17,6 +20,9 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class Mails extends Crud<Mail> {
+    
+    @Inject Users users;
+    @Inject MailQueue queue;
     
     public Mails()
     {
@@ -29,26 +35,20 @@ public class Mails extends Crud<Mail> {
         return em;
     }
 
-    /*public void create(Mail entity) {
-        em.persist(entity);
+    public void scheduleMail(Mail mail, java.util.Date time)
+    {
+        List<User> allUsers = users.getActive();
+        for (User user: allUsers) {
+            queue.createQueuedMail(user, mail, time);
+        }
     }
-
-    public void edit(Mail entity) {
-        em.merge(entity);
+    
+    public void testMail(Mail mail)
+    {
+        List<User> allUsers = users.getTest();
+        for (User user: allUsers) {
+            queue.createQueuedMail(user, mail, null);
+        }
     }
-
-    public void remove(Mail entity) {
-        em.remove(em.merge(entity));
-    }
-
-    public Mail find(Object id) {
-        return em.find(Mail.class, id);
-    }
-
-    public List<Mail> getAll() {
-        javax.persistence.criteria.CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-        cq.select(cq.from(Mail.class));
-        return em.createQuery(cq).getResultList();
-    }*/
 
 }

@@ -9,6 +9,7 @@ import dps.servletcontroller.Controller;
 import dps.servletcontroller.Path;
 import dps.simplemailing.back.GeneratedMails;
 import dps.simplemailing.back.MailQueue;
+import dps.simplemailing.back.MailQueueStatus;
 import dps.simplemailing.back.MailSending;
 import dps.simplemailing.back.Mails;
 import dps.simplemailing.back.Users;
@@ -18,7 +19,11 @@ import dps.simplemailing.entities.QueuedMail;
 import dps.simplemailing.entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +42,7 @@ public class FrontController extends Controller {
     @Inject MailQueue mailQueue;
     @Inject GeneratedMails generatedMails;
     @Inject MailSending mailSending;
+    @Inject MailQueueStatus mailQueueStatus;
     
     @Path("showUsers")
     public void showUsers(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -114,6 +120,70 @@ public class FrontController extends Controller {
         
     }
     
+    @Path("generateMails")
+    public void generateMails(HttpServletRequest request, HttpServletResponse response) throws IOException 
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
+        mailQueue.generateMails(queueToSend);
+    }
+    
+    @Path("processQueue")
+    public void processQueue(HttpServletRequest request, HttpServletResponse response) throws IOException 
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        mailQueue.processQueue();
+        
+        writer.println("queue started");
+        
+        /*List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
+        for (QueuedMail queuedMail: queueToSend) {
+            writer.println("generating "+queuedMail);
+            System.out.println("sending "+queuedMail);
+            generatedMails.generateMail(queuedMail);
+        }
+        
+        for (QueuedMail queuedMail: queueToSend) {
+            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
+            if (generatedMail != null) {
+                writer.println("sending "+generatedMail);
+                System.out.println("sending "+generatedMail);
+                if (mailSending.sendMail(generatedMail)) {
+                    queuedMail.setStatus(QueuedMail.Status.sent);
+                    mailQueue.edit(queuedMail);
+                } else {
+                    queuedMail.setStatus(QueuedMail.Status.fail);
+                    mailQueue.edit(queuedMail);
+                }
+            }
+        }*/
+    }
+    
+    @Path("queueStatus")
+    public void queueStatus(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+     
+        int i = 0;
+        while(i < 60) {
+            i++;
+            writer.println(mailQueueStatus.getStringStatus());
+            writer.flush();
+            if (!mailQueueStatus.getStarted()) break;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
     @Path("generateMail")
     public void generateMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -137,6 +207,57 @@ public class FrontController extends Controller {
         
     }
     
+    @Path("scheduleMail")
+    public void scheduleMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+
+            Long mailId = Long.parseLong(request.getParameter("mail_id"));
+            Mail mail = mailManager.find(mailId);
+            
+            java.util.Date time = null;
+            String timeString = request.getParameter("send_time");
+            if (timeString != null) {
+                SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                time = fm.parse(timeString);
+            }
+
+            mailManager.scheduleMail(mail, time);
+
+            writer.println("scheduled");
+
+        } catch (ParseException|NumberFormatException ex) {
+            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            writer.println("parse failed");
+        }
+        
+    }
+    
+    @Path("testMail")
+    public void testMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+
+            Long mailId = Long.parseLong(request.getParameter("mail_id"));
+            Mail mail = mailManager.find(mailId);
+
+            mailManager.testMail(mail);
+
+            writer.println("scheduled");
+
+        } catch (NumberFormatException ex) {
+            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            writer.println("parse failed");
+        }
+        
+    }
+    
     @Path("sendMail")
     public void sendMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -145,4 +266,27 @@ public class FrontController extends Controller {
         mailSending.sendMail(generatedMail);
     }
 
+    @Path("unsubscribe")
+    public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            Long id = Long.parseLong(request.getParameter("id"));
+            String email = request.getParameter("email");
+            System.out.println("unsubscribing id "+id+" email "+email);
+            User user = userManager.find(id);
+            if (user.getEmail().equals(email)) {
+                userManager.unsubscribe(user);
+                writer.println("Successfully unsubscribed");
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            writer.println("Unsubscribe unsuccessful");
+        }
+        
+    }
+    
 }

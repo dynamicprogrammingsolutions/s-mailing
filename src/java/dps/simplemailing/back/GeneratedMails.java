@@ -7,7 +7,9 @@ package dps.simplemailing.back;
 
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.QueuedMail;
+import dps.simplemailing.entities.User;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -21,6 +23,7 @@ import javax.persistence.PersistenceContext;
 public class GeneratedMails extends Crud<GeneratedMail> {
     
     @Inject MailQueue mailQueue;
+    @Inject Users users;
     
     public GeneratedMails()
     {
@@ -40,7 +43,11 @@ public class GeneratedMails extends Crud<GeneratedMail> {
         generatedMail.setFromEmail(queuedMail.getMail().getFrom());
         generatedMail.setToEmail(queuedMail.getUser().getEmail());
         generatedMail.setSubject(queuedMail.getMail().getSubject());
-        generatedMail.setBody(queuedMail.getMail().getBody_text());
+        
+        String body_text = queuedMail.getMail().getBody_text();
+        body_text = processPlaceholders(queuedMail.getUser(), body_text);
+        
+        generatedMail.setBody(body_text);
         this.create(generatedMail);
         
         queuedMail.setGeneratedMail(generatedMail);
@@ -48,6 +55,17 @@ public class GeneratedMails extends Crud<GeneratedMail> {
 
         return generatedMail;
                 
+    }
+    
+    public String processPlaceholders(User user, String text)
+    {
+        Map<String,String> placeholders = users.getPlaceholders(user);
+        for (Map.Entry<String, String> entry : placeholders.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            text = text.replaceAll("\\{"+key+"\\}", value);
+        }
+        return text;
     }
     
 }

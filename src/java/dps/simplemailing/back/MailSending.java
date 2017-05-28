@@ -6,11 +6,18 @@
 package dps.simplemailing.back;
 
 import dps.simplemailing.entities.GeneratedMail;
+import dps.simplemailing.entities.QueuedMail;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
+import javax.ejb.Asynchronous;
 import javax.ejb.Singleton;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import static javax.ejb.TransactionAttributeType.*;
+import javax.inject.Inject;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -34,6 +41,7 @@ public class MailSending {
     final private String password = "AjJGp8+C/yC8NuFYwhR053/JV8abWaRWI7xJ7LjFcvz4";
     
     Properties prop;
+    Session session;
     
     @PostConstruct
     public void postConstruct()
@@ -43,16 +51,18 @@ public class MailSending {
         prop.put("mail.smtp.starttls.enable", "true");
         prop.put("mail.smtp.host", host);
         prop.put("mail.smtp.port", port);
-    }
-    
-    public void sendMail(GeneratedMail generatedMail)
-    {
-        System.out.println("Sending id " + generatedMail.getId() + " to " + generatedMail.getToEmail());
-        Session session = Session.getInstance(prop, new Authenticator() {
+        
+        session = Session.getInstance(prop, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
         });
+    }
+    
+    
+    public Boolean sendMail(GeneratedMail generatedMail)
+    {
+        System.out.println("Sending id " + generatedMail.getId() + " to " + generatedMail.getToEmail());
 
         try {
             Message message = new MimeMessage(session);
@@ -61,12 +71,16 @@ public class MailSending {
             message.setSubject(generatedMail.getSubject());
             message.setText(generatedMail.getBody());
             Transport.send(message);
+            return true;
         } catch (AddressException ex) {
             Logger.getLogger(MailSending.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } catch (MessagingException ex) {
             Logger.getLogger(MailSending.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
         
     }
+    
     
 }

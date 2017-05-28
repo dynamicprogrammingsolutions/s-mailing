@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
 public abstract class Crud<T> {
 
     protected abstract EntityManager getEntityManager();
-    private Class<T> entityClass;
+    protected Class<T> entityClass;
     
     public Crud(Class<T> entityClass) {
         this.entityClass = entityClass;

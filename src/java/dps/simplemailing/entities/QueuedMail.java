@@ -6,14 +6,12 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import java.sql.Time;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -46,9 +44,9 @@ public class QueuedMail implements Serializable {
     @JoinColumn(name="generated_mail_id")
     private GeneratedMail generatedMail;
     
-    private java.sql.Time scheduledTime;
+    private java.util.Date scheduledTime;
     
-    private java.sql.Time sentTime;
+    private java.util.Date sentTime;
     
     @NotNull
     private Status status;
@@ -89,19 +87,19 @@ public class QueuedMail implements Serializable {
         this.generatedMail = generatedMail;
     }
 
-    public Time getScheduledTime() {
+    public java.util.Date getScheduledTime() {
         return scheduledTime;
     }
 
-    public void setScheduledTime(Time scheduledTime) {
+    public void setScheduledTime(java.util.Date scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
-    public Time getSentTime() {
+    public java.util.Date getSentTime() {
         return sentTime;
     }
 
-    public void setSentTime(Time sentTime) {
+    public void setSentTime(java.sql.Date sentTime) {
         this.sentTime = sentTime;
     }
 

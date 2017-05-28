@@ -6,18 +6,20 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author ferenci84
  */
 @Entity
-@Table(name="test_users")
+@Table(name="users")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1608424383634986692L;
@@ -27,6 +29,17 @@ public class User implements Serializable {
     private String email;
     private String firstName;
     private String lastName;
+    
+    
+    @Column(name="status")
+    @NotNull
+    private Status status;
+    
+    public enum Status {
+        subscribed,
+        unsubscribed,
+        test
+    }
 
     public Long getId() {
         return id;
@@ -58,6 +71,14 @@ public class User implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     
