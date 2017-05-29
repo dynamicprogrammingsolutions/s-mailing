@@ -5,6 +5,7 @@
  */
 package dps.simplemailing.back;
 
+import com.sun.prism.impl.Disposer;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.QueuedMail;
@@ -71,6 +72,7 @@ public class MailQueue extends Crud<QueuedMail>{
             List<QueuedMail> queueToSend = getQueueToSend();
             generateMails(queueToSend);
             sendMails(queueToSend);
+            cleanupQueue();
         } finally {
             queueStatus.setStarted(false);
         }
@@ -102,6 +104,26 @@ public class MailQueue extends Crud<QueuedMail>{
                 }
             }
         }
+    }
+    
+    public void cleanupQueue()
+    {
+        System.out.println("cleaning up");
+        Query query = getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status = :status1 OR m.status = :status2) AND (m.generatedMail IS NOT NULL)");
+        query.setParameter("status1", QueuedMail.Status.sent);
+        query.setParameter("status2", QueuedMail.Status.fail);
+        List<QueuedMail> queuedMails = query.getResultList();
+        System.out.println("queuedMails to clean up: "+queuedMails.size());
+        
+        for (QueuedMail queuedMail: queuedMails) {
+            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
+            if (generatedMail != null) {
+                generatedMails.remove(generatedMail);
+            }
+            queuedMail.setGeneratedMail(null);
+            this.edit(queuedMail);
+        }
+        
     }
     
     

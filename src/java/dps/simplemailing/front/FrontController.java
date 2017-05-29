@@ -139,28 +139,17 @@ public class FrontController extends Controller {
         mailQueue.processQueue();
         
         writer.println("queue started");
+    }
+    
+    @Path("cleanupQueue")
+    public void cleanupQueue(HttpServletRequest request, HttpServletResponse response) throws IOException 
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
         
-        /*List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
-        for (QueuedMail queuedMail: queueToSend) {
-            writer.println("generating "+queuedMail);
-            System.out.println("sending "+queuedMail);
-            generatedMails.generateMail(queuedMail);
-        }
+        mailQueue.cleanupQueue();
         
-        for (QueuedMail queuedMail: queueToSend) {
-            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
-            if (generatedMail != null) {
-                writer.println("sending "+generatedMail);
-                System.out.println("sending "+generatedMail);
-                if (mailSending.sendMail(generatedMail)) {
-                    queuedMail.setStatus(QueuedMail.Status.sent);
-                    mailQueue.edit(queuedMail);
-                } else {
-                    queuedMail.setStatus(QueuedMail.Status.fail);
-                    mailQueue.edit(queuedMail);
-                }
-            }
-        }*/
+        writer.println("cleaned up");
     }
     
     @Path("queueStatus")
