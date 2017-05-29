@@ -6,18 +6,11 @@
 package dps.simplemailing.back;
 
 import dps.simplemailing.entities.GeneratedMail;
-import dps.simplemailing.entities.QueuedMail;
-import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
-import javax.ejb.Asynchronous;
 import javax.ejb.Singleton;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import static javax.ejb.TransactionAttributeType.*;
-import javax.inject.Inject;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;

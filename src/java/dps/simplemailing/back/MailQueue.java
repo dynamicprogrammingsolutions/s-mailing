@@ -5,7 +5,6 @@
  */
 package dps.simplemailing.back;
 
-import com.sun.prism.impl.Disposer;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.QueuedMail;
@@ -14,35 +13,16 @@ import java.util.List;
 import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Root;
 
 @Stateless
-public class MailQueue/* extends Crud_old<QueuedMail>*/{
+public class MailQueue {
     
     @Inject MailSending mailSending;
     @Inject GeneratedMails generatedMails;
     @Inject MailQueueStatus queueStatus;
     
     @Inject Crud crud;
-    
-    public MailQueue()
-    {
-        //super(QueuedMail.class);
-    }
-    
-    /*
-    @PersistenceContext(unitName = "SimpleMailingPU")
-    private EntityManager em;
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-    */
     
     public QueuedMail createQueuedMail(User user, Mail mail, java.util.Date scheduledTime)
     {

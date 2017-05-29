@@ -19,7 +19,7 @@ public class Crud extends dps.crud.Crud {
     
     @PersistenceContext(unitName = "SimpleMailingPU")
     private EntityManager em;
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 

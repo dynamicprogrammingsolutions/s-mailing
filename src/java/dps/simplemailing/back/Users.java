@@ -7,13 +7,10 @@ package dps.simplemailing.back;
 
 import dps.simplemailing.entities.User;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
@@ -21,22 +18,9 @@ import javax.persistence.Query;
  * @author ferenci84
  */
 @Stateless
-public class Users/* extends Crud_old<User>*/ {
+public class Users {
 
     @Inject Crud crud;
-    
-    public Users()
-    {
-        //super(User.class);
-    }
-    
-    /*
-    @PersistenceContext(unitName = "SimpleMailingPU")
-    private EntityManager em;
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-    */
     
     public Map<String,String> getPlaceholders(User user)
     {
