@@ -5,43 +5,22 @@
  */
 package dps.simplemailing.back;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author ferenci84
  */
-public abstract class Crud<T> {
-
-    protected abstract EntityManager getEntityManager();
-    protected Class<T> entityClass;
+@Stateless
+public class Crud extends dps.crud.Crud {
     
-    public Crud(Class<T> entityClass) {
-        this.entityClass = entityClass;
-     }
-    
-    public void create(T entity) {
-        getEntityManager().persist(entity);
+    @PersistenceContext(unitName = "SimpleMailingPU")
+    private EntityManager em;
+    protected EntityManager getEntityManager() {
+        return em;
     }
 
-    public void edit(T entity) {
-        getEntityManager().merge(entity);
-    }
-
-    public void remove(T entity) {
-        getEntityManager().remove(getEntityManager().merge(entity));
-    }
-
-    public T find(Object id) {
-        return getEntityManager().find(entityClass, id);
-    }
-
-    public List<T> getAll() {
-        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        cq.select(cq.from(entityClass));
-        return getEntityManager().createQuery(cq).getResultList();
-    }
-    
 }

@@ -23,23 +23,27 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 
 @Stateless
-public class MailQueue extends Crud<QueuedMail>{
+public class MailQueue/* extends Crud_old<QueuedMail>*/{
     
     @Inject MailSending mailSending;
     @Inject GeneratedMails generatedMails;
     @Inject MailQueueStatus queueStatus;
     
+    @Inject Crud crud;
+    
     public MailQueue()
     {
-        super(QueuedMail.class);
+        //super(QueuedMail.class);
     }
     
+    /*
     @PersistenceContext(unitName = "SimpleMailingPU")
     private EntityManager em;
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    */
+    
     public QueuedMail createQueuedMail(User user, Mail mail, java.util.Date scheduledTime)
     {
         QueuedMail queuedMail = new QueuedMail();
@@ -48,13 +52,13 @@ public class MailQueue extends Crud<QueuedMail>{
         queuedMail.setMail(mail);
         queuedMail.setScheduledTime(scheduledTime);
         queuedMail.setStatus(QueuedMail.Status.unsent);
-        this.create(queuedMail);
+        crud.create(queuedMail);
         
         return queuedMail;
     }
     
     public List<QueuedMail> getQueueToSend() {
-        Query query = getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime = null OR m.scheduledTime <= :now)");
+        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime = null OR m.scheduledTime <= :now)");
         query.setParameter("status", QueuedMail.Status.unsent);
         query.setParameter("now", new java.util.Date());
         return query.getResultList();
@@ -95,11 +99,11 @@ public class MailQueue extends Crud<QueuedMail>{
                 System.out.println("sending "+generatedMail);
                 if (mailSending.sendMail(generatedMail)) {
                     queuedMail.setStatus(QueuedMail.Status.sent);
-                    edit(queuedMail);
+                    crud.edit(queuedMail);
                     queueStatus.setSent(queueStatus.getSent()+1);
                 } else {
                     queuedMail.setStatus(QueuedMail.Status.fail);
-                    edit(queuedMail);
+                    crud.edit(queuedMail);
                     queueStatus.setFailed(queueStatus.getFailed()+1);
                 }
             }
@@ -109,7 +113,7 @@ public class MailQueue extends Crud<QueuedMail>{
     public void cleanupQueue()
     {
         System.out.println("cleaning up");
-        Query query = getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status = :status1 OR m.status = :status2) AND (m.generatedMail IS NOT NULL)");
+        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status = :status1 OR m.status = :status2) AND (m.generatedMail IS NOT NULL)");
         query.setParameter("status1", QueuedMail.Status.sent);
         query.setParameter("status2", QueuedMail.Status.fail);
         List<QueuedMail> queuedMails = query.getResultList();
@@ -118,10 +122,10 @@ public class MailQueue extends Crud<QueuedMail>{
         for (QueuedMail queuedMail: queuedMails) {
             GeneratedMail generatedMail = queuedMail.getGeneratedMail();
             if (generatedMail != null) {
-                generatedMails.remove(generatedMail);
+                crud.remove(generatedMail);
             }
             queuedMail.setGeneratedMail(null);
-            this.edit(queuedMail);
+            crud.edit(queuedMail);
         }
         
     }

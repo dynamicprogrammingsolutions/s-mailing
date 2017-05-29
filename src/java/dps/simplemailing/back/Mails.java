@@ -20,21 +20,23 @@ import javax.persistence.Query;
  * @author ferenci84
  */
 @Stateless
-public class Mails extends Crud<Mail> {
+public class Mails/* extends Crud_old<Mail>*/ {
     
     @Inject Users users;
     @Inject MailQueue queue;
     
     public Mails()
     {
-        super(Mail.class);
+        //super(Mail.class);
     }
     
+    /*
     @PersistenceContext(unitName = "SimpleMailingPU")
     private EntityManager em;
     protected EntityManager getEntityManager() {
         return em;
     }
+    */
     
     public void scheduleMail(Mail mail, Boolean real, java.util.Date time, int msDelay)
     {

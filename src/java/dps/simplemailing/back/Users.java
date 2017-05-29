@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,18 +21,22 @@ import javax.persistence.Query;
  * @author ferenci84
  */
 @Stateless
-public class Users extends Crud<User> {
+public class Users/* extends Crud_old<User>*/ {
 
+    @Inject Crud crud;
+    
     public Users()
     {
-        super(User.class);
+        //super(User.class);
     }
     
+    /*
     @PersistenceContext(unitName = "SimpleMailingPU")
     private EntityManager em;
     protected EntityManager getEntityManager() {
         return em;
     }
+    */
     
     public Map<String,String> getPlaceholders(User user)
     {
@@ -44,14 +49,14 @@ public class Users extends Crud<User> {
     
     public List<User> getActive()
     {
-        Query query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
         query.setParameter("status", User.Status.subscribed);
         return query.getResultList();
     }
     
     public List<User> getTest()
     {
-        Query query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
         query.setParameter("status", User.Status.test);
         return query.getResultList();
     }

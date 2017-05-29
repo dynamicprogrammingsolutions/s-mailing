@@ -5,6 +5,7 @@
  */
 package dps.simplemailing.front;
 
+import dps.simplemailing.back.Crud;
 import dps.simplemailing.back.Users;
 import dps.simplemailing.entities.User;
 import java.io.IOException;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UnsubscribeController {
     
     @Inject Users userManager;
+    
+    @Inject Crud crud;
 
     public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -32,7 +35,7 @@ public class UnsubscribeController {
             Long id = Long.parseLong(request.getParameter("id"));
             String email = request.getParameter("email");
             System.out.println("unsubscribing id "+id+" email "+email);
-            User user = userManager.find(id);
+            User user = (User)crud.find(id,User.class);
             if (user.getEmail().equals(email)) {
                 userManager.unsubscribe(user);
                 writer.println("Successfully unsubscribed");

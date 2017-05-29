@@ -7,6 +7,7 @@ package dps.simplemailing.front;
 
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Path;
+import dps.simplemailing.back.Crud;
 import dps.simplemailing.back.GeneratedMails;
 import dps.simplemailing.back.MailQueue;
 import dps.simplemailing.back.MailQueueStatus;
@@ -44,6 +45,8 @@ public class AdminController extends Controller {
     @Inject MailSending mailSending;
     @Inject MailQueueStatus mailQueueStatus;
     
+    @Inject Crud crud;
+    
     @Path("showUsers")
     public void showUsers(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -51,7 +54,7 @@ public class AdminController extends Controller {
         PrintWriter writer = response.getWriter();
         writer.println("show users");
         
-        List<User> allUsers = userManager.getAll();
+        List<User> allUsers = (List<User>)crud.getAll(User.class);
         int cnt = 0;
         for (User user: allUsers) {
             writer.println(user.getId()+" "+user.getEmail()+" "+user.getFirstName()+" "+user.getLastName());
@@ -69,9 +72,9 @@ public class AdminController extends Controller {
         
         Long id = Long.parseLong(request.getParameter("id"));
         String firstname = request.getParameter("firstname");
-        User user = userManager.find(id);
+        User user = (User)crud.find(id,User.class);
         user.setFirstName(firstname);
-        userManager.edit(user);
+        crud.edit(user);
         
     }
     
@@ -96,7 +99,7 @@ public class AdminController extends Controller {
         writer.println("From: " + mail.getFrom());
         writer.println("Body: " + mail.getBody_text());
         
-        mailManager.create(mail);        
+        crud.create(mail);        
         
     }
     
@@ -109,7 +112,7 @@ public class AdminController extends Controller {
         PrintWriter writer = response.getWriter();
         writer.println("Test");
         
-        List<Mail> allMails = mailManager.getAll();
+        List<Mail> allMails = (List<Mail>)crud.getAll(Mail.class);
         int cnt = 0;
         for (Mail mail: allMails) {
             writer.println(mail.getId()+" "+mail.getName()+" "+mail.getFrom()+" "+mail.getSubject());
@@ -182,8 +185,8 @@ public class AdminController extends Controller {
         Long mailId = Long.parseLong(request.getParameter("mail_id"));
         Long userId = Long.parseLong(request.getParameter("user_id"));
         
-        User user = userManager.find(userId);
-        Mail mail = mailManager.find(mailId);
+        User user = (User)crud.find(userId,User.class);
+        Mail mail = (Mail)crud.find(mailId,Mail.class);
         
         QueuedMail queuedMail = mailQueue.createQueuedMail(user,mail,null);
         
@@ -207,7 +210,7 @@ public class AdminController extends Controller {
             Long mailId = Long.parseLong(request.getParameter("mail_id"));
             int delay = Integer.parseInt(request.getParameter("delay"));
             Boolean real = Boolean.parseBoolean(request.getParameter("real"));
-            Mail mail = mailManager.find(mailId);
+            Mail mail = (Mail)crud.find(mailId,Mail.class);
             
             java.util.Date time = null;
             String timeString = request.getParameter("send_time");
@@ -226,58 +229,13 @@ public class AdminController extends Controller {
         }
         
     }
-    /*
-    @Path("testMail")
-    public void testMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
-    {
-        response.setContentType("text/plain");
-        PrintWriter writer = response.getWriter();
-        
-        try {
-
-            Long mailId = Long.parseLong(request.getParameter("mail_id"));
-            Mail mail = mailManager.find(mailId);
-
-            mailManager.testMail(mail);
-
-            writer.println("scheduled");
-
-        } catch (NumberFormatException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
-            writer.println("parse failed");
-        }
-    }
-    */
     
     @Path("sendMail")
     public void sendMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         Long generatedMailId = Long.parseLong(request.getParameter("generated_id"));
-        GeneratedMail generatedMail = generatedMails.find(generatedMailId);
+        GeneratedMail generatedMail = (GeneratedMail)crud.find(generatedMailId,GeneratedMail.class);
         mailSending.sendMail(generatedMail);
-    }
-
-    @Path("unsubscribe")
-    public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
-    {
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        
-        try {
-            Long id = Long.parseLong(request.getParameter("id"));
-            String email = request.getParameter("email");
-            System.out.println("unsubscribing id "+id+" email "+email);
-            User user = userManager.find(id);
-            if (user.getEmail().equals(email)) {
-                userManager.unsubscribe(user);
-                writer.println("Successfully unsubscribed");
-            } else {
-                throw new Exception();
-            }
-        } catch(Exception e) {
-            writer.println("Unsubscribe unsuccessful");
-        }
-        
     }
     
 }

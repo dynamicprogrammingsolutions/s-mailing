@@ -20,22 +20,26 @@ import javax.persistence.PersistenceContext;
  * @author ferenci84
  */
 @Stateless
-public class GeneratedMails extends Crud<GeneratedMail> {
+public class GeneratedMails/* extends Crud_old<GeneratedMail>*/ {
+    
+    @Inject Crud crud;
     
     @Inject MailQueue mailQueue;
     @Inject Users users;
     
     public GeneratedMails()
     {
-        super(GeneratedMail.class);
+        //super(GeneratedMail.class);
     }
     
+    /*
     @PersistenceContext(unitName = "SimpleMailingPU")
     private EntityManager em;
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    */
+    
     public GeneratedMail generateMail(QueuedMail queuedMail)
     {
         GeneratedMail generatedMail = new GeneratedMail();
@@ -48,10 +52,10 @@ public class GeneratedMails extends Crud<GeneratedMail> {
         body_text = processPlaceholders(queuedMail.getUser(), body_text);
         
         generatedMail.setBody(body_text);
-        this.create(generatedMail);
+        crud.create(generatedMail);
         
         queuedMail.setGeneratedMail(generatedMail);
-        mailQueue.edit(queuedMail);
+        crud.edit(queuedMail);
 
         return generatedMail;
                 
