@@ -99,6 +99,7 @@ public class Router<T extends ControllerBase> {
         }
         try {
             method.invoke(controller,args);
+            return true;
         } catch (IllegalAccessException ex) {
             System.out.println("IllegalAccessException");
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);

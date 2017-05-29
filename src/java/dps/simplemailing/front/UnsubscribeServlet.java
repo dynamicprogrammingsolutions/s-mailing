@@ -7,6 +7,8 @@ package dps.simplemailing.front;
 
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Router;
+import dps.simplemailing.back.Users;
+import dps.simplemailing.entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -22,11 +24,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "UnsubscribeServlet", urlPatterns = {"/unsubscribe/*"})
+@WebServlet(name = "UnsubscribeServlet", urlPatterns = {"/unsubscribe"})
 public class UnsubscribeServlet extends HttpServlet {
 
-    @Inject Router<Controller> router;
-    
+    @Inject UnsubscribeController unsubscribeController;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,10 +41,32 @@ public class UnsubscribeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String pathInfo = request.getPathInfo();
-        System.out.println("hit unsubscribe");
+        //String pathInfo = request.getPathInfo();
+        //System.out.println("hit unsubscribe");
         
-        router.process(pathInfo, request, response);
+        //router.process(pathInfo, request, response);
+        
+        unsubscribeController.unsubscribe(request, response);
+        
+        /*
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            Long id = Long.parseLong(request.getParameter("id"));
+            String email = request.getParameter("email");
+            System.out.println("unsubscribing id "+id+" email "+email);
+            User user = userManager.find(id);
+            if (user.getEmail().equals(email)) {
+                userManager.unsubscribe(user);
+                writer.println("Successfully unsubscribed");
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            writer.println("Unsubscribe unsuccessful");
+        }
+        */
 
     }
 

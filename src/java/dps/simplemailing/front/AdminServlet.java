@@ -22,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/*"})
+@WebServlet(name = "FrontServlet", urlPatterns = {"/admin/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
-public class FrontServlet extends HttpServlet {
+public class AdminServlet extends HttpServlet {
 
     @Inject Router<Controller> router;
     
@@ -43,7 +43,7 @@ public class FrontServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String pathInfo = request.getPathInfo();
-        System.out.println("hit");
+        System.out.println("hit admin");
         
         router.process(pathInfo, request, response);
 

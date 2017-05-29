@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Stateless
 @Path("/(.*)")
-public class FrontController extends Controller {
+public class AdminController extends Controller {
     
     @Inject Users userManager;
     @Inject Mails mailManager;
@@ -167,7 +167,7 @@ public class FrontController extends Controller {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -205,6 +205,8 @@ public class FrontController extends Controller {
         try {
 
             Long mailId = Long.parseLong(request.getParameter("mail_id"));
+            int delay = Integer.parseInt(request.getParameter("delay"));
+            Boolean real = Boolean.parseBoolean(request.getParameter("real"));
             Mail mail = mailManager.find(mailId);
             
             java.util.Date time = null;
@@ -214,17 +216,17 @@ public class FrontController extends Controller {
                 time = fm.parse(timeString);
             }
 
-            mailManager.scheduleMail(mail, time);
+            mailManager.scheduleMail(mail, real, time, delay);
 
             writer.println("scheduled");
 
         } catch (ParseException|NumberFormatException ex) {
-            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             writer.println("parse failed");
         }
         
     }
-    
+    /*
     @Path("testMail")
     public void testMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -241,11 +243,11 @@ public class FrontController extends Controller {
             writer.println("scheduled");
 
         } catch (NumberFormatException ex) {
-            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             writer.println("parse failed");
         }
-        
     }
+    */
     
     @Path("sendMail")
     public void sendMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
