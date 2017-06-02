@@ -7,26 +7,37 @@ package dps.simplemailing.front;
 
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Path;
+import dps.simplemailing.back.Campaigns;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.back.GeneratedMails;
+import dps.simplemailing.back.MailGenerator;
 import dps.simplemailing.back.MailQueue;
 import dps.simplemailing.back.MailQueueStatus;
 import dps.simplemailing.back.MailSending;
+import dps.simplemailing.back.MailSeries;
 import dps.simplemailing.back.Mails;
 import dps.simplemailing.back.Users;
+import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.QueuedMail;
+import dps.simplemailing.entities.Series;
+import dps.simplemailing.entities.SeriesItem;
+import dps.simplemailing.entities.SeriesMail;
+import dps.simplemailing.entities.SeriesSubscription;
 import dps.simplemailing.entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,9 +52,11 @@ public class AdminController extends Controller {
     @Inject Users userManager;
     @Inject Mails mailManager;
     @Inject MailQueue mailQueue;
-    @Inject GeneratedMails generatedMails;
+    @Inject MailGenerator generatedMails;
     @Inject MailSending mailSending;
+    @Inject MailSeries mailSeries;
     @Inject MailQueueStatus mailQueueStatus;
+    @Inject Campaigns campaigns;
     
     @Inject Crud crud;
     
@@ -238,4 +251,209 @@ public class AdminController extends Controller {
         mailSending.sendMail(generatedMail);
     }
     
+    @Path("createSeries")
+    public void createSeries(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            String name = request.getParameter("name");
+            String displayName = request.getParameter("display_name");
+            Series series = new Series();
+            series.setName(name);
+            series.setDisplayName(displayName);
+            series.setUpdateSubscribeTime(false);
+            crud.create(series);
+        } catch (Exception e) {
+            writer.println("Failed");
+            throw e;
+        }
+        writer.println("Created");
+    }
+    
+    @Path("addSeriesItem")
+    public void addSeriesItem(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            
+            Long seriesId = Long.parseLong(request.getParameter("series_id"));
+            Long mailId = Long.parseLong(request.getParameter("mail_id"));
+            int sendDelay = Integer.parseInt(request.getParameter("send_delay"));
+            Series series = (Series)crud.find(seriesId, Series.class);
+            Mail mail = (Mail)crud.find(mailId, Mail.class);
+            SeriesItem seriesItem = new SeriesItem();
+            seriesItem.setMail(mail);
+            seriesItem.setSeries(series);
+            seriesItem.setSendDelay(sendDelay);
+            crud.create(seriesItem);
+            
+        } catch (Exception e) {
+            writer.println("Failed");
+            throw e;
+        }
+        
+        writer.println("Added");
+        
+    }
+    
+    @Path("addSeriesSubscription")
+    public void addSeriesSubscription(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            
+            Long seriesId = Long.parseLong(request.getParameter("series_id"));
+            Long userId = Long.parseLong(request.getParameter("user_id"));
+            Series series = (Series)crud.find(seriesId, Series.class);
+            User user = (User)crud.find(userId, User.class);
+            SeriesSubscription seriesSubscription = new SeriesSubscription();
+            seriesSubscription.setSeries(series);
+            seriesSubscription.setUser(user);
+            seriesSubscription.setSubscribeTime(new java.util.Date());
+            crud.create(seriesSubscription);
+            
+        } catch (Exception e) {
+            writer.println("Failed");
+            throw e;
+        }
+        
+        writer.println("Added");
+        
+    }
+        
+    @Path("processSeries")
+    public void processSeriesUpdated(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+
+            Long seriesId = Long.parseLong(request.getParameter("series_id"));
+            Series series = (Series)crud.find(seriesId, Series.class);
+            
+            mailSeries.processSeries(series);
+            
+        } catch (Exception e) {
+            writer.println("Failed");
+            throw e;
+        }
+        
+        writer.println("Processed");
+    }
+    
+    @Path("processAllSeries")
+    public void processAllSeries(HttpServletRequest request, HttpServletResponse response) throws  IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        mailSeries.processAllSeriesAsync();
+            
+        writer.println("Process Started");
+    }
+    
+    @Path("unsubscribe")
+    public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        
+        try {
+            String email = request.getParameter("email");
+            System.out.println("unsubscribing email "+email);
+            User user = userManager.getByEmail(email);
+            if (user != null) {
+                userManager.unsubscribe(user);
+                writer.println("Successfully unsubscribed");
+            } else {
+                throw new Exception();
+            }
+        } catch(Exception e) {
+            writer.println("Unsubscribe unsuccessful");
+        }
+    }
+    
+    @Path("createCampaign")
+    public void createCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        String name = request.getParameter("name");
+        String longName = request.getParameter("long_name");
+        
+        Campaign campaign = new Campaign();
+        campaign.setName(name);
+        campaign.setLongName(longName);
+        crud.create(campaign);
+        
+        writer.println("Added, id: "+campaign.getId());
+        
+    }
+    
+    @Path("addMailToCampaign")
+    public void addMailToCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        Long campaignId = Long.parseLong(request.getParameter("campaign_id"));
+        Long mailId = Long.parseLong(request.getParameter("mail_id"));
+        
+        Campaign campaign = (Campaign)crud.find(campaignId, Campaign.class);
+        Mail mail = (Mail)crud.find(mailId, Mail.class);
+        
+        Set<Mail> mails = campaign.getMails();
+        mails.add(mail);
+        crud.edit(campaign);
+
+        writer.println("Added");
+        
+    }
+    
+    @Path("removeMailFromCampaign")
+    public void removeMailFromCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/plain");
+        PrintWriter writer = response.getWriter();
+        
+        Long campaignId = Long.parseLong(request.getParameter("campaign_id"));
+        Long mailId = Long.parseLong(request.getParameter("mail_id"));
+        
+        Campaign campaign = (Campaign)crud.find(campaignId, Campaign.class);
+        Mail mail = (Mail)crud.find(mailId, Mail.class);
+        
+        Set<Mail> mails = campaign.getMails();
+        mails.remove(mail);
+        crud.edit(campaign);
+
+        writer.println("Removed");
+        
+    }
+    
+    @Path("unsubscribeFromCampaign")
+    public void unsubscribeFromCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+
+        try {
+
+            User user = userManager.getByEmail(request.getParameter("email"));
+            Campaign campaign = campaigns.getByName(request.getParameter("campaign_name"));
+            campaign.getUnsubscribedUsers().add(user);
+            crud.edit(campaign);
+            writer.println("Successfully unsubscribed from campaign "+campaign.getLongName()); 
+
+        } catch(Exception e) {
+            writer.println("Unsubscribe unsuccessful");
+        }
+    }
 }

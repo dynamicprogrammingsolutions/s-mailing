@@ -49,5 +49,14 @@ public class Users {
     {
         user.setStatus(User.Status.unsubscribed);
     }
+    
+    public User getByEmail(String email)
+    {
+        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.email = :email");
+        query.setParameter("email", email);
+        List<User> users = query.getResultList();
+        if (users.isEmpty()) return null;
+        else return users.get(0);
+    }
 
 }

@@ -5,13 +5,17 @@
  */
 package dps.simplemailing.back;
 
+import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.QueuedMail;
 import dps.simplemailing.entities.User;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.persistence.Query;
 
@@ -19,7 +23,7 @@ import javax.persistence.Query;
 public class MailQueue {
     
     @Inject MailSending mailSending;
-    @Inject GeneratedMails generatedMails;
+    @Inject MailGenerator generatedMails;
     @Inject MailQueueStatus queueStatus;
     
     @Inject Crud crud;
@@ -48,15 +52,20 @@ public class MailQueue {
     public void processQueue()
     {
         if (queueStatus.getStarted()) {
-            System.out.println("queue is already started");
+            //System.out.println("queue is already started");
             return;
         }
         try {
             queueStatus.setStarted(true);
             List<QueuedMail> queueToSend = getQueueToSend();
-            generateMails(queueToSend);
-            sendMails(queueToSend);
-            cleanupQueue();
+            
+            if (queueToSend.size() != 0) {
+                System.out.println("Queue to send: "+queueToSend.size());
+                generateMails(queueToSend);
+                sendMails(queueToSend);
+                cleanupQueue();
+            }
+            
         } finally {
             queueStatus.setStarted(false);
         }
@@ -65,7 +74,7 @@ public class MailQueue {
     public void generateMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
-            System.out.println("sending "+queuedMail);
+            System.out.println("Generating "+queuedMail);
             generatedMails.generateMail(queuedMail);
             queueStatus.setGenerated(queueStatus.getGenerated()+1);
         }
@@ -73,39 +82,61 @@ public class MailQueue {
     
     public void sendMails(List<QueuedMail> queueToSend)
     {
+        
         for (QueuedMail queuedMail: queueToSend) {
-            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
-            if (generatedMail != null) {
-                System.out.println("sending "+generatedMail);
-                if (mailSending.sendMail(generatedMail)) {
-                    queuedMail.setStatus(QueuedMail.Status.sent);
-                    crud.edit(queuedMail);
-                    queueStatus.setSent(queueStatus.getSent()+1);
-                } else {
-                    queuedMail.setStatus(QueuedMail.Status.fail);
-                    crud.edit(queuedMail);
-                    queueStatus.setFailed(queueStatus.getFailed()+1);
+            
+            System.out.println("Checking "+queuedMail);
+            
+            Boolean unsubscribed = false;
+            Set<Campaign> campaigns = queuedMail.getMail().getCampaigns();
+            for (Campaign campaign: campaigns) {
+                if (campaign.getUnsubscribedUsers().contains(queuedMail.getUser())) {
+                    unsubscribed = true;
                 }
+            }
+            
+            if (!unsubscribed) {
+                GeneratedMail generatedMail = queuedMail.getGeneratedMail();
+                if (generatedMail != null) {
+                    System.out.println("sending "+generatedMail);
+                    if (mailSending.sendMail(generatedMail)) {
+                        queuedMail.setStatus(QueuedMail.Status.sent);
+                        crud.edit(queuedMail);
+                        queueStatus.setSent(queueStatus.getSent()+1);
+                    } else {
+                        queuedMail.setStatus(QueuedMail.Status.fail);
+                        crud.edit(queuedMail);
+                        queueStatus.setFailed(queueStatus.getFailed()+1);
+                    }
+                }
+            } else {
+
+                queuedMail.setStatus(QueuedMail.Status.fail);
+                crud.edit(queuedMail);
+                queueStatus.setFailed(queueStatus.getFailed()+1);
+
+                System.out.println("User unsubscribed from campaign");
             }
         }
     }
     
     public void cleanupQueue()
     {
-        System.out.println("cleaning up");
-        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status = :status1 OR m.status = :status2) AND (m.generatedMail IS NOT NULL)");
-        query.setParameter("status1", QueuedMail.Status.sent);
-        query.setParameter("status2", QueuedMail.Status.fail);
+        //System.out.println("cleaning up");
+        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status != :status1) AND (m.generatedMail IS NOT NULL)");
+        query.setParameter("status1", QueuedMail.Status.unsent);
         List<QueuedMail> queuedMails = query.getResultList();
-        System.out.println("queuedMails to clean up: "+queuedMails.size());
         
-        for (QueuedMail queuedMail: queuedMails) {
-            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
-            if (generatedMail != null) {
-                crud.remove(generatedMail);
+        if (queuedMails.size() != 0) {
+            System.out.println("queuedMails to clean up: "+queuedMails.size());
+            for (QueuedMail queuedMail: queuedMails) {
+                GeneratedMail generatedMail = queuedMail.getGeneratedMail();
+                if (generatedMail != null) {
+                    crud.remove(generatedMail);
+                }
+                queuedMail.setGeneratedMail(null);
+                crud.edit(queuedMail);
             }
-            queuedMail.setGeneratedMail(null);
-            crud.edit(queuedMail);
         }
         
     }

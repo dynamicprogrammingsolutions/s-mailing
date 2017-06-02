@@ -37,6 +37,7 @@ public class Mails {
         } else {
             allUsers = users.getTest();
         }
+        
         for (User user: allUsers) {
             cal.add(Calendar.MILLISECOND, msDelay);
             queue.createQueuedMail(user, mail, cal.getTime());

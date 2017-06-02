@@ -8,11 +8,8 @@ package dps.simplemailing.front;
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Router;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,13 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/admin/*"})
+@WebServlet(name = "FrontServlet", urlPatterns = {"/api/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
-public class AdminServlet extends HttpServlet {
+public class APIServlet extends HttpServlet {
 
-    @Inject Router<AdminController> router;
+    @Inject Router<APIController> router;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

@@ -6,15 +6,14 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Set;
-import javax.persistence.Column;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,25 +21,27 @@ import javax.persistence.Table;
  * @author ferenci84
  */
 @Entity
-@Table(name="mails")
-public class Mail implements Serializable {
+@Table(name="series_items")
+public class SeriesItem implements Serializable {
 
-    private static final long serialVersionUID = 7996282373984678899L;
+    private static final long serialVersionUID = -388067527552213335L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String subject;
-    @Column(name="fromEmail")
-    private String from;
     
-    @ManyToMany(mappedBy = "mails")
-    private Set<Campaign> campaigns;
+    @ManyToOne
+    @JoinColumn(name="series_id")
+    private Series series;
     
-    @Lob
-    private String body_text;
+    @ManyToOne
+    @JoinColumn(name="mail_id")
+    private Mail mail;
     
+    private int sendDelay;
+    
+    @OneToMany(mappedBy = "seriesItem")
+    private List<SeriesMail> seriesMails;
 
     public Long getId() {
         return id;
@@ -50,42 +51,38 @@ public class Mail implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Series getSeries() {
+        return series;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSeries(Series series) {
+        this.series = series;
     }
 
-    public String getSubject() {
-        return subject;
+    public Mail getMail() {
+        return mail;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setMail(Mail mail) {
+        this.mail = mail;
     }
 
-    public String getFrom() {
-        return from;
+    public int getSendDelay() {
+        return sendDelay;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setSendDelay(int sendDelay) {
+        this.sendDelay = sendDelay;
     }
 
-    public String getBody_text() {
-        return body_text;
+    public List<SeriesMail> getSeriesMails() {
+        return seriesMails;
     }
-
-    public void setBody_text(String body_text) {
-        this.body_text = body_text;
+/*
+    public void setSeriesMails(List<SeriesMail> seriesMails) {
+        this.seriesMails = seriesMails;
     }
-
-    public Set<Campaign> getCampaigns() {
-        return campaigns;
-    }
-    
+*/
     @Override
     public int hashCode() {
         int hash = 0;
@@ -96,10 +93,10 @@ public class Mail implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Mail)) {
+        if (!(object instanceof SeriesItem)) {
             return false;
         }
-        Mail other = (Mail) object;
+        SeriesItem other = (SeriesItem) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -108,7 +105,7 @@ public class Mail implements Serializable {
 
     @Override
     public String toString() {
-        return "dps.simplemailing.entities.Emails[ id=" + id + " ]";
+        return "dps.simplemailing.entities.SeriesItems[ id=" + id + " ]";
     }
     
 }

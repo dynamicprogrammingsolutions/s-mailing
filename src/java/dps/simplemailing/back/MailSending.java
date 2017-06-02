@@ -55,7 +55,7 @@ public class MailSending {
     
     public Boolean sendMail(GeneratedMail generatedMail)
     {
-        System.out.println("Sending id " + generatedMail.getId() + " to " + generatedMail.getToEmail());
+        System.out.println("Sending email " + generatedMail.getSubject() + " from " + generatedMail.getFromEmail() + " to " + generatedMail.getToEmail());
 
         try {
             Message message = new MimeMessage(session);
@@ -64,12 +64,13 @@ public class MailSending {
             message.setSubject(generatedMail.getSubject());
             message.setText(generatedMail.getBody());
             Transport.send(message);
+            System.out.println("Message Sent");
             return true;
         } catch (AddressException ex) {
-            Logger.getLogger(MailSending.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MailSending.class.getName()).log(Level.WARNING, ex.getMessage());
             return false;
         } catch (MessagingException ex) {
-            Logger.getLogger(MailSending.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MailSending.class.getName()).log(Level.WARNING, ex.getMessage());
             return false;
         }
         

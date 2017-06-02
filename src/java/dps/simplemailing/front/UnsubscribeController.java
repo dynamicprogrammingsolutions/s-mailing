@@ -5,8 +5,11 @@
  */
 package dps.simplemailing.front;
 
+import com.sun.javafx.application.ParametersImpl;
+import dps.simplemailing.back.Campaigns;
 import dps.simplemailing.back.Crud;
 import dps.simplemailing.back.Users;
+import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UnsubscribeController {
     
     @Inject Users userManager;
+    @Inject Campaigns campaigns;
     
     @Inject Crud crud;
 
@@ -34,15 +38,25 @@ public class UnsubscribeController {
         try {
             Long id = Long.parseLong(request.getParameter("id"));
             String email = request.getParameter("email");
-            System.out.println("unsubscribing id "+id+" email "+email);
             User user = (User)crud.find(id,User.class);
             if (user.getEmail().equals(email)) {
-                userManager.unsubscribe(user);
-                writer.println("Successfully unsubscribed");
+                String campaignName = request.getParameter("campaign");
+                if (campaignName == null) {
+                    System.out.println("unsubscribing id "+id+" email "+email);
+                    userManager.unsubscribe(user);
+                    writer.println("Successfully unsubscribed");
+                } else {
+                    Campaign campaign = campaigns.getByName(request.getParameter("campaign"));
+                    System.out.println("unsubscribing id "+id+" email "+email+" campaign "+campaign.getName());
+                    campaign.getUnsubscribedUsers().add(user);
+                    crud.edit(campaign);
+                    writer.println("Successfully unsubscribed from campaign "+campaign.getLongName()); 
+                }
             } else {
                 throw new Exception();
             }
         } catch(Exception e) {
+            
             writer.println("Unsubscribe unsuccessful");
         }
     }

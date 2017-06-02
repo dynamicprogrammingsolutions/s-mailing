@@ -20,7 +20,7 @@ import javax.persistence.PersistenceContext;
  * @author ferenci84
  */
 @Stateless
-public class GeneratedMails {
+public class MailGenerator {
     
     @Inject Crud crud;    
     @Inject Users users;

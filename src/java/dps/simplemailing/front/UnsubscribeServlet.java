@@ -40,33 +40,8 @@ public class UnsubscribeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //String pathInfo = request.getPathInfo();
-        //System.out.println("hit unsubscribe");
-        
-        //router.process(pathInfo, request, response);
-        
+    
         unsubscribeController.unsubscribe(request, response);
-        
-        /*
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        
-        try {
-            Long id = Long.parseLong(request.getParameter("id"));
-            String email = request.getParameter("email");
-            System.out.println("unsubscribing id "+id+" email "+email);
-            User user = userManager.find(id);
-            if (user.getEmail().equals(email)) {
-                userManager.unsubscribe(user);
-                writer.println("Successfully unsubscribed");
-            } else {
-                throw new Exception();
-            }
-        } catch(Exception e) {
-            writer.println("Unsubscribe unsuccessful");
-        }
-        */
 
     }
 

@@ -55,7 +55,7 @@ public class Router<T extends ControllerBase> {
             nextPath = path;
         }*/
         nextPath = controllerMatches.group(1);
-        System.out.println("match found nextPath: "+nextPath);
+        //System.out.println("match found nextPath: "+nextPath);
 
         Method[] methods = contollerClass.getMethods();
         for (Method method: methods) {
@@ -87,13 +87,13 @@ public class Router<T extends ControllerBase> {
         for (int i = 0; i != parameters.length; i++) {
             Parameter parameter = parameters[i];
             if (parameter.getParameterizedType().equals(HttpServletRequest.class)) {
-                System.out.println("adding request");
+                //System.out.println("adding request");
                 args[i] = request;
             } else if (parameter.getParameterizedType().equals(HttpServletResponse.class)) {
-                System.out.println("adding response");
+                //System.out.println("adding response");
                 args[i] = response;
             } else if (parameter.getParameterizedType().equals(String.class) && parameter.getName().equals("path")) {
-                System.out.println("adding path");
+                //System.out.println("adding path");
                 args[i] = nextPath;
             }
         }

@@ -6,15 +6,12 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Set;
-import javax.persistence.Column;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,26 +19,24 @@ import javax.persistence.Table;
  * @author ferenci84
  */
 @Entity
-@Table(name="mails")
-public class Mail implements Serializable {
+@Table(name="series")
+public class Series implements Serializable {
 
-    private static final long serialVersionUID = 7996282373984678899L;
+    private static final long serialVersionUID = -3686003889724883300L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String subject;
-    @Column(name="fromEmail")
-    private String from;
+    private String displayName;
+    private Boolean updateSubscribeTime;
     
-    @ManyToMany(mappedBy = "mails")
-    private Set<Campaign> campaigns;
+    @OneToMany(mappedBy = "series")
+    private List<SeriesItem> seriesItems;
     
-    @Lob
-    private String body_text;
+    @OneToMany(mappedBy = "series")
+    private List<SeriesSubscription> seriesSubscriptions;
     
-
     public Long getId() {
         return id;
     }
@@ -58,34 +53,38 @@ public class Mail implements Serializable {
         this.name = name;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    public String getFrom() {
-        return from;
+    public Boolean getUpdateSubscribeTime() {
+        return updateSubscribeTime;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setUpdateSubscribeTime(Boolean updateSubscribeTime) {
+        this.updateSubscribeTime = updateSubscribeTime;
     }
 
-    public String getBody_text() {
-        return body_text;
+    public List<SeriesItem> getSeriesItems() {
+        return seriesItems;
     }
-
-    public void setBody_text(String body_text) {
-        this.body_text = body_text;
+/*
+    public void setSeriesItems(List<SeriesItem> seriesItems) {
+        this.seriesItems = seriesItems;
     }
-
-    public Set<Campaign> getCampaigns() {
-        return campaigns;
+*/
+    public List<SeriesSubscription> getSeriesSubscriptions() {
+        return seriesSubscriptions;
     }
-    
+/*
+    public void setSeriesSubscriptions(List<SeriesSubscription> seriesSubscriptions) {
+        this.seriesSubscriptions = seriesSubscriptions;
+    }
+*/
     @Override
     public int hashCode() {
         int hash = 0;
@@ -96,10 +95,10 @@ public class Mail implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Mail)) {
+        if (!(object instanceof Series)) {
             return false;
         }
-        Mail other = (Mail) object;
+        Series other = (Series) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -108,7 +107,7 @@ public class Mail implements Serializable {
 
     @Override
     public String toString() {
-        return "dps.simplemailing.entities.Emails[ id=" + id + " ]";
+        return "dps.simplemailing.entities.Series[ id=" + id + " ]";
     }
-    
+
 }
