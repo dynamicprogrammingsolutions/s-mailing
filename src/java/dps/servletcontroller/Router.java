@@ -51,6 +51,8 @@ public class Router {
     
     public Boolean processController(ControllerBase controller, String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        if (path == null) path = "";
+        
         Class<?> contollerClass = controller.getOriginalClass();
         Path pathAnnotation = contollerClass.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
@@ -94,7 +96,7 @@ public class Router {
         Object[] filterArgs = null;
         
         if (filterMethod != null) {
-            filterArgs = resolveFilterParameters(filterMethod, actionMatches, controllerMatches, request, response, method, args);
+            filterArgs = resolveFilterParameters(filterMethod, actionMatches, controllerMatches, request, response, controller, method, args);
         }
         
         try {
@@ -133,18 +135,25 @@ public class Router {
                 String paramName = paramAnnotation.value();
                 int group = paramAnnotation.group();
                 if (!paramName.isEmpty()) {
-                    args[i] = actionMatches.group(paramName);
+                    args[i] = convertParam(parameter,actionMatches.group(paramName));
                 } else {
-                    args[i] = actionMatches.group(group);
+                    args[i] = convertParam(parameter,actionMatches.group(group));
                 }
             } else if (parameter.isAnnotationPresent(ControllerParam.class)) {
                 ControllerParam paramAnnotation = parameter.getAnnotation(ControllerParam.class);
                 String paramName = paramAnnotation.value();
                 int group = paramAnnotation.group();
                 if (!paramName.isEmpty()) {
-                    args[i] = controllerMatches.group(paramName);
+                    args[i] = convertParam(parameter,controllerMatches.group(paramName));
                 } else {
-                    args[i] = controllerMatches.group(group);
+                    args[i] = convertParam(parameter,controllerMatches.group(group));
+                }
+            } else if (parameter.isAnnotationPresent(RequestParam.class)) {
+                RequestParam paramAnnotation = parameter.getAnnotation(RequestParam.class);
+                String paramName = paramAnnotation.value();
+                String value = request.getParameter(paramName);
+                if (value != null) {
+                    args[i] = convertParam(parameter,value);
                 }
             }
         }
@@ -153,7 +162,7 @@ public class Router {
     
     Object[] resolveFilterParameters(Method method, Matcher actionMatches, Matcher controllerMatches,
             HttpServletRequest request, HttpServletResponse response,
-            Method dispatchMethod, Object[] dispatchArgs)
+            ControllerBase dispatchController, Method dispatchMethod, Object[] dispatchArgs)
     {
         Parameter[] parameters = method.getParameters();
         Object[] args = new Object[parameters.length];
@@ -167,27 +176,38 @@ public class Router {
                 args[i] = dispatchArgs;
             } else if (parameter.getParameterizedType().equals(Method.class)) {
                 args[i] = dispatchMethod;
+            } else if (parameter.getParameterizedType().equals(ControllerBase.class)) {
+                args[i] = dispatchController;
             } else if (parameter.isAnnotationPresent(Param.class)) {
                 Param paramAnnotation = parameter.getAnnotation(Param.class);
                 String paramName = paramAnnotation.value();
                 int group = paramAnnotation.group();
                 if (!paramName.isEmpty()) {
-                    args[i] = actionMatches.group(paramName);
+                    args[i] = convertParam(parameter,actionMatches.group(paramName));
                 } else {
-                    args[i] = actionMatches.group(group);
+                    args[i] = convertParam(parameter,actionMatches.group(group));
                 }
             } else if (parameter.isAnnotationPresent(ControllerParam.class)) {
                 ControllerParam paramAnnotation = parameter.getAnnotation(ControllerParam.class);
                 String paramName = paramAnnotation.value();
                 int group = paramAnnotation.group();
                 if (!paramName.isEmpty()) {
-                    args[i] = controllerMatches.group(paramName);
+                    args[i] = convertParam(parameter,controllerMatches.group(paramName));
                 } else {
-                    args[i] = controllerMatches.group(group);
+                    args[i] = convertParam(parameter,controllerMatches.group(group));
                 }
             }
         }
         return args;
+    }
+    
+    Object convertParam(Parameter parameter, String value)
+    {
+        Class<?> type = parameter.getType();
+        if (type.equals(String.class)) return value;
+        if (type.equals(Integer.class)) return Integer.parseInt(value);
+        if (type.equals(Long.class)) return Long.parseLong(value);
+        return null;
     }
     
     Matcher checkPath(String path, Path pathAnnotation)
