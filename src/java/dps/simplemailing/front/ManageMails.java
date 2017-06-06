@@ -5,7 +5,6 @@
  */
 package dps.simplemailing.front;
 
-import dps.crud.Paginator;
 import dps.servletcontroller.ControllerBase;
 import dps.servletcontroller.Filter;
 import dps.servletcontroller.Param;
@@ -16,16 +15,12 @@ import dps.simplemailing.back.Mails;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
-import dps.simplemailing.front.forms.ProcessForm;
 import dps.simplemailing.front.forms.TextArea;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -42,9 +37,6 @@ public class ManageMails extends AdminControllerBase {
 
     @Inject Crud crud;
     @Inject ControllerCrud controllerCrud;
-    
-    @Inject ProcessForm processForm;
-    
     @Inject Mails mails;
     
     @Filter
@@ -77,7 +69,7 @@ public class ManageMails extends AdminControllerBase {
     @Path("/new")
     public String newMail(HttpServletRequest request, @RequestParam("id") Long id)
     {
-        String result = controllerCrud.newMail(request, id);
+        String result = controllerCrud.newEntity(request, id);
         if (request.getMethod().equals("GET")) {
             request.setAttribute("form", getMailForm(new Mail(),requestBean.getRoot()+"new","Create"));
         }
@@ -95,7 +87,7 @@ public class ManageMails extends AdminControllerBase {
     @Path("/edit/(?<id>[0-9]+)")
     public String editMail(HttpServletRequest request, @Param("id") Long id)
     {
-        String result = controllerCrud.editMail(request, id);
+        String result = controllerCrud.edit(request, id);
         if (request.getMethod().equals("GET") && requestBean.getEntityObject() != null) {
             request.setAttribute("form", getMailForm((Mail)requestBean.getEntityObject(),requestBean.getRoot()+"edit/"+id,"Modify"));
         }
@@ -105,7 +97,7 @@ public class ManageMails extends AdminControllerBase {
     @Path("/delete")
     public String deleteMail(HttpServletRequest request, @RequestParam("id") Long id)
     {
-        return controllerCrud.deleteMail(request, id);
+        return controllerCrud.delete(request, id);
     }
     
     @Path("/schedule")

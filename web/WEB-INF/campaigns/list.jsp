@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Subject</th>
+            <th>Long Name</th>
             <th>Show</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -14,7 +14,7 @@
     <c:forEach items="${items}" var="item">
         <tr>
             <td>${item.name}</td>
-            <td>${item.subject}</td>
+            <td>${item.longName}</td>
             <td><a href="${root}show/${item.id}">show</a></td>
             <td><a href="${root}edit/${item.id}">edit</a></td>
             <td><form action="${root}delete" method="post"><button type="submit" name="id" value="${item.id}">Delete</button></form></td>
@@ -36,5 +36,5 @@
 </c:forEach>
 
 <p>
-<a href="${root}new">New Mail</a>
+<a href="${root}new">New Campaign</a>
 </p>

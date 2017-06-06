@@ -42,12 +42,12 @@ public class ControllerCrud {
         Paginator paginator = new Paginator(page,resultsPerPage,count,requestBean.getRoot()+"list/");
         
         request.setAttribute("paginator", paginator);
-        request.setAttribute("mails", allMails);
+        request.setAttribute("items", allMails);
         
         return requestBean.getViewRoot()+"/list.jsp";
     }
     
-    public String newMail(HttpServletRequest request, @RequestParam("id") Long id)
+    public String newEntity(HttpServletRequest request, @RequestParam("id") Long id)
     {
         Object entity = null;
     
@@ -88,7 +88,7 @@ public class ControllerCrud {
         return requestBean.getViewRoot()+"/show.jsp";
     }
     
-    public String editMail(HttpServletRequest request, Long id)
+    public String edit(HttpServletRequest request, Long id)
     {
         Object entity = crud.find(id,requestBean.getEntityClass());
         requestBean.setEntityObject(entity);
@@ -108,7 +108,7 @@ public class ControllerCrud {
         return requestBean.getViewRoot()+"/edit.jsp";
     }
     
-    public String deleteMail(HttpServletRequest request, Long id)
+    public String delete(HttpServletRequest request, Long id)
     {
         if (request.getMethod().equals("POST")) {
             Object mail = crud.find(id,requestBean.getEntityClass());

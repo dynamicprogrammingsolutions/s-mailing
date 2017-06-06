@@ -11,7 +11,8 @@ import dps.servletcontroller.Param;
 import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.entities.Campaign;
+import dps.simplemailing.entities.Series;
+import dps.simplemailing.front.forms.CheckBox;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
 import java.io.IOException;
@@ -28,8 +29,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author ferenci84
  */
 @Stateless
-@Path("/campaigns(.*)")
-public class ManageCampaigns extends AdminControllerBase {
+@Path("/series(.*)")
+public class ManageSeries extends AdminControllerBase {
 
     @Inject Crud crud;
     @Inject ControllerCrud controllerCrud;
@@ -38,12 +39,12 @@ public class ManageCampaigns extends AdminControllerBase {
     @Override
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {
-        requestBean.setTitle("S-Mailing - Campaigns");
-        requestBean.setRoot(request.getContextPath()+request.getServletPath()+"/campaigns/"); 
+        requestBean.setTitle("S-Mailing - Series");
+        requestBean.setRoot(request.getContextPath()+request.getServletPath()+"/series/"); 
         requestBean.setTemplate("/WEB-INF/templates/template.jsp");
-        requestBean.setViewRoot("/WEB-INF/campaigns");
-        requestBean.setEntityClass(Campaign.class);
-        requestBean.setEntityName("Campaign");
+        requestBean.setViewRoot("/WEB-INF/series");
+        requestBean.setEntityClass(Series.class);
+        requestBean.setEntityName("Series");
 
         super.filter(request, response, controller, method, args);
 
@@ -84,7 +85,7 @@ public class ManageCampaigns extends AdminControllerBase {
     {
         String result = controllerCrud.edit(request, id);
         if (request.getMethod().equals("GET") && requestBean.getEntityObject() != null) {
-            request.setAttribute("form", getForm((Campaign)requestBean.getEntityObject(),requestBean.getRoot()+"edit/"+id,"Modify"));
+            request.setAttribute("form", getForm((Series)requestBean.getEntityObject(),requestBean.getRoot()+"edit/"+id,"Modify"));
         }
         return result;
     }
@@ -95,12 +96,13 @@ public class ManageCampaigns extends AdminControllerBase {
         return controllerCrud.delete(request, id);
     }
     
-    Form getForm(Campaign campaign, String action, String submitLabel)
+    Form getForm(Series series, String action, String submitLabel)
     {
-        if (campaign == null) campaign = new Campaign();
+        if (series == null) series = new Series();
         Form form = new Form(action);
-        form.addInput(new Input("Name","name",campaign.getName()));
-        form.addInput(new Input("Long Name","longName",campaign.getLongName()));
+        form.addInput(new Input("Name","name",series.getName()));
+        form.addInput(new Input("Display Name","displayName",series.getDisplayName()));
+        form.addInput(new CheckBox("Update Subscribe Time","updateSubscribeTime",series.getUpdateSubscribeTime()));
         form.setSubmitLabel(submitLabel);
         return form;        
     }

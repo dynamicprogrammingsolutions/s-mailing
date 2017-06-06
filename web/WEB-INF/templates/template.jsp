@@ -26,6 +26,8 @@
             <ul>
                 <li class="" ><a href="${contextPath}/admin/"> Index </a></li>
                 <li class="" ><a href="${contextPath}/admin/mails">Mails</a></li>
+                <li class="" ><a href="${contextPath}/admin/campaigns">Campaigns</a></li>
+                <li class="" ><a href="${contextPath}/admin/series">Series</a></li>
             </ul>
         </div>
     </div>

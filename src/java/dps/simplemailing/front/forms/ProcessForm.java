@@ -54,6 +54,10 @@ public class ProcessForm {
         if (type.equals(String.class)) return value;
         if (type.equals(Integer.class)) return Integer.parseInt(value);
         if (type.equals(Long.class)) return Long.parseLong(value);
+        if (type.equals(Boolean.class)) {
+            if (value.equals("on")) return true;
+            return Boolean.parseBoolean(value);
+        }
         return null;
     }
 }
