@@ -24,6 +24,7 @@ public class SessionBean implements Serializable {
     
     private List<String> errors = new LinkedList<String>();
     private List<String> messages = new LinkedList<String>();
+    private Integer resultsPerPage = 10;
 
     public List<String> getErrors() {
         List<String> errors = new LinkedList<String>();
@@ -46,5 +47,14 @@ public class SessionBean implements Serializable {
     public void addMessage(String message) {
         this.messages.add(message);
     }    
+
+   public Integer getResultsPerPage() {
+        return resultsPerPage;
+    }
+
+    public void setResultsPerPage(Integer resultsPerPage) {
+        this.resultsPerPage = resultsPerPage;
+    }
     
+     
 }

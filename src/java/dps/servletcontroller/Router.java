@@ -203,6 +203,7 @@ public class Router {
     
     Object convertParam(Parameter parameter, String value)
     {
+        if (value == null) return null;
         Class<?> type = parameter.getType();
         if (type.equals(String.class)) return value;
         if (type.equals(Integer.class)) return Integer.parseInt(value);
