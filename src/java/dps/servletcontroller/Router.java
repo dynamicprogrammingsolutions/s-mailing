@@ -48,25 +48,30 @@ public class Router<T extends ControllerBase> {
         Matcher controllerMatches = checkPath(path,pathAnnotation);
         if (controllerMatches == null) return false;
         
+        int pathGroup = pathAnnotation.pathGroup();
         String nextPath;
-        /*if (controllerMatches.groupCount() == 2 && !hasNamedGroup(controllerMatches.pattern().pattern())) {
-            nextPath = controllerMatches.group(1);
-        } else {
-            nextPath = path;
-        }*/
-        nextPath = controllerMatches.group(1);
-        //System.out.println("match found nextPath: "+nextPath);
+        nextPath = controllerMatches.group(pathGroup);
 
         Method[] methods = contollerClass.getMethods();
+        
+        Method filterMethod = null;
+        
+        for (Method method: methods) {
+            if (method.isAnnotationPresent(Filter.class)) {
+                filterMethod = method;
+                break;
+            }
+        }
+        
         for (Method method: methods) {
             if (method.isAnnotationPresent(Path.class)) {
-                if (processAction(controller, method, nextPath, controllerMatches, request, response)) return true;
+                if (processAction(controller, method, filterMethod, nextPath, controllerMatches, request, response)) return true;
             }
         }
         return false;
     }
     
-    public Boolean processAction(ControllerBase controller, Method method, String path, Matcher controllerMatches, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public Boolean processAction(ControllerBase controller, Method method, Method filterMethod, String path, Matcher controllerMatches, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         Path pathAnnotation = method.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
@@ -74,31 +79,20 @@ public class Router<T extends ControllerBase> {
         Matcher actionMatches = checkPath(path,pathAnnotation);
         if (actionMatches == null) return false;
         
-        String nextPath;
-        /*if (controllerMatches.groupCount() == 2 && !hasNamedGroup(controllerMatches.pattern().pattern())) {
-            nextPath = controllerMatches.group(1);
-        } else {
-            nextPath = path;
-        }*/
-        nextPath = controllerMatches.group(1);
-
-        Parameter[] parameters = method.getParameters();
-        Object[] args = new Object[parameters.length];
-        for (int i = 0; i != parameters.length; i++) {
-            Parameter parameter = parameters[i];
-            if (parameter.getParameterizedType().equals(HttpServletRequest.class)) {
-                //System.out.println("adding request");
-                args[i] = request;
-            } else if (parameter.getParameterizedType().equals(HttpServletResponse.class)) {
-                //System.out.println("adding response");
-                args[i] = response;
-            } else if (parameter.getParameterizedType().equals(String.class) && parameter.getName().equals("path")) {
-                //System.out.println("adding path");
-                args[i] = nextPath;
-            }
+        Object[] args = resolveParameters(method, actionMatches, controllerMatches, request, response);
+        
+        Object[] filterArgs = null;
+        
+        if (filterMethod != null) {
+            filterArgs = resolveFilterParameters(filterMethod, actionMatches, controllerMatches, request, response, method, args);
         }
+        
         try {
-            method.invoke(controller,args);
+            if (filterMethod != null) {
+                filterMethod.invoke(controller, filterArgs);
+            } else {
+                method.invoke(controller,args);
+            }
             return true;
         } catch (IllegalAccessException ex) {
             System.out.println("IllegalAccessException");
@@ -112,6 +106,78 @@ public class Router<T extends ControllerBase> {
         }
         
         return false;
+    }
+    
+    Object[] resolveParameters(Method method, Matcher actionMatches, Matcher controllerMatches, HttpServletRequest request, HttpServletResponse response)
+    {
+        Parameter[] parameters = method.getParameters();
+        Object[] args = new Object[parameters.length];
+        for (int i = 0; i != parameters.length; i++) {
+            Parameter parameter = parameters[i];
+            if (parameter.getParameterizedType().equals(HttpServletRequest.class)) {
+                args[i] = request;
+            } else if (parameter.getParameterizedType().equals(HttpServletResponse.class)) {
+                args[i] = response;
+            } else if (parameter.isAnnotationPresent(Param.class)) {
+                Param paramAnnotation = parameter.getAnnotation(Param.class);
+                String paramName = paramAnnotation.value();
+                int group = paramAnnotation.group();
+                if (!paramName.isEmpty()) {
+                    args[i] = actionMatches.group(paramName);
+                } else {
+                    args[i] = actionMatches.group(group);
+                }
+            } else if (parameter.isAnnotationPresent(ControllerParam.class)) {
+                ControllerParam paramAnnotation = parameter.getAnnotation(ControllerParam.class);
+                String paramName = paramAnnotation.value();
+                int group = paramAnnotation.group();
+                if (!paramName.isEmpty()) {
+                    args[i] = controllerMatches.group(paramName);
+                } else {
+                    args[i] = controllerMatches.group(group);
+                }
+            }
+        }
+        return args;
+    }
+    
+    Object[] resolveFilterParameters(Method method, Matcher actionMatches, Matcher controllerMatches,
+            HttpServletRequest request, HttpServletResponse response,
+            Method dispatchMethod, Object[] dispatchArgs)
+    {
+        Parameter[] parameters = method.getParameters();
+        Object[] args = new Object[parameters.length];
+        for (int i = 0; i != parameters.length; i++) {
+            Parameter parameter = parameters[i];
+            if (parameter.getParameterizedType().equals(HttpServletRequest.class)) {
+                args[i] = request;
+            } else if (parameter.getParameterizedType().equals(HttpServletResponse.class)) {
+                args[i] = response;
+            } else if (parameter.getParameterizedType().equals(Object[].class)) {
+                args[i] = dispatchArgs;
+            } else if (parameter.getParameterizedType().equals(Method.class)) {
+                args[i] = dispatchMethod;
+            } else if (parameter.isAnnotationPresent(Param.class)) {
+                Param paramAnnotation = parameter.getAnnotation(Param.class);
+                String paramName = paramAnnotation.value();
+                int group = paramAnnotation.group();
+                if (!paramName.isEmpty()) {
+                    args[i] = actionMatches.group(paramName);
+                } else {
+                    args[i] = actionMatches.group(group);
+                }
+            } else if (parameter.isAnnotationPresent(ControllerParam.class)) {
+                ControllerParam paramAnnotation = parameter.getAnnotation(ControllerParam.class);
+                String paramName = paramAnnotation.value();
+                int group = paramAnnotation.group();
+                if (!paramName.isEmpty()) {
+                    args[i] = controllerMatches.group(paramName);
+                } else {
+                    args[i] = controllerMatches.group(group);
+                }
+            }
+        }
+        return args;
     }
     
     Matcher checkPath(String path, Path pathAnnotation)

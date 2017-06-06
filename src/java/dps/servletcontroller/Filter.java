@@ -12,9 +12,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD,ElementType.TYPE})
-public @interface Path {
+@Target({ElementType.METHOD})
+public @interface Filter {
     String value() default "";
-    int pathGroup() default 1;
 }
 

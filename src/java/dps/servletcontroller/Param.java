@@ -12,9 +12,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD,ElementType.TYPE})
-public @interface Path {
+@Target({ElementType.PARAMETER})
+public @interface Param {
     String value() default "";
-    int pathGroup() default 1;
+    int group() default 0;
 }
 
