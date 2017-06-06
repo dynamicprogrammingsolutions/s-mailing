@@ -28,13 +28,23 @@ import javax.servlet.http.HttpServletResponse;
  * @param <T>
  */
 @Stateless
-public class Router<T extends ControllerBase> {
+public class Router {
     @Inject Instance<ControllerBase> controllers;
 
     public Boolean process(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         for(ControllerBase controller: controllers) {
             if (processController(controller,path,request,response)) return true;
+        }
+        return false;
+    }
+    
+    public Boolean process(Class<? extends ControllerBase> controllerClass, String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        for(ControllerBase controller: controllers) {
+            if (controllerClass.isInstance(controller)) {
+                if (processController(controller,path,request,response)) return true;
+            }
         }
         return false;
     }

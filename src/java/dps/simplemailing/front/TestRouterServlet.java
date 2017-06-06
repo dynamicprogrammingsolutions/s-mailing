@@ -8,8 +8,11 @@ package dps.simplemailing.front;
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Router;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/api/*"})
+@WebServlet(name = "TestRouter", urlPatterns = {"/testrouter/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
-public class APIServlet extends HttpServlet {
+public class TestRouterServlet extends HttpServlet {
 
     @Inject Router router;
     
@@ -39,8 +42,10 @@ public class APIServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        System.out.println("test router");
+        
         String pathInfo = request.getPathInfo();
-        router.process(APIController.class, pathInfo, request, response);
+        router.process(TestRouter.class, pathInfo, request, response);
 
     }
 

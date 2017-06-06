@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 )*/
 public class AdminServlet extends HttpServlet {
 
-    @Inject Router<AdminController> router;
+    @Inject Router router;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,7 +43,10 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String pathInfo = request.getPathInfo();
-        router.process(pathInfo, request, response);
+        if (router.process(AdminController.class, pathInfo, request, response)) return;
+        if (router.process(ManageMails.class, pathInfo, request, response)) return;
+        
+        response.sendError(404);
 
     }
 
