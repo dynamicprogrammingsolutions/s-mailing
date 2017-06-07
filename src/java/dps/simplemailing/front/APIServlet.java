@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/api/*"})
+@WebServlet(name = "APIServlet", urlPatterns = {"/api/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
@@ -38,6 +38,8 @@ public class APIServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("hit api");
         
         String pathInfo = request.getPathInfo();
         router.process(APIController.class, pathInfo, request, response);

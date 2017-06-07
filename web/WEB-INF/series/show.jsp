@@ -25,3 +25,22 @@
     
 </div>
     
+<h3>Items:</h3>
+
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Mail Id</th>
+    <th>Mail Name</th>
+    <th>Send Delay</th>
+  </thead>
+<c:forEach items="${item.seriesItems}" var="item">
+    <tr>
+        <td>${item.id}</td>
+        <td>${item.mail.id}</td>
+        <td>${item.mail.name}</td>
+        <td>${item.sendDelay}</td>
+    </tr>
+</c:forEach>
+</table>
+    

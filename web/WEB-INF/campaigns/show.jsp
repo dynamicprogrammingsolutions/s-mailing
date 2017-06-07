@@ -25,3 +25,16 @@
     
 </div>
     
+<h3>Mails:</h3>
+
+<table>
+<c:forEach items="${item.mails}" var="item">
+    <tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.subject}</td>
+        <td><a href="${contextPath}/admin/mails/show/${item.id}">show</a></td>
+    </tr>
+</c:forEach>
+</table>
+    

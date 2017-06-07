@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/admin/*"})
+@WebServlet(name = "AdminServlet", urlPatterns = {"/admin/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
@@ -41,6 +41,8 @@ public class AdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("hit admin");
         
         String pathInfo = request.getPathInfo();
         if (router.process(AdminController.class, pathInfo, request, response)) return;

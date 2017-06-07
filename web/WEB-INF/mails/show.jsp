@@ -45,6 +45,8 @@
     <tr>
         <td>${item.id}</td>
         <td>${item.name}</td>
+        <td>${item.longName}</td>
+        <td><a href="${contextPath}/admin/campaigns/show/${item.id}">show</a></td>
     </tr>
 </c:forEach>
 </table>

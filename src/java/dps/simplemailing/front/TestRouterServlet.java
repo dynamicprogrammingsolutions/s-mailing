@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "TestRouter", urlPatterns = {"/testrouter/*"})
+@WebServlet(name = "TestRouterServlet", urlPatterns = {"/testrouter/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
