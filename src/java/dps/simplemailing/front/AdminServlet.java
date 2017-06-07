@@ -22,13 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "FrontServlet", urlPatterns = {"/admin/*"})
+@WebServlet(name = "AdminServlet", urlPatterns = {"/admin/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
 public class AdminServlet extends HttpServlet {
 
-    @Inject Router<AdminController> router;
+    @Inject Router router;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,8 +42,15 @@ public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        System.out.println("hit admin");
+        
         String pathInfo = request.getPathInfo();
-        router.process(pathInfo, request, response);
+        if (router.process(AdminController.class, pathInfo, request, response)) return;
+        if (router.process(ManageMails.class, pathInfo, request, response)) return;
+        if (router.process(ManageCampaigns.class, pathInfo, request, response)) return;
+        if (router.process(ManageSeries.class, pathInfo, request, response)) return;
+        
+        response.sendError(404);
 
     }
 

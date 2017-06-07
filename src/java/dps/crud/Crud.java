@@ -9,6 +9,8 @@ import dps.simplemailing.back.*;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -38,6 +40,21 @@ public abstract class Crud {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
+    }
+    
+    public List<?> getPaginated(Class<?> entityClass, int firstResult, int resultsPerPage) {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        Root root = cq.from(entityClass);
+        cq.select(root);
+        return getEntityManager().createQuery(cq).setFirstResult(firstResult).setMaxResults(resultsPerPage).getResultList();
+    }
+    
+    public Long getCount(Class<?> entityClass) {
+        CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
+        javax.persistence.criteria.CriteriaQuery<Long> cq = criteriaBuilder.createQuery(Long.class);
+        Root root = cq.from(entityClass);
+        cq.select(criteriaBuilder.count(root));
+        return getEntityManager().createQuery(cq).getSingleResult();
     }
     
 }
