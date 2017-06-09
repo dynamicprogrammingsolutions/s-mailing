@@ -42,8 +42,6 @@ public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        System.out.println("hit admin");
-        
         String pathInfo = request.getPathInfo();
         if (router.process(AdminController.class, pathInfo, request, response)) return;
         if (router.process(ManageMails.class, pathInfo, request, response)) return;

@@ -113,7 +113,7 @@ public class ManageMails extends AdminControllerBase {
             try {
             
                 int delay = Integer.parseInt(request.getParameter("delay"));
-                Boolean real = request.getParameter("real").equals("on");
+                Boolean real = (request.getParameter("real") != null && request.getParameter("real").equals("on"));
                 
                 if (real) {
                     System.out.println("sending real mails");
