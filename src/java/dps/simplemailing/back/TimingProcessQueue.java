@@ -8,6 +8,8 @@ package dps.simplemailing.back;
 import java.util.Date;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 /**
@@ -15,6 +17,7 @@ import javax.inject.Inject;
  * @author ferenci84
  */
 @Stateless
+@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class TimingProcessQueue {
 
     @Inject MailQueue mailQueue;
