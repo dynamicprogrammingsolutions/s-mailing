@@ -5,6 +5,7 @@
  */
 package dps.simplemailing.back;
 
+import com.sun.corba.se.spi.GIOP.CancelRequestHeaderHolder;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
@@ -25,6 +26,7 @@ public class MailQueue {
     @Inject MailSending mailSending;
     @Inject MailGenerator generatedMails;
     @Inject MailQueueStatus queueStatus;
+    @Inject MailQueue mailQueue;
     
     @Inject Crud crud;
     
@@ -49,6 +51,7 @@ public class MailQueue {
     }
     
     @Asynchronous
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void processQueue()
     {
         if (queueStatus.getStarted()) {
@@ -61,9 +64,9 @@ public class MailQueue {
             
             if (queueToSend.size() != 0) {
                 System.out.println("Queue to send: "+queueToSend.size());
-                generateMails(queueToSend);
-                sendMails(queueToSend);
-                cleanupQueue();
+                mailQueue.generateMails(queueToSend);
+                mailQueue.sendMails(queueToSend);
+                mailQueue.cleanupQueue();
             }
             
         } finally {
@@ -71,6 +74,7 @@ public class MailQueue {
         }
     }
     
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void generateMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
@@ -80,43 +84,50 @@ public class MailQueue {
         }
     }
     
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void sendMails(List<QueuedMail> queueToSend)
     {
-        
         for (QueuedMail queuedMail: queueToSend) {
-            
-            System.out.println("Checking "+queuedMail);
-            
-            Boolean unsubscribed = false;
-            Set<Campaign> campaigns = queuedMail.getMail().getCampaigns();
-            for (Campaign campaign: campaigns) {
-                if (campaign.getUnsubscribedUsers().contains(queuedMail.getUser())) {
-                    unsubscribed = true;
+            mailQueue.sendMail(queuedMail);
+        }
+    }
+    
+    public void sendMail(QueuedMail queuedMail)
+    {
+        System.out.println("Checking "+queuedMail);
+        
+        queuedMail = crud.getEntityManager().merge(queuedMail);
+        Mail mail = queuedMail.getMail();
+        
+        Boolean unsubscribed = false;
+        Set<Campaign> campaigns = mail.getCampaigns();
+        for (Campaign campaign: campaigns) {
+            if (campaign.getUnsubscribedUsers().contains(queuedMail.getUser())) {
+                unsubscribed = true;
+            }
+        }
+
+        if (!unsubscribed) {
+            GeneratedMail generatedMail = queuedMail.getGeneratedMail();
+            if (generatedMail != null) {
+                System.out.println("sending "+generatedMail);
+                if (mailSending.sendMail(generatedMail)) {
+                    queuedMail.setStatus(QueuedMail.Status.sent);
+                    crud.edit(queuedMail);
+                    queueStatus.setSent(queueStatus.getSent()+1);
+                } else {
+                    queuedMail.setStatus(QueuedMail.Status.fail);
+                    crud.edit(queuedMail);
+                    queueStatus.setFailed(queueStatus.getFailed()+1);
                 }
             }
-            
-            if (!unsubscribed) {
-                GeneratedMail generatedMail = queuedMail.getGeneratedMail();
-                if (generatedMail != null) {
-                    System.out.println("sending "+generatedMail);
-                    if (mailSending.sendMail(generatedMail)) {
-                        queuedMail.setStatus(QueuedMail.Status.sent);
-                        crud.edit(queuedMail);
-                        queueStatus.setSent(queueStatus.getSent()+1);
-                    } else {
-                        queuedMail.setStatus(QueuedMail.Status.fail);
-                        crud.edit(queuedMail);
-                        queueStatus.setFailed(queueStatus.getFailed()+1);
-                    }
-                }
-            } else {
+        } else {
 
-                queuedMail.setStatus(QueuedMail.Status.fail);
-                crud.edit(queuedMail);
-                queueStatus.setFailed(queueStatus.getFailed()+1);
+            queuedMail.setStatus(QueuedMail.Status.fail);
+            crud.edit(queuedMail);
+            queueStatus.setFailed(queueStatus.getFailed()+1);
 
-                System.out.println("User unsubscribed from campaign");
-            }
+            System.out.println("User unsubscribed from campaign");
         }
     }
     

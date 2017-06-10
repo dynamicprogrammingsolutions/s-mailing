@@ -6,6 +6,7 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,7 +41,7 @@ public class QueuedMail implements Serializable {
     @JoinColumn(name="user_id",nullable=false)
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="generated_mail_id")
     private GeneratedMail generatedMail;
     

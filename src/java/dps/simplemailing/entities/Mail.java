@@ -8,6 +8,7 @@ package dps.simplemailing.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class Mail implements Serializable {
     @Column(name="fromEmail")
     private String from;
     
-    @ManyToMany(mappedBy = "mails")
+    @ManyToMany(mappedBy = "mails",cascade = CascadeType.MERGE)
     private Set<Campaign> campaigns;
     
     @Lob

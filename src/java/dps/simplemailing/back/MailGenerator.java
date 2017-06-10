@@ -37,7 +37,7 @@ public class MailGenerator {
         body_text = processPlaceholders(queuedMail.getUser(), body_text);
         
         generatedMail.setBody(body_text);
-        crud.create(generatedMail);
+        //crud.create(generatedMail);
         
         queuedMail.setGeneratedMail(generatedMail);
         crud.edit(queuedMail);
