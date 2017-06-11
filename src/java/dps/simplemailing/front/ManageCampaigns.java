@@ -17,7 +17,7 @@ import dps.simplemailing.front.forms.Input;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path("/campaigns(.*)")
 public class ManageCampaigns extends AdminControllerBase {
 

@@ -5,14 +5,10 @@
  */
 package dps.simplemailing.front;
 
-import dps.servletcontroller.Controller;
 import dps.servletcontroller.Router;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +39,7 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String pathInfo = request.getPathInfo();
-        if (router.process(AdminController.class, pathInfo, request, response)) return;
+        if (router.process(TestAdminController.class, pathInfo, request, response)) return;
         if (router.process(ManageMails.class, pathInfo, request, response)) return;
         if (router.process(ManageCampaigns.class, pathInfo, request, response)) return;
         if (router.process(ManageSeries.class, pathInfo, request, response)) return;

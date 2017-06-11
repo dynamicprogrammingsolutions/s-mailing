@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class ControllerCrud {
 
     @Inject Crud crud;

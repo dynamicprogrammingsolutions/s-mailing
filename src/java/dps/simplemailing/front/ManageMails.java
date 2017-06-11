@@ -21,7 +21,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path("/mails(.*)")
 public class ManageMails extends AdminControllerBase {
 
@@ -101,6 +103,7 @@ public class ManageMails extends AdminControllerBase {
     }
     
     @Path("/schedule")
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public String scheduleMail(HttpServletRequest request, @RequestParam("id") Long id)
     {
         Mail mail = (Mail)crud.find(id,Mail.class);

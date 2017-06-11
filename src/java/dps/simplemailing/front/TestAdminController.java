@@ -35,7 +35,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -45,9 +47,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path("/(.*)")
-public class AdminController extends AdminControllerBase {
+public class TestAdminController extends AdminControllerBase {
     
     @Inject Users userManager;
     @Inject Mails mailManager;
@@ -201,13 +203,14 @@ public class AdminController extends AdminControllerBase {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TestAdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
     }
     
     @Path("generateMail")
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void generateMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         response.setContentType("text/plain");
@@ -255,7 +258,7 @@ public class AdminController extends AdminControllerBase {
             writer.println("scheduled");
 
         } catch (ParseException|NumberFormatException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestAdminController.class.getName()).log(Level.SEVERE, null, ex);
             writer.println("parse failed");
         }
         
