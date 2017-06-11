@@ -1,44 +1,76 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class='ym-form'>
-   
-    <form action="${root}schedule" method="post">
-    
-    <div class="ym-fbox">
-        
-        <table>
-            <tr><td>Id</td><td>${item.id}</td></tr>
-            <tr><td>Name</td><td>${item.name}</td></tr>
-            <tr><td>Subject</td><td>${item.subject}</td></tr>
-            <tr><td>From</td><td>${item.from}</td></tr>
-        </table>
+<div class="col-md-6">
+    <div class="card">
 
-    </div>
+        <div class="card-block">
 
-    <div class="ym-fbox">
-        <label>Body Text</label>
-        <textarea rows="20" readonly >${item.body_text}</textarea>
-    </div>
+            <h3 class="panel-title">Mail Id ${item.id}</h3>
 
-    <div class="ym-fbox">
-        <label>Send Time</label>
-        <input type="time" name="send_time" value="" />
-    </div>
-    
-    <div class="ym-fbox">
-        <label>Delay</label>
-        <input type="text" name="delay" value="1000" />
-    </div>
+            <div class="row form-group">
+                <div class="col-md-3">Id</div>
+                <div class="col-md-9">${item.id}</div>
+            </div>            
 
-    <div class="ym-fbox-check">
-        <input type="checkbox" name="real" />
-        <label>Real</label>
-    </div>
+            <div class="row form-group">
+                <div class="col-md-3">Name</div>
+                <div class="col-md-9">${item.name}</div>
+            </div>            
 
-    <div class="ym-fbox">
-    <button class="ym-button ym-warning" type="submit" name="id" value="${item.id}">Schedule</button>
-    </div>
+            <div class="row form-group">
+                <div class="col-md-3">Subject</div>
+                <div class="col-md-9">${item.subject}</div>
+            </div>            
 
-    </form>
-    
+            <div class="row form-group">
+                <div class="col-md-3">From Email</div>
+                <div class="col-md-9">${item.from}</div>
+            </div>            
+
+            <div class="row form-group">
+                <div class="col-md-3">Body Text</div>
+                <div class="col-md-9"><textarea class="form-control" rows="10" readonly >${item.body_text}</textarea></div>
+            </div>       
+
+
+        </div>
+    </div>
 </div>
+
+<div class="col-md-6">
+    <div class="card">
+
+        <div class="card-block">
+
+            <h3 class="panel-title">Schedule Mail</h3>
+
+            <form action="${root}schedule" method="post">
+
+                <div class="form-group">
+                    <label>Send Time</label>
+                    <input class="form-control" type="time" name="send_time" value="" />
+                </div>
+
+                <div class="form-group">
+                    <label>Delay</label>
+                    <input class="form-control" type="text" name="delay" value="1000" />
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="real" >
+                        Real
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-default" type="submit" name="id" value="${item.id}">Schedule</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

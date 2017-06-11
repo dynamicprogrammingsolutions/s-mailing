@@ -3,82 +3,124 @@
 
 <head>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <script src="scripts/jquery-3.1.1.min.js"></script>
-    <meta charset="utf-8"/>
-    <title>${title}</title>
-    <!-- Mobile viewport optimisation -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css"/>
-    <!--[if lte IE 7]>
-    <link href="{{ URL::to('yaml/core/iehacks.css') }}" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <!--[if lt IE 9]>
-    <script src="{{ URL::to('lib/html5shiv/html5shiv.js') }}"></script>
-    <![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>${title}</title>
+
+    <!-- Icons -->
+    <link href="${contextPath}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${contextPath}/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Premium Icons -->
+    <link href="${contextPath}/css/glyphicons.css" rel="stylesheet">
+    <link href="${contextPath}/css/glyphicons-filetypes.css" rel="stylesheet">
+    <link href="${contextPath}/css/glyphicons-social.css" rel="stylesheet">
+
+    <!-- Main styles for this application -->
+    <link href="${contextPath}/css/style.css" rel="stylesheet">
+
+    
+    <!-- Bootstrap and necessary plugins -->
+    <script src="${contextPath}/js/libs/jquery.min.js"></script>
+    <script src="${contextPath}/js/libs/tether.min.js"></script>
+    <script src="${contextPath}/js/libs/bootstrap.min.js"></script>
+    <script src="${contextPath}/js/libs/pace.min.js"></script>
+
+    <!-- GenesisUI main scripts -->
+
+    <script src="${contextPath}/js/app.js"></script>
+
+    <!-- Plugins and scripts required by this views -->
+    <script src="${contextPath}/js/libs/toastr.min.js"></script>
+    <script src="${contextPath}/js/libs/gauge.min.js"></script>
+    <script src="${contextPath}/js/libs/moment.min.js"></script>
+    <script src="${contextPath}/js/libs/daterangepicker.js"></script>
+
+    <!-- Custom scripts required by this view -->
+    <script src="${contextPath}/js/views/main.js"></script>
+
 </head>
 
-<body>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <header class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">?</button>
+        <a class="navbar-brand" href="#"></a>
+        <ul class="nav navbar-nav hidden-md-down">
+            <li class="nav-item">
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#">?</a>
+            </li>
 
-<nav id="nav">
-    <div class="ym-wrapper">
-        <div class="ym-hlist">
-            <ul>
-                <li class="" ><a href="${contextPath}/admin/"> Index </a></li>
-                <li class="" ><a href="${contextPath}/admin/mails">Mails</a></li>
-                <li class="" ><a href="${contextPath}/admin/campaigns">Campaigns</a></li>
-                <li class="" ><a href="${contextPath}/admin/series">Series</a></li>
-            </ul>
+        </ul>
+    </header>
+
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <form>
+                    <div class="form-group p-h mb-0">
+                        <input type="text" class="form-control" aria-describedby="search" placeholder="Search...">
+                    </div>
+                </form>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+                    </li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/"> Index </a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/mails">Mails</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/campaigns">Campaigns</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/series">Series</a></li>
+
+                </ul>
+            </nav>
         </div>
-    </div>
-</nav>
 
-<main>
+        <!-- Main content -->
+        <main class="main">
+            <div class="container-fluid pt-2">
 
-    <div class="ym-wrapper">
-        <div class="ym-wbox">
+                <c:if test="${not empty errors}" >
+                    <div class="box error">
 
-            <c:if test="${not empty errors}" >
-                <div class="box error">
+                        <c:forEach items="${errors}" var="error">
+                            <p>
+                                <c:out value="${error}" />
+                            </p>
+                        </c:forEach>
 
-                    <c:forEach items="${errors}" var="error">
-                        <p>
-                            <c:out value="${error}" />
-                        </p>
-                    </c:forEach>
-                    
-                </div>
-            </c:if>
+                    </div>
+                </c:if>
 
-            <c:if test="${not empty messages}" >
-                <div class="box success">
+                <c:if test="${not empty messages}" >
+                    <div class="box success">
 
-                    <c:forEach items="${messages}" var="message">
-                        <p>
-                            <c:out value="${message}" />
-                        </p>
-                    </c:forEach>
-                    
-                </div>
-            </c:if>
-            
-            <article class="content">
+                        <c:forEach items="${messages}" var="message">
+                            <p>
+                                <c:out value="${message}" />
+                            </p>
+                        </c:forEach>
+
+                    </div>
+                </c:if>
+                
                <jsp:include page="${contents}" />
-            </article>
-            
-               <p>${contents}</p>
-            
-        </div>
-    </div>
-</main>
-<footer>
-    <div class="ym-wrapper">
-        <div class="ym-wbox">
-            <p>Dynamic Programming Solutions Corp 2015</p>
-        </div>
-    </div>
-</footer>
 
+            </div>
+            <!-- /.conainer-fluid -->
+        </main>
+
+    </div>
+
+    <footer class="app-footer">
+        © Dynamic Programming Solutions Corp 2015
+    </footer>
 
 </body>
+
 </html>
