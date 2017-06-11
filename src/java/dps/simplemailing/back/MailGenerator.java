@@ -15,6 +15,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -26,6 +27,7 @@ public class MailGenerator {
     @Inject Crud crud;    
     @Inject Users users;
     
+    @Transactional(Transactional.TxType.REQUIRED)
     public GeneratedMail generateMail(QueuedMail queuedMail)
     {
         GeneratedMail generatedMail = new GeneratedMail();
@@ -47,7 +49,7 @@ public class MailGenerator {
                 
     }
     
-    public String processPlaceholders(User user, String text)
+    private String processPlaceholders(User user, String text)
     {
         Map<String,String> placeholders = users.getPlaceholders(user);
         for (Map.Entry<String, String> entry : placeholders.entrySet()) {

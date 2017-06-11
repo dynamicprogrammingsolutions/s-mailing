@@ -27,6 +27,7 @@ public class MailSeries {
 
     @Inject Crud crud;
     @Inject MailQueue mailQueue;
+    @Inject MailSeries mailSeries;
     
     public Series getByName(String name)
     {
@@ -48,13 +49,14 @@ public class MailSeries {
         
     }
     
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processAllSeries()
     {
         Query query = crud.getEntityManager().createQuery("SELECT u FROM Series u");
         List<Series> allSeries = query.getResultList();
         if (allSeries.isEmpty()) return;
         for (Series series: allSeries) {
-            processSeries(series);
+            mailSeries.processSeries(series);
         }
     }
     
@@ -71,6 +73,7 @@ public class MailSeries {
         cal.add(Calendar.MINUTE, -30240);
         Date processAfter = cal.getTime();
 
+        series = crud.getEntityManager().merge(series);
 
         for(SeriesSubscription subscription: series.getSeriesSubscriptions()) {
             if (subscription.getUser().getStatus() != User.Status.subscribed) continue;
