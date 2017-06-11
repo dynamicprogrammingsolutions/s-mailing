@@ -1,5 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<h3>New Campaign</h3>
+<div class="col-md-6">
+    <div class="card">
 
-<jsp:include page="/WEB-INF/templates/form.jsp" />
+        <div class="card-block">
+
+            <h3 class="panel-title">New Campaign</h3>
+
+            <jsp:include page="/WEB-INF/templates/form.jsp" />
+
+        </div>
+
+    </div>
+</div>
