@@ -10,5 +10,5 @@ package dps.servletcontroller;
  * @author ferenci84
  */
 public abstract class ControllerBase {
-    public Class<?> getOriginalClass() { return this.getClass(); }
+
 }

@@ -13,16 +13,16 @@ import dps.simplemailing.entities.User;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Asynchronous;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class MailSeries {
 
     @Inject Crud crud;
@@ -48,12 +48,6 @@ public class MailSeries {
         
     }
     
-    @Asynchronous
-    public void processAllSeriesAsync()
-    {
-        processAllSeries();
-    }
-
     public void processAllSeries()
     {
         Query query = crud.getEntityManager().createQuery("SELECT u FROM Series u");
@@ -64,6 +58,7 @@ public class MailSeries {
         }
     }
     
+    @Transactional(Transactional.TxType.REQUIRED)
     public void processSeries(Series series)
     {
         Calendar cal = Calendar.getInstance();

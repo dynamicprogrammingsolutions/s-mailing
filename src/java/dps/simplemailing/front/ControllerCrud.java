@@ -19,6 +19,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -54,6 +55,7 @@ public class ControllerCrud {
     
         if (id != null) {
             entity = crud.find(id,requestBean.getEntityClass());
+            requestBean.setEntityObject(entity);
             if (entity == null) {
                 sessionBean.addError("Couldn't find "+requestBean.getEntityName()+" with id "+id);
             }

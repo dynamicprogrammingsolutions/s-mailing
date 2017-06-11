@@ -17,6 +17,7 @@ import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
 
@@ -92,6 +93,7 @@ public class MailQueue {
         }
     }
     
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void sendMail(QueuedMail queuedMail)
     {
         System.out.println("Checking "+queuedMail);

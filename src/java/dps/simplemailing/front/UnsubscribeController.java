@@ -16,6 +16,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -29,6 +30,7 @@ public class UnsubscribeController {
     
     @Inject Crud crud;
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");

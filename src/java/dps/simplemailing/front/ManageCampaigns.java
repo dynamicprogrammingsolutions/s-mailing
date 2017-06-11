@@ -22,6 +22,7 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -36,6 +37,7 @@ public class ManageCampaigns extends AdminControllerBase {
 
     @Filter
     @Override
+    @Transactional(Transactional.TxType.REQUIRED)
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {
         requestBean.setTitle("S-Mailing - Campaigns");
@@ -66,7 +68,7 @@ public class ManageCampaigns extends AdminControllerBase {
     {
         String result = controllerCrud.newEntity(request, id);
         if (request.getMethod().equals("GET")) {
-            request.setAttribute("form", getForm(null,requestBean.getRoot()+"new","Create"));
+            request.setAttribute("form", getForm((Campaign)requestBean.getEntityObject(),requestBean.getRoot()+"new","Create"));
         }
         return result;
     }

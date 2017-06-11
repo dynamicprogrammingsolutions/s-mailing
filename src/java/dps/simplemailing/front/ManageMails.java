@@ -21,13 +21,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -43,8 +42,10 @@ public class ManageMails extends AdminControllerBase {
     
     @Filter
     @Override
+    @Transactional(Transactional.TxType.REQUIRED)
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {
+        
         requestBean.setTitle("S-Mailing - Mails");
         requestBean.setRoot(request.getContextPath()+request.getServletPath()+"/mails/"); 
         requestBean.setTemplate("/WEB-INF/templates/template.jsp");
@@ -73,7 +74,7 @@ public class ManageMails extends AdminControllerBase {
     {
         String result = controllerCrud.newEntity(request, id);
         if (request.getMethod().equals("GET")) {
-            request.setAttribute("form", getMailForm(new Mail(),requestBean.getRoot()+"new","Create"));
+            request.setAttribute("form", getMailForm((Mail)requestBean.getEntityObject(),requestBean.getRoot()+"new","Create"));
         }
         return result;
     }
@@ -103,7 +104,7 @@ public class ManageMails extends AdminControllerBase {
     }
     
     @Path("/schedule")
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @Transactional(Transactional.TxType.REQUIRED)
     public String scheduleMail(HttpServletRequest request, @RequestParam("id") Long id)
     {
         Mail mail = (Mail)crud.find(id,Mail.class);
@@ -146,6 +147,7 @@ public class ManageMails extends AdminControllerBase {
     
     Form getMailForm(Mail mail, String action, String submitLabel)
     {
+        if (mail == null) mail = new Mail();
         Form form = new Form(action);
         form.addInput(new Input("Name","name",mail.getName()));
         form.addInput(new Input("Subject","subject",mail.getSubject()));

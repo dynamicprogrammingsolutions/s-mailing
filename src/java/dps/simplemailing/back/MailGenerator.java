@@ -11,6 +11,7 @@ import dps.simplemailing.entities.User;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +20,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class MailGenerator {
     
     @Inject Crud crud;    

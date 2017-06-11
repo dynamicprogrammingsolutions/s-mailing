@@ -6,6 +6,7 @@
 package dps.simplemailing.back;
 
 import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author ferenci84
  */
-@Stateless
+@Dependent
 public class Crud extends dps.crud.Crud {
     
     @PersistenceContext(unitName = "SimpleMailingPU")
