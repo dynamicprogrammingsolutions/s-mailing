@@ -26,26 +26,8 @@
     <!-- Main styles for this application -->
     <link href="${contextPath}/css/style.css" rel="stylesheet">
 
-    
-    <!-- Bootstrap and necessary plugins -->
     <script src="${contextPath}/js/libs/jquery.min.js"></script>
-    <script src="${contextPath}/js/libs/tether.min.js"></script>
-    <script src="${contextPath}/js/libs/bootstrap.min.js"></script>
-    <script src="${contextPath}/js/libs/pace.min.js"></script>
-
-    <!-- GenesisUI main scripts -->
-
-    <script src="${contextPath}/js/app.js"></script>
-
-    <!-- Plugins and scripts required by this views -->
-    <script src="${contextPath}/js/libs/toastr.min.js"></script>
-    <script src="${contextPath}/js/libs/gauge.min.js"></script>
-    <script src="${contextPath}/js/libs/moment.min.js"></script>
-    <script src="${contextPath}/js/libs/daterangepicker.js"></script>
-
-    <!-- Custom scripts required by this view -->
-    <script src="${contextPath}/js/views/main.js"></script>
-
+    
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
@@ -86,27 +68,25 @@
             <div class="container-fluid pt-2">
 
                 <c:if test="${not empty errors}" >
-                    <div class="box error">
-
-                        <c:forEach items="${errors}" var="error">
-                            <p>
-                                <c:out value="${error}" />
-                            </p>
-                        </c:forEach>
-
-                    </div>
+                    <c:forEach items="${errors}" var="error">
+                        <div class="alert alert-error alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <c:out value="${error}" />
+                        </div>
+                    </c:forEach>
                 </c:if>
 
                 <c:if test="${not empty messages}" >
-                    <div class="box success">
-
-                        <c:forEach items="${messages}" var="message">
-                            <p>
-                                <c:out value="${message}" />
-                            </p>
-                        </c:forEach>
-
-                    </div>
+                    <c:forEach items="${messages}" var="message">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <c:out value="${message}" />
+                        </div>
+                    </c:forEach>
                 </c:if>
                 
                <jsp:include page="${contents}" />
@@ -120,6 +100,21 @@
     <footer class="app-footer">
         © Dynamic Programming Solutions Corp 2015
     </footer>
+               
+    <!-- Bootstrap and necessary plugins -->
+    <script src="${contextPath}/js/libs/tether.min.js"></script>
+    <script src="${contextPath}/js/libs/bootstrap.min.js"></script>
+    <script src="${contextPath}/js/libs/pace.min.js"></script>
+
+    <!-- GenesisUI main scripts -->
+
+    <script src="${contextPath}/js/app.js"></script>
+
+    <!-- Plugins and scripts required by this views -->
+    <script src="${contextPath}/js/libs/toastr.min.js"></script>
+    <script src="${contextPath}/js/libs/gauge.min.js"></script>
+    <script src="${contextPath}/js/libs/moment.min.js"></script>
+    <script src="${contextPath}/js/libs/daterangepicker.js"></script>
 
 </body>
 
