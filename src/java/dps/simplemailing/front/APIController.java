@@ -189,7 +189,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = users.getByEmail(email);
                 System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
-                if (user != null) {
+                if (user != null && user.getStatus() != User.Status.test) {
                     user.setStatus(User.Status.bounced);
                     crud.edit(user);
                 }
@@ -217,7 +217,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = users.getByEmail(email);
                 System.out.println("complained user: "+user.getId()+" "+user.getEmail());
-                if (user != null) {
+                if (user != null && user.getStatus() != User.Status.test) {
                     user.setStatus(User.Status.unsubscribed);
                     crud.edit(user);
                 }
