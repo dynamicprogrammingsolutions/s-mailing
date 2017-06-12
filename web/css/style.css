@@ -2928,10 +2928,12 @@ header.navbar {
     padding: 0.5rem 1rem;
     margin-right: 0;
     background-color: #1e8fc6;
-    background-image: url("../img/logo.png");
+    /*background-image: url("../img/logo.png");*/
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 90px auto; }
+    background-size: 90px auto; 
+    
+  }
   header.navbar .navbar-nav {
     flex-direction: row;
     align-items: center; }
@@ -2959,10 +2961,22 @@ header.navbar {
     min-width: 180px; }
 
 .navbar-brand {
-  color: #cccccc; }
+  color: #ffffff; }
   .navbar-brand:focus, .navbar-brand:hover {
-    color: #cccccc; }
+    color: #ffffff; }
 
+  .navbar-brand h1 {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+  }
+  
+  .navbar-brand span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  
 .navbar-nav .nav-link, .navbar-nav .navbar .dropdown-toggle, .navbar .navbar-nav .dropdown-toggle {
   color: #fff; }
   .navbar-nav .nav-link:focus, .navbar-nav .navbar .dropdown-toggle:focus, .navbar .navbar-nav .dropdown-toggle:focus, .navbar-nav .nav-link:hover, .navbar-nav .navbar .dropdown-toggle:hover, .navbar .navbar-nav .dropdown-toggle:hover {

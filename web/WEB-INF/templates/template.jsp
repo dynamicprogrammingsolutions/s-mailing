@@ -32,11 +32,11 @@
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
     <header class="app-header navbar">
-        <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">?</button>
-        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button"><i class="fa fa-bars"></i></button>
+        <a class="navbar-brand" href="#"><h1><span>S-mailing</span></h1></a>
         <ul class="nav navbar-nav hidden-md-down">
             <li class="nav-item">
-                <a class="nav-link navbar-toggler sidebar-toggler" href="#">?</a>
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#"><i class="fa fa-bars"></i></a>
             </li>
 
         </ul>
@@ -45,15 +45,7 @@
     <div class="app-body">
         <div class="sidebar">
             <nav class="sidebar-nav">
-                <form>
-                    <div class="form-group p-h mb-0">
-                        <input type="text" class="form-control" aria-describedby="search" placeholder="Search...">
-                    </div>
-                </form>
                 <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
-                    </li>
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/"> Index </a></li>
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/mails">Mails</a></li>
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/admin/campaigns">Campaigns</a></li>
@@ -98,7 +90,7 @@
     </div>
 
     <footer class="app-footer">
-        © Dynamic Programming Solutions Corp 2015
+        © Dynamic Programming Solutions Corp 2017
     </footer>
                
     <!-- Bootstrap and necessary plugins -->
