@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author ferenci84
  * @param <T>
  */
-@Stateless
+@Dependent
 public class Router {
     @Inject Instance<ControllerBase> controllers;
 
@@ -51,14 +52,18 @@ public class Router {
     
     public Boolean processController(ControllerBase controller, String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        //System.out.println("process controller");
         if (path == null) path = "";
-        
-        Class<?> contollerClass = controller.getOriginalClass();
+
+        Class<?> contollerClass = controller.getClass().getSuperclass();;
+        //System.out.println("class: "+contollerClass.getName());
         Path pathAnnotation = contollerClass.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
+        //System.out.println("path annotation "+path+" "+pathAnnotation.value());
         
         Matcher controllerMatches = checkPath(path,pathAnnotation);
         if (controllerMatches == null) return false;
+        //System.out.println("controller Matches");
         
         int pathGroup = pathAnnotation.pathGroup();
         String nextPath;

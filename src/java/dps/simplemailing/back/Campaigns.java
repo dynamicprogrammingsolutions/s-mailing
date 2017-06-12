@@ -6,11 +6,9 @@
 package dps.simplemailing.back;
 
 import dps.simplemailing.entities.Campaign;
-import dps.simplemailing.entities.User;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
 
@@ -18,7 +16,7 @@ import javax.persistence.Query;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class Campaigns {
 
     @Inject Crud crud;

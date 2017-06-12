@@ -12,12 +12,13 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class ProcessForm {
 
     public void process(Object entityObject, Map<String, String[]> parameterMap)
@@ -29,7 +30,6 @@ public class ProcessForm {
             String value = parameterEntry.getValue()[0];
             if (key.length() < 2) continue;
             String methodName = "set".concat(key.substring(0, 1).toUpperCase()).concat(key.substring(1));
-            System.out.println("method name: "+methodName);
             for (Method method: methods) {
                 if (method.getName().equals(methodName)) {
                     Parameter[] parameters = method.getParameters();

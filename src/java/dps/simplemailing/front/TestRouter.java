@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path(value="/(?<cparam>[0-9]*)/(.*)",pathGroup=2)
 public class TestRouter extends Controller {
     

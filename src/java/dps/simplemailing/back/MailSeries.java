@@ -13,20 +13,21 @@ import dps.simplemailing.entities.User;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Asynchronous;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class MailSeries {
 
     @Inject Crud crud;
     @Inject MailQueue mailQueue;
+    @Inject MailSeries mailSeries;
     
     public Series getByName(String name)
     {
@@ -48,22 +49,18 @@ public class MailSeries {
         
     }
     
-    @Asynchronous
-    public void processAllSeriesAsync()
-    {
-        processAllSeries();
-    }
-
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processAllSeries()
     {
         Query query = crud.getEntityManager().createQuery("SELECT u FROM Series u");
         List<Series> allSeries = query.getResultList();
         if (allSeries.isEmpty()) return;
         for (Series series: allSeries) {
-            processSeries(series);
+            mailSeries.processSeries(series);
         }
     }
     
+    @Transactional(Transactional.TxType.REQUIRED)
     public void processSeries(Series series)
     {
         Calendar cal = Calendar.getInstance();
@@ -76,6 +73,7 @@ public class MailSeries {
         cal.add(Calendar.MINUTE, -30240);
         Date processAfter = cal.getTime();
 
+        series = crud.getEntityManager().merge(series);
 
         for(SeriesSubscription subscription: series.getSeriesSubscriptions()) {
             if (subscription.getUser().getStatus() != User.Status.subscribed) continue;

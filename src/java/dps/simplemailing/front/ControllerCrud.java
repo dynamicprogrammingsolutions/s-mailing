@@ -16,14 +16,16 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class ControllerCrud {
 
     @Inject Crud crud;
@@ -53,6 +55,7 @@ public class ControllerCrud {
     
         if (id != null) {
             entity = crud.find(id,requestBean.getEntityClass());
+            requestBean.setEntityObject(entity);
             if (entity == null) {
                 sessionBean.addError("Couldn't find "+requestBean.getEntityName()+" with id "+id);
             }

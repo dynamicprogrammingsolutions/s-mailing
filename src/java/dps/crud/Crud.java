@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -20,14 +21,17 @@ public abstract class Crud {
 
     protected abstract EntityManager getEntityManager();
     
+    @Transactional(Transactional.TxType.MANDATORY)
     public void create(Object entity) {
         getEntityManager().persist(entity);
     }
 
+    @Transactional(Transactional.TxType.MANDATORY)
     public void edit(Object entity) {
         getEntityManager().merge(entity);
     }
 
+    @Transactional(Transactional.TxType.MANDATORY)
     public void remove(Object entity) {
         getEntityManager().remove(getEntityManager().merge(entity));
     }

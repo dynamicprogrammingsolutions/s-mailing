@@ -10,18 +10,21 @@ import dps.simplemailing.entities.User;
 import java.util.Calendar;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class Mails {
     
     @Inject Users users;
     @Inject MailQueue queue;
     
+    @Transactional(Transactional.TxType.REQUIRED)
     public void scheduleMail(Mail mail, Boolean real, java.util.Date time, int msDelay)
     {
         Calendar cal = Calendar.getInstance();

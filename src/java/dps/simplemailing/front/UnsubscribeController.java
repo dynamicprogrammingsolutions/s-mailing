@@ -5,7 +5,6 @@
  */
 package dps.simplemailing.front;
 
-import com.sun.javafx.application.ParametersImpl;
 import dps.simplemailing.back.Campaigns;
 import dps.simplemailing.back.Crud;
 import dps.simplemailing.back.Users;
@@ -13,16 +12,17 @@ import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class UnsubscribeController {
     
     @Inject Users userManager;
@@ -30,6 +30,7 @@ public class UnsubscribeController {
     
     @Inject Crud crud;
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");

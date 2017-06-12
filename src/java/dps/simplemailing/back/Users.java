@@ -9,15 +9,16 @@ import dps.simplemailing.entities.User;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 public class Users {
 
     @Inject Crud crud;
@@ -45,9 +46,11 @@ public class Users {
         return query.getResultList();
     }
     
+    @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(User user)
     {
         user.setStatus(User.Status.unsubscribed);
+        crud.edit(user);
     }
     
     public User getByEmail(String email)

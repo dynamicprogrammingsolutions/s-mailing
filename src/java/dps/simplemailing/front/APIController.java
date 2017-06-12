@@ -22,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -30,12 +31,13 @@ import javax.json.JsonString;
 import javax.json.JsonValue;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path("/(.*)")
 public class APIController extends Controller {
     
@@ -43,9 +45,8 @@ public class APIController extends Controller {
     @Inject MailSeries mailSeries;
     @Inject Crud crud;
     
-    
-    
     @Path("subscribe")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void subscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
@@ -76,6 +77,7 @@ public class APIController extends Controller {
     }
     
     @Path("subscribe_series")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void subscribeSeries(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
@@ -113,6 +115,7 @@ public class APIController extends Controller {
     }
     
     @Path("unsubscribe_series")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribeSeries(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
@@ -133,6 +136,7 @@ public class APIController extends Controller {
     }
     
     @Path("set_extradata")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void setExtradata(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
@@ -167,6 +171,7 @@ public class APIController extends Controller {
     }
     
     @Path("bounce_notification")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void bounceNotification(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
@@ -184,7 +189,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = users.getByEmail(email);
                 System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
-                if (user != null) {
+                if (user != null && user.getStatus() != User.Status.test) {
                     user.setStatus(User.Status.bounced);
                     crud.edit(user);
                 }
@@ -194,6 +199,7 @@ public class APIController extends Controller {
     }
 
     @Path("complaint_notification")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void complaintNotification(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
@@ -211,7 +217,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = users.getByEmail(email);
                 System.out.println("complained user: "+user.getId()+" "+user.getEmail());
-                if (user != null) {
+                if (user != null && user.getStatus() != User.Status.test) {
                     user.setStatus(User.Status.unsubscribed);
                     crud.edit(user);
                 }
@@ -220,7 +226,7 @@ public class APIController extends Controller {
         
     }
     
-    public String[] getEmailsFromBounceMessage(String message)
+    private String[] getEmailsFromBounceMessage(String message)
     {
         JsonObject messageObject = Json.createReader(new StringReader(message)).readObject();
         
@@ -245,7 +251,7 @@ public class APIController extends Controller {
         }
     }
     
-    public String[] getEmailsFromComplaintMessage(String message)
+    private String[] getEmailsFromComplaintMessage(String message)
     {
         JsonObject messageObject = Json.createReader(new StringReader(message)).readObject();
         

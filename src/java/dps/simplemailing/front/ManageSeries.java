@@ -18,17 +18,18 @@ import dps.simplemailing.front.forms.Input;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-@Stateless
+@ApplicationScoped
 @Path("/series(.*)")
 public class ManageSeries extends AdminControllerBase {
 
@@ -37,6 +38,7 @@ public class ManageSeries extends AdminControllerBase {
 
     @Filter
     @Override
+    @Transactional(Transactional.TxType.REQUIRED)
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {
         requestBean.setTitle("S-Mailing - Series");
@@ -67,7 +69,7 @@ public class ManageSeries extends AdminControllerBase {
     {
         String result = controllerCrud.newEntity(request, id);
         if (request.getMethod().equals("GET")) {
-            request.setAttribute("form", getForm(null,requestBean.getRoot()+"new","Create"));
+            request.setAttribute("form", getForm((Series)requestBean.getEntityObject(),requestBean.getRoot()+"new","Create"));
         }
         return result;
     }
