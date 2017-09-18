@@ -16,7 +16,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.validation.constraints.*;
 
 /**
  *
@@ -24,6 +29,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="mails")
+@NamedQueries({
+    @NamedQuery(name="Mail.getAll",query="SELECT m FROM Mail m ORDER BY m.name"),
+})
 public class Mail implements Serializable {
 
     private static final long serialVersionUID = 7996282373984678899L;
@@ -31,8 +39,14 @@ public class Mail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @NotNull
     private String name;
+    
+    @NotNull
     private String subject;
+    
+    @NotNull
     @Column(name="fromEmail")
     private String from;
     
@@ -40,6 +54,7 @@ public class Mail implements Serializable {
     private Set<Campaign> campaigns;
     
     @Lob
+    @NotNull
     private String body_text;
     
 
@@ -83,6 +98,7 @@ public class Mail implements Serializable {
         this.body_text = body_text;
     }
 
+    @XmlTransient
     public Set<Campaign> getCampaigns() {
         return campaigns;
     }

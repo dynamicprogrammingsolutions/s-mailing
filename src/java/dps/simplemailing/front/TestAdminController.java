@@ -275,6 +275,7 @@ public class TestAdminController extends AdminControllerBase {
     }
     
     @Path("addSeriesItem")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void addSeriesItem(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         response.setContentType("text/plain");
@@ -303,6 +304,7 @@ public class TestAdminController extends AdminControllerBase {
     }
     
     @Path("addSeriesSubscription")
+    @Transactional(Transactional.TxType.REQUIRED)
     public void addSeriesSubscription(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         response.setContentType("text/plain");

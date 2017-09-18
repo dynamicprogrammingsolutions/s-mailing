@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,9 +31,11 @@ public class Campaign implements Serializable {
     private String name;
     private String longName;
     
+    @XmlTransient
     @ManyToMany
     private Set<Mail> mails = new HashSet<Mail>();
     
+    @XmlTransient
     @ManyToMany
     private Set<User> unsubscribedUsers = new HashSet<User>();
 
@@ -56,10 +59,12 @@ public class Campaign implements Serializable {
         this.longName = longName;
     }
     
+    @XmlTransient
     public Set<Mail> getMails() {
         return mails;
     }
 
+    @XmlTransient
     public Set<User> getUnsubscribedUsers() {
         return unsubscribedUsers;
     }

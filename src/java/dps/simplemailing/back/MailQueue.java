@@ -5,7 +5,6 @@
  */
 package dps.simplemailing.back;
 
-import com.sun.corba.se.spi.GIOP.CancelRequestHeaderHolder;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.Mail;
@@ -17,7 +16,6 @@ import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
 
@@ -90,6 +88,9 @@ public class MailQueue {
     {
         for (QueuedMail queuedMail: queueToSend) {
             mailQueue.sendMail(queuedMail);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {}
         }
     }
     

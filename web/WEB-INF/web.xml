@@ -20,6 +20,23 @@
         </auth-constraint>
     </security-constraint>
     <security-constraint>
+        <display-name>Admin REST</display-name>
+        <web-resource-collection>
+            <web-resource-name>REST</web-resource-name>
+            <description/>
+            <url-pattern>/resources/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+            <http-method>HEAD</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
         <display-name>Unsubscribe</display-name>
         <web-resource-collection>
             <web-resource-name>Unsubscribe</web-resource-name>
