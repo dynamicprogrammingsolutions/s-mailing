@@ -1,0 +1,71 @@
+/*
+Error: Undefined mixin 'border-radius'.
+        on line 102 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss, in `border-radius'
+        from line 102 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss
+
+97:   position: relative;
+98:   overflow: hidden;
+99:   margin: 0 0 6px;
+100:   padding: 15px 15px 15px 50px;
+101:   width: 300px;
+102:   @include border-radius($border-radius);
+103:   background-position: 15px center;
+104:   background-repeat: no-repeat;
+105:   @include box-shadow(0 0 12px #999999);
+106:   color: #ffffff;
+107:   opacity: 0.9;
+
+Backtrace:
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss:102:in `border-radius'
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss:102
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:98:in `with_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:391:in `run'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `load'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `<main>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 102 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss, in `border-radius'\A         from line 102 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/toastr/toastr.scss\A \A 97:   position: relative;\A 98:   overflow: hidden;\A 99:   margin: 0 0 6px;\A 100:   padding: 15px 15px 15px 50px;\A 101:   width: 300px;\A 102:   @include border-radius($border-radius);\A 103:   background-position: 15px center;\A 104:   background-repeat: no-repeat;\A 105:   @include box-shadow(0 0 12px #999999);\A 106:   color: #ffffff;\A 107:   opacity: 0.9;"; }

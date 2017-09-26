@@ -33,14 +33,14 @@
                 <a href="${paginator.previousLink}">Prev</a>
             </c:if>
 
-            <c:if test="${paginator.hasNext}">
-                <a href="${paginator.nextLink}">Next</a>
-            </c:if>
-
             <c:forEach items="${paginator.allLinks}" var="link">
                 <a href="${link.value}">${link.key}</a>
             </c:forEach>
 
+            <c:if test="${paginator.hasNext}">
+                <a href="${paginator.nextLink}">Next</a>
+            </c:if>
+                
             <p>
             <a href="${root}new">New Series</a>
             </p>

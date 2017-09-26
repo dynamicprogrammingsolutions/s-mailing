@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.jboss.resteasy:resteasy-html:3.0.19.Final" type="repository">
+    <properties maven-id="org.jboss.resteasy:resteasy-html:3.0.19.Final" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/resteasy-html-3.0.19.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

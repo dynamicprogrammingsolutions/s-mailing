@@ -1,0 +1,67 @@
+/*
+Error: Undefined variable: "$enable-rounded".
+        on line 13 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/react-select/menu.scss
+
+8: .Select-menu-outer {
+9: 	// Unfortunately, having both border-radius and allows scrolling using overflow defined on the same
+10: 	// element forces the browser to repaint on scroll.  However, if these definitions are split into an
+11: 	// outer and an inner element, the browser is able to optimize the scrolling behavior and does not
+12: 	// have to repaint on scroll.
+13:   @if $enable-rounded {
+14:     @include border-bottom-radius( $select-input-border-radius );
+15:   } @else {
+16:     border-radius: 0;
+17:   }
+18: 	background-color: $select-input-bg;
+
+Backtrace:
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/react-select/menu.scss:13
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:300:in `visit_if'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:391:in `run'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `load'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `<main>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$enable-rounded\".\A         on line 13 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/react-select/menu.scss\A \A 8: .Select-menu-outer {\A 9: 	// Unfortunately, having both border-radius and allows scrolling using overflow defined on the same\A 10: 	// element forces the browser to repaint on scroll.  However, if these definitions are split into an\A 11: 	// outer and an inner element, the browser is able to optimize the scrolling behavior and does not\A 12: 	// have to repaint on scroll.\A 13:   @if $enable-rounded {\A 14:     @include border-bottom-radius( $select-input-border-radius );\A 15:   } @else {\A 16:     border-radius: 0;\A 17:   }\A 18: 	background-color: $select-input-bg;"; }

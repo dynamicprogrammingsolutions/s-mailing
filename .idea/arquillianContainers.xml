@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArquillianContainersManager">
+    <container containerId="container.arquillian.remote.wildFly" name="WildFly Remote">
+      <maven-library groupId="org.wildfly.arquillian" artifactId="wildfly-arquillian-container-remote" version="RELEASE" />
+      <configurationSpecific>
+        <configurationSpecific runContainerQualifier="wildfly-remote" />
+      </configurationSpecific>
+    </container>
+    <container containerId="container.arquillian.embedded.weld.ee.1.1" name="Weld EE Embedded 1.1.x">
+      <maven-library groupId="org.jboss.arquillian.container" artifactId="arquillian-weld-ee-embedded-1.1" version="RELEASE" />
+      <configurationSpecific>
+        <configurationSpecific runContainerQualifier="weld-embedded" />
+      </configurationSpecific>
+    </container>
+    <container containerId="container.arquillian.embedded.tom-ee" name="TomEE Embedded">
+      <maven-library groupId="org.apache.tomee" artifactId="arquillian-tomee-embedded" version="RELEASE" />
+      <configurationSpecific>
+        <configurationSpecific runContainerQualifier="tomee-embedded" />
+      </configurationSpecific>
+    </container>
+  </component>
+</project>

@@ -1,0 +1,67 @@
+/*
+Error: Undefined variable: "$border-color".
+        on line 32 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/fullcalendar/fullcalendar.scss
+
+27: .fc-unthemed thead,
+28: .fc-unthemed tbody,
+29: .fc-unthemed .fc-divider,
+30: .fc-unthemed .fc-row,
+31: .fc-unthemed .fc-popover {
+32: 	border-color: $border-color;
+33: }
+34: 
+35: .fc-unthemed .fc-popover {
+36: 	background-color: #fff;
+37: }
+
+Backtrace:
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/fullcalendar/fullcalendar.scss:32
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:391:in `run'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `load'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `<main>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$border-color\".\A         on line 32 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/fullcalendar/fullcalendar.scss\A \A 27: .fc-unthemed thead,\A 28: .fc-unthemed tbody,\A 29: .fc-unthemed .fc-divider,\A 30: .fc-unthemed .fc-row,\A 31: .fc-unthemed .fc-popover {\A 32: 	border-color: $border-color;\A 33: }\A 34: \A 35: .fc-unthemed .fc-popover {\A 36: 	background-color: #fff;\A 37: }"; }

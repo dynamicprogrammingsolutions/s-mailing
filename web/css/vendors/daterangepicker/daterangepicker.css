@@ -1,0 +1,71 @@
+/*
+Error: Undefined mixin 'border-radius'.
+        on line 18 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss, in `border-radius'
+        from line 18 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss
+
+13:   background: #fff;
+14:   top: 100px;
+15:   left: 20px;
+16:   padding: 4px;
+17:   margin-top: 1px;
+18:   @include border-radius($border-radius);
+19:   width:278px;
+20: }
+21: 
+22: .daterangepicker.opensleft:before {
+23:   position: absolute;
+
+Backtrace:
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss:18:in `border-radius'
+/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss:18
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:98:in `with_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:391:in `run'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `load'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/sass:23:in `<main>'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+/home/ferenci84/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 18 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss, in `border-radius'\A         from line 18 of /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-nb/web/scss/vendors/daterangepicker/daterangepicker.scss\A \A 13:   background: #fff;\A 14:   top: 100px;\A 15:   left: 20px;\A 16:   padding: 4px;\A 17:   margin-top: 1px;\A 18:   @include border-radius($border-radius);\A 19:   width:278px;\A 20: }\A 21: \A 22: .daterangepicker.opensleft:before {\A 23:   position: absolute;"; }

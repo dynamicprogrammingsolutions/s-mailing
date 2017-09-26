@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="S-Mailing-1.0-idea:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/S_Mailing_1_0_idea_war</output-path>
+    <root id="archive" name="S-Mailing-1.0-idea_war.war">
+      <element id="artifact" artifact-name="S-Mailing-1.0-idea:war exploded" />
+    </root>
+  </artifact>
+</component>
