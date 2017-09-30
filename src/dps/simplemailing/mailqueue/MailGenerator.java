@@ -1,26 +1,31 @@
-package dps.simplemailing.back;
+package dps.simplemailing.mailqueue;
 
+import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.QueuedMail;
 import dps.simplemailing.entities.User;
-import java.util.List;
-import java.util.Map;
-import javax.ejb.Stateless;
+import dps.simplemailing.manage.UseEntityManager;
+import dps.simplemailing.manage.UserManager;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Map;
 
 /**
  *
  * @author ferenci84
  */
 @ApplicationScoped
-public class MailGenerator {
+public class MailGenerator extends UseEntityManager {
     
-    @Inject Crud crud;    
-    @Inject Users users;
+    @Inject
+    UserManager users;
+
+    public GeneratedMail getById(Long id)
+    {
+        return em.find(GeneratedMail.class,id);
+    }
     
     @Transactional(Transactional.TxType.REQUIRED)
     public GeneratedMail generateMail(QueuedMail queuedMail)
@@ -38,7 +43,7 @@ public class MailGenerator {
         //crud.create(generatedMail);
         
         queuedMail.setGeneratedMail(generatedMail);
-        crud.edit(queuedMail);
+        em.merge(queuedMail);
 
         return generatedMail;
                 

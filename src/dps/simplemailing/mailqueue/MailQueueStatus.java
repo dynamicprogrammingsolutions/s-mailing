@@ -1,13 +1,9 @@
-package dps.simplemailing.back;
+package dps.simplemailing.mailqueue;
 
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 import javax.ejb.Singleton;
 
-/**
- *
- * @author ferenci84
- */
 @Singleton
 public class MailQueueStatus {
     Boolean started = false;
@@ -42,7 +38,7 @@ public class MailQueueStatus {
     public void setFailed(int failed) {
         this.failed = failed;
     }
-    
+
     @Lock(LockType.READ)
     public Boolean getStarted() {
         return started;
@@ -57,10 +53,10 @@ public class MailQueueStatus {
             this.failed = 0;
         }
     }
-    
+
     public String getStringStatus()
     {
         return "started: "+this.getStarted()+" generated: "+this.getGenerated()+" sent: "+this.getSent()+" failed: "+this.getFailed();
     }
-    
+
 }

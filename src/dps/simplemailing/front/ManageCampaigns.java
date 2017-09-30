@@ -24,7 +24,7 @@ import javax.transaction.Transactional;
  * @author ferenci84
  */
 @ApplicationScoped
-@Path("/campaigns(.*)")
+@Path("/campaignManager(.*)")
 public class ManageCampaigns extends AdminControllerBase {
 
     @Inject Crud crud;
@@ -36,9 +36,9 @@ public class ManageCampaigns extends AdminControllerBase {
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {
         requestBean.setTitle("S-Mailing - Campaigns");
-        requestBean.setRoot(request.getContextPath()+request.getServletPath()+"/campaigns/"); 
+        requestBean.setRoot(request.getContextPath()+request.getServletPath()+"/campaignManager/");
         requestBean.setTemplate("/WEB-INF/templates/template.jsp");
-        requestBean.setViewRoot("/WEB-INF/campaigns");
+        requestBean.setViewRoot("/WEB-INF/campaignManager");
         requestBean.setEntityClass(Campaign.class);
         requestBean.setEntityName("Campaign");
 

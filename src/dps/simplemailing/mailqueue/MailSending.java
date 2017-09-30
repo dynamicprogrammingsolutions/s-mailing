@@ -1,4 +1,4 @@
-package dps.simplemailing.back;
+package dps.simplemailing.mailqueue;
 
 import dps.simplemailing.entities.GeneratedMail;
 import java.util.Properties;

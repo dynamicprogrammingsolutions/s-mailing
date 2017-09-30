@@ -2,7 +2,6 @@ package dps.simplemailing.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="series_subscriptions")
-public class SeriesSubscription implements Serializable {
+public class SeriesSubscription implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 1L;
     @Id

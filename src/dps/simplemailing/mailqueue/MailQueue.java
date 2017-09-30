@@ -1,49 +1,52 @@
-package dps.simplemailing.back;
+package dps.simplemailing.mailqueue;
 
-import dps.simplemailing.entities.Campaign;
-import dps.simplemailing.entities.GeneratedMail;
-import dps.simplemailing.entities.Mail;
-import dps.simplemailing.entities.QueuedMail;
-import dps.simplemailing.entities.User;
-import java.util.List;
-import java.util.Set;
+import dps.simplemailing.back.Crud;
+import dps.simplemailing.entities.*;
+
 import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import java.util.List;
+import java.util.Set;
 
 @Stateless
 public class MailQueue {
-    
-    @Inject MailSending mailSending;
-    @Inject MailGenerator generatedMails;
-    @Inject MailQueueStatus queueStatus;
-    @Inject MailQueue mailQueue;
-    
-    @Inject Crud crud;
-    
+
+    @Inject
+    MailSending mailSending;
+    @Inject
+    MailGenerator generatedMails;
+    @Inject
+    MailQueueStatus queueStatus;
+    @Inject
+    MailQueue mailQueue;
+
+    @Inject
+    Crud crud;
+
     public QueuedMail createQueuedMail(User user, Mail mail, java.util.Date scheduledTime)
     {
         QueuedMail queuedMail = new QueuedMail();
-        
+
         queuedMail.setUser(user);
         queuedMail.setMail(mail);
         queuedMail.setScheduledTime(scheduledTime);
         queuedMail.setStatus(QueuedMail.Status.unsent);
         crud.create(queuedMail);
-        
+
         return queuedMail;
     }
-    
+
     public List<QueuedMail> getQueueToSend() {
         Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime = null OR m.scheduledTime <= :now)");
         query.setParameter("status", QueuedMail.Status.unsent);
         query.setParameter("now", new java.util.Date());
         return query.getResultList();
     }
-    
+
     @Asynchronous
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void processQueue()
@@ -55,19 +58,19 @@ public class MailQueue {
         try {
             queueStatus.setStarted(true);
             List<QueuedMail> queueToSend = getQueueToSend();
-            
+
             if (queueToSend.size() != 0) {
                 System.out.println("Queue to send: "+queueToSend.size());
                 mailQueue.generateMails(queueToSend);
                 mailQueue.sendMails(queueToSend);
                 mailQueue.cleanupQueue();
             }
-            
+
         } finally {
             queueStatus.setStarted(false);
         }
     }
-    
+
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void generateMails(List<QueuedMail> queueToSend)
     {
@@ -77,7 +80,7 @@ public class MailQueue {
             queueStatus.setGenerated(queueStatus.getGenerated()+1);
         }
     }
-    
+
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void sendMails(List<QueuedMail> queueToSend)
     {
@@ -88,15 +91,15 @@ public class MailQueue {
             } catch (InterruptedException ex) {}
         }
     }
-    
+
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void sendMail(QueuedMail queuedMail)
     {
         System.out.println("Checking "+queuedMail);
-        
+
         queuedMail = crud.getEntityManager().merge(queuedMail);
         Mail mail = queuedMail.getMail();
-        
+
         Boolean unsubscribed = false;
         Set<Campaign> campaigns = mail.getCampaigns();
         for (Campaign campaign: campaigns) {
@@ -128,14 +131,14 @@ public class MailQueue {
             System.out.println("User unsubscribed from campaign");
         }
     }
-    
+
     public void cleanupQueue()
     {
         //System.out.println("cleaning up");
         Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status != :status1) AND (m.generatedMail IS NOT NULL)");
         query.setParameter("status1", QueuedMail.Status.unsent);
         List<QueuedMail> queuedMails = query.getResultList();
-        
+
         if (queuedMails.size() != 0) {
             System.out.println("queuedMails to clean up: "+queuedMails.size());
             for (QueuedMail queuedMail: queuedMails) {
@@ -147,10 +150,10 @@ public class MailQueue {
                 crud.edit(queuedMail);
             }
         }
-        
+
     }
-    
-    
-    
-    
+
+
+
+
 }

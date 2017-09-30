@@ -1,7 +1,7 @@
 package test;
 
 import dps.reflect.ReflectHelper;
-import dps.simplemailing.back.MailManager;
+import dps.simplemailing.manage.MailManager;
 import dps.simplemailing.entities.Mail;
 import java.util.List;
 import static org.junit.Assert.*;
@@ -27,6 +27,8 @@ public class EntitiesTest {
                 .addPackage("dps.simplemailing.entities")
                 .addPackage("dps.crud")
                 .addPackage("dps.simplemailing.back")
+                .addPackage("dps.simplemailing.manage")
+                .addPackage("dps.simplemailing.mailqueue")
                 .addPackage("dps.reflect")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");

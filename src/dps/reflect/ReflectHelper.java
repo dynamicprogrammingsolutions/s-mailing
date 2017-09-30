@@ -1,10 +1,8 @@
 package dps.reflect;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.lang.reflect.ParameterizedType;
+import javax.persistence.EntityManager;
+import javax.persistence.metamodel.Metamodel;
+import java.lang.reflect.*;
 
 /**
  *
@@ -39,11 +37,30 @@ public class ReflectHelper {
     }
     public static Class<?> getTypeParameter(Class<?> clazz)
     {
-        return ((Class) ((ParameterizedType) clazz.getGenericSuperclass()).getActualTypeArguments()[0]);
+        return getTypeParameter(clazz,0);
     }
-    public static Class<?> getTypeParameter(Class<?> clazz, int idx)
+    public static <T> Class<T> getTypeParameter(Class<?> clazz, int idx)
     {
-        return ((Class) ((ParameterizedType) clazz.getGenericSuperclass()).getActualTypeArguments()[idx]);
+        Type superClass = clazz.getGenericSuperclass();
+        if (!(superClass instanceof ParameterizedType)) {
+            clazz = clazz.getSuperclass();
+            if (clazz == null) throw new IllegalArgumentException("Cannot get ParametrizedType");
+            superClass = clazz.getGenericSuperclass();
+        }
+        if (superClass instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) superClass;
+            Type typeArgument = parameterizedType.getActualTypeArguments()[idx];
+            return (Class<T>) typeArgument;
+        } else  {
+            throw new IllegalArgumentException("Cannot cast to ParametrizedType");
+        }
+    }
+    public static Class<?> getEntityIdType(EntityManager em, Class<?> entityClass)
+    {
+        Metamodel metamodel = em.getMetamodel();
+        javax.persistence.metamodel.EntityType entityType = metamodel.entity(entityClass);
+        javax.persistence.metamodel.Type<?> idType = entityType.getIdType();
+        return idType.getJavaType();
     }
     public static String getGetterName(String field)
     {

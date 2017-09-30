@@ -33,10 +33,7 @@ public class BasicTest_ {
 
     @Inject
     private Greeter greeter;
-    
-    @Inject
-    private Crud crud;
-    
+
     @Inject
     UserTransaction utx;
 

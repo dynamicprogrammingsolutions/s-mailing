@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name="mail_queue")
-public class QueuedMail implements Serializable {
+public class QueuedMail implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 7480663708681616919L;
 

@@ -1,6 +1,8 @@
-package dps.simplemailing.back;
+package dps.simplemailing.mailqueue;
 
-import java.util.Date;
+import dps.simplemailing.mailqueue.MailQueue;
+import dps.simplemailing.manage.SeriesManager;
+
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -15,8 +17,10 @@ import javax.inject.Inject;
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class TimingProcessQueue {
 
-    @Inject MailQueue mailQueue;
-    @Inject MailSeries mailSeries;
+    @Inject
+    MailQueue mailQueue;
+    @Inject
+    SeriesManager mailSeries;
     
     @Schedule(hour = "*", minute = "*", second = "0", persistent = false)
     public void processQueue() {

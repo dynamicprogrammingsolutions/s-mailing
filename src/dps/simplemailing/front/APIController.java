@@ -3,11 +3,12 @@ package dps.simplemailing.front;
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Path;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.back.MailSeries;
-import dps.simplemailing.back.Users;
 import dps.simplemailing.entities.Series;
 import dps.simplemailing.entities.SeriesSubscription;
 import dps.simplemailing.entities.User;
+import dps.simplemailing.manage.SeriesManager;
+import dps.simplemailing.manage.UserManager;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
@@ -16,7 +17,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
@@ -36,8 +36,11 @@ import javax.transaction.Transactional;
 @Path("/(.*)")
 public class APIController extends Controller {
     
-    @Inject Users users;
-    @Inject MailSeries mailSeries;
+    @Inject
+    UserManager users;
+    @Inject
+    SeriesManager mailSeries;
+
     @Inject Crud crud;
     
     @Path("subscribe")

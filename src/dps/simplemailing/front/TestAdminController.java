@@ -1,61 +1,57 @@
 package dps.simplemailing.front;
 
-import dps.servletcontroller.ControllerBase;
-import dps.servletcontroller.Filter;
 import dps.servletcontroller.Path;
-import dps.simplemailing.back.Campaigns;
-import dps.simplemailing.back.Crud;
-import dps.simplemailing.back.MailGenerator;
-import dps.simplemailing.back.MailQueue;
-import dps.simplemailing.back.MailQueueStatus;
-import dps.simplemailing.back.MailSending;
-import dps.simplemailing.back.MailSeries;
-import dps.simplemailing.back.Mails;
-import dps.simplemailing.back.Users;
-import dps.simplemailing.entities.Campaign;
-import dps.simplemailing.entities.GeneratedMail;
-import dps.simplemailing.entities.Mail;
-import dps.simplemailing.entities.QueuedMail;
-import dps.simplemailing.entities.Series;
-import dps.simplemailing.entities.SeriesItem;
-import dps.simplemailing.entities.SeriesSubscription;
-import dps.simplemailing.entities.User;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import dps.simplemailing.entities.*;
+import dps.simplemailing.mailqueue.MailGenerator;
+import dps.simplemailing.mailqueue.MailQueue;
+import dps.simplemailing.mailqueue.MailQueueStatus;
+import dps.simplemailing.mailqueue.MailSending;
+import dps.simplemailing.manage.*;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author ferenci84
- */
 @ApplicationScoped
 @Path("/(.*)")
 public class TestAdminController extends AdminControllerBase {
     
-    @Inject Users userManager;
-    @Inject Mails mailManager;
-    @Inject MailQueue mailQueue;
-    @Inject MailGenerator generatedMails;
-    @Inject MailSending mailSending;
-    @Inject MailSeries mailSeries;
-    @Inject MailQueueStatus mailQueueStatus;
-    @Inject Campaigns campaigns;
-    
-    @Inject Crud crud;
-    
+    @Inject
+    UserManager userManager;
+
+    @Inject
+    MailManager mailManager;
+
+    @Inject
+    MailQueue mailQueue;
+
+    @Inject
+    MailGenerator mailGenerator;
+
+    @Inject
+    MailSending mailSending;
+
+    @Inject
+    SeriesManager mailSeries;
+
+    @Inject
+    MailQueueStatus mailQueueStatus;
+
+    @Inject
+    SeriesManager seriesManager;
+
+    @Inject
+    CampaignManager campaignManager;
+
     @Path("showUsers")
     public void showUsers(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -63,7 +59,7 @@ public class TestAdminController extends AdminControllerBase {
         PrintWriter writer = response.getWriter();
         writer.println("show users");
         
-        List<User> allUsers = (List<User>)crud.getAll(User.class);
+        List<User> allUsers = userManager.getAll();
         int cnt = 0;
         for (User user: allUsers) {
             writer.println(user.getId()+" "+user.getEmail()+" "+user.getFirstName()+" "+user.getLastName());
@@ -72,7 +68,7 @@ public class TestAdminController extends AdminControllerBase {
         }
         
     }
-    
+
     @Path("modifyUser")
     public void modifyUser(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -81,12 +77,13 @@ public class TestAdminController extends AdminControllerBase {
         
         Long id = Long.parseLong(request.getParameter("id"));
         String firstname = request.getParameter("firstname");
-        User user = (User)crud.find(id,User.class);
+        User user = userManager.getById(id);
         user.setFirstName(firstname);
-        crud.edit(user);
-        
+        userManager.modify(user);
+
+        writer.println("User modified");
     }
-    
+
     @Path("addMail")
     public void addMail(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -107,13 +104,12 @@ public class TestAdminController extends AdminControllerBase {
         writer.println("Subject: " + mail.getSubject());
         writer.println("From: " + mail.getFrom());
         writer.println("Body: " + mail.getBody_text());
-        
-        crud.create(mail);        
+
+        mailManager.create(mail);
         
     }
-    
-    
-    
+
+
     @Path("showMails")
     public void showMails(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -121,7 +117,7 @@ public class TestAdminController extends AdminControllerBase {
         PrintWriter writer = response.getWriter();
         writer.println("Test");
         
-        List<Mail> allMails = (List<Mail>)crud.getAll(Mail.class);
+        List<Mail> allMails = mailManager.getAll();
         int cnt = 0;
         for (Mail mail: allMails) {
             writer.println(mail.getId()+" "+mail.getName()+" "+mail.getFrom()+" "+mail.getSubject());
@@ -131,7 +127,7 @@ public class TestAdminController extends AdminControllerBase {
         }
         
     }
-    
+
     @Path("generateMails")
     public void generateMails(HttpServletRequest request, HttpServletResponse response) throws IOException 
     {
@@ -141,7 +137,7 @@ public class TestAdminController extends AdminControllerBase {
         List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
         mailQueue.generateMails(queueToSend);
     }
-    
+
     @Path("processQueue")
     public void processQueue(HttpServletRequest request, HttpServletResponse response) throws IOException 
     {
@@ -152,7 +148,7 @@ public class TestAdminController extends AdminControllerBase {
         
         writer.println("queue started");
     }
-    
+
     @Path("cleanupQueue")
     public void cleanupQueue(HttpServletRequest request, HttpServletResponse response) throws IOException 
     {
@@ -163,7 +159,7 @@ public class TestAdminController extends AdminControllerBase {
         
         writer.println("cleaned up");
     }
-    
+
     @Path("queueStatus")
     public void queueStatus(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -184,7 +180,7 @@ public class TestAdminController extends AdminControllerBase {
         }
         
     }
-    
+
     @Path("generateMail")
     @Transactional(Transactional.TxType.REQUIRED)
     public void generateMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
@@ -195,20 +191,15 @@ public class TestAdminController extends AdminControllerBase {
         Long mailId = Long.parseLong(request.getParameter("mail_id"));
         Long userId = Long.parseLong(request.getParameter("user_id"));
         
-        User user = (User)crud.find(userId,User.class);
-        Mail mail = (Mail)crud.find(mailId,Mail.class);
+        User user = userManager.getById(userId);
+        Mail mail = mailManager.getById(mailId);
         
         QueuedMail queuedMail = mailQueue.createQueuedMail(user,mail,null);
         
-        GeneratedMail generatedMail = generatedMails.generateMail(queuedMail);
-
-        /*
-        queuedMail.setGeneratedMail(generatedMail);
-        mailQueue.edit(queuedMail);
-        */
+        GeneratedMail generatedMail = mailGenerator.generateMail(queuedMail);
         
     }
-    
+
     @Path("scheduleMail")
     public void scheduleMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -220,7 +211,7 @@ public class TestAdminController extends AdminControllerBase {
             Long mailId = Long.parseLong(request.getParameter("mail_id"));
             int delay = Integer.parseInt(request.getParameter("delay"));
             Boolean real = Boolean.parseBoolean(request.getParameter("real"));
-            Mail mail = (Mail)crud.find(mailId,Mail.class);
+            Mail mail = mailManager.getById(mailId);
             
             java.util.Date time = null;
             String timeString = request.getParameter("send_time");
@@ -239,15 +230,15 @@ public class TestAdminController extends AdminControllerBase {
         }
         
     }
-    
+
     @Path("sendMail")
     public void sendMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         Long generatedMailId = Long.parseLong(request.getParameter("generated_id"));
-        GeneratedMail generatedMail = (GeneratedMail)crud.find(generatedMailId,GeneratedMail.class);
+        GeneratedMail generatedMail = mailGenerator.getById(generatedMailId);
         mailSending.sendMail(generatedMail);
     }
-    
+
     @Path("createSeries")
     public void createSeries(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -261,16 +252,15 @@ public class TestAdminController extends AdminControllerBase {
             series.setName(name);
             series.setDisplayName(displayName);
             series.setUpdateSubscribeTime(false);
-            crud.create(series);
+            seriesManager.create(series);
         } catch (Exception e) {
             writer.println("Failed");
             throw e;
         }
         writer.println("Created");
     }
-    
+
     @Path("addSeriesItem")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void addSeriesItem(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         response.setContentType("text/plain");
@@ -281,14 +271,10 @@ public class TestAdminController extends AdminControllerBase {
             Long seriesId = Long.parseLong(request.getParameter("series_id"));
             Long mailId = Long.parseLong(request.getParameter("mail_id"));
             int sendDelay = Integer.parseInt(request.getParameter("send_delay"));
-            Series series = (Series)crud.find(seriesId, Series.class);
-            Mail mail = (Mail)crud.find(mailId, Mail.class);
             SeriesItem seriesItem = new SeriesItem();
-            seriesItem.setMail(mail);
-            seriesItem.setSeries(series);
             seriesItem.setSendDelay(sendDelay);
-            crud.create(seriesItem);
-            
+            seriesManager.createItem(seriesId,mailId,seriesItem);
+
         } catch (Exception e) {
             writer.println("Failed");
             throw e;
@@ -297,9 +283,8 @@ public class TestAdminController extends AdminControllerBase {
         writer.println("Added");
         
     }
-    
+
     @Path("addSeriesSubscription")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void addSeriesSubscription(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
         response.setContentType("text/plain");
@@ -309,14 +294,12 @@ public class TestAdminController extends AdminControllerBase {
             
             Long seriesId = Long.parseLong(request.getParameter("series_id"));
             Long userId = Long.parseLong(request.getParameter("user_id"));
-            Series series = (Series)crud.find(seriesId, Series.class);
-            User user = (User)crud.find(userId, User.class);
+
             SeriesSubscription seriesSubscription = new SeriesSubscription();
-            seriesSubscription.setSeries(series);
-            seriesSubscription.setUser(user);
             seriesSubscription.setSubscribeTime(new java.util.Date());
-            crud.create(seriesSubscription);
-            
+
+            seriesManager.createSubscription(seriesId,userId,seriesSubscription);
+
         } catch (Exception e) {
             writer.println("Failed");
             throw e;
@@ -325,7 +308,7 @@ public class TestAdminController extends AdminControllerBase {
         writer.println("Added");
         
     }
-        
+
     @Path("processSeries")
     public void processSeriesUpdated(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -335,7 +318,7 @@ public class TestAdminController extends AdminControllerBase {
         try {
 
             Long seriesId = Long.parseLong(request.getParameter("series_id"));
-            Series series = (Series)crud.find(seriesId, Series.class);
+            Series series = seriesManager.getById(seriesId);
             
             mailSeries.processSeries(series);
             
@@ -346,7 +329,7 @@ public class TestAdminController extends AdminControllerBase {
         
         writer.println("Processed");
     }
-    
+
     @Path("processAllSeries")
     public void processAllSeries(HttpServletRequest request, HttpServletResponse response) throws  IOException
     {
@@ -357,7 +340,7 @@ public class TestAdminController extends AdminControllerBase {
             
         writer.println("Process Started");
     }
-    
+
     @Path("unsubscribe")
     public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -378,7 +361,7 @@ public class TestAdminController extends AdminControllerBase {
             writer.println("Unsubscribe unsuccessful");
         }
     }
-    
+
     @Path("createCampaign")
     public void createCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -391,12 +374,13 @@ public class TestAdminController extends AdminControllerBase {
         Campaign campaign = new Campaign();
         campaign.setName(name);
         campaign.setLongName(longName);
-        crud.create(campaign);
-        
+
+        campaignManager.create(campaign);
+
         writer.println("Added, id: "+campaign.getId());
         
     }
-    
+
     @Path("addMailToCampaign")
     public void addMailToCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -405,18 +389,13 @@ public class TestAdminController extends AdminControllerBase {
         
         Long campaignId = Long.parseLong(request.getParameter("campaign_id"));
         Long mailId = Long.parseLong(request.getParameter("mail_id"));
-        
-        Campaign campaign = (Campaign)crud.find(campaignId, Campaign.class);
-        Mail mail = (Mail)crud.find(mailId, Mail.class);
-        
-        Set<Mail> mails = campaign.getMails();
-        mails.add(mail);
-        crud.edit(campaign);
+
+        campaignManager.addMail(campaignId,mailId);
 
         writer.println("Added");
         
     }
-    
+
     @Path("removeMailFromCampaign")
     public void removeMailFromCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -425,18 +404,13 @@ public class TestAdminController extends AdminControllerBase {
         
         Long campaignId = Long.parseLong(request.getParameter("campaign_id"));
         Long mailId = Long.parseLong(request.getParameter("mail_id"));
-        
-        Campaign campaign = (Campaign)crud.find(campaignId, Campaign.class);
-        Mail mail = (Mail)crud.find(mailId, Mail.class);
-        
-        Set<Mail> mails = campaign.getMails();
-        mails.remove(mail);
-        crud.edit(campaign);
+
+        campaignManager.removeMail(campaignId,mailId);
 
         writer.println("Removed");
         
     }
-    
+
     @Path("unsubscribeFromCampaign")
     public void unsubscribeFromCampaign(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -445,11 +419,9 @@ public class TestAdminController extends AdminControllerBase {
 
         try {
 
-            User user = userManager.getByEmail(request.getParameter("email"));
-            Campaign campaign = campaigns.getByName(request.getParameter("campaign_name"));
-            campaign.getUnsubscribedUsers().add(user);
-            crud.edit(campaign);
-            writer.println("Successfully unsubscribed from campaign "+campaign.getLongName()); 
+            campaignManager.unsubscribeUser(request.getParameter("campaign_name"),request.getParameter("email"));
+
+            writer.println("Successfully unsubscribed from campaign "+request.getParameter("campaign_name"));
 
         } catch(Exception e) {
             writer.println("Unsubscribe unsuccessful");

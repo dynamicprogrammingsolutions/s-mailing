@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name="generated_mails")
-public class GeneratedMail implements Serializable {
+public class GeneratedMail implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = -8180324853934395167L;
 

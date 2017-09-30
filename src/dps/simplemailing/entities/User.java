@@ -2,13 +2,7 @@ package dps.simplemailing.entities;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,7 +11,10 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name="users")
-public class User implements Serializable {
+@NamedQueries({
+        @NamedQuery(name="User.getAll",query="SELECT m FROM User m ORDER BY m.email"),
+})
+public class User implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 1608424383634986692L;
 

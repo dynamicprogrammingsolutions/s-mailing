@@ -1,23 +1,17 @@
-package dps.simplemailing.back;
+package dps.simplemailing.manage;
 
 import dps.simplemailing.entities.User;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.Query;
-import javax.transaction.Transactional;
 
-/**
- *
- * @author ferenci84
- */
 @ApplicationScoped
-public class Users {
+public class UserManager extends ManagerBase<User,Long> {
 
-    @Inject Crud crud;
-    
     public Map<String,String> getPlaceholders(User user)
     {
         Map<String,String> placeholders = new HashMap<String,String>();
@@ -26,31 +20,31 @@ public class Users {
         placeholders.put("id", user.getId().toString());
         return placeholders;
     }
-    
+
     public List<User> getActive()
     {
-        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.status = :status");
         query.setParameter("status", User.Status.subscribed);
         return query.getResultList();
     }
-    
+
     public List<User> getTest()
     {
-        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.status = :status");
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.status = :status");
         query.setParameter("status", User.Status.test);
         return query.getResultList();
     }
-    
+
     @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(User user)
     {
         user.setStatus(User.Status.unsubscribed);
-        crud.edit(user);
+        em.merge(user);
     }
-    
+
     public User getByEmail(String email)
     {
-        Query query = crud.getEntityManager().createQuery("SELECT u FROM User u WHERE u.email = :email");
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email");
         query.setParameter("email", email);
         List<User> users = query.getResultList();
         if (users.isEmpty()) return null;

@@ -1,7 +1,6 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +13,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.validation.constraints.*;
 
@@ -27,7 +25,7 @@ import javax.validation.constraints.*;
 @NamedQueries({
     @NamedQuery(name="Mail.getAll",query="SELECT m FROM Mail m ORDER BY m.name"),
 })
-public class Mail implements Serializable {
+public class Mail implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 7996282373984678899L;
 

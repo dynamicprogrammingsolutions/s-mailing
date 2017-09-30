@@ -1,10 +1,11 @@
 package dps.simplemailing.front;
 
-import dps.simplemailing.back.Campaigns;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.back.Users;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.User;
+import dps.simplemailing.manage.CampaignManager;
+import dps.simplemailing.manage.UserManager;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.enterprise.context.ApplicationScoped;
@@ -20,8 +21,11 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class UnsubscribeController {
     
-    @Inject Users userManager;
-    @Inject Campaigns campaigns;
+    @Inject
+    UserManager userManager;
+
+    @Inject
+    CampaignManager campaigns;
     
     @Inject Crud crud;
 

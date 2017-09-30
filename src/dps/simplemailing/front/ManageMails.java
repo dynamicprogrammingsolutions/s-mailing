@@ -6,11 +6,12 @@ import dps.servletcontroller.Param;
 import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.back.Mails;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
 import dps.simplemailing.front.forms.TextArea;
+import dps.simplemailing.manage.MailManager;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -33,7 +34,8 @@ public class ManageMails extends AdminControllerBase {
 
     @Inject Crud crud;
     @Inject ControllerCrud controllerCrud;
-    @Inject Mails mails;
+    @Inject
+    MailManager mails;
     
     @Filter
     @Override
