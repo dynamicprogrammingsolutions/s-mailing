@@ -30,6 +30,7 @@ public class MailResource extends ResourceBase<Mail,Long> {
         else return Response.ok(campaigns).build();
     }
 
+    /*
     @PUT
     @Path("/{id}/campaigns/{campaignId}")
     public void addMailToCampaign(@PathParam("id") Long id, @PathParam("campaignId") Long campaignId)
@@ -40,5 +41,5 @@ public class MailResource extends ResourceBase<Mail,Long> {
             throw new NotFoundException();
         }
     }
-    
+    */
 }

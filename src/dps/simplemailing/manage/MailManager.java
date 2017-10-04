@@ -7,6 +7,7 @@ import dps.simplemailing.mailqueue.MailQueue;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 import java.util.Calendar;
@@ -23,17 +24,19 @@ public class MailManager extends ManagerBase<Mail,Long> {
     @Inject
     MailQueue queue;
 
+    //TODO: fetch query
     @Transactional(TxType.REQUIRED)
     public Set<Campaign> getCampaigns(Long mailId)
     {
         Mail entity = em.find(Mail.class,mailId);
+        if (entity == null) throw new EntityNotFoundException();
         Set<Campaign> campaigns = entity.getCampaigns();
         for (Campaign campaign: campaigns) {
             campaign.getId();
         }
         return campaigns;
     }
-
+/*
     @Transactional(TxType.REQUIRED)
     public void addMailToCampaign(Long id, Long campaignId)
     {
@@ -44,7 +47,7 @@ public class MailManager extends ManagerBase<Mail,Long> {
         campaign.getMails().add(mail);
         em.merge(campaign);
     }
-
+*/
     @Transactional(Transactional.TxType.REQUIRED)
     public void scheduleMail(Mail mail, Boolean real, java.util.Date time, int msDelay)
     {

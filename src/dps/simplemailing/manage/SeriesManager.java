@@ -66,6 +66,26 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         this.createItem(series,mail,item);
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
+    public List<SeriesItem> getItems(Long seriesId)
+    {
+        Series series = this.getById(seriesId);
+        for (SeriesItem item: series.getSeriesItems()) {
+            item.getId();
+        }
+        return series.getSeriesItems();
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public List<SeriesItem> getItems(Series series)
+    {
+        em.refresh(series);
+        for (SeriesItem item: series.getSeriesItems()) {
+            item.getId();
+        }
+        return series.getSeriesItems();
+    }
+
     public Series getByName(String name)
     {
         Query query = em.createQuery("SELECT u FROM Series u WHERE u.name = :name");

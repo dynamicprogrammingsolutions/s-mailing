@@ -27,7 +27,6 @@ import javax.transaction.Transactional;
 @Path("/campaignManager(.*)")
 public class ManageCampaigns extends AdminControllerBase {
 
-    @Inject Crud crud;
     @Inject ControllerCrud controllerCrud;
 
     @Filter

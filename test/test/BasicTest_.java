@@ -34,9 +34,6 @@ public class BasicTest_ {
     @Inject
     private Greeter greeter;
 
-    @Inject
-    UserTransaction utx;
-
     @Test
     public void shouldBeAbleTo() {
         assertEquals("Hello, aliens!", greeter.createGreeting("aliens"));

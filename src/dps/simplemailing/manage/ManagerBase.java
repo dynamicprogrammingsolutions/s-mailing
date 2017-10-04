@@ -98,5 +98,10 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return em.createNamedQuery(entityClass.getSimpleName()+".getAll",entityClass).getResultList();
     }
 
+    public Long count()
+    {
+        return em.createNamedQuery(entityClass.getSimpleName()+".count",Long.class).getSingleResult();
+    }
+
 
 }

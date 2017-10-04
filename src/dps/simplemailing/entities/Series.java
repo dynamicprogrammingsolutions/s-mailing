@@ -2,12 +2,8 @@ package dps.simplemailing.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,6 +11,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="series")
+@NamedQueries({
+        @NamedQuery(name="Series.getAll",query="SELECT m FROM Series m ORDER BY m.name"),
+        @NamedQuery(name="Series.count",query="SELECT COUNT(m) FROM Series m"),
+})
 public class Series implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = -3686003889724883300L;
@@ -22,9 +22,14 @@ public class Series implements Serializable, EntityBase<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String displayName;
-    private Boolean updateSubscribeTime;
+
+    private Boolean updateSubscribeTime = false;
     
     @OneToMany(mappedBy = "series")
     private List<SeriesItem> seriesItems;

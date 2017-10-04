@@ -24,6 +24,7 @@ import javax.validation.constraints.*;
 @Table(name="mails")
 @NamedQueries({
     @NamedQuery(name="Mail.getAll",query="SELECT m FROM Mail m ORDER BY m.name"),
+    @NamedQuery(name="Mail.count",query="SELECT COUNT(m) FROM Mail m"),
 })
 public class Mail implements Serializable, EntityBase<Long> {
 

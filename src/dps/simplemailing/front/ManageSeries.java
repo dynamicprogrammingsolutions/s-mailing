@@ -28,7 +28,6 @@ import javax.transaction.Transactional;
 @Path("/series(.*)")
 public class ManageSeries extends AdminControllerBase {
 
-    @Inject Crud crud;
     @Inject ControllerCrud controllerCrud;
 
     @Filter

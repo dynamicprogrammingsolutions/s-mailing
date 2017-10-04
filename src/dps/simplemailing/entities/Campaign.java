@@ -3,11 +3,8 @@ package dps.simplemailing.entities;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -15,6 +12,10 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author ferenci84
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name="Campaign.getAll",query="SELECT m FROM Campaign m ORDER BY m.name"),
+    @NamedQuery(name="Campaign.count",query="SELECT COUNT(m) FROM Campaign m"),
+})
 public class Campaign implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 245322185179652275L;
@@ -22,7 +23,11 @@ public class Campaign implements Serializable, EntityBase<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String longName;
     
     @XmlTransient

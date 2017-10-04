@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="users")
 @NamedQueries({
         @NamedQuery(name="User.getAll",query="SELECT m FROM User m ORDER BY m.email"),
+        @NamedQuery(name="User.count",query="SELECT COUNT(m) FROM User m"),
 })
 public class User implements Serializable, EntityBase<Long> {
 
@@ -21,8 +22,11 @@ public class User implements Serializable, EntityBase<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String email;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
     
     

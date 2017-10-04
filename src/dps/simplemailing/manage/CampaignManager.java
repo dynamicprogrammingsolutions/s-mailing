@@ -6,6 +6,7 @@ import dps.simplemailing.entities.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -18,6 +19,19 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
     MailManager mailManager;
 
     @Inject UserManager userManager;
+
+    //TODO: Fetch query
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Set<Mail> getMails(Long campaignId)
+    {
+        Campaign entity = em.find(Campaign.class,campaignId);
+        if (entity == null) throw new EntityNotFoundException();
+        Set<Mail> mails = entity.getMails();
+        for (Mail mail: mails) {
+            mail.getId();
+        }
+        return mails;
+    }
 
     public Campaign getByName(String name)
     {
@@ -54,7 +68,30 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
         User user = userManager.getByEmail(userEmail);
         Campaign campaign = this.getByName(campaignName);
         campaign.getUnsubscribedUsers().add(user);
-        this.modify(campaign.getId(),campaign);
+        em.merge(campaign);
+        //this.modify(campaign.getId(),campaign);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void unsubscribeUser(Long campaignId, Long userId)
+    {
+        User user = userManager.getById(userId);
+        Campaign campaign = this.getById(campaignId);
+        campaign.getUnsubscribedUsers().add(user);
+        em.merge(campaign);
+        //this.modify(campaign.getId(),campaign);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Set<User> getUnsubscribedUsers(Long campaignId)
+    {
+        Campaign campaign = this.getById(campaignId);
+        Set<User> users = campaign.getUnsubscribedUsers();
+        for (User user: users)
+        {
+            user.getId();
+        }
+        return users;
     }
 
 }
