@@ -53,6 +53,9 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
     @Inject
     MailManager mailManager;
 
+    @Inject
+    SeriesSubscriptionManager seriesSubscriptionManager;
+
     @Override
     protected ManagerBase<Series,Long> getManager() {
         return manager;
@@ -101,6 +104,7 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
         subscription.setSubscribeTime(new Date());
         manager.createSubscription(id,userId,subscription);
 
+        System.out.println("getting subscription");
         subscription = manager.getSubscription(user,series);
         assertNotNull(subscription);
 
@@ -139,6 +143,30 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
 
         mailManagerTest.removeTestData(mailId);
         assertEquals(mailCnt,mailManager.count());
+    }
+
+    @Test
+    public void testCreateSeriesMail()
+    {
+        Series series = this.createTestData();
+        Mail mail = mailManagerTest.createTestData();
+        SeriesItem seriesItem = new SeriesItem();
+        seriesItem.setSendDelay(0);
+        manager.createItem(series.getId(),mail.getId(),seriesItem);
+        SeriesSubscription subscription = new SeriesSubscription();
+        subscription.setSubscribeTime(new Date());
+        User user = userManagerTest.createTestData();
+        manager.createSubscription(series,user,subscription);
+
+        SeriesMail seriesMail = manager.getSeriesMail(subscription,seriesItem);
+        assertTrue(seriesMail == null);
+        manager.createSeriesMail(subscription,seriesItem);
+        seriesMail = manager.getSeriesMail(subscription,seriesItem);
+        assertNotNull(seriesMail);
+
+        manager.remove(series);
+        mailManager.remove(mail);
+        userManager.remove(user);
     }
 
 }

@@ -7,33 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/ferenci84.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_jpamodelgen_5_2_11_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/Campaign_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/GeneratedMail_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/Mail_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/QueuedMail_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/SeriesItem_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/SeriesMail_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/SeriesSubscription_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/Series_.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/User_.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesSubscriptionManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" afterPath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/entities/Campaign.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/entities/Campaign.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generated/dps/simplemailing/entities/Series_.java" afterPath="$PROJECT_DIR$/generated/dps/simplemailing/entities/Series_.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesItem.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/entities/User.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/entities/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/front/UnsubscribeServlet.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/front/UnsubscribeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/manage/CampaignManager.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/CampaignManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/manage/MailManager.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/MailManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/manage/ManagerBase.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/ManagerBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/manage/UserManager.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/manage/UserManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dps/simplemailing/resources/MailResource.java" afterPath="$PROJECT_DIR$/src/dps/simplemailing/resources/MailResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java" afterPath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/MailManagerTest.java" afterPath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/MailManagerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java" afterPath="$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -62,6 +42,12 @@
         <item name="simple_mailing@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="simple_mailing" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="simple_mailing@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="simple_mailing" type="e3449647:DbNodeDescriptor" />
+        <item name="series_mails" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
@@ -69,114 +55,7 @@
     <favorites_list name="S-Mailing-1.0-idea" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SeriesManagerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="130" column="92" lean-forward="false" selection-start-line="130" selection-start-column="92" selection-end-line="130" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MailManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/MailManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampaignManagerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="140" column="89" lean-forward="false" selection-start-line="140" selection-start-column="89" selection-end-line="140" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeriesManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="849">
-              <caret line="79" column="60" lean-forward="false" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Series.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MailManagerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/MailManagerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1103">
-              <caret line="106" column="59" lean-forward="false" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampaignManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/CampaignManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/ManagerBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5456#5457#0" expanded="true" />
-                <element signature="e#5547#5548#0" expanded="true" />
-                <element signature="e#5578#5579#0" expanded="true" />
-                <element signature="e#5669#5670#0" expanded="true" />
-                <element signature="e#5720#5721#0" expanded="true" />
-                <element signature="e#5779#5780#0" expanded="true" />
-                <marker date="1507200638634" expanded="false" signature="748:763" ph=" { " />
-                <marker date="1507200638634" expanded="false" signature="773:779" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Campaign_.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generated/dps/simplemailing/entities/Campaign_.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -234,9 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dps/simplemailing/resources/UserResource.java" />
-        <option value="$PROJECT_DIR$/web/scripts/testMailResource.js" />
-        <option value="$PROJECT_DIR$/web/testServices.html" />
         <option value="$PROJECT_DIR$/web/scripts/ManagerBase.js" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/EntityId.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/EntityBase.java" />
@@ -273,7 +149,6 @@
         <option value="$PROJECT_DIR$/test/dps/simplemailing/manager/test/UserManagerTest.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/Mail.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/Campaign.java" />
-        <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/User.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/UserManager.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/resources/MailResource.java" />
@@ -282,9 +157,13 @@
         <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/ManagerBase.java" />
         <option value="$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
         <option value="$PROJECT_DIR$/test/dps/simplemailing/manager/test/MailManagerTest.java" />
-        <option value="$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java" />
+        <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesMailManager.java" />
+        <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesSubscriptionManager.java" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java" />
+        <option value="$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java" />
+        <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java" />
+        <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesItem.java" />
+        <option value="$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
       </list>
     </option>
   </component>
@@ -411,13 +290,36 @@
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
               <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
               <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dps" type="462c0819:PsiDirectoryNode" />
+              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dps" type="462c0819:PsiDirectoryNode" />
+              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dps" type="462c0819:PsiDirectoryNode" />
+              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -465,6 +367,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
+              <item name="test" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches">
         <subPane>
           <expand>
@@ -480,22 +398,6 @@
             <path>
               <item name="" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
               <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -781,6 +683,56 @@
       <dir value="$PROJECT_DIR$/test" />
       <patterns />
     </configuration>
+    <configuration name="WildFly Remote: SeriesManagerTest" type="ArquillianJUnit" factoryName="" temporary="true" nameIsGenerated="true">
+      <module name="S-Mailing-1.0-idea" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="WildFly Remote" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dps.simplemailing.manager.test" />
+      <option name="MAIN_CLASS_NAME" value="dps.simplemailing.manager.test.SeriesManagerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <dir value="$PROJECT_DIR$/test" />
+      <patterns />
+    </configuration>
+    <configuration name="WildFly Remote: SeriesManagerTest.testCreateSeriesMail" type="ArquillianJUnit" factoryName="" temporary="true" nameIsGenerated="true">
+      <module name="S-Mailing-1.0-idea" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="WildFly Remote" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dps.simplemailing.manager.test" />
+      <option name="MAIN_CLASS_NAME" value="dps.simplemailing.manager.test.SeriesManagerTest" />
+      <option name="METHOD_NAME" value="testCreateSeriesMail" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <dir value="$PROJECT_DIR$/test" />
+      <patterns />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -876,6 +828,13 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -885,18 +844,22 @@
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <list size="6">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Arquillian JUnit.Test Remote" />
       <item index="1" class="java.lang.String" itemvalue="Arquillian JUnit.Test Weld Embedded" />
       <item index="2" class="java.lang.String" itemvalue="JBoss Server.Run Local" />
       <item index="3" class="java.lang.String" itemvalue="JBoss Server.Run Remote" />
       <item index="4" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest.unsibscribeUserFromCampaign" />
       <item index="5" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest" />
+      <item index="6" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: SeriesManagerTest" />
+      <item index="7" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: SeriesManagerTest.testCreateSeriesMail" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest.unsibscribeUserFromCampaign" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest.unsibscribeUserFromCampaign" />
+        <item index="1" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: SeriesManagerTest.testCreateSeriesMail" />
+        <item index="2" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: SeriesManagerTest" />
+        <item index="3" class="java.lang.String" itemvalue="Arquillian JUnit.WildFly Remote: CampaignManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -920,7 +883,8 @@
       <workItem from="1506614986583" duration="906000" />
       <workItem from="1506615912784" duration="879000" />
       <workItem from="1506617612745" duration="60452000" />
-      <workItem from="1507126578645" duration="13315000" />
+      <workItem from="1507126578645" duration="18750000" />
+      <workItem from="1507207691235" duration="775000" />
     </task>
     <task id="LOCAL-00001" summary="Removing all">
       <created>1506444291358</created>
@@ -943,43 +907,50 @@
       <option name="project" value="LOCAL" />
       <updated>1507127860409</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="explicit eager fetch in manager">
+      <created>1507202262048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1507202262048</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 02m 29s.xml">
+    <history-entry file="Test_Remote - 2017.10.05 at 14h 54m 51s.xml">
       <configuration name="Test Remote" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 03m 57s.xml">
+    <history-entry file="Test_Remote - 2017.10.05 at 14h 55m 21s.xml">
       <configuration name="Test Remote" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 13m 35s.xml">
+    <history-entry file="Test_Remote - 2017.10.05 at 14h 56m 51s.xml">
       <configuration name="Test Remote" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 16m 01s.xml">
+    <history-entry file="Test_Remote - 2017.10.05 at 14h 59m 06s.xml">
       <configuration name="Test Remote" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 17m 36s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest - 2017.10.05 at 14h 28m 19s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 35m 00s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest - 2017.10.05 at 14h 31m 31s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 41m 37s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest_testCreateSeriesMail - 2017.10.05 at 14h 34m 16s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest.testCreateSeriesMail" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 43m 25s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest_testCreateSeriesMail - 2017.10.05 at 14h 35m 51s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest.testCreateSeriesMail" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 12h 53m 23s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest_testCreateSeriesMail - 2017.10.05 at 14h 37m 12s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest.testCreateSeriesMail" configurationId="ArquillianJUnit" />
     </history-entry>
-    <history-entry file="Test_Remote - 2017.10.05 at 13h 06m 21s.xml">
-      <configuration name="Test Remote" configurationId="ArquillianJUnit" />
+    <history-entry file="WildFly_Remote__SeriesManagerTest_testCreateSeriesMail - 2017.10.05 at 14h 44m 45s.xml">
+      <configuration name="WildFly Remote: SeriesManagerTest.testCreateSeriesMail" configurationId="ArquillianJUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93392000" />
+    <option name="totallyTimeSpent" value="99602000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -991,32 +962,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-3" width="1608" height="876" extended-state="6" />
+    <frame x="800" y="0" width="1608" height="876" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31917632" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32625994" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18741977" sideWeight="0.4469496" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24668436" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17394096" sideWeight="0.4827586" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16238767" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17394096" sideWeight="0.51724136" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.18741977" sideWeight="0.4469496" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16174583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1675" sideWeight="0.45302445" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.24967907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31917632" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32625994" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34615386" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1720154" sideWeight="0.458" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1720154" sideWeight="0.542" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.18741977" sideWeight="0.4469496" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33687" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18741977" sideWeight="0.4469496" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1026,6 +996,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="792" y="358" width="505" height="284" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33421752" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1064,7 +1035,8 @@
     <MESSAGE value="Removing all" />
     <MESSAGE value="Managers, Tested TestAdminController" />
     <MESSAGE value="All test for managers" />
-    <option name="LAST_COMMIT_MESSAGE" value="All test for managers" />
+    <MESSAGE value="explicit eager fetch in manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="explicit eager fetch in manager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1077,32 +1049,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/front/AdminControllerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/mailqueue/MailGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#639#640#0" expanded="false" />
-            <element signature="e#693#694#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/GeneratedMailManager.java" />
     <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/resources/CampaignResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,9 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,9 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1168,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,9 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-951">
           <caret line="45" column="56" lean-forward="true" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,55 +1136,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_subscriptions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign_mails">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign_users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.generated_mails">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.mail_queue">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/ManagerTestBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1254,41 +1148,6 @@
         <state relative-caret-position="286">
           <caret line="275" column="31" lean-forward="false" selection-start-line="275" selection-start-column="31" selection-end-line="275" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_items">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_mails">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.mails">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1312,7 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,14 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="17" column="97" lean-forward="false" selection-start-line="17" selection-start-column="97" selection-end-line="17" selection-end-column="97" />
           <folding />
         </state>
       </provider>
@@ -1344,7 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1352,7 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1360,7 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1368,7 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1384,7 +1229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,6 +1236,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/UserManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="140" column="89" lean-forward="false" selection-start-line="140" selection-start-column="89" selection-end-line="140" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/CampaignManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/MailManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1400,8 +1277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/ManagerBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+        <state relative-caret-position="155">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5456#5457#0" expanded="true" />
@@ -1416,24 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/CampaignManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/UserManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/MailManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1103">
@@ -1442,52 +1301,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java">
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesSubscriptionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="79" column="60" lean-forward="false" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/CampaignManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="140" column="89" lean-forward="false" selection-start-line="140" selection-start-column="89" selection-end-line="140" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/MailManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign_users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.Campaign_mails">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_subscriptions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.mails">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_items">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.mail_queue">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.generated_mails">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c796bca8/ea17035e-f8a3-45ef-8bec-c3568c335d7e/simple_mailing.series_mails">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="30" column="69" lean-forward="false" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesMail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/SeriesSubscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="36" column="77" lean-forward="false" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/Series.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/dps/simplemailing/manager/test/SeriesManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="130" column="92" lean-forward="false" selection-start-line="130" selection-start-column="92" selection-end-line="130" selection-end-column="92" />
+        <state relative-caret-position="435">
+          <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dps/simplemailing/manage/SeriesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="157" column="22" lean-forward="false" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
           <folding />
         </state>
       </provider>

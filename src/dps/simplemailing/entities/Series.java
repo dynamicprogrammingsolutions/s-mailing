@@ -2,6 +2,7 @@ package dps.simplemailing.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -32,11 +33,12 @@ public class Series implements Serializable, EntityBase<Long> {
 
     private Boolean updateSubscribeTime = false;
     
-    @OneToMany(mappedBy = "series")
+    @OneToMany(mappedBy = "series",cascade = {CascadeType.REMOVE})
     private List<SeriesItem> seriesItems;
     
-    @OneToMany(mappedBy = "series")
-    private List<SeriesSubscription> seriesSubscriptions;
+    @OneToMany(mappedBy = "series",cascade = {CascadeType.REMOVE})
+    @MapKeyJoinColumn(name="user_id")
+    private Map<User,SeriesSubscription> seriesSubscriptions;
     
     public Long getId() {
         return id;
@@ -74,7 +76,7 @@ public class Series implements Serializable, EntityBase<Long> {
         return seriesItems;
     }
 
-    public List<SeriesSubscription> getSeriesSubscriptions() {
+    public Map<User,SeriesSubscription> getSeriesSubscriptions() {
         return seriesSubscriptions;
     }
 

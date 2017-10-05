@@ -9,10 +9,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @ApplicationScoped
 public class SeriesManager extends ManagerBase<Series,Long> {
@@ -27,27 +24,27 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     UserManager userManager;
 
     @Inject
+    SeriesSubscriptionManager subscriptionManager;
+
+    @Inject
     MailQueue mailQueue;
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void createSubscription(Series series, User user, SeriesSubscription seriesSubscription)
-    {
+    public void createSubscription(Series series, User user, SeriesSubscription seriesSubscription) {
         seriesSubscription.setSeries(series);
         seriesSubscription.setUser(user);
         em.persist(seriesSubscription);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void createSubscription(Long seriesId, Long userId, SeriesSubscription seriesSubscription)
-    {
+    public void createSubscription(Long seriesId, Long userId, SeriesSubscription seriesSubscription) {
         Series series = this.getById(seriesId);
         User user = userManager.getById(userId);
         this.createSubscription(series, user, seriesSubscription);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void createItem(Series series, Mail mail, SeriesItem item)
-    {
+    public void createItem(Series series, Mail mail, SeriesItem item) {
         item.setMail(mail);
         item.setSeries(series);
 
@@ -60,16 +57,14 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void createItem(Long seriesId, Long mailId, SeriesItem item)
-    {
+    public void createItem(Long seriesId, Long mailId, SeriesItem item) {
         Series series = this.getById(seriesId);
         Mail mail = mailManager.getById(mailId);
-        this.createItem(series,mail,item);
+        this.createItem(series, mail, item);
     }
 
-    public Series getByName(String name)
-    {
-        TypedQuery<Series> query = em.createNamedQuery(queryName("getByName"),entityClass);
+    public Series getByName(String name) {
+        TypedQuery<Series> query = em.createNamedQuery(queryName("getByName"), entityClass);
         query.setParameter("name", name);
         List<Series> series = query.getResultList();
         if (series.isEmpty()) return null;
@@ -77,30 +72,29 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public SeriesSubscription getSubscription(User user, Series series)
-    {
+    public SeriesSubscription getSubscription(User user, Series series) {
+        return this.reload(series, Series_.seriesSubscriptions).getSeriesSubscriptions().get(user);
+        /*
         Query query = em.createNamedQuery("SeriesSubscription.getSubscription");
         query.setParameter("user", user);
         query.setParameter("series", series);
         List<SeriesSubscription> subscriptions = query.getResultList();
         if (subscriptions.isEmpty()) return null;
         else return subscriptions.get(0);
-
+        */
     }
 
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
-    public void processAllSeries()
-    {
+    public void processAllSeries() {
         List<Series> allSeries = this.getAll();
         if (allSeries.isEmpty()) return;
-        for (Series series: allSeries) {
+        for (Series series : allSeries) {
             mailSeries.processSeries(series);
         }
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void processSeries(Series series)
-    {
+    public void processSeries(Series series) {
         Calendar cal = Calendar.getInstance();
 
         cal.setTime(new Date());
@@ -113,9 +107,9 @@ public class SeriesManager extends ManagerBase<Series,Long> {
 
         series = em.merge(series);
 
-        for(SeriesSubscription subscription: series.getSeriesSubscriptions()) {
+        for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
             if (subscription.getUser().getStatus() != User.Status.subscribed) continue;
-            for(SeriesItem item: series.getSeriesItems()) {
+            for (SeriesItem item : series.getSeriesItems()) {
                 //System.out.println("processing item "+item.getId()+" on subscription "+subscription.getId());
 
                 cal.setTime(subscription.getSubscribeTime());
@@ -133,7 +127,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
                         em.merge(seriesMail);
                     }
                     if (seriesMail.getStatus() == SeriesMail.Status.unsent) {
-                        System.out.println("Queuing mail series: "+seriesMail);
+                        System.out.println("Queuing mail series: " + seriesMail);
                         mailQueue.createQueuedMail(seriesMail.getSeriesSubscription().getUser(), seriesMail.getSeriesItem().getMail(), sendTime);
                         seriesMail.setStatus(SeriesMail.Status.sent);
                         em.merge(seriesMail);
@@ -143,4 +137,27 @@ public class SeriesManager extends ManagerBase<Series,Long> {
             }
         }
     }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void createSeriesMail(SeriesSubscription subscription, SeriesItem item)
+    {
+        SeriesMail seriesMail = new SeriesMail();
+        seriesMail.setSeriesItem(item);
+        seriesMail.setSeriesSubscription(subscription);
+        seriesMail.setStatus(SeriesMail.Status.unsent);
+        em.persist(seriesMail);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void removeSeriesMail(SeriesSubscription subscription, SeriesItem item)
+    {
+        SeriesMail seriesMail = getSeriesMail(subscription,item);
+        if (seriesMail != null) em.remove(seriesMail);
+    }
+
+    public SeriesMail getSeriesMail(SeriesSubscription subscription, SeriesItem item)
+    {
+        return subscriptionManager.reload(subscription,SeriesSubscription_.seriesMails).getSeriesMails().get(item);
+    }
+
 }

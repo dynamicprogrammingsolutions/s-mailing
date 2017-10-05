@@ -34,8 +34,8 @@ public class SeriesSubscription implements Serializable, EntityBase<Long> {
     @Lob
     private String extraData;
 
-    @OneToMany(mappedBy = "seriesSubscription")
-    @MapKey(name="seriesItem")
+    @OneToMany(mappedBy = "seriesSubscription",cascade = {CascadeType.REMOVE})
+    @MapKeyJoinColumn(name="seriesItem_id")
     private Map<SeriesItem,SeriesMail> seriesMails;
     
     public Long getId() {

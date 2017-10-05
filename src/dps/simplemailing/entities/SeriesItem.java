@@ -2,14 +2,7 @@ package dps.simplemailing.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -35,7 +28,7 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
     
     private int sendDelay;
     
-    @OneToMany(mappedBy = "seriesItem")
+    @OneToMany(mappedBy = "seriesItem",cascade = {CascadeType.REMOVE})
     private List<SeriesMail> seriesMails;
 
     public Long getId() {
