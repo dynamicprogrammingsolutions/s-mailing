@@ -18,16 +18,6 @@ import java.util.Set;
 @SuppressWarnings("unchecked")
 public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends UseEntityManager {
 
-    /*
-    @PersistenceContext(unitName = "SimpleMailingPU")
-    protected EntityManager em;
-
-    public EntityManager getEM()
-    {
-        return em;
-    }
-    */
-
     protected Class<EntityType> entityClass;
 
     @Inject
@@ -48,11 +38,8 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         em.persist(entity);
     }
 
-
-    @SuppressWarnings("unchecked")
     private EntityGraph<EntityType> getEntityGraph(Attribute<EntityType, ?>... attributes)
     {
-        //TODO: cache for entityGraph
         EntityGraph<EntityType> entityGraph = em.createEntityGraph(entityClass);
         for (Attribute<EntityType,?> attr: attributes) {
             entityGraph.addAttributeNodes(attr);
@@ -62,7 +49,6 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
 
     private EntityGraph<EntityType> getEntityGraph(String... attributes)
     {
-        //TODO: cache for entityGraph
         EntityGraph<EntityType> entityGraph = em.createEntityGraph(entityClass);
         for (String attr: attributes) {
             entityGraph.addAttributeNodes(attr);
@@ -77,8 +63,6 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return props;
     }
 
-
-    @SuppressWarnings("unchecked")
     private Map<String,Object> getLoadGraph(Attribute<EntityType, ?>... attributes)
     {
         Map<String,Object> props = new HashMap<>();

@@ -3,6 +3,8 @@ package dps.simplemailing.manage;
 import dps.simplemailing.entities.User;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.HashMap;
@@ -42,14 +44,17 @@ public class UserManager extends ManagerBase<User,Long> {
         em.merge(user);
     }
 
-    //TODO: Not Found Error
     public User getByEmail(String email)
     {
         TypedQuery<User> query = em.createNamedQuery("User.getByEmail",User.class);
         query.setParameter("email", email);
-        List<User> users = query.getResultList();
-        if (users.isEmpty()) return null;
-        else return users.get(0);
+        User entity = null;
+        try {
+            entity = query.getSingleResult();
+        } catch (NoResultException e) {
+            throw new EntityNotFoundException();
+        }
+        return entity;
     }
 
 }

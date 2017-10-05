@@ -96,7 +96,6 @@ public class User implements Serializable, EntityBase<Long> {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof User)) {
             return false;
         }
