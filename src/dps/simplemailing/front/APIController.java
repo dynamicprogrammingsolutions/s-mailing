@@ -84,7 +84,7 @@ public class APIController extends Controller {
             User user = users.getByEmail(request.getParameter("email"));
             Series series = mailSeries.getByName(request.getParameter("series_name"));
             
-            java.util.Date time = null;
+            java.util.Date time;
             String timeString = request.getParameter("subscribe_time");
             if (timeString != null) {
                 SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -148,7 +148,7 @@ public class APIController extends Controller {
             if (seriesSubscription != null) {
                 
                 Map<String, String[]> parameterMap = request.getParameterMap();
-                HashMap<String, String> extraData = new HashMap<String,String>();
+                HashMap<String, String> extraData = new HashMap<>();
                 for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
                     String key = entry.getKey();
                     String[] values = entry.getValue();
@@ -186,8 +186,8 @@ public class APIController extends Controller {
 
             for(String email: emails) {
                 User user = users.getByEmail(email);
-                System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
                 if (user != null && user.getStatus() != User.Status.test) {
+                    System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.bounced);
                     crud.edit(user);
                 }
@@ -214,8 +214,8 @@ public class APIController extends Controller {
 
             for(String email: emails) {
                 User user = users.getByEmail(email);
-                System.out.println("complained user: "+user.getId()+" "+user.getEmail());
                 if (user != null && user.getStatus() != User.Status.test) {
+                    System.out.println("complained user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.unsubscribed);
                     crud.edit(user);
                 }
@@ -234,7 +234,7 @@ public class APIController extends Controller {
             JsonObject bounce = (JsonObject)messageObject.get("bounce");
             JsonArray bouncedRecipients = (JsonArray)bounce.get("bouncedRecipients");
 
-            List<String> emails = new LinkedList();
+            List<String> emails = new LinkedList<>();
 
             for (JsonValue bouncedRecipientJsonValue: bouncedRecipients) {
                 JsonObject bouncedRecipient = (JsonObject)bouncedRecipientJsonValue;
@@ -259,7 +259,7 @@ public class APIController extends Controller {
             JsonObject bounce = (JsonObject)messageObject.get("complaint");
             JsonArray bouncedRecipients = (JsonArray)bounce.get("complainedRecipients");
 
-            List<String> emails = new LinkedList();
+            List<String> emails = new LinkedList<>();
 
             for (JsonValue bouncedRecipientJsonValue: bouncedRecipients) {
                 JsonObject bouncedRecipient = (JsonObject)bouncedRecipientJsonValue;

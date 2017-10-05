@@ -1,12 +1,9 @@
 package test;
 
-import dps.simplemailing.back.Crud;
-import dps.simplemailing.entities.User;
-import java.util.List;
 import static org.junit.Assert.*;
 
 import javax.inject.Inject;
-import javax.transaction.UserTransaction;
+
 import org.arquillian.wildfly.example.Greeter;
 
 import org.jboss.arquillian.container.test.api.Deployment;

@@ -232,8 +232,7 @@ public class TestAdminController extends AdminControllerBase {
     }
 
     @Path("sendMail")
-    public void sendMail(HttpServletRequest request, HttpServletResponse response) throws  IOException
-    {
+    public void sendMail(HttpServletRequest request, HttpServletResponse response) {
         Long generatedMailId = Long.parseLong(request.getParameter("generated_id"));
         GeneratedMail generatedMail = mailGenerator.getById(generatedMailId);
         mailSending.sendMail(generatedMail);

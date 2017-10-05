@@ -31,7 +31,7 @@ public class AdminServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         
         String pathInfo = request.getPathInfo();
         if (router.process(AdminController.class, pathInfo, request, response)) return;

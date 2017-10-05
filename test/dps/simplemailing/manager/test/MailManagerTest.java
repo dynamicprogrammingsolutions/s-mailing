@@ -9,7 +9,6 @@ import dps.simplemailing.entities.Mail;
 import static org.junit.Assert.*;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import dps.simplemailing.manage.ManagerBase;
@@ -21,7 +20,6 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.List;
 import java.util.Set;
 
 @RunWith(Arquillian.class)
@@ -85,6 +83,7 @@ public class MailManagerTest extends ManagerTestBase<Mail> {
         assertEquals(mail.getName(), "Test Mail 1 modified");
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void testGetCampaigns()
     {

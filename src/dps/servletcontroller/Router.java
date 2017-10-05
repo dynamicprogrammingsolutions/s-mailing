@@ -1,6 +1,5 @@
 package dps.servletcontroller;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -10,33 +9,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author ferenci84
- * @param <T>
  */
 @Dependent
 public class Router {
     @Inject Instance<ControllerBase> controllers;
 
-    public Boolean process(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    public Boolean process(String path, HttpServletRequest request, HttpServletResponse response) {
         for(ControllerBase controller: controllers) {
             if (processController(controller,path,request,response)) return true;
         }
         return false;
     }
     
-    public Boolean process(Class<? extends ControllerBase> controllerClass, String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    public Boolean process(Class<? extends ControllerBase> controllerClass, String path, HttpServletRequest request, HttpServletResponse response) {
         for(ControllerBase controller: controllers) {
             if (controllerClass.isInstance(controller)) {
                 if (processController(controller,path,request,response)) return true;
@@ -45,14 +39,13 @@ public class Router {
         return false;
     }
     
-    public Boolean processController(ControllerBase controller, String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    public Boolean processController(ControllerBase controller, String path, HttpServletRequest request, HttpServletResponse response) {
         //System.out.println("process controller");
         if (path == null) path = "";
 
-        Class<?> contollerClass = controller.getClass().getSuperclass();;
+        Class<?> controllerClass = controller.getClass().getSuperclass();
         //System.out.println("class: "+contollerClass.getName());
-        Path pathAnnotation = contollerClass.getAnnotation(Path.class);
+        Path pathAnnotation = controllerClass.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
         //System.out.println("path annotation "+path+" "+pathAnnotation.value());
         
@@ -64,7 +57,7 @@ public class Router {
         String nextPath;
         nextPath = controllerMatches.group(pathGroup);
 
-        Method[] methods = contollerClass.getMethods();
+        Method[] methods = controllerClass.getMethods();
         
         Method filterMethod = null;
         
@@ -83,8 +76,7 @@ public class Router {
         return false;
     }
     
-    public Boolean processAction(ControllerBase controller, Method method, Method filterMethod, String path, Matcher controllerMatches, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    public Boolean processAction(ControllerBase controller, Method method, Method filterMethod, String path, Matcher controllerMatches, HttpServletRequest request, HttpServletResponse response) {
         Path pathAnnotation = method.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
         
@@ -240,7 +232,7 @@ public class Router {
     }
     
     static Set<String> getGroupNames(String regex) {
-        Set<String> namedGroups = new TreeSet<String>();
+        Set<String> namedGroups = new TreeSet<>();
 
         Matcher m = namedGroupPattern.matcher(regex);
 

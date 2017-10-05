@@ -6,7 +6,6 @@ import java.lang.reflect.Parameter;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 
 /**
@@ -31,11 +30,7 @@ public class ProcessForm {
                     if (parameters.length != 1) break;
                     try {
                         method.invoke(entityObject, convertParam(parameters[0],value));
-                    } catch (IllegalAccessException ex) {
-                        Logger.getLogger(ProcessForm.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IllegalArgumentException ex) {
-                        Logger.getLogger(ProcessForm.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (InvocationTargetException ex) {
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                         Logger.getLogger(ProcessForm.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -50,8 +45,7 @@ public class ProcessForm {
         if (type.equals(Integer.class)) return Integer.parseInt(value);
         if (type.equals(Long.class)) return Long.parseLong(value);
         if (type.equals(Boolean.class)) {
-            if (value.equals("on")) return true;
-            return Boolean.parseBoolean(value);
+            return value.equals("on") || Boolean.parseBoolean(value);
         }
         return null;
     }

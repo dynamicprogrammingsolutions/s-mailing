@@ -5,7 +5,6 @@ import dps.servletcontroller.Filter;
 import dps.servletcontroller.Param;
 import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
-import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.Series;
 import dps.simplemailing.front.forms.CheckBox;
 import dps.simplemailing.front.forms.Form;
@@ -46,7 +45,7 @@ public class ManageSeries extends AdminControllerBase {
 
     }
     
-    @Path("")
+    @Path()
     public String index(HttpServletRequest request)
     {
         return this.list(request,0);

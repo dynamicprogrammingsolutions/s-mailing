@@ -22,13 +22,13 @@ public class TimingProcessQueue {
     @Inject
     SeriesManager mailSeries;
     
-    @Schedule(hour = "*", minute = "*", second = "0", persistent = false)
+    @Schedule(hour = "*", minute = "*", persistent = false)
     public void processQueue() {
         //System.out.println("Timer event: " + new Date());
         mailQueue.processQueue();
     }
     
-    @Schedule(hour = "*", minute = "0", second = "0", persistent = false)
+    @Schedule(hour = "*", persistent = false)
     public void processAllSeries() {
         //System.out.println("Timer event: " + new Date());
         mailSeries.processAllSeries();

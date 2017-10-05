@@ -1,13 +1,11 @@
 package dps.simplemailing.manager.test;
 
 import dps.simplemailing.entities.EntityBase;
-import dps.simplemailing.entities.Mail;
 import dps.simplemailing.manage.ManagerBase;
 import dps.reflect.ReflectHelper;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.metamodel.Attribute;
 import java.util.ArrayList;
@@ -28,6 +26,7 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
     abstract protected void setModifiedData(EntityType mail);
     abstract protected void assertModifiedData(EntityType mail);
 
+    @SuppressWarnings("unchecked")
     public EntityType getTestData() {
         EntityType entity = (EntityType)ReflectHelper.newInstance(ReflectHelper.getTypeParameter(this.getClass(),0));
         return getTestData(entity);

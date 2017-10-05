@@ -54,7 +54,7 @@ public class ManageMails extends AdminControllerBase {
 
     }
     
-    @Path("")
+    @Path()
     public String index(HttpServletRequest request)
     {
         return this.list(request,0);
@@ -104,7 +104,7 @@ public class ManageMails extends AdminControllerBase {
     @Transactional(Transactional.TxType.REQUIRED)
     public String scheduleMail(HttpServletRequest request, @RequestParam("id") Long id)
     {
-        Mail mail = (Mail)crud.find(id,Mail.class);
+        Mail mail = crud.find(id,Mail.class);
         if (mail == null) {
             sessionBean.addError("Couldn't find mail with id "+id);
             return "redirect:"+requestBean.getRoot()+"list";

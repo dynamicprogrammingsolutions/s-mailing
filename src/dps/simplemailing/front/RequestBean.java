@@ -1,8 +1,5 @@
 package dps.simplemailing.front;
 
-import java.util.LinkedList;
-import java.util.List;
-import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
 
 /**

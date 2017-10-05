@@ -1,7 +1,6 @@
 package dps.simplemailing.manager.test;
 
 import dps.simplemailing.entities.User;
-import dps.simplemailing.entities.User;
 import dps.simplemailing.manage.ManagerBase;
 import dps.simplemailing.manage.UserManager;
 import org.jboss.arquillian.container.test.api.Deployment;

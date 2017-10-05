@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
  *
  * @author ferenci84
  */
+@SuppressWarnings("unchecked")
 public abstract class Crud {
 
     protected abstract EntityManager getEntityManager();

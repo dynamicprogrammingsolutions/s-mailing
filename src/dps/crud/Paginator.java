@@ -1,8 +1,6 @@
 package dps.crud;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -44,7 +42,7 @@ public class Paginator {
     
     public Map<Integer,String> getAllLinks()
     {
-        Map<Integer,String> links = new LinkedHashMap<Integer,String>();
+        Map<Integer,String> links = new LinkedHashMap<>();
         int pages = getPages();
         for(int i = 0; i < pages; i++) {
             links.put(i+1,prefix+i);

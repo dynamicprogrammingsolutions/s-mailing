@@ -1,20 +1,16 @@
 package dps.simplemailing.front;
 
 import dps.crud.Paginator;
-import dps.servletcontroller.Param;
 import dps.servletcontroller.RequestParam;
 import dps.simplemailing.back.Crud;
-import dps.simplemailing.entities.Mail;
 import dps.simplemailing.front.forms.ProcessForm;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
 
 /**
  *

@@ -5,12 +5,12 @@ import dps.simplemailing.mailqueue.MailQueue;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import java.util.*;
 
+@SuppressWarnings("unchecked")
 @ApplicationScoped
 public class SeriesManager extends ManagerBase<Series,Long> {
 

@@ -4,13 +4,13 @@ package dps.reflect;
  *
  * @author ferenci84
  */
-public class NoSuchConstcutorError extends RuntimeException {
+public class NoSuchConstructorError extends RuntimeException {
 
     /**
      * Creates a new instance of <code>NoSuchConstcutorException</code> without
      * detail message.
      */
-    public NoSuchConstcutorError() {
+    public NoSuchConstructorError() {
     }
 
     /**
@@ -19,7 +19,7 @@ public class NoSuchConstcutorError extends RuntimeException {
      *
      * @param msg the detail message.
      */
-    public NoSuchConstcutorError(String msg) {
+    public NoSuchConstructorError(String msg) {
         super(msg);
     }
 }

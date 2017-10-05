@@ -5,7 +5,6 @@ import dps.servletcontroller.Filter;
 import dps.servletcontroller.Param;
 import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
-import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
@@ -45,7 +44,7 @@ public class ManageCampaigns extends AdminControllerBase {
 
     }
     
-    @Path("")
+    @Path()
     public String index(HttpServletRequest request)
     {
         return this.list(request,0);

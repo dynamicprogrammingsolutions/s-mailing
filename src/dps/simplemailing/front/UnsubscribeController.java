@@ -38,7 +38,7 @@ public class UnsubscribeController {
         try {
             Long id = Long.parseLong(request.getParameter("id"));
             String email = request.getParameter("email");
-            User user = (User)crud.find(id,User.class);
+            User user = crud.find(id,User.class);
             if (user.getEmail().equals(email)) {
                 String campaignName = request.getParameter("campaign");
                 if (campaignName == null) {

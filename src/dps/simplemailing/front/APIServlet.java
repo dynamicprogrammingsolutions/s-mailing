@@ -1,6 +1,5 @@
 package dps.simplemailing.front;
 
-import dps.servletcontroller.Controller;
 import dps.servletcontroller.Router;
 import java.io.IOException;
 import javax.inject.Inject;
@@ -31,8 +30,7 @@ public class APIServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         
         System.out.println("hit api");
         

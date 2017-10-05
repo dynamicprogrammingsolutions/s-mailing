@@ -1,18 +1,14 @@
 package dps.simplemailing.manage;
 
-import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.User;
 import dps.simplemailing.mailqueue.MailQueue;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
-import javax.transaction.Transactional.TxType;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Set;
 
 @ApplicationScoped
 public class MailManager extends ManagerBase<Mail,Long> {

@@ -12,7 +12,6 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -20,9 +19,10 @@ import javax.mail.internet.MimeMessage;
  *
  * @author ferenci84
  */
+@SuppressWarnings("ALL")
 @Singleton
 public class MailSending {
-    
+
     final private String host = "email-smtp.us-west-2.amazonaws.com";
     final private String port = "587";
     final private String username = "AKIAJ5FEM3AFFMKMCC2A";
@@ -61,9 +61,6 @@ public class MailSending {
             Transport.send(message);
             System.out.println("Message Sent");
             return true;
-        } catch (AddressException ex) {
-            Logger.getLogger(MailSending.class.getName()).log(Level.WARNING, ex.getMessage());
-            return false;
         } catch (MessagingException ex) {
             Logger.getLogger(MailSending.class.getName()).log(Level.WARNING, ex.getMessage());
             return false;

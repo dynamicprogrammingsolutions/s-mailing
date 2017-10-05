@@ -27,7 +27,7 @@ public class UnsubscribeServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
     
         unsubscribeController.unsubscribe(request, response);
 

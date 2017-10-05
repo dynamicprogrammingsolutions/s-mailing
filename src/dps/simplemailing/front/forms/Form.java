@@ -15,7 +15,7 @@ public class Form {
         this.action = action;
     }
     
-    private List<Input> inputs = new LinkedList<Input>();
+    private List<Input> inputs = new LinkedList<>();
 
     public List<Input> getInputs() {
         return inputs;

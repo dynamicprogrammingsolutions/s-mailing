@@ -3,8 +3,6 @@ package dps.simplemailing.front;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import javax.ejb.Stateful;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 
 /**
@@ -17,12 +15,12 @@ public class SessionBean implements Serializable {
 
     private static final long serialVersionUID = 7785231949369369798L;
     
-    private List<String> errors = new LinkedList<String>();
-    private List<String> messages = new LinkedList<String>();
+    private List<String> errors = new LinkedList<>();
+    private List<String> messages = new LinkedList<>();
     private Integer resultsPerPage = 10;
 
     public List<String> getErrors() {
-        List<String> errors = new LinkedList<String>();
+        List<String> errors = new LinkedList<>();
         errors.addAll(this.errors);
         this.errors.clear();
         return errors;
@@ -33,7 +31,7 @@ public class SessionBean implements Serializable {
     }
 
     public List<String> getMessages() {
-        List<String> messages = new LinkedList<String>();
+        List<String> messages = new LinkedList<>();
         messages.addAll(this.messages);
         this.messages.clear();
         return messages;

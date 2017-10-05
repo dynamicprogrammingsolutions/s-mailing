@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
+@SuppressWarnings("SameReturnValue")
 @ApplicationScoped
 @Path("(.*)")
 public class AdminController extends AdminControllerBase {
@@ -37,7 +38,7 @@ public class AdminController extends AdminControllerBase {
         return "/WEB-INF/admin/index.jsp";
     }
     
-    @Path("")
+    @Path()
     public String index1()
     {
         return "/WEB-INF/admin/index.jsp";

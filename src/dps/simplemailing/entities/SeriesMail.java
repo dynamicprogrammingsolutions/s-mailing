@@ -33,7 +33,7 @@ public class SeriesMail implements Serializable, EntityBase<Long> {
     private Status status;
     
     public enum Status {
-        unsent, sent;
+        unsent, sent
     }
 
     public Long getId() {

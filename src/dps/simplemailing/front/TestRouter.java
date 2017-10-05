@@ -34,6 +34,7 @@ public class TestRouter extends Controller {
         
     }
     
+    @SuppressWarnings("SameReturnValue")
     @Path("test/(?<param>[0-9]*)")
     public String test(HttpServletRequest request, HttpServletResponse response, @Param(group=1) String param, @ControllerParam("cparam") String cparam) throws IOException
     {

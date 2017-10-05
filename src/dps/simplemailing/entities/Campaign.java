@@ -33,11 +33,11 @@ public class Campaign implements Serializable, EntityBase<Long> {
     
     @XmlTransient
     @ManyToMany
-    private Set<Mail> mails = new HashSet<Mail>();
+    private Set<Mail> mails = new HashSet<>();
     
     @XmlTransient
     @ManyToMany
-    private Set<User> unsubscribedUsers = new HashSet<User>();
+    private Set<User> unsubscribedUsers = new HashSet<>();
 
     public Long getId() {
         return id;

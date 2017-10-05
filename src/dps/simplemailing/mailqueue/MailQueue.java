@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +41,7 @@ public class MailQueue {
     }
 
     public List<QueuedMail> getQueueToSend() {
-        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime is null OR m.scheduledTime <= :now)");
+        TypedQuery<QueuedMail> query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime is null OR m.scheduledTime <= :now)",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
         query.setParameter("now", new java.util.Date());
         return query.getResultList();
@@ -81,6 +81,7 @@ public class MailQueue {
         }
     }
 
+    @SuppressWarnings("EmptyCatchBlock")
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public void sendMails(List<QueuedMail> queueToSend)
     {
@@ -135,7 +136,7 @@ public class MailQueue {
     public void cleanupQueue()
     {
         //System.out.println("cleaning up");
-        Query query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status <> :status1) AND (m.generatedMail IS NOT NULL)");
+        TypedQuery<QueuedMail> query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status <> :status1) AND (m.generatedMail IS NOT NULL)",QueuedMail.class);
         query.setParameter("status1", QueuedMail.Status.unsent);
         List<QueuedMail> queuedMails = query.getResultList();
 

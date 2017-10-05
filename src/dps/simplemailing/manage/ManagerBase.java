@@ -1,7 +1,6 @@
 package dps.simplemailing.manage;
 
 import dps.reflect.ReflectHelper;
-import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.EntityBase;
 
 import javax.inject.Inject;
@@ -16,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("unchecked")
 public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends UseEntityManager {
 
     /*
@@ -48,7 +48,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         em.persist(entity);
     }
 
-    private EntityGraph<EntityType> getEntityGraph(Attribute<EntityType,?>... attributes)
+
+    @SuppressWarnings("unchecked")
+    private EntityGraph<EntityType> getEntityGraph(Attribute<EntityType, ?>... attributes)
     {
         //TODO: cache for entityGraph
         EntityGraph<EntityType> entityGraph = em.createEntityGraph(entityClass);
@@ -75,7 +77,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return props;
     }
 
-    private Map<String,Object> getLoadGraph(Attribute<EntityType,?>... attributes)
+
+    @SuppressWarnings("unchecked")
+    private Map<String,Object> getLoadGraph(Attribute<EntityType, ?>... attributes)
     {
         Map<String,Object> props = new HashMap<>();
         props.put("javax.persistence.loadgraph",getEntityGraph(attributes));
@@ -96,7 +100,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return entity;
     }
 
-    public EntityType getById(IdType id, Attribute<EntityType,?>... attributes)
+    public EntityType getById(IdType id, Attribute<EntityType, ?>... attributes)
     {
         EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
         if (entity == null) throw new EntityNotFoundException();
@@ -120,8 +124,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return entity;
     }
 
+
     @Transactional(TxType.REQUIRED)
-    public EntityType reload(EntityType entity, Attribute<EntityType,?>... attributes)
+    public EntityType reload(EntityType entity, Attribute<EntityType, ?>... attributes)
     {
         entity = em.find(entityClass,entity.getId(),getLoadGraph(attributes));
         if (entity == null) throw new EntityNotFoundException();

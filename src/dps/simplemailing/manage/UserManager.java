@@ -3,7 +3,6 @@ package dps.simplemailing.manage;
 import dps.simplemailing.entities.User;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ public class UserManager extends ManagerBase<User,Long> {
 
     public Map<String,String> getPlaceholders(User user)
     {
-        Map<String,String> placeholders = new HashMap<String,String>();
+        Map<String,String> placeholders = new HashMap<>();
         placeholders.put("firstname", user.getFirstName());
         placeholders.put("email", user.getEmail());
         placeholders.put("id", user.getId().toString());
@@ -43,6 +42,7 @@ public class UserManager extends ManagerBase<User,Long> {
         em.merge(user);
     }
 
+    //TODO: Not Found Error
     public User getByEmail(String email)
     {
         TypedQuery<User> query = em.createNamedQuery("User.getByEmail",User.class);

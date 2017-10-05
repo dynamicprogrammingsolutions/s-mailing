@@ -27,18 +27,19 @@ public class ReflectHelper {
         try {
             constructor = findConstructor(clazz, args);
         } catch (NoSuchMethodException ex) {
-            throw new NoSuchConstcutorError();
+            throw new NoSuchConstructorError();
         }
         try {
             return constructor.newInstance(args);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-            throw new NoSuchConstcutorError();
+            throw new NoSuchConstructorError();
         }
     }
     public static Class<?> getTypeParameter(Class<?> clazz)
     {
         return getTypeParameter(clazz,0);
     }
+    @SuppressWarnings("unchecked")
     public static <T> Class<T> getTypeParameter(Class<?> clazz, int idx)
     {
         Type superClass = clazz.getGenericSuperclass();

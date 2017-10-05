@@ -1,6 +1,5 @@
 package dps.simplemailing.mailqueue;
 
-import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.GeneratedMail;
 import dps.simplemailing.entities.QueuedMail;
 import dps.simplemailing.entities.User;
@@ -49,6 +48,7 @@ public class MailGenerator extends UseEntityManager {
                 
     }
     
+    @SuppressWarnings("Annotator")
     private String processPlaceholders(User user, String text)
     {
         Map<String,String> placeholders = users.getPlaceholders(user);
