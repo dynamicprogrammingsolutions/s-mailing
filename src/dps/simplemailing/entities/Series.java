@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @NamedQueries({
         @NamedQuery(name="Series.getAll",query="SELECT m FROM Series m ORDER BY m.name"),
         @NamedQuery(name="Series.count",query="SELECT COUNT(m) FROM Series m"),
+        @NamedQuery(name="Series.getByName",query = "SELECT u FROM Series u WHERE u.name = :name")
 })
 public class Series implements Serializable, EntityBase<Long> {
 
@@ -72,19 +73,11 @@ public class Series implements Serializable, EntityBase<Long> {
     public List<SeriesItem> getSeriesItems() {
         return seriesItems;
     }
-/*
-    public void setSeriesItems(List<SeriesItem> seriesItems) {
-        this.seriesItems = seriesItems;
-    }
-*/
+
     public List<SeriesSubscription> getSeriesSubscriptions() {
         return seriesSubscriptions;
     }
-/*
-    public void setSeriesSubscriptions(List<SeriesSubscription> seriesSubscriptions) {
-        this.seriesSubscriptions = seriesSubscriptions;
-    }
-*/
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -94,7 +87,6 @@ public class Series implements Serializable, EntityBase<Long> {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Series)) {
             return false;
         }

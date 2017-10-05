@@ -1,8 +1,6 @@
 package dps.simplemailing.manager.test;
 
-import dps.simplemailing.entities.Campaign;
-import dps.simplemailing.entities.Mail;
-import dps.simplemailing.entities.User;
+import dps.simplemailing.entities.*;
 import dps.simplemailing.manage.CampaignManager;
 import dps.simplemailing.manage.MailManager;
 import dps.simplemailing.manage.ManagerBase;
@@ -12,19 +10,14 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 @ApplicationScoped
@@ -102,33 +95,27 @@ public class CampaignManagerTest extends ManagerTestBase<Campaign> {
         Mail mail = mailManagerTest.createTestData();
         Long mailId = mail.getId();
 
-        Set<Mail> campaignMails = manager.getMails(campaignId);
+        Set<Mail> campaignMails = manager.reload(campaign,Campaign_.mails).getMails();
         assertFalse(campaignMails.contains(mail));
 
-        Set<Campaign> mailCampaigns = mailManager.getCampaigns(mailId);
+        Set<Campaign> mailCampaigns = mailManager.reload(mail,Mail_.campaigns).getCampaigns();
         assertFalse(mailCampaigns.contains(campaign));
 
         manager.addMail(campaignId,mailId);
 
-        mail = mailManager.getById(mailId);
-        campaign = manager.getById(campaignId);
+        mail = mailManager.reload(mail, Mail_.campaigns);
+        campaign = manager.reload(campaign, Campaign_.mails);
 
-        mailCampaigns = mailManager.getCampaigns(mailId);
-        assertTrue(mailCampaigns.contains(campaign));
-
-        campaignMails = manager.getMails(campaignId);
-        assertTrue(campaignMails.contains(mail));
+        assertTrue(mail.getCampaigns().contains(campaign));
+        assertTrue(campaign.getMails().contains(mail));
 
         manager.removeMail(campaignId,mailId);
 
-        mail = mailManager.getById(mailId);
-        campaign = manager.getById(campaignId);
+        mail = mailManager.reload(mail, Mail_.campaigns);
+        campaign = manager.reload(campaign, Campaign_.mails);
 
-        mailCampaigns = mailManager.getCampaigns(mailId);
-        assertFalse(mailCampaigns.contains(campaign));
-
-        campaignMails = manager.getMails(campaignId);
-        assertFalse(campaignMails.contains(mail));
+        assertFalse(mail.getCampaigns().contains(campaign));
+        assertFalse(campaign.getMails().contains(mail));
 
         mailManagerTest.removeTestData(mailId);
         this.removeTestData(campaignId);
@@ -151,7 +138,7 @@ public class CampaignManagerTest extends ManagerTestBase<Campaign> {
 
         manager.unsubscribeUser(campaignId,userId);
 
-        Set<User> unsubscribedUsers = manager.getUnsubscribedUsers(campaignId);
+        Set<User> unsubscribedUsers = manager.reload(campaign,Campaign_.unsubscribedUsers).getUnsubscribedUsers();
         assertTrue(unsubscribedUsers.contains(user));
 
         this.removeTestData(campaignId);

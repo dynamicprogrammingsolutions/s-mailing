@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 @NamedQueries({
         @NamedQuery(name="User.getAll",query="SELECT m FROM User m ORDER BY m.email"),
         @NamedQuery(name="User.count",query="SELECT COUNT(m) FROM User m"),
+        @NamedQuery(name="User.getWithStatus",query = "SELECT u FROM User u WHERE u.status = :status"),
+        @NamedQuery(name="User.getByEmail",query = "SELECT u FROM User u WHERE u.email = :email")
 })
 public class User implements Serializable, EntityBase<Long> {
 

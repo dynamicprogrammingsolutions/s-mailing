@@ -3,16 +3,7 @@ package dps.simplemailing.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -20,6 +11,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="series_subscriptions")
+@NamedQueries({
+        @NamedQuery(name="SeriesSubscription.getSubscription",query = "SELECT u FROM SeriesSubscription u WHERE u.user = :user AND u.series = :series")
+})
 public class SeriesSubscription implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 1L;

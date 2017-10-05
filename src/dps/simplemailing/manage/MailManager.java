@@ -17,37 +17,12 @@ import java.util.Set;
 @ApplicationScoped
 public class MailManager extends ManagerBase<Mail,Long> {
 
-    // TODO: replace Users to UserManager
     @Inject
     UserManager users;
 
     @Inject
     MailQueue queue;
 
-    //TODO: fetch query
-    @Transactional(TxType.REQUIRED)
-    public Set<Campaign> getCampaigns(Long mailId)
-    {
-        Mail entity = em.find(Mail.class,mailId);
-        if (entity == null) throw new EntityNotFoundException();
-        Set<Campaign> campaigns = entity.getCampaigns();
-        for (Campaign campaign: campaigns) {
-            campaign.getId();
-        }
-        return campaigns;
-    }
-/*
-    @Transactional(TxType.REQUIRED)
-    public void addMailToCampaign(Long id, Long campaignId)
-    {
-        Mail mail = em.find(Mail.class,id);
-        if (mail == null) throw new IllegalArgumentException("Mail or Campaign not found");
-        Campaign campaign = em.find(Campaign.class,campaignId);
-        if (campaign == null) throw new IllegalArgumentException("Mail or Campaign not found");
-        campaign.getMails().add(mail);
-        em.merge(campaign);
-    }
-*/
     @Transactional(Transactional.TxType.REQUIRED)
     public void scheduleMail(Mail mail, Boolean real, java.util.Date time, int msDelay)
     {

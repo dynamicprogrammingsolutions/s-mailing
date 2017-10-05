@@ -25,7 +25,7 @@ public class MailResource extends ResourceBase<Mail,Long> {
     @Path("/{id}/campaigns")
     public Response getMailCampaigns(@PathParam("id") Long id)
     {
-        Set<Campaign> campaigns = mailManager.getCampaigns(id);
+        Set<Campaign> campaigns = mailManager.getById(id,"campaigns").getCampaigns();
         if (campaigns.isEmpty()) return Response.noContent().build();
         else return Response.ok(campaigns).build();
     }

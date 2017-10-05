@@ -13,8 +13,9 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name="Campaign.getAll",query="SELECT m FROM Campaign m ORDER BY m.name"),
-    @NamedQuery(name="Campaign.count",query="SELECT COUNT(m) FROM Campaign m"),
+        @NamedQuery(name="Campaign.getAll",query="SELECT m FROM Campaign m ORDER BY m.name"),
+        @NamedQuery(name="Campaign.count",query="SELECT COUNT(m) FROM Campaign m"),
+        @NamedQuery(name="Campaign.getByName",query="SELECT u FROM Campaign u WHERE u.name = :name"),
 })
 public class Campaign implements Serializable, EntityBase<Long> {
 

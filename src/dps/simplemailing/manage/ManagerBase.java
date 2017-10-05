@@ -1,17 +1,19 @@
 package dps.simplemailing.manage;
 
 import dps.reflect.ReflectHelper;
+import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.EntityBase;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
+import javax.persistence.metamodel.Attribute;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends UseEntityManager {
@@ -46,6 +48,39 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         em.persist(entity);
     }
 
+    private EntityGraph<EntityType> getEntityGraph(Attribute<EntityType,?>... attributes)
+    {
+        //TODO: cache for entityGraph
+        EntityGraph<EntityType> entityGraph = em.createEntityGraph(entityClass);
+        for (Attribute<EntityType,?> attr: attributes) {
+            entityGraph.addAttributeNodes(attr);
+        }
+        return entityGraph;
+    }
+
+    private EntityGraph<EntityType> getEntityGraph(String... attributes)
+    {
+        //TODO: cache for entityGraph
+        EntityGraph<EntityType> entityGraph = em.createEntityGraph(entityClass);
+        for (String attr: attributes) {
+            entityGraph.addAttributeNodes(attr);
+        }
+        return entityGraph;
+    }
+
+    private Map<String,Object> getLoadGraph(String... attributes)
+    {
+        Map<String,Object> props = new HashMap<>();
+        props.put("javax.persistence.loadgraph",getEntityGraph(attributes));
+        return props;
+    }
+
+    private Map<String,Object> getLoadGraph(Attribute<EntityType,?>... attributes)
+    {
+        Map<String,Object> props = new HashMap<>();
+        props.put("javax.persistence.loadgraph",getEntityGraph(attributes));
+        return props;
+    }
 
     public EntityType getById(IdType id)
     {
@@ -54,7 +89,44 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return entity;
     }
 
+    public EntityType getById(IdType id, String... attributes)
+    {
+        EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
+        if (entity == null) throw new EntityNotFoundException();
+        return entity;
+    }
 
+    public EntityType getById(IdType id, Attribute<EntityType,?>... attributes)
+    {
+        EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
+        if (entity == null) throw new EntityNotFoundException();
+        return entity;
+    }
+
+
+    @Transactional(TxType.REQUIRED)
+    public EntityType reload(EntityType entity)
+    {
+        entity = em.find(entityClass,entity.getId());
+        if (entity == null) throw new EntityNotFoundException();
+        return entity;
+    }
+
+    @Transactional(TxType.REQUIRED)
+    public EntityType reload(EntityType entity, String... attributes)
+    {
+        entity = em.find(entityClass,entity.getId(),getLoadGraph(attributes));
+        if (entity == null) throw new EntityNotFoundException();
+        return entity;
+    }
+
+    @Transactional(TxType.REQUIRED)
+    public EntityType reload(EntityType entity, Attribute<EntityType,?>... attributes)
+    {
+        entity = em.find(entityClass,entity.getId(),getLoadGraph(attributes));
+        if (entity == null) throw new EntityNotFoundException();
+        return entity;
+    }
 
     @Transactional(TxType.REQUIRED)
     public void modify(IdType id, EntityType entity) {
@@ -90,17 +162,22 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
 
     public List<EntityType> get(int first, int max)
     {
-        return em.createNamedQuery(entityClass.getSimpleName()+".getAll",entityClass).setFirstResult(first).setMaxResults(max).getResultList();
+        return em.createNamedQuery(queryName("getAll"),entityClass).setFirstResult(first).setMaxResults(max).getResultList();
     }
 
     public List<EntityType> getAll()
     {
-        return em.createNamedQuery(entityClass.getSimpleName()+".getAll",entityClass).getResultList();
+        return em.createNamedQuery(queryName("getAll"),entityClass).getResultList();
     }
 
     public Long count()
     {
-        return em.createNamedQuery(entityClass.getSimpleName()+".count",Long.class).getSingleResult();
+        return em.createNamedQuery(queryName("count"),Long.class).getSingleResult();
+    }
+
+    protected String queryName(String name)
+    {
+        return entityClass.getSimpleName()+"."+name;
     }
 
 

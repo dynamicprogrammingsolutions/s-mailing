@@ -1,6 +1,7 @@
 package dps.simplemailing.manager.test;
 
 import dps.simplemailing.entities.Campaign;
+import dps.simplemailing.entities.Mail_;
 import dps.simplemailing.manage.CampaignManager;
 import dps.simplemailing.manage.MailManager;
 import dps.simplemailing.entities.Mail;
@@ -95,7 +96,7 @@ public class MailManagerTest extends ManagerTestBase<Mail> {
         Campaign campaign = campaignManagerTest.createTestData();
         Long campaignId = campaign.getId();
 
-        Set<Campaign> mailCampaigns = manager.getCampaigns(mailId);
+        Set<Campaign> mailCampaigns = manager.reload(mail, Mail_.campaigns).getCampaigns();
         assertFalse(mailCampaigns.contains(campaign));
 
         campaignManager.addMail(campaignId,mailId);
@@ -103,7 +104,7 @@ public class MailManagerTest extends ManagerTestBase<Mail> {
         mail = manager.getById(mailId);
         campaign = campaignManager.getById(campaignId);
 
-        mailCampaigns = manager.getCampaigns(mailId);
+        mailCampaigns = manager.reload(mail,Mail_.campaigns).getCampaigns();
         assertTrue(mailCampaigns.contains(campaign));
 
         this.removeTestData(mail.getId());

@@ -128,7 +128,7 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
         manager.createItem(id,mailId,seriesItem);
 
         Boolean found = false;
-        List<SeriesItem> items = manager.getItems(id);
+        List<SeriesItem> items = manager.reload(series,Series_.seriesItems).getSeriesItems();
         for (SeriesItem item: items) {
             if (item.getMail().equals(mail)) found = true;
         }

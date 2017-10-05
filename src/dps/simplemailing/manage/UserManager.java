@@ -4,6 +4,7 @@ import dps.simplemailing.entities.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
@@ -23,14 +24,14 @@ public class UserManager extends ManagerBase<User,Long> {
 
     public List<User> getActive()
     {
-        Query query = em.createQuery("SELECT u FROM User u WHERE u.status = :status");
+        TypedQuery<User> query = em.createNamedQuery("User.getWithStatus",User.class);
         query.setParameter("status", User.Status.subscribed);
         return query.getResultList();
     }
 
     public List<User> getTest()
     {
-        Query query = em.createQuery("SELECT u FROM User u WHERE u.status = :status");
+        TypedQuery<User> query = em.createNamedQuery("User.getWithStatus",User.class);
         query.setParameter("status", User.Status.test);
         return query.getResultList();
     }
@@ -44,7 +45,7 @@ public class UserManager extends ManagerBase<User,Long> {
 
     public User getByEmail(String email)
     {
-        Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email");
+        TypedQuery<User> query = em.createNamedQuery("User.getByEmail",User.class);
         query.setParameter("email", email);
         List<User> users = query.getResultList();
         if (users.isEmpty()) return null;

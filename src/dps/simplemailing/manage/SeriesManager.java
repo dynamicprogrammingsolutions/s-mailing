@@ -6,6 +6,7 @@ import dps.simplemailing.mailqueue.MailQueue;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import java.util.Calendar;
@@ -66,38 +67,19 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         this.createItem(series,mail,item);
     }
 
-    @Transactional(Transactional.TxType.REQUIRED)
-    public List<SeriesItem> getItems(Long seriesId)
-    {
-        Series series = this.getById(seriesId);
-        for (SeriesItem item: series.getSeriesItems()) {
-            item.getId();
-        }
-        return series.getSeriesItems();
-    }
-
-    @Transactional(Transactional.TxType.REQUIRED)
-    public List<SeriesItem> getItems(Series series)
-    {
-        em.refresh(series);
-        for (SeriesItem item: series.getSeriesItems()) {
-            item.getId();
-        }
-        return series.getSeriesItems();
-    }
-
     public Series getByName(String name)
     {
-        Query query = em.createQuery("SELECT u FROM Series u WHERE u.name = :name");
+        TypedQuery<Series> query = em.createNamedQuery(queryName("getByName"),entityClass);
         query.setParameter("name", name);
         List<Series> series = query.getResultList();
         if (series.isEmpty()) return null;
         else return series.get(0);
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public SeriesSubscription getSubscription(User user, Series series)
     {
-        Query query = em.createQuery("SELECT u FROM SeriesSubscription u WHERE u.user = :user AND u.series = :series");
+        Query query = em.createNamedQuery("SeriesSubscription.getSubscription");
         query.setParameter("user", user);
         query.setParameter("series", series);
         List<SeriesSubscription> subscriptions = query.getResultList();
@@ -109,8 +91,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processAllSeries()
     {
-        Query query = em.createQuery("SELECT u FROM Series u");
-        List<Series> allSeries = query.getResultList();
+        List<Series> allSeries = this.getAll();
         if (allSeries.isEmpty()) return;
         for (Series series: allSeries) {
             mailSeries.processSeries(series);

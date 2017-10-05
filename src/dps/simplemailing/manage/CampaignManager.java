@@ -6,10 +6,14 @@ import dps.simplemailing.entities.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityGraph;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @ApplicationScoped
@@ -20,22 +24,20 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
 
     @Inject UserManager userManager;
 
-    //TODO: Fetch query
+    /*
     @Transactional(Transactional.TxType.REQUIRED)
     public Set<Mail> getMails(Long campaignId)
     {
-        Campaign entity = em.find(Campaign.class,campaignId);
+        Campaign entity = this.getById(campaignId,"mails");
         if (entity == null) throw new EntityNotFoundException();
         Set<Mail> mails = entity.getMails();
-        for (Mail mail: mails) {
-            mail.getId();
-        }
         return mails;
     }
+    */
 
     public Campaign getByName(String name)
     {
-        Query query = em.createQuery("SELECT u FROM Campaign u WHERE u.name = :name");
+        TypedQuery<Campaign> query = em.createNamedQuery("Campaign.getByName",Campaign.class);
         query.setParameter("name", name);
         List<Campaign> campaigns = query.getResultList();
         if (campaigns.isEmpty()) return null;
@@ -69,7 +71,6 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
         Campaign campaign = this.getByName(campaignName);
         campaign.getUnsubscribedUsers().add(user);
         em.merge(campaign);
-        //this.modify(campaign.getId(),campaign);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -79,19 +80,15 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
         Campaign campaign = this.getById(campaignId);
         campaign.getUnsubscribedUsers().add(user);
         em.merge(campaign);
-        //this.modify(campaign.getId(),campaign);
     }
 
+    /*
     @Transactional(Transactional.TxType.REQUIRED)
     public Set<User> getUnsubscribedUsers(Long campaignId)
     {
-        Campaign campaign = this.getById(campaignId);
-        Set<User> users = campaign.getUnsubscribedUsers();
-        for (User user: users)
-        {
-            user.getId();
-        }
-        return users;
+        Campaign campaign = this.getById(campaignId,"unsubscribedUsers");
+        return campaign.getUnsubscribedUsers();
     }
+    */
 
 }
