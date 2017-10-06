@@ -9,10 +9,13 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(SeriesItem.class)
 public abstract class SeriesItem_ {
 
+	public static volatile SingularAttribute<SeriesItem, Integer> sendDelayLastMail;
+	public static volatile SingularAttribute<SeriesItem, Integer> sendOrder;
 	public static volatile SingularAttribute<SeriesItem, Mail> mail;
 	public static volatile SingularAttribute<SeriesItem, Series> series;
 	public static volatile SingularAttribute<SeriesItem, Long> id;
 	public static volatile ListAttribute<SeriesItem, SeriesMail> seriesMails;
+	public static volatile SingularAttribute<SeriesItem, Integer> sendDelayLastItem;
 	public static volatile SingularAttribute<SeriesItem, Integer> sendDelay;
 
 }

@@ -30,6 +30,10 @@ public class SeriesSubscription implements Serializable, EntityBase<Long> {
     private User user;
     
     private Date subscribeTime;
+
+    private int lastItemOrder = 0;
+
+    private Date lastItemSendTime;
     
     @Lob
     private String extraData;
@@ -77,6 +81,22 @@ public class SeriesSubscription implements Serializable, EntityBase<Long> {
 
     public void setSubscribeTime(Date subscribeTime) {
         this.subscribeTime = subscribeTime;
+    }
+
+    public int getLastItemOrder() {
+        return lastItemOrder;
+    }
+
+    public void setLastItemOrder(int lastItemOrder) {
+        this.lastItemOrder = lastItemOrder;
+    }
+
+    public Date getLastItemSendTime() {
+        return lastItemSendTime;
+    }
+
+    public void setLastItemSendTime(Date lastItemSendTime) {
+        this.lastItemSendTime = lastItemSendTime;
     }
 
     public String getExtraData() {

@@ -145,8 +145,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
 
     @Transactional(TxType.REQUIRED)
     public void remove(EntityType entity) throws IllegalArgumentException {
-        entity = em.getReference(entityClass,entity.getId());
-        em.remove(entity);
+        this.remove(entity.getId());
     }
 
     public List<EntityType> get(int first, int max)

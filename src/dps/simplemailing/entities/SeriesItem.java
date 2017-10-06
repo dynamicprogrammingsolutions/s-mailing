@@ -26,8 +26,14 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
     @JoinColumn(name="mail_id")
     private Mail mail;
     
-    private int sendDelay;
-    
+    private int sendDelay = 0;
+
+    private int sendDelayLastItem = 0;
+
+    private int sendDelayLastMail = 0;
+
+    private int sendOrder = 0;
+
     @OneToMany(mappedBy = "seriesItem",cascade = {CascadeType.REMOVE})
     private List<SeriesMail> seriesMails;
 
@@ -53,6 +59,30 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
 
     public void setMail(Mail mail) {
         this.mail = mail;
+    }
+
+    public int getSendDelayLastItem() {
+        return sendDelayLastItem;
+    }
+
+    public void setSendDelayLastItem(int sendDelayLastItem) {
+        this.sendDelayLastItem = sendDelayLastItem;
+    }
+
+    public int getSendDelayLastMail() {
+        return sendDelayLastMail;
+    }
+
+    public void setSendDelayLastMail(int sendDelayLastMail) {
+        this.sendDelayLastMail = sendDelayLastMail;
+    }
+
+    public int getSendOrder() {
+        return sendOrder;
+    }
+
+    public void setSendOrder(int sendOrder) {
+        this.sendOrder = sendOrder;
     }
 
     public int getSendDelay() {

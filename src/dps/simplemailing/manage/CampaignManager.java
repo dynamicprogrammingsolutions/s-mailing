@@ -30,6 +30,17 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
     }
     */
 
+    /*@Override
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void remove(Long id) throws IllegalArgumentException {
+        Campaign entity = em.find(entityClass,id);
+        entity.getMails().clear();
+        entity.getUnsubscribedUsers().clear();
+        em.merge(entity);
+        em.remove(entity);
+    }*/
+
+
     public Campaign getByName(String name)
     {
         TypedQuery<Campaign> query = em.createNamedQuery("Campaign.getByName",Campaign.class);

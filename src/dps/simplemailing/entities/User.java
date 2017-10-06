@@ -1,6 +1,7 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,6 +31,8 @@ public class User implements Serializable, EntityBase<Long> {
     private String firstName;
     @NotNull
     private String lastName;
+
+    private Date lastSeriesMailSendTime;
     
     
     @Column(name="status")
@@ -86,7 +89,14 @@ public class User implements Serializable, EntityBase<Long> {
         this.status = status;
     }
 
-    
+    public Date getLastSeriesMailSendTime() {
+        return lastSeriesMailSendTime;
+    }
+
+    public void setLastSeriesMailSendTime(Date lastSeriesMailSendTime) {
+        this.lastSeriesMailSendTime = lastSeriesMailSendTime;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

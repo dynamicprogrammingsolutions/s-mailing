@@ -21,7 +21,8 @@ public class TimingProcessQueue {
     MailQueue mailQueue;
     @Inject
     SeriesManager mailSeries;
-    
+
+    /*
     @Schedule(hour = "*", minute = "*", persistent = false)
     public void processQueue() {
         //System.out.println("Timer event: " + new Date());
@@ -33,5 +34,6 @@ public class TimingProcessQueue {
         //System.out.println("Timer event: " + new Date());
         mailSeries.processAllSeries();
     }
+    */
 
 }

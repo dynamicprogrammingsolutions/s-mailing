@@ -8,12 +8,24 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Stateless
 public class MailQueue {
+
+    @PersistenceContext(unitName = "SimpleMailingPU")
+    protected EntityManager em;
+
+    public EntityManager getEM()
+    {
+        return em;
+    }
 
     @Inject
     MailSending mailSending;
@@ -40,12 +52,32 @@ public class MailQueue {
         return queuedMail;
     }
 
+    public void removeAllUnsent()
+    {
+        Query query = crud.getEntityManager().createQuery("DELETE FROM QueuedMail m WHERE m.status = :status");
+        query.setParameter("status",QueuedMail.Status.unsent);
+        query.executeUpdate();
+    }
+
     public List<QueuedMail> getQueueToSend() {
         TypedQuery<QueuedMail> query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime is null OR m.scheduledTime <= :now)",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
-        query.setParameter("now", new java.util.Date());
+        query.setParameter("now", getCurrentTime());
         return query.getResultList();
     }
+
+    private Date currentTime = null;
+
+    public Date getCurrentTime()
+    {
+        return currentTime!=null ? currentTime : new Date();
+    }
+
+    public void setCurrentTime(Date date)
+    {
+        currentTime = date;
+    }
+
 
     @Asynchronous
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)

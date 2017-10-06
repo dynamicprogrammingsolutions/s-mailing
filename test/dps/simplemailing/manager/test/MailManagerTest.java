@@ -106,8 +106,8 @@ public class MailManagerTest extends ManagerTestBase<Mail> {
         mailCampaigns = manager.reload(mail,Mail_.campaigns).getCampaigns();
         assertTrue(mailCampaigns.contains(campaign));
 
-        this.removeTestData(mail.getId());
         campaignManagerTest.removeTestData(campaign.getId());
+        this.removeTestData(mail.getId());
 
         assertEquals(campaignCnt, campaignManager.count());
         assertEquals(cnt, getManager().count());

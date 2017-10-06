@@ -1,13 +1,8 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
@@ -15,81 +10,83 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="series_mails")
-public class SeriesMail implements Serializable, EntityBase<Long> {
+@IdClass(SeriesMailId.class)
+public class SeriesMail implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    /*
     @Id
+    @Column(name="seriesSubscription_id")
+    private Long seriesSubscriptionId;
+
+    @Id
+    @Column(name="seriesItem_id")
+    private Long seriesItemId;
+    */
+
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+    private Long id;*/
+
+    @Id
     @ManyToOne
     @JoinColumn(name="seriesSubscription_id")
     private SeriesSubscription seriesSubscription;
-    
+
+    @Id
     @ManyToOne
     @JoinColumn(name="seriesItem_id")
     private SeriesItem seriesItem;
-    
+
     private Status status;
-    
+
+    private Date sentTime;
+
+    public SeriesMail() {
+
+    }
+
+    public SeriesMail(SeriesSubscription seriesSubscription, SeriesItem seriesItem) {
+        this.seriesSubscription = seriesSubscription;
+        this.seriesItem = seriesItem;
+        this.status = Status.unsent;
+    }
+
     public enum Status {
         unsent, sent
     }
 
-    public Long getId() {
-        return id;
+    public Date getSentTime() {
+        return sentTime;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSentTime(Date sentTime) {
+        this.sentTime = sentTime;
     }
 
     public SeriesSubscription getSeriesSubscription() {
         return seriesSubscription;
     }
 
-    public void setSeriesSubscription(SeriesSubscription seriesSubscription) {
-        this.seriesSubscription = seriesSubscription;
-    }
-
     public SeriesItem getSeriesItem() {
         return seriesItem;
-    }
-
-    public void setSeriesItem(SeriesItem seriesItem) {
-        this.seriesItem = seriesItem;
     }
 
     public Status getStatus() {
         return status;
     }
 
+    public void setSeriesSubscription(SeriesSubscription seriesSubscription) {
+        this.seriesSubscription = seriesSubscription;
+    }
+
+    public void setSeriesItem(SeriesItem seriesItem) {
+        this.seriesItem = seriesItem;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof SeriesMail)) {
-            return false;
-        }
-        SeriesMail other = (SeriesMail) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "dps.simplemailing.entities.SeriesMail[ id=" + id + " ]";
-    }
-    
 }
