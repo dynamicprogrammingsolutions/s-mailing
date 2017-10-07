@@ -1,8 +1,14 @@
-package dps.simplemailing.manager.test;
+package dps.simplemailing.mailqueue.test;
 
 import dps.simplemailing.entities.*;
+import dps.simplemailing.mailqueue.MailGenerator;
 import dps.simplemailing.mailqueue.MailQueue;
+import dps.simplemailing.mailqueue.MailQueueStatus;
+import dps.simplemailing.mailqueue.MailSender;
 import dps.simplemailing.manage.*;
+import dps.simplemailing.manager.test.MailManagerTest;
+import dps.simplemailing.manager.test.SeriesManagerTest;
+import dps.simplemailing.manager.test.UserManagerTest;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -26,11 +32,15 @@ public class ProcessSeriesTest {
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class,"test1.war")
                 .addPackage("dps.simplemailing.manager.test")
+                .addPackage("dps.simplemailing.mailqueue.test")
                 .addPackage("dps.simplemailing.entities")
                 .addPackage("dps.crud")
                 .addPackage("dps.simplemailing.back")
                 .addPackage("dps.simplemailing.manage")
-                .addPackage("dps.simplemailing.mailqueue")
+                .addClass(MailSender.class)
+                .addClass(MailGenerator.class)
+                .addClass(MailQueue.class)
+                .addClass(MailQueueStatus.class)
                 .addPackage("dps.reflect")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -60,6 +70,7 @@ public class ProcessSeriesTest {
     @Inject
     SeriesSubscriptionManager seriesSubscriptionManager;
 
+    //TODO: Test some possible frequent scenarios for setting up email series
     @Test
     public void testProcessSeries()
     {

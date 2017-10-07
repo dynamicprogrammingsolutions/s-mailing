@@ -1,7 +1,10 @@
 package dps.simplemailing.entities;
 
+import dps.simplemailing.mailqueue.MailQueue;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -41,7 +44,10 @@ public class User implements Serializable, EntityBase<Long> {
     
     @ManyToMany(mappedBy = "unsubscribedUsers")
     private Set<Campaign> unsubscribedFromCampaigns;
-    
+
+    @OneToMany(mappedBy = "mail",cascade = CascadeType.REMOVE)
+    private List<QueuedMail> queuedMails;
+
     public enum Status {
         subscribed,
         unsubscribed,

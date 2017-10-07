@@ -1,34 +1,27 @@
 package dps.simplemailing.mailqueue;
 
-import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.*;
+import dps.simplemailing.manage.ManagerBase;
+import dps.simplemailing.manage.UseEntityManager;
 
 import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-@Stateless
-public class MailQueue {
-
-    @PersistenceContext(unitName = "SimpleMailingPU")
-    protected EntityManager em;
-
-    public EntityManager getEM()
-    {
-        return em;
-    }
+@ApplicationScoped
+public class MailQueue extends ManagerBase<QueuedMail,Long> {
 
     @Inject
-    MailSending mailSending;
+    MailSender mailSending;
     @Inject
     MailGenerator generatedMails;
     @Inject
@@ -36,31 +29,35 @@ public class MailQueue {
     @Inject
     MailQueue mailQueue;
 
-    @Inject
-    Crud crud;
-
+    @Transactional(Transactional.TxType.REQUIRED)
     public QueuedMail createQueuedMail(User user, Mail mail, java.util.Date scheduledTime)
     {
+        user = em.getReference(User.class,user.getId());
+        mail = em.getReference(Mail.class,mail.getId());
+
         QueuedMail queuedMail = new QueuedMail();
 
         queuedMail.setUser(user);
         queuedMail.setMail(mail);
         queuedMail.setScheduledTime(scheduledTime);
         queuedMail.setStatus(QueuedMail.Status.unsent);
-        crud.create(queuedMail);
+
+        em.persist(queuedMail);
 
         return queuedMail;
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public void removeAllUnsent()
     {
-        Query query = crud.getEntityManager().createQuery("DELETE FROM QueuedMail m WHERE m.status = :status");
+        Query query = em.createQuery("DELETE FROM QueuedMail m WHERE m.status = :status");
         query.setParameter("status",QueuedMail.Status.unsent);
         query.executeUpdate();
     }
 
+    @Transactional(Transactional.TxType.SUPPORTS)
     public List<QueuedMail> getQueueToSend() {
-        TypedQuery<QueuedMail> query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime is null OR m.scheduledTime <= :now)",QueuedMail.class);
+        TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getQueue",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
         query.setParameter("now", getCurrentTime());
         return query.getResultList();
@@ -78,9 +75,7 @@ public class MailQueue {
         currentTime = date;
     }
 
-
-    @Asynchronous
-    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processQueue()
     {
         if (queueStatus.getStarted()) {
@@ -103,7 +98,7 @@ public class MailQueue {
         }
     }
 
-    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void generateMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
@@ -114,7 +109,7 @@ public class MailQueue {
     }
 
     @SuppressWarnings("EmptyCatchBlock")
-    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void sendMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
@@ -125,12 +120,12 @@ public class MailQueue {
         }
     }
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void sendMail(QueuedMail queuedMail)
     {
         System.out.println("Checking "+queuedMail);
 
-        queuedMail = crud.getEntityManager().merge(queuedMail);
+        queuedMail = em.merge(queuedMail);
         Mail mail = queuedMail.getMail();
 
         Boolean unsubscribed = false;
@@ -147,29 +142,29 @@ public class MailQueue {
                 System.out.println("sending "+generatedMail);
                 if (mailSending.sendMail(generatedMail)) {
                     queuedMail.setStatus(QueuedMail.Status.sent);
-                    crud.edit(queuedMail);
+                    em.merge(queuedMail);
                     queueStatus.setSent(queueStatus.getSent()+1);
                 } else {
                     queuedMail.setStatus(QueuedMail.Status.fail);
-                    crud.edit(queuedMail);
+                    em.merge(queuedMail);
                     queueStatus.setFailed(queueStatus.getFailed()+1);
                 }
             }
         } else {
 
             queuedMail.setStatus(QueuedMail.Status.fail);
-            crud.edit(queuedMail);
+            em.merge(queuedMail);
             queueStatus.setFailed(queueStatus.getFailed()+1);
 
             System.out.println("User unsubscribed from campaign");
         }
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public void cleanupQueue()
     {
-        //System.out.println("cleaning up");
-        TypedQuery<QueuedMail> query = crud.getEntityManager().createQuery("SELECT m FROM QueuedMail m WHERE (m.status <> :status1) AND (m.generatedMail IS NOT NULL)",QueuedMail.class);
-        query.setParameter("status1", QueuedMail.Status.unsent);
+        TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getAllWithGenerated",QueuedMail.class);
+        query.setParameter("status", QueuedMail.Status.unsent);
         List<QueuedMail> queuedMails = query.getResultList();
 
         if (queuedMails.size() != 0) {
@@ -177,10 +172,10 @@ public class MailQueue {
             for (QueuedMail queuedMail: queuedMails) {
                 GeneratedMail generatedMail = queuedMail.getGeneratedMail();
                 if (generatedMail != null) {
-                    crud.remove(generatedMail);
+                    em.remove(generatedMail);
                 }
                 queuedMail.setGeneratedMail(null);
-                crud.edit(queuedMail);
+                em.merge(queuedMail);
             }
         }
 

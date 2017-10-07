@@ -40,6 +40,7 @@ public class MailGenerator extends UseEntityManager {
         
         generatedMail.setBody(body_text);
         //crud.create(generatedMail);
+        em.persist(generatedMail);
         
         queuedMail.setGeneratedMail(generatedMail);
         em.merge(queuedMail);

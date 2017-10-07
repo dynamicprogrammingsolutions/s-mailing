@@ -1,6 +1,7 @@
 package dps.simplemailing.entities;
 
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
@@ -13,6 +14,7 @@ public abstract class Mail_ {
 	public static volatile SingularAttribute<Mail, String> body_text;
 	public static volatile SingularAttribute<Mail, String> subject;
 	public static volatile SingularAttribute<Mail, String> name;
+	public static volatile ListAttribute<Mail, QueuedMail> queuedMails;
 	public static volatile SingularAttribute<Mail, String> from;
 	public static volatile SingularAttribute<Mail, Long> id;
 

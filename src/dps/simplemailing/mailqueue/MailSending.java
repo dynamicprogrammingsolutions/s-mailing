@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -20,8 +21,8 @@ import javax.mail.internet.MimeMessage;
  * @author ferenci84
  */
 @SuppressWarnings("ALL")
-@Singleton
-public class MailSending {
+@ApplicationScoped
+public class MailSending implements MailSender {
 
     final private String host = "email-smtp.us-west-2.amazonaws.com";
     final private String port = "587";
@@ -46,8 +47,7 @@ public class MailSending {
             }
         });
     }
-    
-    
+
     public Boolean sendMail(GeneratedMail generatedMail)
     {
         System.out.println("Sending email " + generatedMail.getSubject() + " from " + generatedMail.getFromEmail() + " to " + generatedMail.getToEmail());

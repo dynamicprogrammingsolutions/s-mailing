@@ -1,15 +1,7 @@
 package dps.simplemailing.entities;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -18,6 +10,12 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name="mail_queue")
+@NamedQueries({
+        @NamedQuery(name="QueuedMail.getAll",query="SELECT m FROM QueuedMail m"),
+        @NamedQuery(name="QueuedMail.count",query="SELECT COUNT(m) FROM QueuedMail m"),
+        @NamedQuery(name="QueuedMail.getQueue",query="SELECT m FROM QueuedMail m WHERE m.status = :status AND (m.scheduledTime is null OR m.scheduledTime <= :now)"),
+        @NamedQuery(name="QueuedMail.getAllWithGenerated",query="SELECT m FROM QueuedMail m WHERE (m.status <> :status) AND (m.generatedMail IS NOT NULL)")
+})
 public class QueuedMail implements Serializable, EntityBase<Long> {
 
     private static final long serialVersionUID = 7480663708681616919L;
