@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin.controller;
 
 import dps.servletcontroller.Path;
 import dps.simplemailing.entities.*;
@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 @ApplicationScoped
 @Path("/(.*)")
-public class TestAdminController extends AdminControllerBase {
+public class UrlBasedAdminController extends AdminControllerBase {
     
     @Inject
     UserManager userManager;
@@ -175,7 +175,7 @@ public class TestAdminController extends AdminControllerBase {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(TestAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UrlBasedAdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -225,7 +225,7 @@ public class TestAdminController extends AdminControllerBase {
             writer.println("scheduled");
 
         } catch (ParseException|NumberFormatException ex) {
-            Logger.getLogger(TestAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UrlBasedAdminController.class.getName()).log(Level.SEVERE, null, ex);
             writer.println("parse failed");
         }
         

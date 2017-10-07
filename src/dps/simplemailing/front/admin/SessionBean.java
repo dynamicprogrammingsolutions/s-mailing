@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin;
 
 import java.io.Serializable;
 import java.util.LinkedList;

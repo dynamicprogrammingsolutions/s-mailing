@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin.controller;
 
 import dps.servletcontroller.ControllerBase;
 import dps.servletcontroller.Filter;
@@ -7,6 +7,7 @@ import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
 import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.Mail;
+import dps.simplemailing.front.admin.ControllerCrud;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
 import dps.simplemailing.front.forms.TextArea;
@@ -33,7 +34,8 @@ import javax.transaction.Transactional;
 public class ManageMails extends AdminControllerBase {
 
     @Inject Crud crud;
-    @Inject ControllerCrud controllerCrud;
+    @Inject
+    ControllerCrud controllerCrud;
     @Inject
     MailManager mails;
     

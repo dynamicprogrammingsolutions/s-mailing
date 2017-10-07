@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.api;
 
 import dps.servletcontroller.Router;
 import java.io.IOException;
@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "TestRouterServlet", urlPatterns = {"/testrouter/*"})
+@WebServlet(name = "APIServlet", urlPatterns = {"/api/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
-public class TestRouterServlet extends HttpServlet {
+public class APIServlet extends HttpServlet {
 
     @Inject Router router;
     
@@ -32,10 +32,10 @@ public class TestRouterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         
-        System.out.println("test router");
+        System.out.println("hit api");
         
         String pathInfo = request.getPathInfo();
-        router.process(TestRouter.class, pathInfo, request, response);
+        router.process(APIController.class, pathInfo, request, response);
 
     }
 

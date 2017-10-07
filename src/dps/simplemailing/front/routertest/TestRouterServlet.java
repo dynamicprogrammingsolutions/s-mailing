@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.routertest;
 
 import dps.servletcontroller.Router;
 import java.io.IOException;
@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "AdminServlet", urlPatterns = {"/admin/*"})
+@WebServlet(name = "TestRouterServlet", urlPatterns = {"/testrouter/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/
-public class AdminServlet extends HttpServlet {
+public class TestRouterServlet extends HttpServlet {
 
     @Inject Router router;
     
@@ -30,17 +30,12 @@ public class AdminServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        System.out.println("test router");
         
         String pathInfo = request.getPathInfo();
-        if (router.process(AdminController.class, pathInfo, request, response)) return;
-        if (router.process(ManageMails.class, pathInfo, request, response)) return;
-        if (router.process(ManageCampaigns.class, pathInfo, request, response)) return;
-        if (router.process(ManageSeries.class, pathInfo, request, response)) return;
-        if (router.process(TestAdminController.class, pathInfo, request, response)) return;
-        
-        response.sendError(404);
+        router.process(TestRouter.class, pathInfo, request, response);
 
     }
 

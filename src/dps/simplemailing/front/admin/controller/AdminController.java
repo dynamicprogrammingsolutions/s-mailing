@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin.controller;
 
 import dps.servletcontroller.ControllerBase;
 import dps.servletcontroller.Filter;

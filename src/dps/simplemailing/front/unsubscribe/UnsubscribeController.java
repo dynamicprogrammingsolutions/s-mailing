@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.unsubscribe;
 
 import dps.simplemailing.back.Crud;
 import dps.simplemailing.entities.Campaign;

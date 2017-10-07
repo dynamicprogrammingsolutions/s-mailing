@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.routertest;
 
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.ControllerParam;

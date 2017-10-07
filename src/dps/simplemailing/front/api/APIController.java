@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.api;
 
 import dps.servletcontroller.Controller;
 import dps.servletcontroller.Path;

@@ -1,22 +1,28 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin;
 
+import dps.servletcontroller.Router;
+import dps.simplemailing.front.admin.controller.*;
+
+import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  *
  * @author ferenci84
  */
-@WebServlet(name = "UnsubscribeServlet", urlPatterns = {"/unsubscribe"})
-public class UnsubscribeServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", urlPatterns = {"/admin/*"})
+/*@ServletSecurity(
+        value=@HttpConstraint(rolesAllowed = {"admin"})
+)*/
+public class AdminServlet extends HttpServlet {
 
-    @Inject UnsubscribeController unsubscribeController;
-
+    @Inject Router router;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -28,8 +34,15 @@ public class UnsubscribeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-    
-        unsubscribeController.unsubscribe(request, response);
+        
+        String pathInfo = request.getPathInfo();
+        if (router.process(AdminController.class, pathInfo, request, response)) return;
+        if (router.process(ManageMails.class, pathInfo, request, response)) return;
+        if (router.process(ManageCampaigns.class, pathInfo, request, response)) return;
+        if (router.process(ManageSeries.class, pathInfo, request, response)) return;
+        if (router.process(UrlBasedAdminController.class, pathInfo, request, response)) return;
+        
+        response.sendError(404);
 
     }
 

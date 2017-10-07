@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin;
 
 import dps.crud.Paginator;
 import dps.servletcontroller.RequestParam;
@@ -16,12 +16,16 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author ferenci84
  */
+
+//TODO: Create generic version of crud
 @ApplicationScoped
 public class ControllerCrud {
 
     @Inject Crud crud;
-    @Inject RequestBean requestBean;
-    @Inject SessionBean sessionBean;
+    @Inject
+    RequestBean requestBean;
+    @Inject
+    SessionBean sessionBean;
     @Inject ProcessForm processForm;
     
     public String list(HttpServletRequest request, Integer page)

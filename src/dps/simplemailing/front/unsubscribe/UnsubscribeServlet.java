@@ -1,26 +1,22 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.unsubscribe;
 
-import dps.servletcontroller.Router;
-import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  *
  * @author ferenci84
  */
-@WebServlet(name = "APIServlet", urlPatterns = {"/api/*"})
-/*@ServletSecurity(
-        value=@HttpConstraint(rolesAllowed = {"admin"})
-)*/
-public class APIServlet extends HttpServlet {
+@WebServlet(name = "UnsubscribeServlet", urlPatterns = {"/unsubscribe"})
+public class UnsubscribeServlet extends HttpServlet {
 
-    @Inject Router router;
-    
+    @Inject UnsubscribeController unsubscribeController;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,12 +26,10 @@ public class APIServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-        System.out.println("hit api");
-        
-        String pathInfo = request.getPathInfo();
-        router.process(APIController.class, pathInfo, request, response);
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+    
+        unsubscribeController.unsubscribe(request, response);
 
     }
 

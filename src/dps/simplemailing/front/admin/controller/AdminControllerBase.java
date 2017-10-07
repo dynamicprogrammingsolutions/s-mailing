@@ -1,6 +1,9 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin.controller;
 
 import dps.servletcontroller.ControllerBase;
+import dps.simplemailing.front.admin.RequestBean;
+import dps.simplemailing.front.admin.SessionBean;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -15,8 +18,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author ferenci84
  */
 public class AdminControllerBase extends ControllerBase {
-    @Inject RequestBean requestBean;
-    @Inject SessionBean sessionBean;
+    @Inject
+    RequestBean requestBean;
+    @Inject
+    SessionBean sessionBean;
     
     public void filter(HttpServletRequest request, HttpServletResponse response, ControllerBase controller, Method method, Object[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ServletException
     {

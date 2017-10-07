@@ -1,4 +1,4 @@
-package dps.simplemailing.front;
+package dps.simplemailing.front.admin.controller;
 
 import dps.servletcontroller.ControllerBase;
 import dps.servletcontroller.Filter;
@@ -6,6 +6,7 @@ import dps.servletcontroller.Param;
 import dps.servletcontroller.Path;
 import dps.servletcontroller.RequestParam;
 import dps.simplemailing.entities.Series;
+import dps.simplemailing.front.admin.ControllerCrud;
 import dps.simplemailing.front.forms.CheckBox;
 import dps.simplemailing.front.forms.Form;
 import dps.simplemailing.front.forms.Input;
@@ -27,7 +28,8 @@ import javax.transaction.Transactional;
 @Path("/series(.*)")
 public class ManageSeries extends AdminControllerBase {
 
-    @Inject ControllerCrud controllerCrud;
+    @Inject
+    ControllerCrud controllerCrud;
 
     @Filter
     @Override
