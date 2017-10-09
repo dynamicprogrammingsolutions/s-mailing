@@ -12,7 +12,7 @@ public class RequestBean {
     
     private String title = "";
     private String root = "";
-    private String template = "";
+    private String template = null;
     private String viewRoot = "";
     private Class<?> entityClass = null;
     private String entityName = "";

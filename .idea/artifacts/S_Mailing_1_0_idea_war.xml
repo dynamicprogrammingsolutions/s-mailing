@@ -3,6 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/S_Mailing_1_0_idea_war</output-path>
     <root id="archive" name="S-Mailing-1.0-idea_war.war">
       <element id="artifact" artifact-name="S-Mailing-1.0-idea:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.jboss.resteasy:resteasy-html:3.0.19.Final" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

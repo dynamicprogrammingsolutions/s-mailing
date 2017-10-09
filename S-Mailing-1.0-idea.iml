@@ -35,10 +35,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" name="org.jboss.resteasy:resteasy-html:3.0.19.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Arquillian JUnit:1.1.13.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="org.jboss.weld:weld-core:2.4.4.Final" level="project" />
     <orderEntry type="library" name="org.hibernate:hibernate-jpamodelgen:5.2.11.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson-provider:3.0.19.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson2-provider:3.0.19.Final" level="project" />
+    <orderEntry type="library" name="org.jboss.resteasy:resteasy-html:3.0.19.Final" level="project" />
   </component>
 </module>

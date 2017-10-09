@@ -8,7 +8,7 @@
 
                 <h3 class="panel-title">Edit Series</h3>
 
-                <jsp:include page="/WEB-INF/templates/form.jsp" />
+                <jsp:include page="/WEB-INF/series/form.jsp" />
                 
             </div>
         </div>

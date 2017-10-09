@@ -11,11 +11,19 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @Dependent
-@Path("mails")
+@Path("resources/mails")
 public class MailResource extends ResourceBase<Mail,Long> {
 
     @Inject
     MailManager mailManager;
+
+    @Path("/ok")
+    @Produces("text/plain")
+    @GET
+    public String test()
+    {
+        return "TEST OK";
+    }
 
     @GET
     @Path("/{id}/campaigns")
@@ -26,16 +34,4 @@ public class MailResource extends ResourceBase<Mail,Long> {
         else return Response.ok(campaigns).build();
     }
 
-    /*
-    @PUT
-    @Path("/{id}/campaigns/{campaignId}")
-    public void addMailToCampaign(@PathParam("id") Long id, @PathParam("campaignId") Long campaignId)
-    {
-        try {
-            mailManager.addMailToCampaign(id, campaignId);
-        } catch (IllegalArgumentException e) {
-            throw new NotFoundException();
-        }
-    }
-    */
 }

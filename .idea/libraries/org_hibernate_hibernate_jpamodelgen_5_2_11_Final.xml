@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="org.hibernate:hibernate-jpamodelgen:5.2.11.Final" type="repository">
-    <properties maven-id="org.hibernate:hibernate-jpamodelgen:5.2.11.Final" />
+    <properties include-transitive-deps="false" maven-id="org.hibernate:hibernate-jpamodelgen:5.2.11.Final" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/hibernate-jpamodelgen-5.2.11.Final.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-jpamodelgen/5.2.11.Final/hibernate-jpamodelgen-5.2.11.Final.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

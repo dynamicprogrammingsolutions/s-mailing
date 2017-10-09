@@ -7,7 +7,7 @@
 
             <h3 class="panel-title">New Campaign</h3>
 
-            <jsp:include page="/WEB-INF/templates/form.jsp" />
+            <jsp:include page="/WEB-INF/campaigns/form.jsp" />
 
         </div>
 

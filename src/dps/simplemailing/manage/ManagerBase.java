@@ -33,6 +33,10 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     {
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
+            /*for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
+                System.out.println(constraintViolation.getPropertyPath()+" "+constraintViolation.getMessage());
+            }*/
+
             throw new IllegalArgumentException("Validation failed");
         }
         em.persist(entity);
@@ -140,6 +144,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public void remove(IdType id) throws IllegalArgumentException {
         EntityType entity = em.find(entityClass,id);
+        if (entity == null) throw new EntityNotFoundException();
         em.remove(entity);
     }
 
@@ -166,6 +171,15 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     protected String queryName(String name)
     {
         return entityClass.getSimpleName()+"."+name;
+    }
+
+    public EntityType newEntity()
+    {
+        try {
+            return entityClass.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

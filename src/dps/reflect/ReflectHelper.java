@@ -2,7 +2,10 @@ package dps.reflect;
 
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.Metamodel;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -86,6 +89,16 @@ public class ReflectHelper {
         }
         throw new NoSuchMethodException();
     }
+    public static Method findMethodWithName(Class<?> clazz, String name, int noOfParams) throws NoSuchMethodException
+    {
+        Method[] methods = clazz.getMethods();
+        for (Method method: methods) {
+            if (method.getName().equals(name) && method.getParameters().length == noOfParams) {
+                return method;
+            }
+        }
+        throw new NoSuchMethodException();
+    }
     public static Object invokeMethod(Class<?> clazz, String name, Object obj, Object... args)
     {
         Method method;
@@ -107,5 +120,9 @@ public class ReflectHelper {
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             throw new NoSuchMethodError();
         }
+    }
+    public static Boolean hasAnnotation(Class<?> clazz, Class<? extends Annotation> annotationClass)
+    {
+        return clazz.getAnnotation(annotationClass) != null;
     }
 }

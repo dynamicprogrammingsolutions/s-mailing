@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" type="repository">
+    <properties include-transitive-deps="false" maven-id="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.0.19.Final/resteasy-jaxrs-3.0.19.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.0.19.Final/resteasy-jaxrs-3.0.19.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

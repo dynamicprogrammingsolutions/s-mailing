@@ -13,6 +13,7 @@
                         <th>Subject</th>
                         <th>Show</th>
                         <th>Edit</th>
+                        <th>Copy</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -23,7 +24,8 @@
                         <td>${item.subject}</td>
                         <td><a href="${root}show/${item.id}">show</a></td>
                         <td><a href="${root}edit/${item.id}">edit</a></td>
-                        <td><form action="${root}delete" method="post"><button type="submit" name="id" value="${item.id}">Delete</button></form></td>
+                        <td><a href="${root}new?id=${item.id}">copy</a></td>
+                        <td><form action="${root}delete/${item.id}" method="post"><button type="submit" name="id" value="${item.id}">Delete</button></form></td>
                     </tr>
                 </c:forEach>
             </table>

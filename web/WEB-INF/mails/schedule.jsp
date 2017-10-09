@@ -44,16 +44,11 @@
 
             <h3 class="panel-title">Schedule Mail</h3>
 
-            <form action="${root}schedule" method="post">
+            <form action="${root}schedule/${item.id}" method="post">
 
                 <div class="form-group">
                     <label>Send Time</label>
                     <input class="form-control" type="time" name="send_time" value="" />
-                </div>
-
-                <div class="form-group">
-                    <label>Delay</label>
-                    <input class="form-control" type="text" name="delay" value="1000" />
                 </div>
 
                 <div class="form-check">

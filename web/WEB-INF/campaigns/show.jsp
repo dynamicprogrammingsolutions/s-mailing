@@ -41,7 +41,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-block">
-                <h3 class="panel-title">Campaigns</h3>
+                <h3 class="panel-title">Mails</h3>
 
                     <div class="row">
                         <div class="col-md-12">
