@@ -4,7 +4,7 @@ import dps.simplemailing.entities.Campaign;
 
 import javax.ws.rs.Path;
 
-@Path("resources/campaigns")
+@Path("campaigns")
 public class CampaignResource extends ResourceBase<Campaign,Long> {
 
 }

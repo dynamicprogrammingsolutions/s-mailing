@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @Dependent
-@Path("resources/mails")
+@Path("mails")
 public class MailResource extends ResourceBase<Mail,Long> {
 
     @Inject

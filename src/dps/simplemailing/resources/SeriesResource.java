@@ -4,7 +4,7 @@ import dps.simplemailing.entities.Series;
 
 import javax.ws.rs.Path;
 
-@Path("resources/series")
+@Path("series")
 public class SeriesResource extends ResourceBase<Series,Long> {
 
 }

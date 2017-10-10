@@ -1,7 +1,5 @@
 package dps.simplemailing.rs;
 
-import dps.simplemailing.front.admin_new.provider.View;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Produces;

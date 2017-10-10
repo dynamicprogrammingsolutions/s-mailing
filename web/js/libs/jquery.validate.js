@@ -192,7 +192,7 @@ $.extend( $.fn, {
 			$( element ).attr( "aria-required", "true" );
 		}
 
-		// Make sure remote is at back
+		// Make sure remote is at crud
 		if ( data.remote ) {
 			param = data.remote;
 			delete data.remote;
@@ -946,7 +946,7 @@ $.extend( $.validator, {
 					place.insertAfter( element );
 				}
 
-				// Link error back to the element
+				// Link error crud to the element
 				if ( error.is( "label" ) ) {
 
 					// If the error is a label, then associate using 'for'

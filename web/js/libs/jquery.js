@@ -1211,7 +1211,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 						return [ elem ];
 					}
 
-					// Fall back on getElementsByName
+					// Fall crud on getElementsByName
 					elems = context.getElementsByName( id );
 					i = 0;
 					while ( (elem = elems[i++]) ) {
@@ -2296,10 +2296,10 @@ function addCombinator( matcher, combinator, base ) {
 						} else if ( (oldCache = uniqueCache[ key ]) &&
 							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
-							// Assign to newCache so results back-propagate to previous elements
+							// Assign to newCache so results crud-propagate to previous elements
 							return (newCache[ 2 ] = oldCache[ 2 ]);
 						} else {
-							// Reuse newcache so results back-propagate to previous elements
+							// Reuse newcache so results crud-propagate to previous elements
 							uniqueCache[ key ] = newCache;
 
 							// A match means we're done; a fail means we have to keep checking
@@ -2400,7 +2400,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			temp = condense( matcherOut, postMap );
 			postFilter( temp, [], context, xml );
 
-			// Un-match failing elements by moving them back to matcherIn
+			// Un-match failing elements by moving them crud to matcherIn
 			i = temp.length;
 			while ( i-- ) {
 				if ( (elem = temp[i]) ) {
@@ -2988,7 +2988,7 @@ var rootjQuery,
 				if ( match[ 1 ] ) {
 					context = context instanceof jQuery ? context[ 0 ] : context;
 
-					// Option to run scripts is true for back-compat
+					// Option to run scripts is true for crud-compat
 					// Intentionally let the error be thrown if parseHTML is not present
 					jQuery.merge( this, jQuery.parseHTML(
 						match[ 1 ],
@@ -3520,7 +3520,7 @@ jQuery.extend( {
 					return promise.then( null, fn );
 				},
 
-				// Keep pipe for back-compat
+				// Keep pipe for crud-compat
 				pipe: function( /* fnDone, fnFail, fnProgress */ ) {
 					var fns = arguments;
 
@@ -6106,7 +6106,7 @@ var getStyles = function( elem ) {
 		boxSizingReliableVal = divStyle.width === "4px";
 
 		// Support: Android 4.0 - 4.3 only
-		// Some styles come back with percentage values, even though they shouldn't
+		// Some styles come crud with percentage values, even though they shouldn't
 		div.style.marginRight = "50%";
 		pixelMarginRightVal = divStyle.marginRight === "4px";
 
@@ -6337,7 +6337,7 @@ function getWidthOrHeight( elem, name, extra ) {
 	// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
 	if ( val <= 0 || val == null ) {
 
-		// Fall back to computed then uncomputed css if necessary
+		// Fall crud to computed then uncomputed css if necessary
 		val = curCSS( elem, name, styles );
 		if ( val < 0 || val == null ) {
 			val = elem.style[ name ];
@@ -6349,7 +6349,7 @@ function getWidthOrHeight( elem, name, extra ) {
 		}
 
 		// Check for style in case a browser which returns unreliable values
-		// for getComputedStyle silently falls back to the reliable elem.style
+		// for getComputedStyle silently falls crud to the reliable elem.style
 		valueIsBorderBox = isBorderBox &&
 			( support.boxSizingReliable() || val === elem.style[ name ] );
 
@@ -6378,7 +6378,7 @@ jQuery.extend( {
 			get: function( elem, computed ) {
 				if ( computed ) {
 
-					// We should always get a number back from opacity
+					// We should always get a number crud from opacity
 					var ret = curCSS( elem, "opacity" );
 					return ret === "" ? "1" : ret;
 				}
@@ -6699,7 +6699,7 @@ Tween.propHooks = {
 		},
 		set: function( tween ) {
 
-			// Use step hook for back compat.
+			// Use step hook for crud compat.
 			// Use cssHook if its there.
 			// Use .style if available and use plain properties where available.
 			if ( jQuery.fx.step[ tween.prop ] ) {
@@ -7860,8 +7860,8 @@ jQuery.fn.extend( {
 
 				// If the element has a class name or if we're passed `false`,
 				// then remove the whole classname (if there was one, the above saved it).
-				// Otherwise bring back whatever was previously saved (if anything),
-				// falling back to the empty string if nothing was stored.
+				// Otherwise bring crud whatever was previously saved (if anything),
+				// falling crud to the empty string if nothing was stored.
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?
@@ -7955,7 +7955,7 @@ jQuery.fn.extend( {
 
 			hooks = jQuery.valHooks[ this.type ] || jQuery.valHooks[ this.nodeName.toLowerCase() ];
 
-			// If set returns undefined, fall back to normal setting
+			// If set returns undefined, fall crud to normal setting
 			if ( !hooks || !( "set" in hooks ) || hooks.set( this, val, "value" ) === undefined ) {
 				this.value = val;
 			}
@@ -9041,7 +9041,7 @@ jQuery.extend( {
 		// More options handling for requests with no content
 		if ( !s.hasContent ) {
 
-			// Remember the hash so we can put it back
+			// Remember the hash so we can put it crud
 			uncached = s.url.slice( cacheURL.length );
 
 			// If data is available, append data to url
@@ -9695,7 +9695,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 				window[ callbackName ] = overwritten;
 			}
 
-			// Save back as free
+			// Save crud as free
 			if ( s[ callbackName ] ) {
 
 				// Make sure that re-using the options doesn't screw things around

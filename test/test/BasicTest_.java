@@ -22,7 +22,7 @@ public class BasicTest_ {
         return ShrinkWrap.create(WebArchive.class,"test.war")
                 .addClass(Greeter.class)
                 .addClass(dps.crud.Crud.class)
-                .addClass(dps.simplemailing.back.Crud.class)
+                .addClass(dps.simplemailing.crud.Crud.class)
                 .addPackage(dps.simplemailing.entities.User.class.getPackage())
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");

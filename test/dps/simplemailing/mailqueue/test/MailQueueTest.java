@@ -31,7 +31,7 @@ public class MailQueueTest {
                 .addPackage("dps.simplemailing.mailqueue.test")
                 .addPackage("dps.simplemailing.entities")
                 .addPackage("dps.crud")
-                .addPackage("dps.simplemailing.back")
+                .addPackage("dps.simplemailing.crud")
                 .addPackage("dps.simplemailing.manage")
                 .addClass(MailSender.class)
                 .addClass(MailGenerator.class)

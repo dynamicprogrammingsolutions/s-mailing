@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>RESTEasy JSAPI</servlet-name>
         <servlet-class>org.jboss.resteasy.jsapi.JSAPIServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RESTEasy JSAPI</servlet-name>
-        <url-pattern>/rest-js-api.js</url-pattern>
-    </servlet-mapping>
+        <url-pattern>/rest-js-api_1.js</url-pattern>
+    </servlet-mapping>-->
+
     <session-config>
         <session-timeout>
             30

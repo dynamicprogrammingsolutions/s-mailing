@@ -30,7 +30,7 @@ public class UserManagerTest extends ManagerTestBase<User> {
                 .addClass(ManagerTestBase.class)
                 .addPackage("dps.simplemailing.entities")
                 .addPackage("dps.crud")
-                .addPackage("dps.simplemailing.back")
+                .addPackage("dps.simplemailing.crud")
                 .addPackage("dps.simplemailing.manage")
                 .addPackage("dps.simplemailing.mailqueue")
                 .addPackage("dps.reflect")

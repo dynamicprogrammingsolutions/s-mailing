@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 @Dependent
-@Path("resources/users")
+@Path("users")
 public class UserResource extends ResourceBase<User,Long> {
 
     @GET

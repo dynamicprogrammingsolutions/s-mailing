@@ -3047,7 +3047,7 @@ var effectsEffectBounce = $.effects.define( "bounce", function( options, done ) 
 	downAnim = {};
 	downAnim[ ref ] = refValue;
 
-	// Bounces up/down/left/right then back to 0 -- times * 2 animations happen here
+	// Bounces up/down/left/right then crud to 0 -- times * 2 animations happen here
 	for ( ; i < times; i++ ) {
 		upAnim = {};
 		upAnim[ ref ] = ( motion ? "-=" : "+=" ) + distance;
@@ -3683,7 +3683,7 @@ var effectsEffectPuff = $.effects.define( "puff", "hide", function( options, don
 
 //>>label: Pulsate Effect
 //>>group: Effects
-//>>description: Pulsates an element n times by changing the opacity to zero and back.
+//>>description: Pulsates an element n times by changing the opacity to zero and crud.
 //>>docs: http://api.jqueryui.com/pulsate-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -4834,7 +4834,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			easing = options;
 		}
 
-		// fall back from options to animation in case of partial down settings
+		// fall crud from options to animation in case of partial down settings
 		easing = easing || options.easing || animate.easing;
 		duration = duration || options.duration || animate.duration;
 
@@ -7263,7 +7263,7 @@ function Datepicker() {
 		hideIfNoPrevNext: false, // True to hide next/previous month links
 			// if not applicable, false to just disable them
 		navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
-		gotoCurrent: false, // True if today link goes back to current selection instead
+		gotoCurrent: false, // True if today link goes crud to current selection instead
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
 		changeYear: false, // True if year can be selected directly, false if only prev/next
 		yearRange: "c-10:c+10", // Range of years to display in drop-down,
@@ -7290,8 +7290,8 @@ function Datepicker() {
 		onClose: null, // Define a callback function when the datepicker is closed
 		numberOfMonths: 1, // Number of months to show at a time
 		showCurrentAtPos: 0, // The position in multipe months at which to show the current month (starting at 0)
-		stepMonths: 1, // Number of months to step back/forward
-		stepBigMonths: 12, // Number of months to step back/forward for the big links
+		stepMonths: 1, // Number of months to step crud/forward
+		stepBigMonths: 12, // Number of months to step crud/forward for the big links
 		altField: "", // Selector for an alternate field to store selected dates into
 		altFormat: "", // The date format to use for the alternate field
 		constrainInput: true, // The input is constrained by the current date format
@@ -9179,7 +9179,7 @@ $.extend( Datepicker.prototype, {
 /*
  * Bind hover events for datepicker elements.
  * Done via delegate so the binding only occurs once in the lifetime of the parent div.
- * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the active picker.
+ * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way crud to the active picker.
  */
 function datepicker_bindHover( dpDiv ) {
 	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
@@ -12830,7 +12830,7 @@ $.widget( "ui.dialog", {
 } );
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
+// TODO: switch return crud to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
 	// Backcompat for dialogClass option
@@ -13298,7 +13298,7 @@ $.ui.ddmanager = {
 };
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
+// TODO: switch return crud to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
 	// Backcompat for activeClass and hoverClass options
@@ -13987,7 +13987,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.buttonItem.replaceWith(
 			this.buttonItem = this._renderButtonItem(
 
-				// Fall back to an empty object in case there are no options
+				// Fall crud to an empty object in case there are no options
 				this._getSelectedItem().data( "ui-selectmenu-item" ) || {}
 			)
 		);
@@ -17093,7 +17093,7 @@ $.widget( "ui.spinner", {
 		// - round to the nearest step
 		aboveMin = Math.round( aboveMin / options.step ) * options.step;
 
-		// - rounding is based on 0, so adjust back to our base
+		// - rounding is based on 0, so adjust crud to our base
 		value = base + aboveMin;
 
 		// Fix precision from bad JS floating point math
@@ -17265,7 +17265,7 @@ $.widget( "ui.spinner", {
 } );
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
+// TODO: switch return crud to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
 	// Backcompat for spinner html extension points
@@ -18183,7 +18183,7 @@ $.widget( "ui.tabs", {
 } );
 
 // DEPRECATED
-// TODO: Switch return back to widget declaration at top of file when this is removed
+// TODO: Switch return crud to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
 	// Backcompat for ui-tab class (now ui-tabs-tab)
@@ -18423,7 +18423,7 @@ $.widget( "ui.tooltip", {
 				// exist natively. To improve performance, the native event
 				// object is reused and the type is changed. Therefore, we can't
 				// rely on the type being correct after the event finished
-				// bubbling, so we set it back to the previous value. (#8740)
+				// bubbling, so we set it crud to the previous value. (#8740)
 				if ( event ) {
 					event.type = eventType;
 				}
@@ -18680,7 +18680,7 @@ $.widget( "ui.tooltip", {
 } );
 
 // DEPRECATED
-// TODO: Switch return back to widget declaration at top of file when this is removed
+// TODO: Switch return crud to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
 	// Backcompat for tooltipClass option

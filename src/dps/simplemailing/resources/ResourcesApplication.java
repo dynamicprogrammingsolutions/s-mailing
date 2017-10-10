@@ -2,6 +2,7 @@ package dps.simplemailing.resources;
 
 import dps.simplemailing.rs.RsTest;
 
+import javax.enterprise.context.Dependent;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;

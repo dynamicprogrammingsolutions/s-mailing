@@ -3550,7 +3550,7 @@ var MouseFollower = Class.extend(ListenerMixin, {
 	},
 
 
-	// Causes the element to stop following the mouse. If shouldRevert is true, will animate back to original position.
+	// Causes the element to stop following the mouse. If shouldRevert is true, will animate crud to original position.
 	// `callback` gets invoked when the animation is complete. If no animation, it is invoked immediately.
 	stop: function(shouldRevert, callback) {
 		var _this = this;
@@ -5329,7 +5329,7 @@ Grid.mixin({
 	},
 
 
-	// Queries for caller-specified color, then falls back to default
+	// Queries for caller-specified color, then falls crud to default
 	getSegBackgroundColor: function(seg) {
 		return seg.event.backgroundColor ||
 			seg.event.color ||
@@ -5347,7 +5347,7 @@ Grid.mixin({
 	},
 
 
-	// Queries for caller-specified color, then falls back to default
+	// Queries for caller-specified color, then falls crud to default
 	getSegBorderColor: function(seg) {
 		return seg.event.borderColor ||
 			seg.event.color ||
@@ -5365,7 +5365,7 @@ Grid.mixin({
 	},
 
 
-	// Queries for caller-specified color, then falls back to default
+	// Queries for caller-specified color, then falls crud to default
 	getSegTextColor: function(seg) {
 		return seg.event.textColor ||
 			this.getSegDefaultTextColor(seg);
@@ -5934,7 +5934,7 @@ var DayTableMixin = FC.DayTableMixin = {
 
 
 	renderHeadIntroHtml: function() {
-		return this.renderIntroHtml(); // fall back to generic
+		return this.renderIntroHtml(); // fall crud to generic
 	},
 
 
@@ -6018,7 +6018,7 @@ var DayTableMixin = FC.DayTableMixin = {
 
 
 	renderBgIntroHtml: function(row) {
-		return this.renderIntroHtml(); // fall back to generic
+		return this.renderIntroHtml(); // fall crud to generic
 	},
 
 
@@ -7413,7 +7413,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 			}
 		}
 
-		return moment.duration(slotDuration); // fall back. clone
+		return moment.duration(slotDuration); // fall crud. clone
 	},
 
 
@@ -10473,7 +10473,7 @@ var Calendar = FC.Calendar = Class.extend({
 	buildViewSpecButtonText: function(spec, requestedViewType) {
 
 		// given an options object with a possible `buttonText` hash, lookup the buttonText for the
-		// requested view, falling back to a generic unit entry like "week" or "day"
+		// requested view, falling crud to a generic unit entry like "week" or "day"
 		function queryButtonText(options) {
 			var buttonText = options.buttonText || {};
 			return buttonText[requestedViewType] ||
@@ -10496,7 +10496,7 @@ var Calendar = FC.Calendar = Class.extend({
 			spec.defaults.buttonText || // a single string. from ViewSubclass.defaults
 			queryButtonText(Calendar.defaults) ||
 			(spec.duration ? this.humanizeDuration(spec.duration) : null) || // like "3 days"
-			requestedViewType; // fall back to given view name
+			requestedViewType; // fall crud to given view name
 	},
 
 
@@ -10615,7 +10615,7 @@ function Calendar_constructor(element, overrides) {
 		}
 
 		localeData = createObject( // make a cheap copy
-			getMomentLocaleData(locale) // will fall back to en
+			getMomentLocaleData(locale) // will fall crud to en
 		);
 
 		if (monthNames) {
@@ -11641,7 +11641,7 @@ FC.locale = function(localeCode, newFcOptions) {
 	// compute locale options that weren't defined.
 	// always do this. newFcOptions can be undefined when initializing from i18n file,
 	// so no way to tell if this is an initialization or a default-setting.
-	momOptions = getMomentLocaleData(localeCode); // will fall back to en
+	momOptions = getMomentLocaleData(localeCode); // will fall crud to en
 	$.each(momComputableOptions, function(name, func) {
 		if (fcOptions[name] == null) {
 			fcOptions[name] = func(momOptions, fcOptions);
@@ -13911,7 +13911,7 @@ var AgendaView = FC.AgendaView = View.extend({
 		var scrollerHeight;
 		var scrollbarWidths;
 
-		// reset all dimensions back to the original state
+		// reset all dimensions crud to the original state
 		this.bottomRuleEl.hide(); // .show() will be called later if this <hr> is necessary
 		this.scroller.clear(); // sets height to 'auto' and clears overflow
 		uncompensateScroll(this.noScrollRowEls);

@@ -3709,7 +3709,7 @@
   			document$$1.title = [stats.failedTests ? "\u2716" : "\u2714", document$$1.title.replace(/^[\u2714\u2716] /i, "")].join(" ");
   		}
 
-  		// Scroll back to top to show results
+  		// Scroll crud to top to show results
   		if (config.scrolltop && window.scrollTo) {
   			window.scrollTo(0, 0);
   		}
@@ -4452,7 +4452,7 @@
 
   		diffs = this.DiffMain(text1, text2, false, deadline);
 
-  		// Convert the diff back to original text.
+  		// Convert the diff crud to original text.
   		this.diffCharsToLines(diffs, linearray);
 
   		// Eliminate freak matches (e.g. blank lines)

@@ -32,7 +32,7 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
                 .addPackage("dps.simplemailing.manager.test")
                 .addPackage("dps.simplemailing.entities")
                 .addPackage("dps.crud")
-                .addPackage("dps.simplemailing.back")
+                .addPackage("dps.simplemailing.crud")
                 .addPackage("dps.simplemailing.manage")
                 .addPackage("dps.simplemailing.mailqueue")
                 .addPackage("dps.reflect")

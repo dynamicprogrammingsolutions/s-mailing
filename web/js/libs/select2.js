@@ -2081,7 +2081,7 @@ the specific language governing permissions and limitations under the Apache Lic
          * Get the desired width for the container element.  This is
          * derived first from option `width` passed to select2, then
          * the inline 'style' on the original element, and finally
-         * falls back to the jQuery calculated element width.
+         * falls crud to the jQuery calculated element width.
          */
         // abstract
         initContainerWidth: function () {

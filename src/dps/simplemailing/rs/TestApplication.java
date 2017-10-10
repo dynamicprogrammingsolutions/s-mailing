@@ -16,11 +16,7 @@ import java.util.Set;
  * @author ferenci84
  */
 @ApplicationPath("/test")
-@Dependent
 public class TestApplication extends Application {
-
-    @Inject
-    Instance<Object> getSingletons;
 
     @Override
     public Set<Class<?>> getClasses() {

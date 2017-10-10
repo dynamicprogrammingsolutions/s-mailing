@@ -146,7 +146,7 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 					events.push({
 						id: entry.id,
 						title: entry.summary,
-						start: entry.start.dateTime || entry.start.date, // try timed. will fall back to all-day
+						start: entry.start.dateTime || entry.start.date, // try timed. will fall crud to all-day
 						end: entry.end.dateTime || entry.end.date, // same
 						url: url,
 						location: entry.location,
