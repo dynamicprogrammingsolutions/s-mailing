@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "APIServlet", urlPatterns = {"/api/*"})
+@WebServlet(name = "APIServlet", urlPatterns = {"/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/

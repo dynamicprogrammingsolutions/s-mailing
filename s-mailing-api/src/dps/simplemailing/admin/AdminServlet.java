@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferenci84
  */
-@WebServlet(name = "AdminServlet", urlPatterns = {"/admin_old/*"})
+@WebServlet(name = "AdminServlet", urlPatterns = {"/admin/*"})
 /*@ServletSecurity(
         value=@HttpConstraint(rolesAllowed = {"admin"})
 )*/

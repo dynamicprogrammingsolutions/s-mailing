@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  * @author ferenci84
  */
-@WebServlet(name = "UnsubscribeServlet", urlPatterns = {"/unsubscribe"})
+@WebServlet(name = "UnsubscribeServlet", urlPatterns = {""})
 public class UnsubscribeServlet extends HttpServlet {
 
     @Inject UnsubscribeController unsubscribeController;

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="s-mailing-unsubscribe:war archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_unsubscribe_war_archive</output-path>
+    <root id="archive" name="s-mailing-unsubscribe_war archive.war">
+      <element id="artifact" artifact-name="s-mailing-unsubscribe:war" />
+    </root>
+  </artifact>
+</component>

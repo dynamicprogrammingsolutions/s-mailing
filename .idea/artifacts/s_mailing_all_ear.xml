@@ -8,6 +8,8 @@
       <element id="artifact" artifact-name="s-mailing-html-ui" />
       <element id="artifact" artifact-name="s-mailing-resources" />
       <element id="artifact" artifact-name="s-mailing-schedule-sending" />
+      <element id="artifact" artifact-name="s-mailing-api" />
+      <element id="artifact" artifact-name="s-mailing-unsubscribe" />
     </root>
   </artifact>
 </component>
