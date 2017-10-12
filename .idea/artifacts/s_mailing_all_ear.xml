@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="s-mailing-all:ear">
+    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_all.ear</output-path>
+    <root id="root">
+      <element id="directory" name="lib">
+        <element id="artifact" artifact-name="s-mailing-base" />
+      </element>
+      <element id="artifact" artifact-name="s-mailing-html-ui" />
+      <element id="artifact" artifact-name="s-mailing-resources" />
+      <element id="artifact" artifact-name="s-mailing-schedule-sending" />
+    </root>
+  </artifact>
+</component>
