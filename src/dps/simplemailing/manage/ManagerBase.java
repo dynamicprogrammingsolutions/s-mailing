@@ -133,6 +133,10 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         entity.setId(old.getId());
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
+            System.out.println("validation failed");
+            for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
+                System.out.println(constraintViolation.getMessage()+" "+constraintViolation.getPropertyPath());
+            }
             throw new IllegalArgumentException("Validation failed");
         }
         em.merge(entity);

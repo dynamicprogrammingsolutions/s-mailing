@@ -99,6 +99,21 @@ public class ReflectHelper {
         }
         throw new NoSuchMethodException();
     }
+
+    public static Method[] findMethodsWithName(Class<?> clazz, String name, int noOfParams) throws NoSuchMethodException
+    {
+        Set<Method> foundMethods = new HashSet<>();
+        Method[] methods = clazz.getMethods();
+        for (Method method: methods) {
+            if (method.getName().equals(name) && method.getParameters().length == noOfParams) {
+                foundMethods.add(method);
+                //return method;
+            }
+        }
+        if (foundMethods.isEmpty()) throw new NoSuchMethodException();
+        else return foundMethods.toArray(new Method[foundMethods.size()]);
+    }
+
     public static Object invokeMethod(Class<?> clazz, String name, Object obj, Object... args)
     {
         Method method;

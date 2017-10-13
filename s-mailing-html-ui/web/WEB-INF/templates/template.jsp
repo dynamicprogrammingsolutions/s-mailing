@@ -46,10 +46,11 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-item" ><a class="nav-link"  href="${resourceRoot}/admin/"> Index </a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${resourceRoot}/admin/mails">Mails</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${resourceRoot}/admin/campaigns">Campaigns</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${resourceRoot}/admin/series">Series</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}"> Index </a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/users">Users</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/mails">Mails</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/campaigns">Campaigns</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/series">Series</a></li>
 
                 </ul>
             </nav>

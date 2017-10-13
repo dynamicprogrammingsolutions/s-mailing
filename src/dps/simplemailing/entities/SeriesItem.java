@@ -65,7 +65,7 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
         return sendDelayLastItem;
     }
 
-    public void setSendDelayLastItem(int sendDelayLastItem) {
+    public void setSendDelayLastItem(Integer sendDelayLastItem) {
         this.sendDelayLastItem = sendDelayLastItem;
     }
 
@@ -73,7 +73,7 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
         return sendDelayLastMail;
     }
 
-    public void setSendDelayLastMail(int sendDelayLastMail) {
+    public void setSendDelayLastMail(Integer sendDelayLastMail) {
         this.sendDelayLastMail = sendDelayLastMail;
     }
 
@@ -81,7 +81,7 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
         return sendOrder;
     }
 
-    public void setSendOrder(int sendOrder) {
+    public void setSendOrder(Integer sendOrder) {
         this.sendOrder = sendOrder;
     }
 
@@ -89,7 +89,7 @@ public class SeriesItem implements Serializable, EntityBase<Long> {
         return sendDelay;
     }
 
-    public void setSendDelay(int sendDelay) {
+    public void setSendDelay(Integer sendDelay) {
         this.sendDelay = sendDelay;
     }
 

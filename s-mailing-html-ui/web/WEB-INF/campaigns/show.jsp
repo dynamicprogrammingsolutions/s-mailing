@@ -22,7 +22,6 @@
                     <a href="${root}edit/${item.id}"><button class="btn btn-warning" type="button">Edit</button></a>
                     <a href="${root}new?id=${item.id}"><button class="btn btn-success"  type="button">Copy</button></a>
                     <button id="btn_delete" class="btn btn-danger" type="button">Delete</button>
-                    <a href="${root}schedule?id=${item.id}"><button class="btn btn-warning" type="button">Schedule</button></a>
                 </div>
 
                 <form id="frm_delete" action="${root}delete" method="post"><input type="hidden" name="id" value="${item.id}" /></form>

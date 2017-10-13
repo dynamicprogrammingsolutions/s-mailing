@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-block">
 
-                <h3 class="panel-title">Series Id ${item.id}</h3>
+                <h3 class="panel-title">Series Id ${seriesId=item.id}</h3>
 
                 <div class="row form-group">
                     <div class="col-md-3">Id</div>
@@ -51,7 +51,8 @@
                                         <th>Id</th>
                                         <th>Mail Id</th>
                                         <th>Mail Name</th>
-                                        <th>Send Delay</th>
+                                        <th>Send Order</th>
+                                        <th>Edit</th>
                                         <th>Show</th>
                                     </tr>
                                 </thead>
@@ -62,8 +63,9 @@
                                         <td>${item.id}</td>
                                         <td>${item.mail.id}</td>
                                         <td>${item.mail.name}</td>
-                                        <td>${item.sendDelay}</td>
-                                        <td><a href="${contextPath}/admin/seriesItems/show/${item.id}">show</a></td>
+                                        <td>${item.sendOrder}</td>
+                                        <td><a href="${root}${seriesId}/items/edit/${item.id}">edit</a></td>
+                                        <td><a href="${root}${seriesId}/items/show/${item.id}">show</a></td>
                                     </tr>
 
                                 </c:forEach>
@@ -72,6 +74,8 @@
 
                         </div>
                     </div>
+
+                <a href="${root}${seriesId}/add_mail"><button class="btn btn-warning" type="button">Add</button></a>
 
             </div>
         </div>

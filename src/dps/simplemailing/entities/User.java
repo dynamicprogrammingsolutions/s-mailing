@@ -48,7 +48,7 @@ public class User implements Serializable, EntityBase<Long> {
     @OneToMany(mappedBy = "mail",cascade = CascadeType.REMOVE)
     private List<QueuedMail> queuedMails;
 
-    public enum Status {
+    static public enum Status {
         subscribed,
         unsubscribed,
         test,

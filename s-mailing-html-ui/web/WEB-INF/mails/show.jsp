@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-block">
 
-                <h3 class="panel-title">Mail Id ${item.id}</h3>
+                <h3 class="panel-title">Mail Id ${mailId=item.id}</h3>
 
                 <div class="row form-group">
                     <div class="col-md-3">Id</div>
@@ -76,7 +76,8 @@
                                         <td>${item.id}</td>
                                         <td>${item.name}</td>
                                         <td>${item.longName}</td>
-                                        <td><a href="${contextPath}/admin/campaigns/show/${item.id}">show</a></td>
+                                        <td><a href="${contextPath}/campaigns/show/${item.id}">show</a></td>
+                                        <td><form action="${root}show/${mailId}/delete_from_campaign" method="post"><button type="submit" name="id" value="${item.id}">Delete From</button></form></td>
                                     </tr>
 
                                 </c:forEach>
@@ -86,6 +87,10 @@
                         </div>
                     </div>
 
+                <div class="text-right">
+                    <a href="${root}show/${item.id}/add_to_campaign"><button class="btn btn-warning" type="button">Add to...</button></a>
+
+                </div>
             </div>
         </div>
     </div>

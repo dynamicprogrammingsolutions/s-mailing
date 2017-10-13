@@ -39,7 +39,23 @@ public class Paginator {
     {
         return prefix+(page+1);
     }
-    
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public void setResultsPerPage(int resultsPerPage) {
+        this.resultsPerPage = resultsPerPage;
+    }
+
+    public void setCount(Long count) {
+        this.count = count;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public Map<Integer,String> getAllLinks()
     {
         Map<Integer,String> links = new LinkedHashMap<>();
