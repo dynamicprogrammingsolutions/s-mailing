@@ -2,66 +2,71 @@ function ManagerBase() {
 
 }
 
-ManagerBase.prototype.getAll = function(success,error) {
-    this.resource.getAll({$callback:function(status,request,data) {
-        if (status == 200) {
+ManagerBase.prototype.ajax = function(url,method,data,expectData,success,error) {
+    var ajaxObj = {
+        url: url,
+        method: method,
+    }
+    if (data !== null) {
+        ajaxObj.contentType = "application/json";
+        ajaxObj.processData = false;
+        ajaxObj.data = JSON.stringify(data);
+    }
+    var expectedStatus;
+    if (expectData) {
+        ajaxObj.dataType = "json";
+        expectedStatus = 200;
+    } else {
+        expectedStatus = 204;
+    }
+    ajaxObj.success = function(data,status,response) {
+        if (response.status == expectedStatus) {
             success(data);
         } else {
-            error(status,request);
+            error(response.status,response);
         }
-    }})
+    }
+    ajaxObj.error = function(response) {
+        error(response.status,response);
+    }
+    $.ajax(ajaxObj);
+}
+
+ManagerBase.prototype.getAll = function(success,error) {
+
+    this.ajax(this.urlBase,"GET",null,true,success,error);
+
 }
 
 ManagerBase.prototype.getRange = function(first,max,success,error) {
-    this.resource.getRange({first:first,max:max,$callback:function(status,request,data) {
-        if (status == 200) {
-            success(data);
-        } else {
-            error(status,request);
-        }
-    }})
+
+    this.ajax(this.urlBase+"/?first="+first+"&max="+max,"GET",null,true,success,error);
+
 }
 
 
 ManagerBase.prototype.create = function(mail, success, error) {
-    this.resource.create({$entity:mail,$callback:function (status,request,data) {
-        if (status == 200) {
-            success(data);
-        } else {
-            error(status,request);
-        }
 
-    }});
+    this.ajax(this.urlBase,"POST",mail,true,success,error);
+
 }
 
 ManagerBase.prototype.find = function(id,success,error) {
-    this.resource.find({id:id,$callback:function(status,request,data) {
-        if (status == 200) {
-            success(data);
-        } else {
-            error(status,request);
-        }
-    }})
+
+    this.ajax(this.urlBase+"/"+id,"GET",null,true,success,error);
+
 }
 
 ManagerBase.prototype.edit = function(id,mail,success,error) {
-    this.resource.edit({id:id,$entity:mail,$callback:function(status,request,data) {
-        if(status == 204) {
-            success();
-        } else {
-            error(status,request);
-        }
-    }});
+
+    this.ajax(this.urlBase+"/"+id,"PUT",mail,false,success,error);
+
 }
 
 ManagerBase.prototype.remove = function(id,success,error) {
-    this.resource.remove({id:id,$callback:function(status,request,data){
-        if (status == 204) {
-            success();
-        } else {
-            error(status,request);
-        }
-    }});
+
+    this.ajax(this.urlBase+"/"+id,"DELETE",null,false,success,error);
+
 }
 
 

@@ -17,14 +17,6 @@ public class MailResource extends ResourceBase<Mail,Long> {
     @Inject
     MailManager mailManager;
 
-    @Path("/ok")
-    @Produces("text/plain")
-    @GET
-    public String test()
-    {
-        return "TEST OK";
-    }
-
     @GET
     @Path("/{id}/campaigns")
     public Response getMailCampaigns(@PathParam("id") Long id)

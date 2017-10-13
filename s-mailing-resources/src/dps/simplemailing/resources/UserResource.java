@@ -11,12 +11,12 @@ import javax.ws.rs.Produces;
 @Path("users")
 public class UserResource extends ResourceBase<User,Long> {
 
-    @GET
+    /*@GET
     @Path("/")
     @Produces("text/plain")
     public String test()
     {
         return "TEST OK";
-    }
+    }*/
 
 }

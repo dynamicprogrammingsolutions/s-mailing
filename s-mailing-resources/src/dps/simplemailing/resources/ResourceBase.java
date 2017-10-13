@@ -22,17 +22,12 @@ public abstract class ResourceBase<EntityType extends EntityBase<IdType>,IdType>
 
     @GET
     @Path("/")
-    public List<EntityType> getAll()
+    public List<EntityType> get(@QueryParam("first") Integer first, @QueryParam("max") Integer max)
     {
-        return getManager().getAll();
-    }
-
-
-    @GET
-    @Path("/{first:\\d+}-{max:\\d+}")
-    public List<EntityType> getRange(@PathParam("first") int first, @PathParam("max") int max)
-    {
-        return getManager().get(first,max);
+        if (first == null || max == null)
+            return getManager().getAll();
+        else
+            return getManager().get(first,max);
     }
 
 
