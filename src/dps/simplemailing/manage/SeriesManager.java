@@ -28,6 +28,9 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     SeriesSubscriptionManager subscriptionManager;
 
     @Inject
+    SeriesManager seriesManager;
+
+    @Inject
     MailQueue mailQueue;
 
     private int unit = Calendar.MINUTE;
@@ -48,6 +51,40 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         Series series = this.getById(seriesId);
         User user = userManager.getById(userId);
         this.createSubscription(series, user, seriesSubscription);
+    }
+
+    //TODO: Test subscribe to series
+    public void subscribeSeries(String seriesName, String userEmail, SeriesSubscription seriesSubscription)
+    {
+        User user = userManager.getByEmail(userEmail);
+        Series series = seriesManager.getByName(seriesName);
+
+        seriesSubscription.setSeries(series);
+        seriesSubscription.setUser(user);
+
+        SeriesSubscription subscription = seriesManager.getSubscription(user,series);
+        if (subscription == null) {
+            seriesSubscription.setSeries(series);
+            seriesSubscription.setUser(user);
+            subscriptionManager.create(seriesSubscription);
+        } else {
+            if (!series.getUpdateSubscribeTime()) {
+                seriesSubscription.setSubscribeTime(subscription.getSubscribeTime());
+            }
+            subscriptionManager.modify(subscription.getId(),seriesSubscription);
+        }
+
+    }
+
+    //TODO: Test unsubscribe series
+    public void unsubscribeSeries(String seriesName, String userEmail)
+    {
+        User user = userManager.getByEmail(userEmail);
+        Series series = seriesManager.getByName(seriesName);
+        SeriesSubscription subscription = seriesManager.getSubscription(user,series);
+        if (subscription != null) {
+            subscriptionManager.remove(subscription);
+        }
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

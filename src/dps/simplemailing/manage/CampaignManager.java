@@ -19,6 +19,8 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
 
     @Inject UserManager userManager;
 
+    @Inject CampaignManager campaignManager;
+
     /*
     @Transactional(Transactional.TxType.REQUIRED)
     public Set<Mail> getMails(Long campaignId)
@@ -68,6 +70,16 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
         Set<Mail> mails = campaign.getMails();
         mails.remove(mail);
         this.modify(campaign);
+    }
+
+    //TODO: Writing Test for unsubscribe user
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void unsubscribeUser(Campaign campaign, User user)
+    {
+        user = userManager.getReference(user);
+        campaign = campaignManager.reload(campaign);
+        campaign.getUnsubscribedUsers().add(user);
+        em.merge(campaign);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

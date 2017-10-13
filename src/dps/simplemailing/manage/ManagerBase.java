@@ -122,6 +122,12 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     }
 
     @Transactional(TxType.REQUIRED)
+    public EntityType getReference(EntityType entity)
+    {
+        return em.getReference(entityClass,entity.getId());
+    }
+
+    @Transactional(TxType.REQUIRED)
     public void modify(IdType id, EntityType entity) {
         EntityType old = em.getReference(entityClass,id);
         entity.setId(old.getId());
@@ -134,6 +140,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
 
     @Transactional(TxType.REQUIRED)
     public void modify(EntityType entity) {
+        EntityType old = em.getReference(entityClass,entity.getId());
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
             throw new IllegalArgumentException("Validation failed");

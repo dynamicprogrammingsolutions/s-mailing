@@ -37,6 +37,20 @@ public class UserManager extends ManagerBase<User,Long> {
         return query.getResultList();
     }
 
+    //TODO: Test subscribe
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void subscribe(User userData)
+    {
+        userData.setStatus(User.Status.subscribed);
+        User user;
+        try {
+            user = this.getByEmail(userData.getEmail());
+            this.modify(user.getId(),userData);
+        } catch (EntityNotFoundException e) {
+            this.create(userData);
+        }
+    }
+
     @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(User user)
     {

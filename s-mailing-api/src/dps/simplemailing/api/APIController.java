@@ -2,13 +2,19 @@ package dps.simplemailing.api;
 
 import dps.router.Controller;
 import dps.router.Path;
-import dps.simplemailing.crud.Crud;
 import dps.simplemailing.entities.Series;
 import dps.simplemailing.entities.SeriesSubscription;
 import dps.simplemailing.entities.User;
 import dps.simplemailing.manage.SeriesManager;
+import dps.simplemailing.manage.SeriesSubscriptionManager;
 import dps.simplemailing.manage.UserManager;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.json.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
@@ -17,23 +23,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonString;
-import javax.json.JsonValue;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 
 /**
  *
  * @author ferenci84
  */
-
-// TODO: replace crud: check if important operations exist in manager
 
 @ApplicationScoped
 @Path("/(.*)")
@@ -43,50 +37,41 @@ public class APIController extends Controller {
     UserManager userManager;
     @Inject
     SeriesManager seriesManager;
+    @Inject
+    SeriesSubscriptionManager seriesSubscriptionManager;
 
-    @Inject Crud crud;
-    
     @Path("subscribe")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void subscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
         PrintWriter writer = response.getWriter();
         
         try {
-            String email = request.getParameter("email");
-            User user = userManager.getByEmail(email);
-            if (user == null) {
-                user = new User();
-                user.setEmail(email);
-                user.setFirstName(request.getParameter("firstname"));
-                user.setLastName(request.getParameter("lastname"));
-                user.setStatus(User.Status.subscribed);
-                userManager.create(user);
-            } else {
-                user.setFirstName(request.getParameter("firstname"));
-                user.setLastName(request.getParameter("lastname"));
-                user.setStatus(User.Status.subscribed);
-                userManager.modify(user);
-            }
+            User user = new User();
+            user.setEmail(request.getParameter("email"));
+            user.setFirstName(request.getParameter("firstname"));
+            user.setLastName(request.getParameter("lastname"));
+            userManager.subscribe(user);
+
             writer.println("OK");
             
         } catch (Exception e) {
+            e.printStackTrace();
             writer.println("Failed");
         }
         
     }
     
     @Path("subscribe_series")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void subscribeSeries(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
         PrintWriter writer = response.getWriter();
         try {
-            User user = userManager.getByEmail(request.getParameter("email"));
-            Series series = seriesManager.getByName(request.getParameter("series_name"));
-            
+
+            String seriesName = request.getParameter("series_name");
+            String email = request.getParameter("email");
+
             java.util.Date time;
             String timeString = request.getParameter("subscribe_time");
             if (timeString != null) {
@@ -95,20 +80,12 @@ public class APIController extends Controller {
             } else {
                 time = new java.util.Date();
             }
-            
-            SeriesSubscription seriesSubscription = seriesManager.getSubscription(user,series);
-            if (seriesSubscription == null) {
-                seriesSubscription = new SeriesSubscription();
-                seriesSubscription.setSeries(series);
-                seriesSubscription.setUser(user);
-                seriesSubscription.setSubscribeTime(time);
-                crud.create(seriesSubscription);
-            } else {
-                if (series.getUpdateSubscribeTime()) {
-                    seriesSubscription.setSubscribeTime(time);
-                    crud.edit(seriesSubscription);    
-                }
-            }
+
+            SeriesSubscription subscription = new SeriesSubscription();
+            subscription.setSubscribeTime(time);
+
+            seriesManager.subscribeSeries(seriesName,email,subscription);
+
             writer.println("OK");
         } catch (Exception e) {
             writer.println("Failed");
@@ -116,20 +93,13 @@ public class APIController extends Controller {
     }
     
     @Path("unsubscribe_series")
-    @Transactional(Transactional.TxType.REQUIRED)
+    //@Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribeSeries(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/plain");
         PrintWriter writer = response.getWriter();
         try {
-            User user = userManager.getByEmail(request.getParameter("email"));
-            Series series = seriesManager.getByName(request.getParameter("series_name"));
-            
-            SeriesSubscription seriesSubscription = seriesManager.getSubscription(user,series);
-            if (seriesSubscription != null) {
-                crud.remove(seriesSubscription);
-            }
-            
+            seriesManager.unsubscribeSeries(request.getParameter("series_name"),request.getParameter("email"));
             writer.println("OK");
         } catch (Exception e) {
             writer.println("Failed");
@@ -149,7 +119,6 @@ public class APIController extends Controller {
             
             SeriesSubscription seriesSubscription = seriesManager.getSubscription(user,series);
             if (seriesSubscription != null) {
-                
                 Map<String, String[]> parameterMap = request.getParameterMap();
                 HashMap<String, String> extraData = new HashMap<>();
                 for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
@@ -160,7 +129,7 @@ public class APIController extends Controller {
                     extraData.put(key, values[0]);
                 }
                 seriesSubscription.setExtraData(extraData.toString());
-                crud.edit(seriesSubscription);
+                seriesSubscriptionManager.modify(seriesSubscription);
                 writer.println("OK");
             } else {
                 writer.println("No Subscription");
@@ -172,7 +141,6 @@ public class APIController extends Controller {
     }
     
     @Path("bounce_notification")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void bounceNotification(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
@@ -192,7 +160,7 @@ public class APIController extends Controller {
                 if (user != null && user.getStatus() != User.Status.test) {
                     System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.bounced);
-                    crud.edit(user);
+                    userManager.modify(user);
                 }
             }
         }
@@ -200,7 +168,6 @@ public class APIController extends Controller {
     }
 
     @Path("complaint_notification")
-    @Transactional(Transactional.TxType.REQUIRED)
     public void complaintNotification(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
@@ -220,7 +187,7 @@ public class APIController extends Controller {
                 if (user != null && user.getStatus() != User.Status.test) {
                     System.out.println("complained user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.unsubscribed);
-                    crud.edit(user);
+                    userManager.modify(user);
                 }
             }
         }

@@ -1,6 +1,5 @@
 package dps.simplemailing.unsubscribe;
 
-import dps.simplemailing.crud.Crud;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.User;
 import dps.simplemailing.manage.CampaignManager;
@@ -25,11 +24,8 @@ public class UnsubscribeController {
     UserManager userManager;
 
     @Inject
-    CampaignManager campaigns;
+    CampaignManager campaignManager;
     
-    @Inject Crud crud;
-
-    @Transactional(Transactional.TxType.REQUIRED)
     public void unsubscribe(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
@@ -38,7 +34,7 @@ public class UnsubscribeController {
         try {
             Long id = Long.parseLong(request.getParameter("id"));
             String email = request.getParameter("email");
-            User user = crud.find(id,User.class);
+            User user = userManager.getById(id);
             if (user.getEmail().equals(email)) {
                 String campaignName = request.getParameter("campaign");
                 if (campaignName == null) {
@@ -46,17 +42,16 @@ public class UnsubscribeController {
                     userManager.unsubscribe(user);
                     writer.println("Successfully unsubscribed");
                 } else {
-                    Campaign campaign = campaigns.getByName(request.getParameter("campaign"));
+                    Campaign campaign = campaignManager.getByName(request.getParameter("campaign"));
                     System.out.println("unsubscribing id "+id+" email "+email+" campaign "+campaign.getName());
-                    campaign.getUnsubscribedUsers().add(user);
-                    crud.edit(campaign);
+                    campaignManager.unsubscribeUser(campaign,user);
                     writer.println("Successfully unsubscribed from campaign "+campaign.getLongName()); 
                 }
             } else {
                 throw new Exception();
             }
         } catch(Exception e) {
-            
+            e.printStackTrace();
             writer.println("Unsubscribe unsuccessful");
         }
     }
