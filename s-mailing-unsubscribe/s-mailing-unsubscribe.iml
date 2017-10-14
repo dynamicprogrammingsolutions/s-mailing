@@ -12,16 +12,14 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/../out/production/s-mailing-unsubscribe" />
-    <output-test url="file://$MODULE_DIR$/../out/test/s-mailing-unsubscribe" />
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="S-Mailing-1.0-idea" scope="PROVIDED" />
     <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
+    <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
   </component>
 </module>

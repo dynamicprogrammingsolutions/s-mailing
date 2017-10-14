@@ -17,6 +17,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
-    <orderEntry type="module" module-name="S-Mailing-1.0-idea" />
+    <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
   </component>
 </module>

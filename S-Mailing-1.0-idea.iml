@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping>
-          <factory-entry name="SimpleMailingPU" value="ea17035e-f8a3-45ef-8bec-c3568c335d7e" />
-        </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
-      </configuration>
-    </facet>
-  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/generated" isTestSource="false" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
-    <orderEntry type="library" scope="TEST" name="Arquillian JUnit:1.1.13.Final" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" name="org.hibernate:hibernate-jpamodelgen:5.2.11.Final" level="project" />
+    <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-api" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-html-ui" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-resources" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-schedule-sending" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-unsubscribe" scope="PROVIDED" />
   </component>
 </module>

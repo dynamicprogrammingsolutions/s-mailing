@@ -19,10 +19,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="S-Mailing-1.0-idea" scope="PROVIDED" />
     <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson-provider:3.0.19.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson2-provider:3.0.19.Final" level="project" />
+    <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
   </component>
 </module>

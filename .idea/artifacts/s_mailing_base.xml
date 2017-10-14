@@ -2,7 +2,7 @@
   <artifact type="jar" name="s-mailing-base">
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_base</output-path>
     <root id="archive" name="s-mailing-base.jar">
-      <element id="module-output" name="S-Mailing-1.0-idea" />
+      <element id="module-output" name="s-mailing-base" />
     </root>
   </artifact>
 </component>
