@@ -3,7 +3,7 @@ package dps.simplemailing.admin;
 import dps.router.ControllerBase;
 import dps.router.Path;
 import dps.simplemailing.entities.*;
-import dps.simplemailing.mailqueue.MailGenerator;
+import dps.simplemailing.manage.GeneratedMailManager;
 import dps.simplemailing.mailqueue.MailQueue;
 import dps.simplemailing.mailqueue.MailQueueStatus;
 import dps.simplemailing.mailqueue.MailSending;
@@ -36,7 +36,7 @@ public class UrlBasedAdminController extends ControllerBase {
     MailQueue mailQueue;
 
     @Inject
-    MailGenerator mailGenerator;
+    GeneratedMailManager mailGenerator;
 
     @Inject
     MailSending mailSending;

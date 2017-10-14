@@ -1,13 +1,9 @@
 package dps.simplemailing.mailqueue;
 
 import dps.simplemailing.entities.*;
+import dps.simplemailing.manage.GeneratedMailManager;
 import dps.simplemailing.manage.ManagerBase;
-import dps.simplemailing.manage.UseEntityManager;
 
-import javax.ejb.Asynchronous;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.Query;
@@ -23,7 +19,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
     @Inject
     MailSender mailSending;
     @Inject
-    MailGenerator generatedMails;
+    GeneratedMailManager generatedMails;
     @Inject
     MailQueueStatus queueStatus;
     @Inject
@@ -103,7 +99,8 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
     {
         for (QueuedMail queuedMail: queueToSend) {
             System.out.println("Generating "+queuedMail);
-            generatedMails.generateMail(queuedMail);
+            queuedMail.setGeneratedMail(generatedMails.generateMail(queuedMail));
+            mailQueue.modify(queuedMail);
             queueStatus.setGenerated(queueStatus.getGenerated()+1);
         }
     }

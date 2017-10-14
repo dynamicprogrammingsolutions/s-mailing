@@ -1,10 +1,8 @@
 package dps.simplemailing.mailqueue.test;
 
 import dps.simplemailing.entities.*;
-import dps.simplemailing.mailqueue.MailGenerator;
-import dps.simplemailing.mailqueue.MailQueue;
-import dps.simplemailing.mailqueue.MailQueueStatus;
-import dps.simplemailing.mailqueue.MailSender;
+import dps.simplemailing.mailqueue.*;
+import dps.simplemailing.manage.GeneratedMailManager;
 import dps.simplemailing.manage.MailManager;
 import dps.simplemailing.manager.test.MailManagerTest;
 import dps.simplemailing.manager.test.UserManagerTest;
@@ -34,9 +32,11 @@ public class MailQueueTest {
                 .addPackage("dps.simplemailing.crud")
                 .addPackage("dps.simplemailing.manage")
                 .addClass(MailSender.class)
-                .addClass(MailGenerator.class)
+                .addClass(GeneratedMailManager.class)
                 .addClass(MailQueue.class)
                 .addClass(MailQueueStatus.class)
+                .addClass(MailGenerator.class)
+                .addClass(DefaultMailGenerator.class)
                 .addPackage("dps.reflect")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");

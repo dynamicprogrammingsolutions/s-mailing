@@ -2,6 +2,7 @@ package dps.simplemailing.mailqueue.test;
 
 import dps.simplemailing.entities.*;
 import dps.simplemailing.mailqueue.MailGenerator;
+import dps.simplemailing.manage.GeneratedMailManager;
 import dps.simplemailing.mailqueue.MailQueue;
 import dps.simplemailing.mailqueue.MailQueueStatus;
 import dps.simplemailing.mailqueue.MailSender;
@@ -17,7 +18,6 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,9 +38,10 @@ public class ProcessSeriesTest {
                 .addPackage("dps.simplemailing.crud")
                 .addPackage("dps.simplemailing.manage")
                 .addClass(MailSender.class)
-                .addClass(MailGenerator.class)
+                .addClass(GeneratedMailManager.class)
                 .addClass(MailQueue.class)
                 .addClass(MailQueueStatus.class)
+                .addClass(MailGenerator.class)
                 .addPackage("dps.reflect")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
