@@ -1,9 +1,7 @@
-lib
 out
-dataSources/19c1bcd0-1ab7-47de-a6ba-312f6bbe5a97.xml
-.idea/dataSources/19c1bcd0-1ab7-47de-a6ba-312f6bbe5a97.xml
 s-mailing-api/generated/
 s-mailing-html-ui/generated/
 s-mailing-resources/generated/
 s-mailing-schedule-sending/generated/
 s-mailing-unsubscribe/generated/
+s-mailing-base/generated_tests/

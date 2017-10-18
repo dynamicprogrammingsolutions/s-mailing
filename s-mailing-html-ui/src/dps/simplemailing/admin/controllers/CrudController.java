@@ -1,5 +1,9 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.authentication.AuthenticationManager;
+import dps.authentication.AuthenticationManagerFactory;
+import dps.simplemailing.admin.authentication.RestrictedAccess;
+import dps.simplemailing.admin.authentication.UsingAuthenticationManager;
 import dps.simplemailing.admin.views.Paginator;
 import dps.simplemailing.entities.EntityBase;
 import dps.simplemailing.admin.views.RequestBean;
@@ -8,6 +12,7 @@ import dps.simplemailing.admin.provider.View;
 import dps.simplemailing.manage.ManagerBase;
 import dps.simplemailing.rs.Redirect;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.metamodel.Attribute;
@@ -19,7 +24,19 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @Produces(MediaType.TEXT_HTML)
-public abstract class CrudController<EntityType extends EntityBase<IdType>,IdType> extends AdminControllerBase implements ControllerInit {
+public abstract class CrudController<EntityType extends EntityBase<IdType>,IdType> extends AdminControllerBase implements ControllerInit, UsingAuthenticationManager {
+
+    @Inject
+    AuthenticationManagerFactory authenticationManagerFactory;
+
+    AuthenticationManager authenticationManager;
+
+    public AuthenticationManager getAuthenticationManager() { return authenticationManager; }
+
+    @PostConstruct
+    void postConstruct() {
+        authenticationManager = authenticationManagerFactory.getAuthenticationManager(request.getSession());
+    }
 
     @Inject
     ManagerBase<EntityType,IdType> manager;
@@ -35,35 +52,8 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
     @Inject
     SessionBean sessionBean;
 
-    @Inject
-    RequestBean requestBean;
-
     @Context
     UriInfo uri;
-
-    protected abstract String getSubfolder();
-
-    protected String getViewRoot()
-    {
-        return "/WEB-INF/"+getSubfolder();
-    }
-
-    protected String getResourceRoot()
-    {
-        return request.getContextPath()+"/res";
-    }
-
-    protected String getRoot()
-    {
-        return uri.getBaseUri()+getSubfolder()+"/";
-    }
-
-    protected abstract String getTitle();
-
-    protected String getTemplate()
-    {
-        return "/WEB-INF/templates/template.jsp";
-    }
 
     protected Attribute<EntityType,?>[] getExtraAttributes()
     {
@@ -71,16 +61,10 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
         return arr;
     }
 
-    public void init()
-    {
-        requestBean.setTitle(getTitle());
-        requestBean.setRoot(getRoot());
-        requestBean.serResourceRoot(getResourceRoot());
-        requestBean.setTemplate(getTemplate());
-    }
 
     @GET
     @Path("/")
+    @RestrictedAccess()
     public View list(@QueryParam("page") Integer page) {
 
         if (page == null) page = 0;
@@ -96,6 +80,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
 
     @GET
     @Path("new")
+    @RestrictedAccess()
     public View create(@QueryParam("id") IdType id)
     {
         EntityType entity = null;
@@ -115,6 +100,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
     @POST
     @Path("new")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @RestrictedAccess()
     public Redirect create(EntityType entity)
     {
         try {
@@ -128,6 +114,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
 
     @GET
     @Path("/show/{id}")
+    @RestrictedAccess()
     public View show(@PathParam("id") IdType id)
     {
         try {
@@ -141,6 +128,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
 
     @GET
     @Path("edit/{id}")
+    @RestrictedAccess()
     public View edit(@PathParam("id") IdType id)
     {
         EntityType entity = null;
@@ -154,6 +142,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
     @POST
     @Path("edit/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @RestrictedAccess()
     public Redirect edit(@PathParam("id") IdType id, EntityType entity)
     {
         try {
@@ -168,6 +157,7 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
     @POST
     @Path("delete/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @RestrictedAccess()
     public Redirect delete(@PathParam("id") IdType id)
     {
         try {

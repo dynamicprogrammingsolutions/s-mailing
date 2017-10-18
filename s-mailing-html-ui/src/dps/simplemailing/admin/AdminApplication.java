@@ -1,9 +1,6 @@
 package dps.simplemailing.admin;
 
-import dps.simplemailing.admin.controllers.CampaignController;
-import dps.simplemailing.admin.controllers.MailsController;
-import dps.simplemailing.admin.controllers.SeriesController;
-import dps.simplemailing.admin.controllers.UsersController;
+import dps.simplemailing.admin.controllers.*;
 import dps.simplemailing.admin.filters.SetRequestAttributesFilter;
 import dps.simplemailing.admin.filters.TemplateFilter;
 import dps.simplemailing.admin.provider.EntityReader;
@@ -33,6 +30,7 @@ public class AdminApplication extends Application {
         set.add(UsersController.class);
         set.add(CampaignController.class);
         set.add(SeriesController.class);
+        set.add(AdminController.class);
         return set;
     }
 }

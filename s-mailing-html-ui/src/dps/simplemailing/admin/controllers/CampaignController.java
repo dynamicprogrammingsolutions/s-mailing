@@ -1,5 +1,6 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.simplemailing.admin.interceptors.AuthenticationInterceptor;
 import dps.simplemailing.entities.Campaign;
 import dps.simplemailing.entities.Campaign_;
 import dps.simplemailing.admin.interceptors.RunInitMethod;
@@ -11,7 +12,7 @@ import javax.ws.rs.Path;
 
 @Path("campaigns")
 @ApplicationScoped
-@Interceptors({RunInitMethod.class})
+@Interceptors({RunInitMethod.class, AuthenticationInterceptor.class})
 public class CampaignController extends CrudController<Campaign,Long> {
 
     @Override

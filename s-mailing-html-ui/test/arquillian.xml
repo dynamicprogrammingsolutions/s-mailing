@@ -1,0 +1,26 @@
+<arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <container qualifier="wildfly-managed" default="true">
+        <configuration>
+            <property name="jbossHome">wildfly-10.1.0.Final</property>
+        </configuration>
+    </container>
+
+    <!-- Configuration to be used when the WidlFly remote profile is active -->
+    <container qualifier="wildfly-remote">
+        <configuration>
+            <property name="managementAddress">127.0.0.1</property>
+            <property name="managementPort">9990</property>
+            <property name="username">arquillian</property>
+            <property name="password">arquillian</property>
+        </configuration>
+    </container>
+
+    <container qualifier="weld-embedded">
+
+    </container>
+
+</arquillian>

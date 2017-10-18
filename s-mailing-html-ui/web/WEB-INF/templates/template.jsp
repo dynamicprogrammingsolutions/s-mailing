@@ -51,6 +51,7 @@
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/mails">Mails</a></li>
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/campaigns">Campaigns</a></li>
                     <li class="nav-item" ><a class="nav-link"  href="${contextPath}/series">Series</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/logout">Logout</a></li>
 
                 </ul>
             </nav>

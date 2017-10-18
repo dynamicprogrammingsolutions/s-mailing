@@ -1,5 +1,7 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.simplemailing.admin.authentication.RestrictedAccess;
+import dps.simplemailing.admin.interceptors.AuthenticationInterceptor;
 import dps.simplemailing.admin.views.Paginator;
 import dps.simplemailing.entities.Mail;
 import dps.simplemailing.entities.Mail_;
@@ -21,7 +23,7 @@ import java.util.Date;
 
 @Path("mails")
 @ApplicationScoped
-@Interceptors({RunInitMethod.class})
+@Interceptors({RunInitMethod.class, AuthenticationInterceptor.class})
 public class MailsController extends CrudController<Mail,Long> {
 
     @Inject
@@ -50,6 +52,7 @@ public class MailsController extends CrudController<Mail,Long> {
 
     @GET
     @Path("show/{id}/add_to_campaign")
+    @RestrictedAccess()
     public View addToCampaign(@PathParam("id") Long id, @QueryParam("page") Integer page)
     {
         View result = campaignController.list(page);
@@ -64,6 +67,7 @@ public class MailsController extends CrudController<Mail,Long> {
 
     @POST
     @Path("show/{id}/add_to_campaign")
+    @RestrictedAccess()
     public Redirect addToCampaignPost(@PathParam("id") Long id, @FormParam("id") Long campaignId)
     {
         System.out.println("adding "+id+" to "+campaignId);
@@ -74,6 +78,7 @@ public class MailsController extends CrudController<Mail,Long> {
 
     @POST
     @Path("show/{id}/delete_from_campaign")
+    @RestrictedAccess()
     public Redirect postDeleteFromCampaign(@PathParam("id") Long id, @FormParam("id") Long campaignId)
     {
         System.out.println("adding "+id+" to "+campaignId);
@@ -84,6 +89,7 @@ public class MailsController extends CrudController<Mail,Long> {
 
     @GET
     @Path("schedule/{id}")
+    @RestrictedAccess()
     public View schedule(@PathParam("id") Long id)
     {
         try {
@@ -97,6 +103,7 @@ public class MailsController extends CrudController<Mail,Long> {
 
     @POST
     @Path("schedule/{id}")
+    @RestrictedAccess()
     public Redirect schedule(@PathParam("id") Long id, @FormParam("send_time") String sendTime, @FormParam("real") String strReal)
     {
         Mail mail;

@@ -1,5 +1,7 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.simplemailing.admin.authentication.RestrictedAccess;
+import dps.simplemailing.admin.interceptors.AuthenticationInterceptor;
 import dps.simplemailing.admin.provider.View;
 import dps.simplemailing.admin.views.Paginator;
 import dps.simplemailing.entities.Series;
@@ -16,11 +18,10 @@ import javax.interceptor.Interceptors;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.metamodel.Attribute;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 
 @Path("series")
 @ApplicationScoped
-@Interceptors({RunInitMethod.class})
+@Interceptors({RunInitMethod.class, AuthenticationInterceptor.class})
 public class SeriesController extends CrudController<Series,Long> {
 
     @Override
@@ -52,6 +53,7 @@ public class SeriesController extends CrudController<Series,Long> {
 
     @GET
     @Path("{id}/add_mail")
+    @RestrictedAccess()
     public View addMail(@PathParam("id") Long id, @QueryParam("page") Integer page)
     {
         mailsController.list(page);
@@ -67,6 +69,7 @@ public class SeriesController extends CrudController<Series,Long> {
 
     @POST
     @Path("{id}/add_mail")
+    @RestrictedAccess()
     public Redirect postAddMail(@PathParam("id") Long id, @FormParam("id") Long mailId)
     {
         System.out.println("adding "+mailId+" to "+id);
@@ -78,6 +81,7 @@ public class SeriesController extends CrudController<Series,Long> {
 
     @GET
     @Path("{id}/items/show/{itemId}")
+    @RestrictedAccess()
     public View showItem(@PathParam("id") Long id, @PathParam("itemId") Long itemId)
     {
         try {
@@ -98,6 +102,7 @@ public class SeriesController extends CrudController<Series,Long> {
 
     @GET
     @Path("{id}/items/edit/{itemId}")
+    @RestrictedAccess()
     public View editItem(@PathParam("id") Long id, @PathParam("itemId") Long itemId)
     {
         Series series = manager.getById(id, getExtraAttributes());
@@ -117,6 +122,7 @@ public class SeriesController extends CrudController<Series,Long> {
 
     @POST
     @Path("{id}/items/edit/{itemId}")
+    @RestrictedAccess()
     public Redirect editItem(@PathParam("id") Long id, @PathParam("itemId") Long itemId, SeriesItem modified) {
         Series series = manager.getById(id, getExtraAttributes());
         requestBean.setRoot(getRoot()+id+"/items/");
