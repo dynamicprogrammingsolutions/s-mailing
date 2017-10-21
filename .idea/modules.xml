@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/S-Mailing-1.0-idea.iml" filepath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/authentication/authentication.iml" filepath="$PROJECT_DIR$/authentication/authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-api/s-mailing-api.iml" filepath="$PROJECT_DIR$/s-mailing-api/s-mailing-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-base.iml" filepath="$PROJECT_DIR$/s-mailing-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" filepath="$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" />

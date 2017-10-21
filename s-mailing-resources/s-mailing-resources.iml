@@ -24,6 +24,5 @@
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson-provider:3.0.19.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jackson2-provider:3.0.19.Final" level="project" />
-    <orderEntry type="library" name="AuthenticationManager" level="project" />
   </component>
 </module>

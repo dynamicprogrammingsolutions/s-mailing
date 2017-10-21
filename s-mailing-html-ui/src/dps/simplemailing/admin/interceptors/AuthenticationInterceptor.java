@@ -11,6 +11,8 @@ import java.lang.reflect.Method;
 
 public class AuthenticationInterceptor {
 
+    //TODO: handling not authenticated error by redirecting to the login page
+
     @AroundInvoke
     public Object intercept(InvocationContext ctx) throws Exception {
         Object target = ctx.getTarget();

@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/../AuthenticationManager/out/artifacts/DefaultAuthenticationManager_jar/DefaultAuthenticationManager.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../AuthenticationManager/src" />
+    </SOURCES>
   </library>
 </component>

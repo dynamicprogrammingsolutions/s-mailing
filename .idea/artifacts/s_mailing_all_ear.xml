@@ -4,12 +4,15 @@
     <root id="root">
       <element id="directory" name="lib">
         <element id="artifact" artifact-name="s-mailing-base" />
+        <element id="artifact" artifact-name="authentication:jar" />
+        <element id="library" level="project" name="AuthenticationManager" />
       </element>
       <element id="artifact" artifact-name="s-mailing-html-ui" />
       <element id="artifact" artifact-name="s-mailing-resources" />
       <element id="artifact" artifact-name="s-mailing-schedule-sending" />
       <element id="artifact" artifact-name="s-mailing-api" />
       <element id="artifact" artifact-name="s-mailing-unsubscribe" />
+      <element id="javaee-facet-resources" facet="S-Mailing-1.0-idea/javaeeApplication/javaEEApplication" />
     </root>
   </artifact>
 </component>

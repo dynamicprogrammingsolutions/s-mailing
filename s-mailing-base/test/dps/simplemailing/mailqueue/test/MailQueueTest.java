@@ -37,6 +37,7 @@ public class MailQueueTest {
                 .addClass(MailQueueStatus.class)
                 .addClass(MailGenerator.class)
                 .addClass(DefaultMailGenerator.class)
+                .addClass(MailSettings.class)
                 .addPackage("dps.reflect")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -110,6 +111,18 @@ public class MailQueueTest {
         mailManagerTest.removeTestData(mail.getId());
         userManagerTest.removeTestData(user.getId());
 
+    }
+
+    @Inject
+    MailSettings mailSettings;
+
+    @Test
+    public void testLoadSettings()
+    {
+        Assert.assertNotNull(mailSettings.getHost());
+        Assert.assertNotNull(mailSettings.getPassword());
+        Assert.assertNotNull(mailSettings.getPort());
+        Assert.assertNotNull(mailSettings.getUsername());
     }
 
 }

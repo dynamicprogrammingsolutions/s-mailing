@@ -14,14 +14,6 @@
         </sourceRoots>
       </configuration>
     </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping />
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -37,5 +29,6 @@
     <orderEntry type="library" name="AuthenticationManager" level="project" />
     <orderEntry type="library" scope="TEST" name="Arquillian JUnit:1.1.13.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
+    <orderEntry type="module" module-name="authentication" />
   </component>
 </module>

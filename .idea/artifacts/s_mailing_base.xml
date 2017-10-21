@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_base</output-path>
     <root id="archive" name="s-mailing-base.jar">
       <element id="module-output" name="s-mailing-base" />
+      <element id="jpa-descriptors" facet="s-mailing-base/jpa/JPA" />
     </root>
   </artifact>
 </component>
