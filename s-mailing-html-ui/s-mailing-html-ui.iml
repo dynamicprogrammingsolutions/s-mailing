@@ -29,6 +29,6 @@
     <orderEntry type="library" name="AuthenticationManager" level="project" />
     <orderEntry type="library" scope="TEST" name="Arquillian JUnit:1.1.13.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
-    <orderEntry type="module" module-name="authentication" />
+    <orderEntry type="module" module-name="s-mailing-authentication" scope="PROVIDED" />
   </component>
 </module>

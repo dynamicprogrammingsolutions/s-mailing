@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="s-mailing-config">
+    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_config</output-path>
+    <root id="archive" name="s-mailing-config.jar">
+      <element id="module-output" name="s-mailing-config" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/s-mailing-config/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

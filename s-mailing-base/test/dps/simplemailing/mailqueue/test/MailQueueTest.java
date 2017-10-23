@@ -39,6 +39,7 @@ public class MailQueueTest {
                 .addClass(DefaultMailGenerator.class)
                 .addClass(MailSettings.class)
                 .addPackage("dps.reflect")
+                .addAsResource("test-smtp-conf.json", "smtp-conf.json")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }

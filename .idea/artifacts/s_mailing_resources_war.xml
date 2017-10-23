@@ -6,6 +6,11 @@
         <element id="directory" name="lib">
           <element id="artifact" artifact-name="s-mailing-base" />
           <element id="library" level="project" name="AuthenticationManager" />
+          <element id="library" level="project" name="DefaultAuthenticationManager" />
+          <element id="artifact" artifact-name="s-mailing-authentication:jar" />
+          <element id="directory" name="config">
+            <element id="artifact" artifact-name="s-mailing-config" />
+          </element>
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="s-mailing-resources" />

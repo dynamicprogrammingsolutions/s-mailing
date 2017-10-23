@@ -26,7 +26,7 @@
         </jsp-property-group>
     </jsp-config>
 
-    <security-constraint>
+    <!--<security-constraint>
         <display-name>Admin</display-name>
         <web-resource-collection>
             <web-resource-name>Admin</web-resource-name>
@@ -40,29 +40,13 @@
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
-    <security-constraint>
-        <display-name>Unsubscribe</display-name>
-        <web-resource-collection>
-            <web-resource-name>Unsubscribe</web-resource-name>
-            <description/>
-            <url-pattern>/unsubscribe</url-pattern>
-            <http-method>GET</http-method>
-        </web-resource-collection>
-    </security-constraint>
-    <security-constraint>
-        <display-name>API</display-name>
-        <web-resource-collection>
-            <web-resource-name>API</web-resource-name>
-            <description/>
-            <url-pattern>/api/*</url-pattern>
-            <http-method>GET</http-method>
-        </web-resource-collection>
-    </security-constraint>
+
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
     <security-role>
         <description/>
         <role-name>admin</role-name>
-    </security-role>
+    </security-role>-->
+
 </web-app>

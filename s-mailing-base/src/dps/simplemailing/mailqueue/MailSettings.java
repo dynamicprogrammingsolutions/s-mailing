@@ -2,9 +2,11 @@ package dps.simplemailing.mailqueue;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Singleton;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
 import javax.json.*;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 @ApplicationScoped
 public class MailSettings {
@@ -19,12 +21,31 @@ public class MailSettings {
     private String username = "";
     private String password = "";
 
+    public void startUp(@Observes @Initialized(ApplicationScoped.class) Object init)
+    {
+
+    }
+
     final private String FILENAME = "/etc/s-mailing/smtp.conf";
 
     @PostConstruct
-    void init()
+    void init() throws FileNotFoundException
     {
-        try (java.io.FileReader reader = new java.io.FileReader(FILENAME)) {
+        InputStream smtpConf = Thread.currentThread().getContextClassLoader().getResourceAsStream("smtp-conf.json");
+        if (smtpConf != null) {
+            System.out.println("settings file stream opened");
+            JsonReader jsonReader = Json.createReader(smtpConf);
+            JsonObject jsonObject = jsonReader.readObject();
+            host = jsonObject.getString("host");
+            port = jsonObject.getString("port");
+            username = jsonObject.getString("username");
+            password = jsonObject.getString("password");
+            System.out.println("settings file loaded");
+        } else {
+            throw new FileNotFoundException("Cannot find configuration file: "+"smtp-conf.json");
+        }
+
+        /*try (java.io.FileReader reader = new java.io.FileReader(FILENAME)) {
             JsonReader jsonReader = Json.createReader(reader);
             JsonObject jsonObject = jsonReader.readObject();
             host = jsonObject.getString("host");
@@ -38,7 +59,7 @@ public class MailSettings {
         } catch (Exception e) {
             System.out.println("settings file loading failed");
             e.printStackTrace();
-        }
+        }*/
     }
 
     void save()

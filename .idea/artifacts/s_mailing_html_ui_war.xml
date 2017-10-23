@@ -8,8 +8,12 @@
         </element>
         <element id="directory" name="lib">
           <element id="artifact" artifact-name="s-mailing-base" />
-          <element id="artifact" artifact-name="authentication:jar" />
+          <element id="artifact" artifact-name="s-mailing-authentication:jar" />
           <element id="library" level="project" name="AuthenticationManager" />
+          <element id="library" level="project" name="DefaultAuthenticationManager" />
+          <element id="directory" name="config">
+            <element id="artifact" artifact-name="s-mailing-config" />
+          </element>
         </element>
       </element>
       <element id="javaee-facet-resources" facet="s-mailing-html-ui/web/Web" />

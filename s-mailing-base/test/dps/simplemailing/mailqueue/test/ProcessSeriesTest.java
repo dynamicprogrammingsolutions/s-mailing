@@ -43,6 +43,7 @@ public class ProcessSeriesTest {
                 .addClass(MailQueueStatus.class)
                 .addClass(MailGenerator.class)
                 .addPackage("dps.reflect")
+                .addAsResource("test-smtp-conf.json", "smtp-conf.json")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }

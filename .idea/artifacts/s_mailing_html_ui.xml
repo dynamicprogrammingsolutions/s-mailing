@@ -8,6 +8,9 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="s-mailing-html-ui/web/Web" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd"
+             version="6">
+    <application-name>s-mailing</application-name>
+    <module id="s-mailing-html-ui-Web">
+        <web>
+            <web-uri>s-mailing-html-ui.war</web-uri>
+            <context-root>/s-mailing/admin</context-root>
+        </web>
+    </module>
+    <module id="s-mailing-api-Web">
+        <web>
+            <web-uri>s-mailing-api.war</web-uri>
+            <context-root>/s-mailing/api</context-root>
+        </web>
+    </module>
+    <module id="s-mailing-unsubscribe-Web">
+        <web>
+            <web-uri>s-mailing-unsubscribe.war</web-uri>
+            <context-root>/s-mailing/unsubscribe</context-root>
+        </web>
+    </module>
+    <module id="s-mailing-resources-Web">
+        <web>
+            <web-uri>s-mailing-resources.war</web-uri>
+            <context-root>s-mailing/resources</context-root>
+        </web>
+    </module>
+    <module id="s-mailing-schedule-sending-EJB">
+        <ejb>s-mailing-schedule-sending.jar</ejb>
+    </module>
+
+</application>

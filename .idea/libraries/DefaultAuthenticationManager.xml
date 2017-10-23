@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DefaultAuthenticationManager">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../AuthenticationManager/out/artifacts/DefaultAuthenticationManager_jar/DefaultAuthenticationManager.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
