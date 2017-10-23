@@ -6,10 +6,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="s-mailing-html-ui" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="DefaultAuthenticationManager" />
-          <element id="artifact" artifact-name="s-mailing-authentication:jar" />
-        </element>
       </element>
       <element id="javaee-facet-resources" facet="s-mailing-html-ui/web/Web" />
       <element id="directory" name="META-INF">
