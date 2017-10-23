@@ -12,48 +12,11 @@
     <bookmark url="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/users/show.jsp" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_authentication_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_config.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/DefaultAuthenticationManager.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/application.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-api/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-base/test/test-smtp-conf.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-config/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-config/resources/smtp-conf.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-config/s-mailing-config.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-unsubscribe/src/META-INF/MANIFEST.MF" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/authentication_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/authentication/authentication.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/META-INF/persistence.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/dps/simplemailing/authentication/AuthenticableUserProvider.java" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/dps/simplemailing/authentication/AuthenticableUserProvider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/dps/simplemailing/authentication/LocalLoginData.java" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/dps/simplemailing/authentication/LocalLoginData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/dps/simplemailing/authentication/LocalLoginDataProvider.java" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/dps/simplemailing/authentication/LocalLoginDataProvider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/dps/simplemailing/authentication/PasswordAuthentication.java" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/dps/simplemailing/authentication/PasswordAuthentication.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/authentication/src/dps/simplemailing/entities/ApplicationUser.java" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/dps/simplemailing/entities/ApplicationUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_api.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_api.xml" />
+    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="correct packaging of authentication libraries">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-authentication/s-mailing-authentication.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_html_ui.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_html_ui.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_html_ui_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_html_ui_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_resources.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_resources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_resources_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_resources_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_unsubscribe.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_unsubscribe.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/AuthenticationManager.xml" afterPath="$PROJECT_DIR$/.idea/libraries/AuthenticationManager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/s-mailing-base/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java" afterPath="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/MailQueueTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/MailQueueTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/ProcessSeriesTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/ProcessSeriesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/CampaignManagerTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/MailManagerTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/MailManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/SeriesManagerTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/UserManagerTest.java" afterPath="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/UserManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" afterPath="$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-html-ui/test/dps/authentication/CreateAdmin.java" afterPath="$PROJECT_DIR$/s-mailing-html-ui/test/dps/authentication/CreateAdmin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-html-ui/web/styles/w3.css" afterPath="$PROJECT_DIR$/s-mailing-html-ui/web/styles/w3.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/s-mailing-resources/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-schedule-sending/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/s-mailing-schedule-sending/src/META-INF/MANIFEST.MF" />
@@ -107,14 +70,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateAdmin.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/test/dps/authentication/CreateAdmin.java">
+      <file leaf-file-name="s-mailing-authentication.iml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/s-mailing-authentication/s-mailing-authentication.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" />
-        <option value="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/MailResource.java" />
         <option value="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java" />
         <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js" />
         <option value="$PROJECT_DIR$/src/dps/simplemailing/entities/User.java" />
@@ -253,6 +212,8 @@
         <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/MailQueueTest.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/ProcessSeriesTest.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/test/dps/authentication/CreateAdmin.java" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/content/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF" />
       </list>
     </option>
   </component>
@@ -480,7 +441,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/s-mailing-authentication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="380" />
@@ -505,20 +466,6 @@
     <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/s-mailing-config" />
-      <recent name="$PROJECT_DIR$/s-mailing-config/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/s-mailing-config/resources" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/s-mailing-base" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="dps.simplemailing" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="" />
-      <recent name="dps.simplemailing.entities" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dps.simplemailing.authentication" />
       <recent name="dps.simplemailing.admin.controllers" />
@@ -526,12 +473,26 @@
       <recent name="dps.simplemailing.crud" />
       <recent name="dps.simplemailing.front.admin_new.controllers" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dps.simplemailing" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/s-mailing-base/test" />
       <recent name="$PROJECT_DIR$/resources/META-INF" />
       <recent name="$PROJECT_DIR$/s-mailing-config/resources" />
       <recent name="$PROJECT_DIR$/s-mailing-html-ui/test/dps" />
       <recent name="$PROJECT_DIR$/s-mailing-html-ui/test" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+      <recent name="dps.simplemailing.entities" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s-mailing-html-ui/src" />
+      <recent name="$PROJECT_DIR$/s-mailing-html-ui/content" />
+      <recent name="$PROJECT_DIR$/s-mailing-config" />
+      <recent name="$PROJECT_DIR$/s-mailing-config/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/s-mailing-config/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1291,7 +1252,7 @@
       <workItem from="1508594920511" duration="7348000" />
       <workItem from="1508607326545" duration="8581000" />
       <workItem from="1508780630305" duration="567000" />
-      <workItem from="1508781225716" duration="1564000" />
+      <workItem from="1508781225716" duration="4093000" />
     </task>
     <task id="LOCAL-00001" summary="Removing all">
       <created>1506444291358</created>
@@ -1440,7 +1401,21 @@
       <option name="project" value="LOCAL" />
       <updated>1508602244030</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Creating s-mailing-config module&#10;Renaming authentication">
+      <created>1508782856881</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1508782856881</updated>
+    </task>
+    <task id="LOCAL-00023" summary="correct packaging of authentication libraries">
+      <created>1508783527030</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1508783527030</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1476,7 +1451,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314746000" />
+    <option name="totallyTimeSpent" value="317275000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1582,7 +1557,9 @@
     <MESSAGE value="Creating s-mailing-base module" />
     <MESSAGE value="Authentication built into the UI" />
     <MESSAGE value="Mail configuration loaded from /etc/s-mailing/smtp.conf&#10;Some clean up in the build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mail configuration loaded from /etc/s-mailing/smtp.conf&#10;Some clean up in the build" />
+    <MESSAGE value="Creating s-mailing-config module&#10;Renaming authentication" />
+    <MESSAGE value="correct packaging of authentication libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct packaging of authentication libraries" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1595,14 +1572,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/filters/AuthenticationFilter.java" />
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/template.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1920,17 +1889,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-config/resources/smtp-conf.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="33" column="99" lean-forward="true" selection-start-line="33" selection-start-column="99" selection-end-line="33" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1941,6 +1911,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-config/resources/smtp-conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-authentication/s-mailing-authentication.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1962,7 +1948,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>s-mailing-base</last-edited>
+          <last-edited>s-mailing-all:ear</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
