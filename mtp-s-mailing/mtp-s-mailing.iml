@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="javaeeApplication" name="javaEEApplication">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/META-INF/application.xml" />
+        </descriptors>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-api" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-html-ui" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-resources" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-schedule-sending" scope="PROVIDED" />
+    <orderEntry type="module" module-name="s-mailing-unsubscribe" scope="PROVIDED" />
+  </component>
+</module>

@@ -26,9 +26,9 @@
     <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" level="project" />
     <orderEntry type="module" module-name="s-mailing-base" scope="PROVIDED" />
-    <orderEntry type="library" name="AuthenticationManager" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="AuthenticationManager" level="project" />
+    <orderEntry type="module" module-name="s-mailing-authentication" scope="PROVIDED" />
     <orderEntry type="library" scope="TEST" name="Arquillian JUnit:1.1.13.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
-    <orderEntry type="module" module-name="s-mailing-authentication" scope="PROVIDED" />
   </component>
 </module>

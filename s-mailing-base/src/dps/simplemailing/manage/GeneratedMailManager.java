@@ -11,6 +11,7 @@ import javax.enterprise.inject.Instance;
 import javax.enterprise.util.AnnotationLiteral;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +19,7 @@ import javax.transaction.Transactional;
  */
 @ApplicationScoped
 public class GeneratedMailManager extends ManagerBase<GeneratedMail,Long> {
-    
+
     @Inject
     Instance<MailGenerator> mailGenerator;
 

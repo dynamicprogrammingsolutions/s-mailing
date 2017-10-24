@@ -1,5 +1,6 @@
 package dps.simplemailing.api;
 
+import dps.logging.HasLogger;
 import dps.router.Controller;
 import dps.router.Path;
 import dps.simplemailing.entities.Series;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,8 +33,8 @@ import java.util.Map;
 
 @ApplicationScoped
 @Path("/(.*)")
-public class APIController extends Controller {
-    
+public class APIController extends Controller implements HasLogger {
+
     @Inject
     UserManager userManager;
     @Inject
@@ -145,9 +147,9 @@ public class APIController extends Controller {
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
         if (jsonObject == null) return;
-        
-        System.out.println("bounce notification");
-        System.out.println("contents: "+jsonObject);
+
+        logInfo("bounce notification");
+        logInfo("contents: "+jsonObject);
         
         JsonString type = jsonObject.getJsonString("Type");
         if (type != null && type.getString().equals("Notification")) {
@@ -158,7 +160,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = userManager.getByEmail(email);
                 if (user != null && user.getStatus() != User.Status.test) {
-                    System.out.println("bounced user: "+user.getId()+" "+user.getEmail());
+                    logInfo("bounced user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.bounced);
                     userManager.modify(user);
                 }
@@ -172,9 +174,9 @@ public class APIController extends Controller {
     {
         JsonObject jsonObject = Json.createReader(request.getReader()).readObject();
         if (jsonObject == null) return;
-        
-        System.out.println("complaint notification");
-        System.out.println("contents: "+jsonObject);
+
+        logInfo("complaint notification");
+        logInfo("contents: "+jsonObject);
         
         JsonString type = jsonObject.getJsonString("Type");
         if (type != null && type.getString().equals("Notification")) {
@@ -185,7 +187,7 @@ public class APIController extends Controller {
             for(String email: emails) {
                 User user = userManager.getByEmail(email);
                 if (user != null && user.getStatus() != User.Status.test) {
-                    System.out.println("complained user: "+user.getId()+" "+user.getEmail());
+                    logInfo("complained user: "+user.getId()+" "+user.getEmail());
                     user.setStatus(User.Status.unsubscribed);
                     userManager.modify(user);
                 }

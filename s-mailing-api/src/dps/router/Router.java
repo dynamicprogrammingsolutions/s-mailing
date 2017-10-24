@@ -40,19 +40,15 @@ public class Router {
     }
     
     public Boolean processController(ControllerBase controller, String path, HttpServletRequest request, HttpServletResponse response) {
-        //System.out.println("process controller");
         if (path == null) path = "";
 
         Class<?> controllerClass = controller.getClass().getSuperclass();
-        //System.out.println("class: "+contollerClass.getName());
         Path pathAnnotation = controllerClass.getAnnotation(Path.class);
         if (pathAnnotation == null) return false;
-        //System.out.println("path annotation "+path+" "+pathAnnotation.value());
-        
+
         Matcher controllerMatches = checkPath(path,pathAnnotation);
         if (controllerMatches == null) return false;
-        //System.out.println("controller Matches");
-        
+
         int pathGroup = pathAnnotation.pathGroup();
         String nextPath;
         nextPath = controllerMatches.group(pathGroup);
@@ -99,13 +95,10 @@ public class Router {
             }
             return true;
         } catch (IllegalAccessException ex) {
-            System.out.println("IllegalAccessException");
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
-            System.out.println("IllegalArgumentException");
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (InvocationTargetException ex) {
-            System.out.println("InvocationTargetException");
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
         

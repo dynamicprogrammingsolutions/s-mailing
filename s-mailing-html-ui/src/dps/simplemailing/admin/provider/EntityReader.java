@@ -44,7 +44,6 @@ public class EntityReader extends UseEntityManager implements MessageBodyReader<
     //TODO: if id is set, load entity first
     @Override
     public Object readFrom(Class<Object> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
-        System.out.println("reading");
         Metamodel metamodel = em.getMetamodel();
 
         FormUrlEncodedProvider formUrlEncodedProvider = new FormUrlEncodedProvider();
@@ -57,11 +56,9 @@ public class EntityReader extends UseEntityManager implements MessageBodyReader<
         Set<Attribute<Object, ?>> declaredAttributes = entity.getDeclaredAttributes();
         for (Attribute<Object, ?> attr: declaredAttributes) {
             String name = attr.getName();
-            System.out.println("field:"+name);
             List<String> values = formData.get(name);
             if (values != null) {
                 String value = values.get(0);
-                System.out.println("value:"+value);
                 Member attrMember = attr.getJavaMember();
                 String setterName = null;
                 if (attrMember instanceof Field) {
@@ -70,18 +67,14 @@ public class EntityReader extends UseEntityManager implements MessageBodyReader<
                         Method[] setterMethods = ReflectHelper.findMethodsWithName(type, setterName, 1);
                         for (Method setterMethod: setterMethods) {
                             Class<?> paramType = setterMethod.getParameterTypes()[0];
-                            System.out.println("paramtype:"+paramType);
                             if (paramType.isInstance(value)) {
-                                System.out.println("running setterMethod");
                                 ReflectHelper.invokeMethod(setterMethod, newentity, value);
                                 break;
                             } else if (paramType.equals(Boolean.class)) {
-                                System.out.println("running bool setter");
                                 ReflectHelper.invokeMethod(setterMethod, newentity, "on".equals(value));
                                 break;
                             } else {
                                 try {
-                                    System.out.println("running valueOf");
                                     Method valueOf = paramType.getMethod("valueOf", String.class);
                                     Object valueValueOf = ReflectHelper.invokeMethod(valueOf, null, value);
                                     ReflectHelper.invokeMethod(setterMethod, newentity, valueValueOf);

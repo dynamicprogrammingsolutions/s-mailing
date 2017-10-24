@@ -1,5 +1,7 @@
 package dps.simplemailing.mailqueue;
 
+import dps.logging.HasLogger;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
@@ -7,9 +9,11 @@ import javax.enterprise.event.Observes;
 import javax.json.*;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @ApplicationScoped
-public class MailSettings {
+public class MailSettings implements HasLogger {
 
     /*private String host = "email-smtp.us-west-2.amazonaws.com";
     private String port = "587";
@@ -31,16 +35,16 @@ public class MailSettings {
     @PostConstruct
     void init() throws FileNotFoundException
     {
+        setLogLevel(Level.INFO);
         InputStream smtpConf = Thread.currentThread().getContextClassLoader().getResourceAsStream("smtp-conf.json");
         if (smtpConf != null) {
-            System.out.println("settings file stream opened");
             JsonReader jsonReader = Json.createReader(smtpConf);
             JsonObject jsonObject = jsonReader.readObject();
             host = jsonObject.getString("host");
             port = jsonObject.getString("port");
             username = jsonObject.getString("username");
             password = jsonObject.getString("password");
-            System.out.println("settings file loaded");
+            log(Level.INFO,"settings file loaded");
         } else {
             throw new FileNotFoundException("Cannot find configuration file: "+"smtp-conf.json");
         }
@@ -52,19 +56,16 @@ public class MailSettings {
             port = jsonObject.getString("port");
             username = jsonObject.getString("username");
             password = jsonObject.getString("password");
-            System.out.println("settings file loaded");
         } catch (FileNotFoundException e) {
-            System.out.println("Saving file");
             save();
         } catch (Exception e) {
-            System.out.println("settings file loading failed");
             e.printStackTrace();
         }*/
     }
 
     void save()
     {
-        try(java.io.FileWriter writer = new java.io.FileWriter(FILENAME)) {
+        /*try(java.io.FileWriter writer = new java.io.FileWriter(FILENAME)) {
             JsonWriter jsonWriter = Json.createWriter(writer);
             JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
             objectBuilder.add("host",host);
@@ -75,7 +76,7 @@ public class MailSettings {
             jsonWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public String getHost() {

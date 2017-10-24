@@ -32,8 +32,7 @@ public class APIServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         
-        //System.out.println("hit api");
-        
+
         String pathInfo = request.getPathInfo();
         router.process(APIController.class, pathInfo, request, response);
 

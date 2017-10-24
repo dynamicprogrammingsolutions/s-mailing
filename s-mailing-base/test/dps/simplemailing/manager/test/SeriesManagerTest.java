@@ -110,7 +110,6 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
         subscription.setSubscribeTime(new Date());
         manager.createSubscription(id,userId,subscription);
 
-        System.out.println("getting subscription");
         subscription = manager.getSubscription(user,series);
         assertNotNull(subscription);
 
@@ -175,60 +174,4 @@ public class SeriesManagerTest extends ManagerTestBase<Series> {
         userManager.remove(user);
     }
 
-    /*
-    @Test
-    public void testProcessSeries()
-    {
-        //Create test data
-        Series series = this.createTestData();
-        Mail mail = mailManagerTest.createTestData();
-        User user = userManagerTest.createTestData();
-
-        // Create seriesItem
-        SeriesItem seriesItem1 = new SeriesItem();
-        seriesItem1.setSendDelay(1);
-        manager.createItem(series.getId(),mail.getId(),seriesItem1);
-
-        // Create seriesItem
-        SeriesItem seriesItem2 = new SeriesItem();
-        seriesItem2.setSendDelay(2);
-        manager.createItem(series.getId(),mail.getId(),seriesItem2);
-
-        // Create seriesSubscription
-        SeriesSubscription subscription = new SeriesSubscription();
-
-        subscription.setSubscribeTime(new Date());
-        manager.createSubscription(series,user,subscription);
-
-        subscription = seriesSubscriptionManager.reload(subscription);
-        Long now = subscription.getSubscribeTime().getTime();
-
-        manager.setUnit(Calendar.SECOND);
-
-        Date simulatedCurrentTime = new Date(now+1000);
-        manager.setCurrentTime(simulatedCurrentTime);
-        mailQueue.setCurrentTime(simulatedCurrentTime);
-
-        manager.processSeries(series);
-        List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
-        System.out.println(queueToSend);
-        assertEquals(1,queueToSend.size());
-
-        simulatedCurrentTime = new Date(now+2000);
-        manager.setCurrentTime(simulatedCurrentTime);
-        mailQueue.setCurrentTime(simulatedCurrentTime);
-
-        manager.processSeries(series);
-        queueToSend = mailQueue.getQueueToSend();
-        assertEquals(2,queueToSend.size());
-
-
-        mailQueue.removeAllUnsent();
-        manager.remove(series);
-        mailManager.remove(mail);
-        userManager.remove(user);
-
-
-    }
-    */
 }

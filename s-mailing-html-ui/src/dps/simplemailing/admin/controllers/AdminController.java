@@ -2,6 +2,7 @@ package dps.simplemailing.admin.controllers;
 
 import dps.authentication.AuthenticationManager;
 import dps.authentication.AuthenticationManagerFactory;
+import dps.logging.HasLogger;
 import dps.simplemailing.admin.authentication.RestrictedAccess;
 import dps.simplemailing.admin.authentication.UsingAuthenticationManager;
 import dps.simplemailing.admin.interceptors.AuthenticationInterceptor;
@@ -21,11 +22,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
+import java.util.logging.Logger;
 
 @Path("")
 @Dependent
 @Interceptors({RunInitMethod.class,AuthenticationInterceptor.class})
-public class AdminController extends AdminControllerBase implements ControllerInit, UsingAuthenticationManager {
+public class AdminController extends AdminControllerBase implements ControllerInit, UsingAuthenticationManager, HasLogger {
 
     @Inject
     AuthenticationManagerFactory authenticationManagerFactory;
@@ -76,7 +78,7 @@ public class AdminController extends AdminControllerBase implements ControllerIn
     @POST
     @Path("login")
     public Redirect postLogin(@FormParam("username") String username, @FormParam("password") String password) {
-        System.out.println("trying login with: "+username+" "+password);
+        logFine("trying login with: "+username+" "+password);
         if (authenticationManager.login(username,password)) {
             sessionBean.addMessage("logged in");
             return new Redirect(request.getContextPath() + "/");

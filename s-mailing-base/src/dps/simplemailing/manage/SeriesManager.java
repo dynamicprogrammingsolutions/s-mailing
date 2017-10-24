@@ -3,6 +3,7 @@ package dps.simplemailing.manage;
 import dps.simplemailing.entities.*;
 import dps.simplemailing.mailqueue.MailQueue;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
@@ -10,6 +11,8 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @SuppressWarnings("unchecked")
 @ApplicationScoped
@@ -34,9 +37,18 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     MailQueue mailQueue;
 
     private int unit = Calendar.MINUTE;
+    private int maxdelay = 10080;
 
     public void setUnit(int unit) {
         this.unit = unit;
+    }
+
+    public String loggerName() { return this.getClass().getPackage().getName()+".SeriesManager";}
+
+    @PostConstruct
+    public void init()
+    {
+        setLogLevel(Level.INFO);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -130,6 +142,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
 
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processAllSeries() {
+        logInfo("processing all series");
         List<Series> allSeries = this.getAll();
         if (allSeries.isEmpty()) return;
         for (Series series : allSeries) {
@@ -137,27 +150,46 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         }
     }
 
-    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void processSeries(Series series) {
 
-        series = this.reload(series,Series_.seriesSubscriptions);
 
-        for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
-            mailSeries.updateSeriesMails(subscription);
-        }
+        try {
 
-        for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
-            mailSeries.processSeriesMails(subscription);
+            series = this.reload(series/*, Series_.seriesSubscriptions*/);
+
+            //System.out.println("processing series "+series.getId());
+            logFine("processing series "+series.getId());
+
+            for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
+                try {
+                    mailSeries.updateSeriesMails(subscription);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
+                try {
+                    mailSeries.processSeriesMails(subscription);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
 
 
 
-    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void updateSeriesMails(SeriesSubscription subscription)
     {
-        Series series = mailSeries.reload(subscription.getSeries(),Series_.seriesItems);
+        //Series series = mailSeries.reload(subscription.getSeries(),Series_.seriesItems);
+        Series series = subscription.getSeries();
         for (SeriesItem item : series.getSeriesItems()) {
             SeriesMail seriesMail = mailSeries.getSeriesMail(subscription,item);
             if (seriesMail == null) {
@@ -166,12 +198,18 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         }
     }
 
-    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void processSeriesMails(SeriesSubscription subscription) {
-        subscription = subscriptionManager.reload(subscription,SeriesSubscription_.seriesMails);
+        logFiner("processing series subscription "+subscription.getId());
         for (SeriesMail seriesMail: subscription.getSeriesMails().values()) {
-            if (seriesMail.getStatus().equals(SeriesMail.Status.unsent))
-                mailSeries.processSeriesMail(seriesMail);
+            logFinest("processing series mail: item #"+seriesMail.getSeriesItem().getId()+" subscription #"+seriesMail.getSeriesSubscription().getId());
+            if (seriesMail.getStatus().equals(SeriesMail.Status.unsent) && (seriesMail.getSeriesItem().getSendOrder() == 0 || seriesMail.getSeriesItem().getSendOrder() == subscription.getLastItemOrder()+1)) {
+                try {
+                    mailSeries.processSeriesMail(seriesMail);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -186,7 +224,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         Calendar cal = Calendar.getInstance();
 
 
-        System.out.println("delay: "+item.getSendDelay()+" subscribeTime: "+subscription.getSubscribeTime());
+        logFinest("delay: "+item.getSendDelay()+" subscribeTime: "+subscription.getSubscribeTime());
 
         int delayAfterSubscribe = item.getSendDelay();
         int delayAfterItem = item.getSendDelayLastItem();
@@ -199,7 +237,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         long now = this.getCurrentTime().getTime();
         long sendTime = 0;
 
-        System.out.println("now: "+now);
+        logFinest("now: "+now);
 
         long delayTime = 0;
 
@@ -207,7 +245,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
             cal.setTime(subscribeTime);
             cal.add(unit, delayAfterSubscribe);
             delayTime = cal.getTime().getTime();
-            System.out.println("delay after subscribe time: "+delayTime);
+            logFinest("delay after subscribe time: "+delayTime);
             sendTime = Math.max(sendTime,delayTime);
         }
 
@@ -215,7 +253,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
             cal.setTime(lastItemSendTime);
             cal.add(unit, delayAfterItem);
             delayTime = cal.getTime().getTime();
-            System.out.println("delay after item time: "+delayTime);
+            logFinest("delay after item time: "+delayTime);
             sendTime = Math.max(sendTime,delayTime);
         }
 
@@ -224,27 +262,45 @@ public class SeriesManager extends ManagerBase<Series,Long> {
             cal.setTime(lastMailSendTime);
             cal.add(unit, delayAfterMail);
             delayTime = cal.getTime().getTime();
-            System.out.println("delay after mail time: "+delayTime);
+            logFinest("delay after mail time: "+delayTime);
             sendTime = Math.max(sendTime,delayTime);
         }
 
-        System.out.println("send time: "+sendTime+" now: "+now);
+        cal.setTime(new Date(sendTime));
+        cal.add(unit, maxdelay);
+        long latestSendTime = cal.getTime().getTime();
+
+        logFinest("send time: "+sendTime+" now: "+now+" latest send time: "+latestSendTime);
 
         if (sendTime <= now) {
 
-            System.out.println("send time elapsed");
+            logFinest("send time elapsed");
 
-            if (seriesMail.getStatus() == SeriesMail.Status.unsent) {
-                System.out.println("Queuing mail series: " + seriesMail);
-                mailQueue.createQueuedMail(seriesMail.getSeriesSubscription().getUser(), seriesMail.getSeriesItem().getMail(), new Date(now));
-                seriesMail.setStatus(SeriesMail.Status.sent);
-                seriesMail.setSentTime(new Date(now));
-                em.merge(seriesMail);
-                subscription.setLastItemSendTime(new Date(now));
+            if (latestSendTime >= now) {
+
+                if (seriesMail.getStatus() == SeriesMail.Status.unsent) {
+                    logFinest("Queuing mail series: " + seriesMail);
+                    mailQueue.createQueuedMail(seriesMail.getSeriesSubscription().getUser(), seriesMail.getSeriesItem().getMail(), new Date(now));
+                    seriesMail.setStatus(SeriesMail.Status.sent);
+                    seriesMail.setSentTime(new Date(now));
+                    em.merge(seriesMail);
+                    subscription.setLastItemSendTime(new Date(now));
+                    subscription.setLastItemOrder(item.getSendOrder());
+                    em.merge(subscription);
+                    user.setLastSeriesMailSendTime(new Date(now));
+                    em.merge(user);
+                }
+
+            } else {
+
+                logFinest("timeout");
+                subscription.setLastItemOrder(item.getSendOrder());
                 em.merge(subscription);
-                user.setLastSeriesMailSendTime(new Date(now));
-                em.merge(user);
+                seriesMail.setStatus(SeriesMail.Status.timeout);
+                em.merge(seriesMail);
+
             }
+
 
         }
 

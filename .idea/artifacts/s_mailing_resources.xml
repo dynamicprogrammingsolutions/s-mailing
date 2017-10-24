@@ -6,9 +6,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="s-mailing-resources" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="AuthenticationManager" />
-        </element>
       </element>
       <element id="javaee-facet-resources" facet="s-mailing-resources/web/Web" />
       <element id="directory" name="META-INF">

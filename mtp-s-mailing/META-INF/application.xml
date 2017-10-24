@@ -29,13 +29,13 @@
         </web>
         <!-- Class-Path: s-mailing-base-ejb.jar -->
     </module>
-    <module id="s-mailing-resources-Web">
-        <web>
-            <web-uri>s-mailing-resources.war</web-uri>
-            <context-root>s-mailing/resources</context-root>
-        </web>
-        <!-- Class-Path: s-mailing-base-ejb.jar -->
-    </module>
+    <!--<module id="s-mailing-resources-Web">-->
+        <!--<web>-->
+            <!--<web-uri>s-mailing-resources.war</web-uri>-->
+            <!--<context-root>s-mailing/resources</context-root>-->
+        <!--</web>-->
+        <!--&lt;!&ndash; Class-Path: s-mailing-base-ejb.jar &ndash;&gt;-->
+    <!--</module>-->
     <module id="s-mailing-schedule-sending-EJB">
         <ejb>s-mailing-schedule-sending.jar</ejb>
     </module>

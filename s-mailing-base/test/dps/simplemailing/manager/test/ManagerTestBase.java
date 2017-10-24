@@ -47,7 +47,6 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
     public void testCreateSuccess() {
         Long cnt = getManager().count();
 
-        System.out.println("Create");
         EntityType mail = getTestData();
         getManager().create(mail);
         assertTrue(mail.getId() >= 0);
@@ -63,7 +62,6 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
     public void testCreateFail() {
         Long cnt = getManager().count();
 
-        System.out.println("Create Mail");
         EntityType mail = getTestData();
         setInvalidData(mail);
         try {
@@ -88,12 +86,10 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
         EntityType mail = getManager().getById(testId);
         assertTestData(mail);
 
-        System.out.println("Test finding not existing entity");
         try {
             mail = getManager().getById(testId+1);
             fail("Should generate error");
         } catch (Exception e) {
-            System.out.println(e.toString());
             assertEquals(EntityNotFoundException.class,e.getClass());
         }
 
@@ -125,7 +121,6 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
             getManager().modify(testId+1,mail);
             fail("Should generate error");
         } catch (Exception e) {
-            System.out.println(e.toString());
             assertEquals(EntityNotFoundException.class,e.getClass());
         }
 
@@ -137,7 +132,6 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
             getManager().modify(testId,mail);
             fail("Should generate error");
         } catch (Exception e) {
-            System.out.println(e.toString());
             assertEquals(IllegalArgumentException.class,e.getClass());
         }
 
@@ -160,14 +154,12 @@ public abstract class ManagerTestBase<EntityType extends EntityBase<Long>> {
 
         List<EntityType> mails = getManager().get(0,5);
         assertEquals(mails.size(),5);
-        System.out.println("data size: "+mails.size());
 
         for (EntityType mail: mails) {
             for (Attribute<EntityType,?> attribute: getManager().getEM().getMetamodel().entity(entityClass).getDeclaredAttributes()) {
                 if (!attribute.isAssociation())
                     System.out.print(attribute.getName()+": "+ReflectHelper.invokeMethod(entityClass, ReflectHelper.getGetterName(attribute.getName()), mail)+", ");
             }
-            System.out.println("");
         }
 
         for (EntityType mail: testMails) {

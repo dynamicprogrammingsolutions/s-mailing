@@ -34,7 +34,6 @@ public class SessionBean implements Serializable {
     }
 
     public List<String> getMessages() {
-        System.out.println("getting messages");
         List<String> messages = new LinkedList<>();
         messages.addAll(this.messages);
         this.messages.clear();
@@ -42,7 +41,6 @@ public class SessionBean implements Serializable {
     }
 
     public void addMessage(String message) {
-        System.out.println("add message: "+message);
         this.messages.add(message);
     }    
 

@@ -1,5 +1,6 @@
 package dps.simplemailing.manage;
 
+import dps.logging.HasLogger;
 import dps.reflect.ReflectHelper;
 import dps.simplemailing.entities.EntityBase;
 
@@ -14,9 +15,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 @SuppressWarnings("unchecked")
-public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends UseEntityManager {
+public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends UseEntityManager implements HasLogger {
 
     protected Class<EntityType> entityClass;
 
@@ -33,9 +35,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     {
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
-            /*for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
-                System.out.println(constraintViolation.getPropertyPath()+" "+constraintViolation.getMessage());
-            }*/
+            for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
+                logFine(constraintViolation.getPropertyPath()+" "+constraintViolation.getMessage());
+            }
 
             throw new IllegalArgumentException("Validation failed");
         }
@@ -77,21 +79,21 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     public EntityType getById(IdType id)
     {
         EntityType entity = em.find(entityClass,id);
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
     public EntityType getById(IdType id, String... attributes)
     {
         EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
     public EntityType getById(IdType id, Attribute<EntityType, ?>... attributes)
     {
         EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
@@ -99,16 +101,18 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public EntityType reload(EntityType entity)
     {
+        IdType id = entity.getId();
         entity = em.find(entityClass,entity.getId());
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
     @Transactional(TxType.REQUIRED)
     public EntityType reload(EntityType entity, String... attributes)
     {
+        IdType id = entity.getId();
         entity = em.find(entityClass,entity.getId(),getLoadGraph(attributes));
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
@@ -116,8 +120,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public EntityType reload(EntityType entity, Attribute<EntityType, ?>... attributes)
     {
+        IdType id = entity.getId();
         entity = em.find(entityClass,entity.getId(),getLoadGraph(attributes));
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         return entity;
     }
 
@@ -133,9 +138,9 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         entity.setId(old.getId());
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
-            System.out.println("validation failed");
+            logFine("validation failed");
             for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
-                System.out.println(constraintViolation.getMessage()+" "+constraintViolation.getPropertyPath());
+                logFine(constraintViolation.getMessage()+" "+constraintViolation.getPropertyPath());
             }
             throw new IllegalArgumentException("Validation failed");
         }
@@ -155,7 +160,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public void remove(IdType id) throws IllegalArgumentException {
         EntityType entity = em.find(entityClass,id);
-        if (entity == null) throw new EntityNotFoundException();
+        if (entity == null) throw new EntityNotFoundException("Cannot find entity type "+entityClass.getSimpleName()+" with id "+id);
         em.remove(entity);
     }
 

@@ -1,5 +1,6 @@
 package dps.simplemailing.mailqueue;
 
+import dps.logging.HasLogger;
 import dps.simplemailing.entities.GeneratedMail;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -23,7 +24,7 @@ import javax.mail.internet.MimeMessage;
  */
 @SuppressWarnings("ALL")
 @ApplicationScoped
-public class MailSending implements MailSender {
+public class MailSending implements MailSender, HasLogger {
 
     /*
     final private String host = "email-smtp.us-west-2.amazonaws.com";
@@ -56,7 +57,7 @@ public class MailSending implements MailSender {
 
     public Boolean sendMail(GeneratedMail generatedMail)
     {
-        System.out.println("Sending email " + generatedMail.getSubject() + " from " + generatedMail.getFromEmail() + " to " + generatedMail.getToEmail());
+        logInfo("Sending email " + generatedMail.getSubject() + " from " + generatedMail.getFromEmail() + " to " + generatedMail.getToEmail());
 
         try {
             Message message = new MimeMessage(session);
@@ -65,10 +66,10 @@ public class MailSending implements MailSender {
             message.setSubject(generatedMail.getSubject());
             message.setText(generatedMail.getBody());
             Transport.send(message);
-            System.out.println("Message Sent");
+            logInfo("Message Sent");
             return true;
         } catch (MessagingException ex) {
-            Logger.getLogger(MailSending.class.getName()).log(Level.WARNING, ex.getMessage());
+            logWarning(ex.getMessage());
             return false;
         }
         

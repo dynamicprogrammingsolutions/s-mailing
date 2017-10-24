@@ -26,11 +26,6 @@ public class RsTest {
     @Inject
     MailManager mailManager;
 
-    @PostConstruct
-    void init() {
-        System.out.println("init RsTest");
-    }
-
     @Context
     HttpServletResponse response;
 
@@ -74,15 +69,5 @@ public class RsTest {
     public Forward showingJsp() throws IOException, ServletException {
         return new Forward("/testview.jsp");
     }
-
-    /*@GET
-    @Path("sendView")
-    @Produces(MediaType.TEXT_HTML)
-    public View getJspTest(@Context HttpServletRequest request,
-                           @Context HttpServletResponse response) {
-        System.out.println("running");
-
-        return new View("/WEB-INF/testjsp.jsp");
-    }*/
 
 }

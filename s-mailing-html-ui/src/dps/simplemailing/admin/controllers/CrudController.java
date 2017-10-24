@@ -86,10 +86,8 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
         EntityType entity = null;
         if (id != null) {
             entity = manager.getById(id);
-            System.out.println("entity id: "+entity.getId());
         }
         if (entity == null) {
-            System.out.println("create new mail");
             entity = manager.newEntity();
         }
         request.setAttribute("formAction",getRoot()+"new");
@@ -133,7 +131,6 @@ public abstract class CrudController<EntityType extends EntityBase<IdType>,IdTyp
     {
         EntityType entity = null;
         entity = manager.getById(id);
-        System.out.println("entity id: "+entity.getId());
         request.setAttribute("formAction",getRoot()+"edit/"+id);
         request.setAttribute("entity",entity);
         return new View(getViewRoot()+"/edit.jsp");

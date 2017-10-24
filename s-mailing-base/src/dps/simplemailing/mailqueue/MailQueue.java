@@ -1,5 +1,6 @@
 package dps.simplemailing.mailqueue;
 
+import dps.logging.HasLogger;
 import dps.simplemailing.entities.*;
 import dps.simplemailing.manage.GeneratedMailManager;
 import dps.simplemailing.manage.ManagerBase;
@@ -12,9 +13,10 @@ import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 @ApplicationScoped
-public class MailQueue extends ManagerBase<QueuedMail,Long> {
+public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger {
 
     @Inject
     MailSender mailSending;
@@ -74,8 +76,9 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processQueue()
     {
+        logInfo("processing queue");
         if (queueStatus.getStarted()) {
-            //System.out.println("queue is already started");
+            logInfo("queue is already started");
             return;
         }
         try {
@@ -83,7 +86,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
             List<QueuedMail> queueToSend = getQueueToSend();
 
             if (queueToSend.size() != 0) {
-                System.out.println("Queue to send: "+queueToSend.size());
+                logFine("Queue to send: "+queueToSend.size());
                 mailQueue.generateMails(queueToSend);
                 mailQueue.sendMails(queueToSend);
                 mailQueue.cleanupQueue();
@@ -98,7 +101,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
     public void generateMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
-            System.out.println("Generating "+queuedMail);
+            logFiner("Generating "+queuedMail);
             queuedMail.setGeneratedMail(generatedMails.generateMail(queuedMail));
             mailQueue.modify(queuedMail);
             queueStatus.setGenerated(queueStatus.getGenerated()+1);
@@ -120,8 +123,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
     @Transactional(Transactional.TxType.REQUIRED)
     public void sendMail(QueuedMail queuedMail)
     {
-        System.out.println("Checking "+queuedMail);
-
         queuedMail = em.merge(queuedMail);
         Mail mail = queuedMail.getMail();
 
@@ -136,7 +137,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
         if (!unsubscribed) {
             GeneratedMail generatedMail = queuedMail.getGeneratedMail();
             if (generatedMail != null) {
-                System.out.println("sending "+generatedMail);
+                logFiner("sending "+generatedMail);
                 if (mailSending.sendMail(generatedMail)) {
                     queuedMail.setStatus(QueuedMail.Status.sent);
                     em.merge(queuedMail);
@@ -153,7 +154,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
             em.merge(queuedMail);
             queueStatus.setFailed(queueStatus.getFailed()+1);
 
-            System.out.println("User unsubscribed from campaign");
+            logFiner("User unsubscribed from campaign");
         }
     }
 
@@ -165,7 +166,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> {
         List<QueuedMail> queuedMails = query.getResultList();
 
         if (queuedMails.size() != 0) {
-            System.out.println("queuedMails to clean up: "+queuedMails.size());
+            logFine("queuedMails to clean up: "+queuedMails.size());
             for (QueuedMail queuedMail: queuedMails) {
                 GeneratedMail generatedMail = queuedMail.getGeneratedMail();
                 if (generatedMail != null) {

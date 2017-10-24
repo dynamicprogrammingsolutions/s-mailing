@@ -66,7 +66,7 @@ public class UserManager extends ManagerBase<User,Long> {
         try {
             entity = query.getSingleResult();
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Cannot find user with email "+email);
         }
         return entity;
     }

@@ -10,7 +10,6 @@ public class RunInitMethod {
     public Object intercept(InvocationContext ctx) throws Exception {
         Object target = ctx.getTarget();
         if (target instanceof ControllerInit) {
-            System.out.println("running init");
             ((ControllerInit) target).init();
         }
         return ctx.proceed();

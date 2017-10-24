@@ -26,7 +26,6 @@ public class TimingProcessQueue {
 
     @Schedule(hour = "*", minute = "*", persistent = false)
     public void processQueue() {
-        System.out.println("Timer event: " + new Date());
         //TODO: processQueueAsync in MailQueue (Using managed executorservice allowing only one thread)
         new Thread(()->mailQueue.processQueue(),"MailQueue.processQueue").start();
         //mailQueue.processQueue();
@@ -34,7 +33,6 @@ public class TimingProcessQueue {
     
     @Schedule(hour = "*", persistent = false)
     public void processAllSeries() {
-        //System.out.println("Timer event: " + new Date());
         //TODO: processAllSeries in MailSeries
         new Thread(()->mailSeries.processAllSeries(),"MailSeries.processAllSeries").start();
         ;

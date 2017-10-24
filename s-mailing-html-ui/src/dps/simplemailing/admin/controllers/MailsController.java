@@ -70,7 +70,6 @@ public class MailsController extends CrudController<Mail,Long> {
     @RestrictedAccess()
     public Redirect addToCampaignPost(@PathParam("id") Long id, @FormParam("id") Long campaignId)
     {
-        System.out.println("adding "+id+" to "+campaignId);
         campaignManager.addMail(campaignId,id);
         sessionBean.addMessage("Mail added to campaign");
         return new Redirect(getRoot()+"show/"+id);
@@ -81,7 +80,6 @@ public class MailsController extends CrudController<Mail,Long> {
     @RestrictedAccess()
     public Redirect postDeleteFromCampaign(@PathParam("id") Long id, @FormParam("id") Long campaignId)
     {
-        System.out.println("adding "+id+" to "+campaignId);
         campaignManager.removeMail(campaignId,id);
         sessionBean.addMessage("Mail deleted from campaign");
         return new Redirect(getRoot()+"show/"+id);

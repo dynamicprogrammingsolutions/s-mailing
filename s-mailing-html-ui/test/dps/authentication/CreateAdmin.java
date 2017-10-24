@@ -1,5 +1,6 @@
 package dps.authentication;
 
+import dps.logging.HasLogger;
 import dps.simplemailing.authentication.AuthenticableUserProvider;
 import dps.simplemailing.entities.ApplicationUser;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -34,16 +35,10 @@ public class CreateAdmin {
     AuthenticableUserProvider userProvider;
 
     @Test
-    public void getAdminPWHash()
-    {
-        System.out.println(ApplicationUser.hash("admin"));
-    }
-
-    @Test
     public void addAdmin()
     {
-        userProvider.addUser("admin","admin");
-        Assert.assertTrue(authenticationManager.login("admin", "admin"));
+        userProvider.addUser("mtp","***REMOVED***");
+        Assert.assertTrue(authenticationManager.login("mtp", "***REMOVED***"));
 
     }
 

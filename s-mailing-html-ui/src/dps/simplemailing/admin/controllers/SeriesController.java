@@ -1,5 +1,6 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.logging.HasLogger;
 import dps.simplemailing.admin.authentication.RestrictedAccess;
 import dps.simplemailing.admin.interceptors.AuthenticationInterceptor;
 import dps.simplemailing.admin.provider.View;
@@ -18,11 +19,12 @@ import javax.interceptor.Interceptors;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.metamodel.Attribute;
 import javax.ws.rs.*;
+import java.util.logging.Logger;
 
 @Path("series")
 @ApplicationScoped
 @Interceptors({RunInitMethod.class, AuthenticationInterceptor.class})
-public class SeriesController extends CrudController<Series,Long> {
+public class SeriesController extends CrudController<Series,Long> implements HasLogger {
 
     @Override
     protected String getSubfolder() {
@@ -72,7 +74,6 @@ public class SeriesController extends CrudController<Series,Long> {
     @RestrictedAccess()
     public Redirect postAddMail(@PathParam("id") Long id, @FormParam("id") Long mailId)
     {
-        System.out.println("adding "+mailId+" to "+id);
         SeriesItem seriesItem = new SeriesItem();
         seriesManager.createItem(id,mailId,seriesItem);
         sessionBean.addMessage("Mail added to series");
@@ -93,7 +94,6 @@ public class SeriesController extends CrudController<Series,Long> {
             }
             if (item == null) throw new NotFoundException();
             request.setAttribute("item",item);
-            System.out.println("view: "+getViewRoot()+"/items/show.jsp");
             return new View(getViewRoot()+"/items/show.jsp");
         } catch (EntityNotFoundException e) {
             throw new NotFoundException();
@@ -113,7 +113,6 @@ public class SeriesController extends CrudController<Series,Long> {
         }
         if (entity == null) throw new NotFoundException();
 
-        System.out.println("entity id: "+entity.getId());
         request.setAttribute("formAction",requestBean.getRoot()+"edit/"+itemId);
         request.setAttribute("entity",entity);
         return new View(getViewRoot()+"/items/edit.jsp");

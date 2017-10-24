@@ -1,5 +1,6 @@
 package dps.simplemailing.admin;
 
+import dps.logging.HasLogger;
 import dps.router.ControllerBase;
 import dps.router.Path;
 import dps.simplemailing.entities.*;
@@ -24,8 +25,8 @@ import java.util.logging.Logger;
 
 @ApplicationScoped
 @Path("/(.*)")
-public class UrlBasedAdminController extends ControllerBase {
-    
+public class UrlBasedAdminController extends ControllerBase implements HasLogger {
+
     @Inject
     UserManager userManager;
 
@@ -349,7 +350,7 @@ public class UrlBasedAdminController extends ControllerBase {
         
         try {
             String email = request.getParameter("email");
-            System.out.println("unsubscribing email "+email);
+            logInfo("unsubscribing email "+email);
             User user = userManager.getByEmail(email);
             if (user != null) {
                 userManager.unsubscribe(user);

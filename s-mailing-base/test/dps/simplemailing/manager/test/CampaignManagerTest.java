@@ -145,7 +145,6 @@ public class CampaignManagerTest extends ManagerTestBase<Campaign> {
         this.removeTestData(campaignId);
         userManagerTest.removeTestData(userId);
         assertEquals(cnt, manager.count());
-        System.out.println(userManager.count());
         assertEquals(userCnt, userManager.count());
     }
 

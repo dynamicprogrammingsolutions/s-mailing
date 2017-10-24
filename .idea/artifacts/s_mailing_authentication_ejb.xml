@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="s-mailing-authentication-ejb">
+    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_authentication_ejb</output-path>
+    <root id="archive" name="s-mailing-authentication-ejb.jar">
+      <element id="module-output" name="s-mailing-authentication" />
+      <element id="jpa-descriptors" facet="s-mailing-authentication/jpa/JPA" />
+    </root>
+  </artifact>
+</component>
