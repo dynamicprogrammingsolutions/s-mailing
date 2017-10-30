@@ -13,6 +13,7 @@ import dps.simplemailing.rs.Forward;
 import dps.simplemailing.rs.Redirect;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
@@ -25,34 +26,28 @@ import javax.ws.rs.core.Context;
 import java.util.logging.Logger;
 
 @Path("")
-@Dependent
+@ApplicationScoped
 @Interceptors({RunInitMethod.class,AuthenticationInterceptor.class})
 public class AdminController extends AdminControllerBase implements ControllerInit, UsingAuthenticationManager, HasLogger {
-
-    @Inject
-    AuthenticationManagerFactory authenticationManagerFactory;
-
-    AuthenticationManager authenticationManager;
-
-    public AuthenticationManager getAuthenticationManager() { return authenticationManager; }
 
     @Inject
     SessionBean sessionBean;
 
     @Override
     protected String getSubfolder() {
-        return "admin";
+        return "";
+    }
+
+    @Override
+    protected String getViewRoot()
+    {
+        return "/WEB-INF/admin";
     }
 
     @Override
     protected String getTitle()
     {
         return "Admin";
-    }
-
-    @PostConstruct
-    protected void postConstruct() {
-        authenticationManager = authenticationManagerFactory.getAuthenticationManager(request.getSession());
     }
 
     @Context
@@ -62,16 +57,17 @@ public class AdminController extends AdminControllerBase implements ControllerIn
     @Path("/")
     public Object index()
     {
-        if (authenticationManager.isAuthenticated())
+        if (getAuthenticationManager().isAuthenticated())
             return new View("/WEB-INF/admin/index.jsp");
         else
-            return new Redirect(request.getContextPath()+"/login");
+            logInfo("not logged in: redirecting");
+            return new Redirect(this.getRoot()+"login");
     }
 
     @GET
     @Path("login")
     public View getLogin() {
-        request.setAttribute("action",request.getContextPath()+"/login");
+        request.setAttribute("action",requestBean.getBasePath()+"/login");
         return new View(getViewRoot() + "/login.jsp");
     }
 
@@ -79,12 +75,13 @@ public class AdminController extends AdminControllerBase implements ControllerIn
     @Path("login")
     public Redirect postLogin(@FormParam("username") String username, @FormParam("password") String password) {
         logFine("trying login with: "+username+" "+password);
-        if (authenticationManager.login(username,password)) {
+        if (getAuthenticationManager().login(username,password)) {
+            logInfo("logged in");
             sessionBean.addMessage("logged in");
-            return new Redirect(request.getContextPath() + "/");
+            return new Redirect(this.getRoot());
         } else {
             sessionBean.addError("login failed");
-            return new Redirect(request.getContextPath() + "/login");
+            return new Redirect(this.getRoot() + "login");
         }
     }
 
@@ -92,18 +89,18 @@ public class AdminController extends AdminControllerBase implements ControllerIn
     @Path("logout")
     public Redirect postLogout()
     {
-        authenticationManager.logout();
+        getAuthenticationManager().logout();
         sessionBean.addMessage("logged out");
-        return new Redirect(request.getContextPath()+"/login");
+        return new Redirect(this.getRoot()+"login");
     }
 
     @GET
     @Path("logout")
     public Redirect getLogout()
     {
-        authenticationManager.logout();
+        getAuthenticationManager().logout();
         sessionBean.addMessage("logged out");
-        return new Redirect(request.getContextPath()+"/login");
+        return new Redirect(this.getRoot()+"login");
     }
 
 }

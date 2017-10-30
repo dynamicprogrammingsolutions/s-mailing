@@ -1,5 +1,9 @@
 package dps.simplemailing.admin.controllers;
 
+import dps.authentication.AuthenticationManager;
+import dps.authentication.AuthenticationManagerFactory;
+import dps.simplemailing.admin.authentication.UsingAuthenticationManager;
+import dps.simplemailing.admin.config.AdminConfig;
 import dps.simplemailing.admin.interceptors.RunInitMethod;
 import dps.simplemailing.admin.views.RequestBean;
 
@@ -12,7 +16,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
 @Produces(MediaType.TEXT_HTML)
-public abstract class AdminControllerBase  {
+public abstract class AdminControllerBase implements UsingAuthenticationManager {
+
+    @Inject
+    AuthenticationManagerFactory authenticationManagerFactory;
+
+    public AuthenticationManager getAuthenticationManager() {
+        return requestBean.getAuthenticationManager();
+    }
 
     @Inject
     RequestBean requestBean;
@@ -22,6 +33,9 @@ public abstract class AdminControllerBase  {
 
     @Context
     UriInfo uri;
+
+    @Inject
+    AdminConfig adminConfig;
 
     protected abstract String getSubfolder();
 
@@ -37,12 +51,17 @@ public abstract class AdminControllerBase  {
 
     protected String getResourceRoot()
     {
-        return request.getContextPath()+"/res";
+        return adminConfig.getResourcePath();
+    }
+
+    protected String getBasePath()
+    {
+        return adminConfig.getBasePath();
     }
 
     protected String getRoot()
     {
-        return uri.getBaseUri()+getSubfolder()+"/";
+        return adminConfig.getBasePath()+(getSubfolder().isEmpty()?"":"/")+getSubfolder()+"/";
     }
 
     protected abstract String getTitle();
@@ -53,6 +72,8 @@ public abstract class AdminControllerBase  {
         requestBean.setRoot(getRoot());
         requestBean.serResourceRoot(getResourceRoot());
         requestBean.setTemplate(getTemplate());
+        requestBean.setBasePath(getBasePath());
+        requestBean.setAuthenticationManager(authenticationManagerFactory.getAuthenticationManager(request.getSession()));
     }
 
 }

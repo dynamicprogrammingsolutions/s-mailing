@@ -46,12 +46,12 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}"> Index </a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/users">Users</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/mails">Mails</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/campaigns">Campaigns</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/series">Series</a></li>
-                    <li class="nav-item" ><a class="nav-link"  href="${contextPath}/logout">Logout</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/"> Index </a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/users">Users</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/mails">Mails</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/campaigns">Campaigns</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/series">Series</a></li>
+                    <li class="nav-item" ><a class="nav-link"  href="${basePath}/logout">Logout</a></li>
 
                 </ul>
             </nav>

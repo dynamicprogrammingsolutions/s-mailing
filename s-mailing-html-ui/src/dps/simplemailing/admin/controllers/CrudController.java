@@ -27,18 +27,6 @@ import java.util.List;
 public abstract class CrudController<EntityType extends EntityBase<IdType>,IdType> extends AdminControllerBase implements ControllerInit, UsingAuthenticationManager {
 
     @Inject
-    AuthenticationManagerFactory authenticationManagerFactory;
-
-    AuthenticationManager authenticationManager;
-
-    public AuthenticationManager getAuthenticationManager() { return authenticationManager; }
-
-    @PostConstruct
-    void postConstruct() {
-        authenticationManager = authenticationManagerFactory.getAuthenticationManager(request.getSession());
-    }
-
-    @Inject
     ManagerBase<EntityType,IdType> manager;
 
     ManagerBase<EntityType,IdType> getManager()

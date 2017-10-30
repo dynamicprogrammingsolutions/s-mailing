@@ -1,5 +1,7 @@
 package dps.simplemailing.admin.views;
 
+import dps.authentication.AuthenticationManager;
+
 import javax.enterprise.context.RequestScoped;
 
 /**
@@ -18,7 +20,9 @@ public class RequestBean {
     private String entityName = "";
     private Object entityObject = null;
     private String resourceRoot = "";
-    
+    private String basePath = "";
+    private AuthenticationManager authenticationManager;
+
     public String getTitle() {
         return title;
     }
@@ -82,5 +86,21 @@ public class RequestBean {
 
     public String getResourceRoot() {
         return resourceRoot;
+    }
+
+    public String getBasePath() {
+        return basePath;
+    }
+
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
+    }
+
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    public AuthenticationManager getAuthenticationManager() {
+        return authenticationManager;
     }
 }

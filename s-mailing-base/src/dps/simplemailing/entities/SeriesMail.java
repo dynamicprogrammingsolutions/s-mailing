@@ -54,7 +54,7 @@ public class SeriesMail implements Serializable {
     }
 
     public enum Status {
-        unsent, sent, timeout
+        unsent, sent, canceled
     }
 
     public Date getSentTime() {

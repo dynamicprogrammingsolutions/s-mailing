@@ -6,13 +6,11 @@ import dps.simplemailing.mailqueue.MailQueue;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import java.util.*;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @SuppressWarnings("unchecked")
 @ApplicationScoped
@@ -223,6 +221,12 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         User user = subscription.getUser();
         Calendar cal = Calendar.getInstance();
 
+        if (user.getStatus() != User.Status.subscribed) {
+            logFinest("User unsubscribed");
+            seriesMail.setStatus(SeriesMail.Status.canceled);
+            em.merge(seriesMail);
+            return;
+        }
 
         logFinest("delay: "+item.getSendDelay()+" subscribeTime: "+subscription.getSubscribeTime());
 
@@ -296,7 +300,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
                 logFinest("timeout");
                 subscription.setLastItemOrder(item.getSendOrder());
                 em.merge(subscription);
-                seriesMail.setStatus(SeriesMail.Status.timeout);
+                seriesMail.setStatus(SeriesMail.Status.canceled);
                 em.merge(seriesMail);
 
             }

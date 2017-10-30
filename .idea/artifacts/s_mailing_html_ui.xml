@@ -10,6 +10,7 @@
           <element id="artifact" artifact-name="s-mailing-authentication-ejb" />
           <element id="library" level="project" name="AuthenticationManager" />
           <element id="library" level="project" name="DefaultAuthenticationManager" />
+          <element id="library" level="project" name="com.atlassian.commonmark:commonmark:0.10.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="s-mailing-html-ui/web/Web" />
