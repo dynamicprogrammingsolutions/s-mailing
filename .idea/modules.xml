@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/s-mailing-config-local/s-mailing-config-local.iml" filepath="$PROJECT_DIR$/s-mailing-config-local/s-mailing-config-local.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" filepath="$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-resources/s-mailing-resources.iml" filepath="$PROJECT_DIR$/s-mailing-resources/s-mailing-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/s-mailing-router/s-mailing-router.iml" filepath="$PROJECT_DIR$/s-mailing-router/s-mailing-router.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-schedule-sending/s-mailing-schedule-sending.iml" filepath="$PROJECT_DIR$/s-mailing-schedule-sending/s-mailing-schedule-sending.iml" />
       <module fileurl="file://$PROJECT_DIR$/s-mailing-unsubscribe/s-mailing-unsubscribe.iml" filepath="$PROJECT_DIR$/s-mailing-unsubscribe/s-mailing-unsubscribe.iml" />
     </modules>

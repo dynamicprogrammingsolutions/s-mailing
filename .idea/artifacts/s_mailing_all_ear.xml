@@ -9,9 +9,10 @@
       <element id="artifact" artifact-name="s-mailing-unsubscribe" />
       <element id="javaee-facet-resources" facet="S-Mailing-1.0-idea/javaeeApplication/javaEEApplication" />
       <element id="directory" name="config">
-        <element id="artifact" artifact-name="s-mailing-config" />
+        <element id="artifact" artifact-name="s-mailing-config-local" />
       </element>
       <element id="artifact" artifact-name="s-mailing-base-ejb" />
+      <element id="artifact" artifact-name="s-mailing-router:war archive" />
     </root>
   </artifact>
 </component>
