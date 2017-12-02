@@ -12,18 +12,8 @@
     <bookmark url="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/users/show.jsp" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="Admin Config&#10;Separate local config module&#10;Markdown parser">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_router_war.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_router_war_archive.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-router/s-mailing-router.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-router/src/dps/simplemailing/router/RouterServlet.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-router/web/WEB-INF/beans.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-router/web/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_config_local.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_config_local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/META-INF/application.xml" afterPath="$PROJECT_DIR$/META-INF/application.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1719,7 +1709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509378218963</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Central Servlet forwards Ok, but causes several bugs in session handling">
+      <created>1512222783920</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1512222783920</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1755,7 +1752,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="405090000" />
+    <option name="totallyTimeSpent" value="405173000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1787,7 +1784,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1031" y="327" width="505" height="284" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33065596" sideWeight="0.50870144" order="10" side_tool="false" content_ui="tabs" x="4" y="23" width="1592" height="842" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16331995" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42302543" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064516" sideWeight="0.4746377" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.525641" order="0" side_tool="false" content_ui="combo" />
@@ -1931,7 +1928,8 @@
     <MESSAGE value="correct packaging of authentication libraries" />
     <MESSAGE value="Many corrections after deploying and testing live application" />
     <MESSAGE value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
+    <MESSAGE value="Central Servlet forwards Ok, but causes several bugs in session handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Central Servlet forwards Ok, but causes several bugs in session handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
