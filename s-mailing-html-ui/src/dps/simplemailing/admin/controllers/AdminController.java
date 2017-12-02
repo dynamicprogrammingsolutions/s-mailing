@@ -54,6 +54,13 @@ public class AdminController extends AdminControllerBase implements ControllerIn
     HttpServletRequest request;
 
     @GET
+    @Path("")
+    public Object index1()
+    {
+        return index();
+    }
+
+    @GET
     @Path("/")
     public Object index()
     {

@@ -12,40 +12,15 @@
     <bookmark url="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/users/show.jsp" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mtp_s_mailing.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mtp_s_mailing.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_config.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_config_local.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_schedule_sending.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_unsubscribe.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="Config to files in /etc/s-mailing">
+      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-authentication/src/META-INF/beans.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/META-INF/application.xml" afterPath="$PROJECT_DIR$/META-INF/application.xml" />
-      <change beforePath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" afterPath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" />
-      <change beforePath="$PROJECT_DIR$/mtp-s-mailing/META-INF/application.xml" afterPath="$PROJECT_DIR$/mtp-s-mailing/META-INF/application.xml" />
-      <change beforePath="$PROJECT_DIR$/mtp-s-mailing/mtp-s-mailing.iml" afterPath="$PROJECT_DIR$/mtp-s-mailing/mtp-s-mailing.iml" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/admin/AdminServlet.java" afterPath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/admin/AdminServlet.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/api/APIServlet.java" afterPath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/api/APIServlet.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-api/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/s-mailing-api/web/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config-local/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/config/META-INF/MANIFEST.MF" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config-local/resources/html-ui-conf.json" afterPath="$PROJECT_DIR$/config/local/html-ui-conf.json" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config-local/resources/smtp-conf.json" afterPath="$PROJECT_DIR$/config/local/smtp-conf.json" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config-local/s-mailing-config-local.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config/META-INF/MANIFEST.MF" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config/resources/html-ui-conf.json" afterPath="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config/resources/smtp-conf.json" afterPath="$PROJECT_DIR$/config/mtp/smtp-conf.json" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-config/s-mailing-config.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/config/AdminConfig.java" afterPath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/config/AdminConfig.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-schedule-sending/s-mailing-schedule-sending.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-schedule-sending/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-schedule-sending/src/dps/simplemailing/mailqueue/TimingProcessQueue.java" afterPath="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/TimingProcessQueue.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/s-mailing-unsubscribe.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/src/dps/simplemailing/unsubscribe/UnsubscribeController.java" afterPath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/unsubscribe/UnsubscribeController.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/src/dps/simplemailing/unsubscribe/UnsubscribeServlet.java" afterPath="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/unsubscribe/UnsubscribeServlet.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/web/WEB-INF/jboss-web.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-unsubscribe/web/WEB-INF/web.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/config/local/html-ui-conf.json" afterPath="$PROJECT_DIR$/config/local/html-ui-conf.json" />
+      <change beforePath="$PROJECT_DIR$/config/mtp/html-ui-conf.json" afterPath="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
+      <change beforePath="$PROJECT_DIR$/s-mailing-base/src/dps/logging/Loggers.java" afterPath="$PROJECT_DIR$/s-mailing-base/src/dps/logging/Loggers.java" />
+      <change beforePath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java" afterPath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java" />
+      <change beforePath="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,12 +47,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/config/AdminConfig.java">
+      <file leaf-file-name="ManagerBase.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouterServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html-ui-conf.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/mtp/html-ui-conf.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="73" lean-forward="false" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html-ui-conf.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/local/html-ui-conf.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding>
+                <element signature="e#1689#1690#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,19 +199,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/views/SessionBean.java" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/test/dps/authentication/CreateAdmin.java" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/interceptors/RunInitMethod.java" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/EntityReader.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/ManagerTestBase.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/GeneratedMailManager.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/logging/Loggers.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java" />
         <option value="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/api/APIController.java" />
         <option value="$PROJECT_DIR$/s-mailing-unsubscribe/src/dps/simplemailing/unsubscribe/UnsubscribeController.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/SeriesController.java" />
         <option value="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/admin/UrlBasedAdminController.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSending.java" />
@@ -195,7 +216,6 @@
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/entities/SeriesMail.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/SeriesManager.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/template.jsp" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/s-mailing-config/resources/html-ui-conf.json" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/MailsController.java" />
         <option value="$PROJECT_DIR$/s-mailing-config-local/resources/html-ui-conf.json" />
@@ -206,7 +226,6 @@
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/filters/TemplateFilter.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/views/RequestBean.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminControllerBase.java" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/CrudController.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/Markdown.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/PagesController.java" />
@@ -222,7 +241,15 @@
         <option value="$PROJECT_DIR$/META-INF/application.xml" />
         <option value="$PROJECT_DIR$/mtp-s-mailing/META-INF/application.xml" />
         <option value="$PROJECT_DIR$/s-mailing-api/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/config/AdminConfig.java" />
+        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/logging/Loggers.java" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/web/index.html" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
+        <option value="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
+        <option value="$PROJECT_DIR$/config/local/html-ui-conf.json" />
       </list>
     </option>
   </component>
@@ -257,7 +284,8 @@
     <scope name="Unnamed" pattern="" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-4" />
     <option name="width" value="1600" />
     <option name="height" value="869" />
   </component>
@@ -411,47 +439,54 @@
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
               <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="mtp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
@@ -493,7 +528,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -566,7 +601,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.Deploy mtp s-mailing">
+  <component name="RunManager" selected="JBoss Server.Run Local">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -636,7 +671,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Deploy mtp s-mailing" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Deploy to dynamicprogrammingsolutions.com" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="HOST" value="metatraderprogrammer.com" />
       <option name="LOCAL" value="false" />
       <option name="OPEN_IN_BROWSER" value="false" />
@@ -654,7 +689,7 @@
           <option name="password" value="***REMOVED***" />
           <option name="serverGroup" value="" />
           <option name="stagingRemotePath" value="" />
-          <option name="transportHostId" value="" />
+          <option name="transportHostId" />
           <option name="transportStagingTarget">
             <TransportTarget>
               <option name="id" value="2dc1b165-06ad-45ff-a7a0-e888d967c3a9" />
@@ -688,7 +723,7 @@
         </option>
       </method>
     </configuration>
-    <configuration name="Run s-mailing all" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Run Local" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/s-mailing/admin/mails" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
@@ -1055,8 +1090,8 @@
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Arquillian JUnit.Test Remote" />
       <item index="1" class="java.lang.String" itemvalue="Arquillian JUnit.Test UI - CreateAdmin" />
-      <item index="2" class="java.lang.String" itemvalue="JBoss Server.Run s-mailing all" />
-      <item index="3" class="java.lang.String" itemvalue="JBoss Server.Deploy mtp s-mailing" />
+      <item index="2" class="java.lang.String" itemvalue="JBoss Server.Run Local" />
+      <item index="3" class="java.lang.String" itemvalue="JBoss Server.Deploy to dynamicprogrammingsolutions.com" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1297,7 +1332,21 @@
       <option name="project" value="LOCAL" />
       <updated>1509378218963</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Simplify structure">
+      <created>1512227074079</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1512227074079</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Config to files in /etc/s-mailing">
+      <created>1512228653262</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1512228653262</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1333,7 +1382,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="397554000" />
+    <option name="totallyTimeSpent" value="406542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1346,6 +1395,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1600" height="869" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21087533" sideWeight="0.5025674" order="21" side_tool="true" content_ui="tabs" />
@@ -1364,13 +1414,13 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1031" y="327" width="505" height="284" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33065596" sideWeight="0.50870144" order="10" side_tool="false" content_ui="tabs" x="4" y="23" width="1592" height="842" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42302543" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23427041" sideWeight="0.50870144" order="10" side_tool="false" content_ui="tabs" x="4" y="23" width="1592" height="842" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42302543" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064516" sideWeight="0.4746377" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.525641" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.52204174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064516" sideWeight="0.4752" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.47795823" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18356867" sideWeight="0.471831" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1508,7 +1558,9 @@
     <MESSAGE value="correct packaging of authentication libraries" />
     <MESSAGE value="Many corrections after deploying and testing live application" />
     <MESSAGE value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
+    <MESSAGE value="Simplify structure" />
+    <MESSAGE value="Config to files in /etc/s-mailing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config to files in /etc/s-mailing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1521,79 +1573,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/CampaignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/CrudController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1498">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/filters/SetRequestAttributesFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminControllerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/resources/pages/help/Index_1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/commonmark/commonmark/0.10.0/commonmark-0.10.0.jar!/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/interceptors/AuthenticationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/EntityReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/AdminApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1737,14 +1716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/mails/form.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1802,14 +1773,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-unsubscribe/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-authentication/src/META-INF/beans.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1905,14 +1868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="31" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="39" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../AuthenticationManager/src/dps/authentication/AuthenticableUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1921,10 +1876,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-authentication/src/META-INF/beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="32" />
+          <folding>
+            <element signature="e#1631#1632#0" expanded="false" />
+            <element signature="e#1658#1659#0" expanded="false" />
+            <element signature="e#1689#1690#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="false" />
+            <element signature="e#1751#1752#0" expanded="false" />
+            <element signature="e#1782#1783#0" expanded="false" />
+            <element signature="e#1817#1818#0" expanded="false" />
+            <element signature="e#1848#1849#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/logging/Loggers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/config/AdminConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="570">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#1361#1362#0" expanded="false" />
+            <element signature="e#1396#1397#0" expanded="false" />
+            <element signature="e#1431#1432#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/regex/Matcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="1282" column="0" lean-forward="false" selection-start-line="1282" selection-start-column="0" selection-end-line="1282" selection-end-column="0" />
+          <folding>
+            <element signature="e#48890#48891#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="e#1689#1690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mtp/html-ui-conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="73" lean-forward="false" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/local/html-ui-conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding />
         </state>
       </provider>

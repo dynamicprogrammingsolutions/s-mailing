@@ -2,11 +2,12 @@ package dps.logging;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class Loggers {
 
-    Map<String,Logger> loggers = new HashMap<>();
+    Map<String,Logger> loggers = new ConcurrentHashMap<>();
 
     private Loggers() {}
     private static Loggers INSTANCE = new Loggers();
