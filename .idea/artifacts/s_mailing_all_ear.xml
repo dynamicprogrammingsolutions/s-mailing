@@ -6,15 +6,6 @@
       <element id="artifact" artifact-name="s-mailing-resources" />
       <element id="artifact" artifact-name="s-mailing-api" />
       <element id="javaee-facet-resources" facet="S-Mailing-1.0-idea/javaeeApplication/javaEEApplication" />
-      <element id="directory" name="config">
-        <element id="archive" name="s-mailing-config.jar">
-          <element id="directory" name="META-INF">
-            <element id="file-copy" path="$PROJECT_DIR$/config/META-INF/MANIFEST.MF" />
-          </element>
-          <element id="file-copy" path="$PROJECT_DIR$/config/local/html-ui-conf.json" />
-          <element id="file-copy" path="$PROJECT_DIR$/config/local/smtp-conf.json" />
-        </element>
-      </element>
       <element id="artifact" artifact-name="s-mailing-base-ejb" />
     </root>
   </artifact>
