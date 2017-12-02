@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ejb-jar" name="s-mailing-schedule-sending">
-    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_schedule_sending</output-path>
-    <root id="archive" name="s-mailing-schedule-sending.jar">
-      <element id="module-output" name="s-mailing-schedule-sending" />
-      <element id="javaee-facet-resources" facet="s-mailing-schedule-sending/ejb/EJB" />
-    </root>
-  </artifact>
-</component>

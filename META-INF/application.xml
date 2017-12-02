@@ -18,14 +18,7 @@
     <module id="s-mailing-api-Web">
         <web>
             <web-uri>s-mailing-api.war</web-uri>
-            <context-root>/s-mailing/api</context-root>
-        </web>
-        <!-- Class-Path: s-mailing-base-ejb.jar -->
-    </module>
-    <module id="s-mailing-unsubscribe-Web">
-        <web>
-            <web-uri>s-mailing-unsubscribe.war</web-uri>
-            <context-root>/s-mailing/unsubscribe</context-root>
+            <context-root>/s-mailing</context-root>
         </web>
         <!-- Class-Path: s-mailing-base-ejb.jar -->
     </module>
@@ -36,9 +29,9 @@
         </web>
         <!-- Class-Path: s-mailing-base-ejb.jar -->
     </module>
-    <module id="s-mailing-schedule-sending-EJB">
+    <!--<module id="s-mailing-schedule-sending-EJB">
         <ejb>s-mailing-schedule-sending.jar</ejb>
-    </module>
+    </module>-->
     <module id="s-mailing-base-EJB">
         <ejb>s-mailing-base-ejb.jar</ejb>
     </module>

@@ -18,7 +18,5 @@
     <orderEntry type="module" module-name="s-mailing-api" scope="PROVIDED" />
     <orderEntry type="module" module-name="s-mailing-html-ui" scope="PROVIDED" />
     <orderEntry type="module" module-name="s-mailing-resources" scope="PROVIDED" />
-    <orderEntry type="module" module-name="s-mailing-schedule-sending" scope="PROVIDED" />
-    <orderEntry type="module" module-name="s-mailing-unsubscribe" scope="PROVIDED" />
   </component>
 </module>

@@ -4,10 +4,14 @@
     <root id="archive" name="mtp-s-mailing.ear">
       <element id="artifact" artifact-name="s-mailing-api" />
       <element id="artifact" artifact-name="s-mailing-html-ui" />
-      <element id="artifact" artifact-name="s-mailing-schedule-sending" />
-      <element id="artifact" artifact-name="s-mailing-unsubscribe" />
       <element id="directory" name="config">
-        <element id="artifact" artifact-name="s-mailing-config" />
+        <element id="archive" name="s-mailing-config.jar">
+          <element id="directory" name="META-INF">
+            <element id="file-copy" path="$PROJECT_DIR$/config/META-INF/MANIFEST.MF" />
+          </element>
+          <element id="file-copy" path="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
+          <element id="file-copy" path="$PROJECT_DIR$/config/mtp/smtp-conf.json" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="mtp-s-mailing/javaeeApplication/javaEEApplication" />
       <element id="artifact" artifact-name="s-mailing-base-ejb" />

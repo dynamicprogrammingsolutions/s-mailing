@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
@@ -20,6 +21,7 @@ import javax.transaction.Transactional;
  * @author ferenci84
  */
 @ApplicationScoped
+
 public class UnsubscribeController implements HasLogger {
 
     @Inject
