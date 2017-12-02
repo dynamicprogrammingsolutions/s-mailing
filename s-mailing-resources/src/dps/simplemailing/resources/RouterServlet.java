@@ -1,4 +1,4 @@
-package dps.simplemailing.admin;
+package dps.simplemailing.resources;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,15 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "RouterServlet")
 public class RouterServlet extends HttpServlet {
 
-    final Pattern resourcePattern = Pattern.compile("^/(?:css|fonts|img|js|scss|styles)(?:/.*)?$");
-    final Pattern sitePattern = Pattern.compile("^/(?:login|mails|campaigns|series|users)(?:/.*)?$");
+    final Pattern resourcePattern = Pattern.compile("^/(?:scripts|[a-zA-Z0-9]+\\.html)(?:/.*)?$");
+    final Pattern sitePattern = Pattern.compile("^/(?:[a-zA-Z]*)(?:/.*)?$");
     final Pattern indexPattern = Pattern.compile("^(?:/)?$");
 
     final int MAXAGE = 0;
@@ -37,7 +36,6 @@ public class RouterServlet extends HttpServlet {
         if (pathInfo == null) pathInfo = "";
         Matcher matcher = pattern.matcher(pathInfo);
         if (matcher.find()) {
-            System.out.println("matched: "+pattern);
             if (addHeaders != null) {
                 addHeaders.addHeaders(req.getMethod(),resp);
             }

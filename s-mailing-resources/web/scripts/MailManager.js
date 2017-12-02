@@ -1,6 +1,6 @@
 function MailManager() {
     this.resource = MailResource;
-    this.urlBase = "http://localhost:8080/s-mailing/resources/service/mails";
+    this.urlBase = "http://localhost:8080/s-mailing/resources/mails";
 }
 
 MailManager.prototype = new ManagerBase();
