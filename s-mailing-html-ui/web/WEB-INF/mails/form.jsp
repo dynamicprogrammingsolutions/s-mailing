@@ -17,11 +17,15 @@
     </div>
 
     <div class="form-group">
-        <label>${label="Body Text"}</label>
-        <input class="form-control" type="text" name="${name="body_text"}" value="${entity[name]}" placeholder="${label}">
+
+        <div class="form-group">
+            <label>${label="Body Text"}</label>
+            <textarea class="form-control" rows="20" name="${name="body_text"}" placeholder="${label}" >${entity[name]}</textarea>
+        </div>
+
     </div>
 
     <div class="form-group mb-0">
-        <button class="btn btn-default" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit">Submit</button>
     </div>
 </form>
