@@ -5,20 +5,15 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="s-mailing-all:ear" />
+      <artifact name="mtp-s-mailing" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/users/show.jsp" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="RouterServlet">
-      <change beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/RouterServlet.java" />
+    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" afterPath="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" />
-      <change beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManagerBase.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManagerBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -55,71 +50,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MailManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="37" column="17" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="37" selection-end-column="17" />
+            <state relative-caret-position="330">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RouterServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RouterServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RouterServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/RouterServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="15" column="78" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            <state relative-caret-position="255">
+              <caret line="26" column="70" lean-forward="true" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -141,6 +86,18 @@
             <state relative-caret-position="15">
               <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding>
+                <element signature="e#1689#1690#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -235,6 +192,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/ManagerTestBase.java" />
+        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
+        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
+        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/GeneratedMailManager.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java" />
         <option value="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/api/APIController.java" />
         <option value="$PROJECT_DIR$/s-mailing-unsubscribe/src/dps/simplemailing/unsubscribe/UnsubscribeController.java" />
@@ -279,13 +240,9 @@
         <option value="$PROJECT_DIR$/s-mailing-html-ui/web/index.html" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
         <option value="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
         <option value="$PROJECT_DIR$/config/local/html-ui-conf.json" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
-        <option value="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/RouterServlet.java" />
-        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" />
-        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js" />
-        <option value="$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml" />
       </list>
     </option>
   </component>
@@ -498,42 +455,18 @@
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
               <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
               <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-html-ui" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
               <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
               <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
@@ -620,11 +553,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="dps.simplemailing.resources" />
       <recent name="dps.simplemailing.authentication" />
       <recent name="dps.simplemailing.admin.controllers" />
       <recent name="dps.crud" />
       <recent name="dps.simplemailing.crud" />
+      <recent name="dps.simplemailing.front.admin_new.controllers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="dps.simplemailing.mailqueue" />
@@ -749,7 +682,7 @@
           <option name="password" value="***REMOVED***" />
           <option name="serverGroup" value="" />
           <option name="stagingRemotePath" value="" />
-          <option name="transportHostId" value="" />
+          <option name="transportHostId" />
           <option name="transportStagingTarget">
             <TransportTarget>
               <option name="id" value="2dc1b165-06ad-45ff-a7a0-e888d967c3a9" />
@@ -1413,14 +1346,7 @@
       <option name="project" value="LOCAL" />
       <updated>1512248050933</updated>
     </task>
-    <task id="LOCAL-00030" summary="RouterServlet">
-      <created>1512248270332</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1512248270332</updated>
-    </task>
-    <option name="localTasksCounter" value="31" />
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1456,7 +1382,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408132000" />
+    <option name="totallyTimeSpent" value="406744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1469,6 +1395,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1600" height="869" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21087533" sideWeight="0.5025674" order="21" side_tool="true" content_ui="tabs" />
@@ -1491,9 +1418,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42302543" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064516" sideWeight="0.4746377" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.52204174" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.52204174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064516" sideWeight="0.47795823" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24064516" sideWeight="0.47795823" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18356867" sideWeight="0.471831" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1633,8 +1560,7 @@
     <MESSAGE value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
     <MESSAGE value="Simplify structure" />
     <MESSAGE value="Config to files in /etc/s-mailing" />
-    <MESSAGE value="RouterServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="RouterServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config to files in /etc/s-mailing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1647,6 +1573,41 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/interceptors/RunInitMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/test/test-persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/pages/page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/template.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/form.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1819,6 +1780,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourcesApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-config/resources/html-ui-conf.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1969,6 +1938,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1997,6 +1974,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/mtp/html-ui-conf.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -2013,74 +1998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourcesApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/RouterServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="78" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="37" column="17" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="37" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="26" column="70" lean-forward="true" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
           <folding />
         </state>
       </provider>

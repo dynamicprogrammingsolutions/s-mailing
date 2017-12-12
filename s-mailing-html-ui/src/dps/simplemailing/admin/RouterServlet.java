@@ -37,7 +37,6 @@ public class RouterServlet extends HttpServlet {
         if (pathInfo == null) pathInfo = "";
         Matcher matcher = pattern.matcher(pathInfo);
         if (matcher.find()) {
-            System.out.println("matched: "+pattern);
             if (addHeaders != null) {
                 addHeaders.addHeaders(req.getMethod(),resp);
             }
