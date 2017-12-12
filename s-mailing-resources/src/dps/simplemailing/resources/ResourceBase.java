@@ -4,8 +4,11 @@ import dps.simplemailing.entities.EntityBase;
 import dps.simplemailing.manage.ManagerBase;
 
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.LinkedList;
 import java.util.List;
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -28,6 +31,13 @@ public abstract class ResourceBase<EntityType extends EntityBase<IdType>,IdType>
             return getManager().getAll();
         else
             return getManager().get(first,max);
+    }
+
+    @GET
+    @Path("/count")
+    public JsonObject count()
+    {
+        return Json.createObjectBuilder().add("count",getManager().count()).build();
     }
 
 

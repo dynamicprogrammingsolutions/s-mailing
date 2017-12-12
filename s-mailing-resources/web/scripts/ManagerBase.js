@@ -38,6 +38,12 @@ ManagerBase.prototype.getAll = function(success,error) {
 
 }
 
+ManagerBase.prototype.getFirstAndMax = function (success,error) {
+    this.ajax(this.urlBase+"/?first=0&max=-1","GET",null,true,function(data) {
+        console.log(data);
+    },error);
+}
+
 ManagerBase.prototype.getRange = function(first,max,success,error) {
 
     this.ajax(this.urlBase+"/?first="+first+"&max="+max,"GET",null,true,success,error);
