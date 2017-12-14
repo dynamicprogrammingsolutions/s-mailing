@@ -27,10 +27,14 @@ public class AdminConfig implements HasLogger {
     }
 
     @PostConstruct
-    void init() throws IOException
-    {
+    void init() throws IOException {
         setLogLevel(Level.INFO);
-        Path path = Paths.get("/etc/s-mailing/html-ui-conf.json");
+        Path path;
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            path = Paths.get("C:/Program Files/s-mailing/html-ui-conf.json");
+        } else {
+            path =  Paths.get("/etc/s-mailing/html-ui-conf.json");
+        }
         try (InputStream conf = new BufferedInputStream(Files.newInputStream(path),4096)) {
             JsonReader jsonReader = Json.createReader(conf);
             JsonObject jsonObject = jsonReader.readObject();

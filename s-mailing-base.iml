@@ -8,7 +8,7 @@
         <datasource-mapping>
           <factory-entry name="Entities" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/s-mailing-base/src/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>

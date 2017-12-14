@@ -37,7 +37,12 @@ public class MailSettings implements HasLogger {
     {
         setLogLevel(Level.INFO);
 
-        Path path = Paths.get("/etc/s-mailing/smtp-conf.json");
+        Path path;
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            path = Paths.get("C:/Program Files/s-mailing/smtp-conf.json");
+        } else {
+            path =  Paths.get("/etc/s-mailing/smtp-conf.json");
+        }
         try (InputStream smtpConf = new BufferedInputStream(Files.newInputStream(path),4096)) {
             JsonReader jsonReader = Json.createReader(smtpConf);
             JsonObject jsonObject = jsonReader.readObject();
