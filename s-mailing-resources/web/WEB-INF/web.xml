@@ -13,15 +13,33 @@
         <url-pattern>/scripts/rest-js-api.js</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet-mapping>
-        <servlet-name>dps.simplemailing.resources.ResourcesApplication</servlet-name>
-        <url-pattern>/srv/*</url-pattern>
-    </servlet-mapping>-->
 
-    <!--<servlet-mapping>
+    <servlet>
+        <servlet-name>RouterServlet</servlet-name>
+        <servlet-class>dps.simplemailing.resources.RouterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RouterServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dps.simplemailing.resources.ResourcesApplication</servlet-name>
+        <url-pattern>/application</url-pattern>
+        <url-pattern>/application/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>-->
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/*</url-pattern>
+        </jsp-property-group>
+    </jsp-config>
 
     <session-config>
         <session-timeout>

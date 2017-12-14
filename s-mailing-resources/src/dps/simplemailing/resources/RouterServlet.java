@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "RouterServlet")
 public class RouterServlet extends HttpServlet {
 
-    final Pattern resourcePattern = Pattern.compile("^/(?:scripts|[a-zA-Z0-9]+\\.html)(?:/.*)?$");
+    final Pattern resourcePattern = Pattern.compile("^/(?:scripts|images|styles|views|[a-zA-Z0-9]+\\.html)(?:/.*)?$");
     final Pattern sitePattern = Pattern.compile("^/(?:[a-zA-Z]*)(?:/.*)?$");
     final Pattern indexPattern = Pattern.compile("^(?:/)?$");
 
