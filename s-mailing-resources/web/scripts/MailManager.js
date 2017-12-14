@@ -1,18 +1,24 @@
-function MailManager() {
-    this.resource = MailResource;
-    this.urlBase = "http://localhost:8080/s-mailing/resources/service/mails";
-}
+module("MailManager",["ManagerBase"],function(require) {
 
-MailManager.prototype = new ManagerBase();
-MailManager.prototype.constructor = MailManager;
+    var ManagerBase = require("ManagerBase");
 
-MailManager.prototype.getMailCampaigns = function(id,success,error) {
+    function MailManager() {
+        this.urlBase = "http://localhost:8080/s-mailing/resources/service/mails";
+    }
 
-    this.ajax(this.urlBase+"/"+id+"/campaigns","GET",null,true,success,function(status,response) {
-        if (status == 204) success([]);
-        else error(status,response);
-    });
+    MailManager.prototype = ManagerBase.create();
+    MailManager.prototype.constructor = MailManager;
 
-}
+    MailManager.prototype.getMailCampaigns = function(id,success,error) {
 
-mailManager = new MailManager();
+        this.ajax(this.urlBase+"/"+id+"/campaigns","GET",null,true,success,function(status,response) {
+            if (status == 204) success([]);
+            else error(status,response);
+        });
+
+    }
+
+    return new MailManager();
+
+})
+

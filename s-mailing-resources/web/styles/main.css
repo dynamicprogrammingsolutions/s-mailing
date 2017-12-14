@@ -201,6 +201,7 @@ footer {
   padding: 0.01em 16px;
   display: block;
   flex-grow: 1;
+  position: relative;
 }
 #createItem {
   padding: 0.01em 16px;
@@ -215,8 +216,12 @@ footer {
   margin-bottom: 16px;
 }
 #createItemForm label {
-  display: inline-flex;
-  min-width: 80px;
+  display: block;
+}
+#createItemForm label.error {
+  display: inline-block;
+  margin-left: 5px;
+  color: red;
 }
 #createItemForm div {
   margin-top: 16px;
@@ -237,6 +242,55 @@ footer {
   border-spacing: 0;
   width: 100%;
   display: table;
+}
+.preview-on-hover {
+  cursor: pointer;
+}
+#itemList .preview {
+  position:absolute;
+  background: beige;
+  padding: 15px 15px;
+  margin-top: 10px;
+  width: 600px;
+  max-width: 60%;
+  z-index: 1;
+}
+#itemList .preview:before {
+  background-color: transparent;
+  display:  block;
+  position:  absolute;
+  content: "";
+  top: -30px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  z-index: -1;
+}
+#itemList .preview pre {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  margin: 0;
+}
+.loading {
+  min-height: 50vh;
+  position: relative;
+}
+.loading:after {
+  content: "";
+  text-align: center;
+  background-color: #ffffff;
+  background: url("../images/loading_med.gif") no-repeat center;
+  background-color: #FFFBF5;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.loading * {
+  /* display: none; */
 }
 #itemList #itemsTable thead {
   background-color: #f1f1f1;
@@ -267,22 +321,27 @@ footer {
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
-  background-color: inherit;
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
   padding: 4px 12px;
 }
-#itemList #pagination .tablePrevPage:hover,
-#itemList #pagination .tableNextPage:hover,
-#itemList #pagination .tablePage:hover {
-  background-color: #aaaaaa;
+#itemList #pagination a {
+  color: inherit;
+  background-color: #f1f1f1;
+}
+#itemList #pagination a:hover {
+  background-color: #dedede;
 }
 #itemList #pagination .current {
-  background-color: #a8e348!important;
+  background-color: #9fe500;
   color: #FFFFFF;
 }
+#itemList #pagination .current:hover {
+  background-color: #97cc41;
+  color: #FFFFFF;
+}
+
 #itemList #tableActions {
   margin: 10px 0 0 0;
 }

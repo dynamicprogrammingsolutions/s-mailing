@@ -8,15 +8,24 @@
         </div>
         <div>
             <label>Subject</label>
-            <input type="text" required="required" maxlength="200" name="name" class="large" />
+            <input type="text" required="required" maxlength="200" name="subject" class="large" />
         </div>
+        <div>
+            <label>From</label>
+            <input type="text" required="required" maxlength="200" name="from" class="large" />
+        </div>
+        <div>
+            <label>Body text</label>
+            <input type="text" required="required" maxlength="200" name="body_text" class="large" />
+        </div>
+
         <nav>
-            <a href="#" id="saveItem" class="button-success">Save</a>
-            <a href="#" id="clearItem" class="button-warning">Clear</a>
+            <a href="#" class="saveItem button-success">Save</a>
+            <a href="#" class="clearItem button-warning">Clear</a>
         </nav>
     </form>
 </section>
-<section id="itemList">
+<section id="itemList" class="loading">
     <table id="itemsTable">
         <colgroup>
             <col width="30%" />
@@ -32,30 +41,32 @@
         </thead>
         <tbody></tbody>
         <script id="taskRow" type="text/x.jQuery-tmpl">
-                        <tr>
-                            <td>${name}</td>
-                            <td>${subject}</td>
-                            <td>
-                                <nav>
-                                    <a href="#" class="editRow button-warning" data-task-id=${id}>Edit</a>
-                                    <a href="#" class="copyRow button-success" data-task-id=${id}>Copy</a>
-                                    <a href="#" class="deleteRow button-danger" data-task-id=${id}>Delete</a>
-                                </nav>
-                            </td>
-                        </tr>
-                    </script>
+            <tr>
+                <td><span class="preview-on-hover" data-id="${id}">${name}</span></td>
+                <td>${subject}</td>
+                <td>
+                    <nav>
+                        <a href="#" class="editRow button-warning" data-task-id=${id}>Edit</a>
+                        <a href="#" class="copyRow button-success" data-task-id=${id}>Copy</a>
+                        <a href="#" class="deleteRow button-danger" data-task-id=${id}>Delete</a>
+                    </nav>
+                </td>
+            </tr>
+        </script>
+        <script id="rowPreview" type="text/x.jQuery-tmpl">
+            <div class="preview">
+                <pre>${body_text}</pre>
+            </div>
+        </script>
     </table>
     <div id="pagination">
-        <nav>
+        <nav id="tblNav">
             <a href="#" class="tablePrevPage">Prev</a>
-            <span class="tblPages">
-                            <a href="#" class="tablePage current" data-page="1">1</a>
-                            <a href="#" class="tablePage" data-page="2">2</a>
-                            <a href="#" class="tablePage" data-page="3">3</a>
-                        </span>
             <a href="#" class="tableNextPage">Next</a>
         </nav>
-        <script id="tblPage" type="text/x.jQuery-tmpl"><a href="#" class="tablePage" data-page="${page}">${page}</a></script>
+        <script id="tblPage" type="text/x.jQuery-tmpl">
+            <a href="#" class="tablePage" data-page="${page}">${page}</a>
+        </script>
     </div>
     <div id="tableActions">
         <nav>

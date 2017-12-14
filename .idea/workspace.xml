@@ -5,18 +5,35 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="s-mailing-all:ear" />
+      <artifact name="s-mailing-resources:war" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/users/show.jsp" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="" />
-    <list id="dd5d429c-6627-4d6c-be98-71aded4dcff0" name="Revert &quot;RouterServlet&quot; This reverts commit f55aa49" comment="Revert &quot;RouterServlet&quot;&#10;&#10;This reverts commit f55aa49">
+    <list default="true" id="d2fb0e16-e3dc-4385-a777-22d28612a2ab" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/web/images/loading_med.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/shelf/new_UI.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/jsUtilities.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/module-loader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/require_min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/s_mailing_all_ear.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java" afterPath="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java" afterPath="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/index.html" afterPath="$PROJECT_DIR$/s-mailing-resources/web/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/mails.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/mails.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/scripts/index.js" afterPath="$PROJECT_DIR$/s-mailing-resources/web/scripts/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/styles/main.css" afterPath="$PROJECT_DIR$/s-mailing-resources/web/styles/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s-mailing-resources/web/views/mails.html" afterPath="$PROJECT_DIR$/s-mailing-resources/web/views/mails.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,55 +57,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ResourceBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java">
+      <file leaf-file-name="mails.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/mails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/styles/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <caret line="255" column="13" lean-forward="true" selection-start-line="255" selection-start-column="13" selection-end-line="255" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mails.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/views/mails.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="855">
+              <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
               <folding>
-                <marker date="1513066556522" expanded="true" signature="815:821" ph=" }" />
-                <marker date="1513066556522" expanded="true" signature="828:848" ph="@{...}" />
-                <marker date="1513066556522" expanded="true" signature="899:962" ph="{...}" />
-                <marker date="1513066556522" expanded="true" signature="968:996" ph="@{...}" />
-                <marker date="1513066556522" expanded="false" signature="1051:1066" ph=" { " />
-                <marker date="1513066556522" expanded="false" signature="1098:1104" ph=" }" />
-                <marker date="1513066556522" expanded="true" signature="1110:1138" ph="@{...}" />
-                <marker date="1513066556522" expanded="false" signature="1210:1221" ph=" { " />
-                <marker date="1513066556522" expanded="false" signature="1257:1263" ph=" }" />
-                <marker date="1513066556522" expanded="true" signature="1269:1300" ph="@{...}" />
-                <marker date="1513066556522" expanded="false" signature="1351:1366" ph=" { " />
-                <marker date="1513066556522" expanded="false" signature="1390:1396" ph=" }" />
+                <marker date="1513246239373" expanded="true" signature="1414:1939" ph="..." />
+                <marker date="1513246239373" expanded="true" signature="1558:1921" ph="..." />
+                <marker date="1513246239373" expanded="true" signature="1584:1899" ph="..." />
+                <marker date="1513246239373" expanded="true" signature="2050:2109" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimingProcessQueue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/TimingProcessQueue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mtp-s-mailing/META-INF/application.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -96,8 +95,31 @@
       <file leaf-file-name="ManagerBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2220">
-              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="41" column="23" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+              <folding>
+                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#951#952#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/mails/form.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="29" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="53" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -106,14 +128,29 @@
       <file leaf-file-name="ManagerBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-              <folding>
-                <marker date="1513066556522" expanded="true" signature="1169:1234" ph="{...}" />
-                <marker date="1513066556522" expanded="true" signature="1292:1363" ph="{...}" />
-                <marker date="1513066556522" expanded="true" signature="1426:1498" ph="{...}" />
-                <marker date="1513066556522" expanded="true" signature="1558:1633" ph="{...}" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MailManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,18 +160,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="FxmlFile" />
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getMails</find>
       <find>getMail</find>
       <find>getMailsRange</find>
       <find>seriesManager</find>
@@ -164,6 +200,7 @@
       <find>getLogger</find>
       <find>System.out.println</find>
       <find>Logger LOGGER</find>
+      <find>.loa</find>
     </findStrings>
     <replaceStrings>
       <replace>/**/</replace>
@@ -208,18 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/ManagerTestBase.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/SeriesManagerTest.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/manager/test/CampaignManagerTest.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/GeneratedMailManager.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java" />
-        <option value="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/api/APIController.java" />
-        <option value="$PROJECT_DIR$/s-mailing-unsubscribe/src/dps/simplemailing/unsubscribe/UnsubscribeController.java" />
-        <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/SeriesController.java" />
-        <option value="$PROJECT_DIR$/s-mailing-api/src/dps/simplemailing/admin/UrlBasedAdminController.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailSending.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/test/dps/simplemailing/mailqueue/test/EmulatedMailSender.java" />
-        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java" />
         <option value="$PROJECT_DIR$/s-mailing-schedule-sending/src/dps/simplemailing/mailqueue/TimingProcessQueue.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/MailQueue.java" />
         <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/entities/SeriesMail.java" />
@@ -259,6 +284,18 @@
         <option value="$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/RouterServlet.java" />
         <option value="$PROJECT_DIR$/config/mtp/html-ui-conf.json" />
         <option value="$PROJECT_DIR$/config/local/html-ui-conf.json" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/baseModule.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/jsUtilities.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/module-loader.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/index.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/index.html" />
+        <option value="$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/views/mails.html" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/styles/main.css" />
+        <option value="$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/mails.js" />
       </list>
     </option>
   </component>
@@ -272,6 +309,13 @@
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -291,6 +335,9 @@
   </component>
   <component name="NamedScopeManager">
     <scope name="Unnamed" pattern="" />
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -371,126 +418,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="mtp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="mtp-s-mailing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="mtp-s-mailing" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dps" type="462c0819:PsiDirectoryNode" />
-              <item name="simplemailing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
-              <item name="s-mailing-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
-              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scratches">
         <subPane>
           <expand>
@@ -553,11 +480,42 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="S-Mailing-1.0-idea" type="58d84e3e:PackageViewProjectNode" />
+              <item name="S-Mailing-1.0-idea" type="616d4139:PackageViewModuleNode" />
+              <item name="test" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -569,13 +527,13 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config/mtp/smtp-conf.json" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/s-mailing-resources/src/META-INF/MANIFEST.MF" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="380" />
@@ -598,8 +556,25 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib/resteasy/providers" />
     <property name="add_unversioned_files" value="true" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs" />
+      <recent name="$PROJECT_DIR$/s-mailing-resources/web/images" />
+      <recent name="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/pages" />
+      <recent name="$PROJECT_DIR$/s-mailing-html-ui/src" />
+      <recent name="$PROJECT_DIR$/s-mailing-html-ui/content" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dps.simplemailing.mailqueue" />
+      <recent name="dps.simplemailing" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+      <recent name="dps.simplemailing.entities" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dps.simplemailing.authentication" />
       <recent name="dps.simplemailing.admin.controllers" />
@@ -607,27 +582,12 @@
       <recent name="dps.simplemailing.crud" />
       <recent name="dps.simplemailing.front.admin_new.controllers" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="dps.simplemailing.mailqueue" />
-      <recent name="dps.simplemailing" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s-mailing-resources/web/scripts/libs" />
       <recent name="$PROJECT_DIR$/config/local" />
       <recent name="$PROJECT_DIR$/config/mtp" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/s-mailing-html-ui/resources/pages/help" />
-      <recent name="$PROJECT_DIR$/s-mailing-config-local" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="" />
-      <recent name="dps.simplemailing.entities" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/pages" />
-      <recent name="$PROJECT_DIR$/s-mailing-html-ui/src" />
-      <recent name="$PROJECT_DIR$/s-mailing-html-ui/content" />
-      <recent name="$PROJECT_DIR$/s-mailing-config" />
-      <recent name="$PROJECT_DIR$/s-mailing-config/resources/META-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -642,7 +602,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.Run Local">
+  <component name="RunManager" selected="JBoss Server.Run Local: Resources">
     <configuration name="Deploy to dynamicprogrammingsolutions.com" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="HOST" value="metatraderprogrammer.com" />
       <option name="LOCAL" value="false" />
@@ -698,6 +658,8 @@
     <configuration name="Run Local" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/s-mailing/admin/mails" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -751,6 +713,66 @@
         <option name="Make" enabled="false" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="s-mailing-all:ear" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Run Local: Resources" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 10.1.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/s-mailing/resources/test.html" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="s-mailing-resources:war">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file id="JBoss" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="46588" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="s-mailing-resources:war" />
         </option>
       </method>
     </configuration>
@@ -1128,11 +1150,12 @@
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Arquillian JUnit.Test Remote" />
       <item index="1" class="java.lang.String" itemvalue="Arquillian JUnit.Test UI - CreateAdmin" />
       <item index="2" class="java.lang.String" itemvalue="JBoss Server.Run Local" />
-      <item index="3" class="java.lang.String" itemvalue="JBoss Server.Deploy to dynamicprogrammingsolutions.com" />
+      <item index="3" class="java.lang.String" itemvalue="JBoss Server.Run Local: Resources" />
+      <item index="4" class="java.lang.String" itemvalue="JBoss Server.Deploy to dynamicprogrammingsolutions.com" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1190,6 +1213,9 @@
       <workItem from="1510578972224" duration="1549000" />
       <workItem from="1511436894998" duration="2055000" />
       <workItem from="1512202536400" duration="1539000" />
+      <workItem from="1513069332077" duration="5996000" />
+      <workItem from="1513084516411" duration="5834000" />
+      <workItem from="1513100184391" duration="43126000" />
     </task>
     <task id="LOCAL-00001" summary="Removing all">
       <created>1506444291358</created>
@@ -1387,7 +1413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512228653262</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="new UI mod">
+      <created>1513068191951</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1513068191951</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1423,7 +1456,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407282000" />
+    <option name="totallyTimeSpent" value="463575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1435,7 +1468,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="869" extended-state="0" />
+    <frame x="-4" y="0" width="1600" height="869" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21087533" sideWeight="0.5025674" order="13" side_tool="true" content_ui="tabs" />
@@ -1448,101 +1481,35 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.24967907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39892906" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21750663" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253012" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="792" y="358" width="505" height="284" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47523427" sideWeight="0.49743262" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28647926" sideWeight="0.49743262" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20603338" sideWeight="0.469496" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25870967" sideWeight="0.530504" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24903226" sideWeight="0.530504" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18549423" sideWeight="0.46641076" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18356867" sideWeight="0.471831" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21087533" sideWeight="0.5025674" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18741977" sideWeight="0.4469496" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="false" weight="0.43236074" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="735" y="90" width="797" height="716" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16174583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1675" sideWeight="0.45302445" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.24967907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21750663" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32561132" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="792" y="358" width="505" height="284" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2877984" sideWeight="0.49743262" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19761273" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20603338" sideWeight="0.469496" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2394095" sideWeight="0.530504" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18549423" sideWeight="0.46641076" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18356867" sideWeight="0.471831" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21087533" sideWeight="0.5025674" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18741977" sideWeight="0.4469496" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="false" weight="0.43236074" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="735" y="90" width="797" height="716" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16174583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1675" sideWeight="0.45302445" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.24967907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21750663" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32561132" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1031" y="327" width="505" height="284" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2877984" sideWeight="0.49743262" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32891247" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20603338" sideWeight="0.469496" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19761273" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2394095" sideWeight="0.530504" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991013" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18549423" sideWeight="0.46641076" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18356867" sideWeight="0.471831" order="9" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1603,7 +1570,8 @@
     <MESSAGE value="Admin Config&#10;Separate local config module&#10;Markdown parser" />
     <MESSAGE value="Simplify structure" />
     <MESSAGE value="Config to files in /etc/s-mailing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config to files in /etc/s-mailing" />
+    <MESSAGE value="new UI mod" />
+    <option name="LAST_COMMIT_MESSAGE" value="new UI mod" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1616,103 +1584,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/test/test-persistence.xml">
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/jboss-web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/pages/page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/template.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/templates/form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="22" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/Markdown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/controllers/PagesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/resources/pages/help/index.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/filters/MarkdownFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/filters/TemplateFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/admin/provider/ViewProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/rs/TestApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/src/dps/simplemailing/rs/RsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-config-local/resources/html-ui-conf.json" />
-    <entry file="file://$PROJECT_DIR$/s-mailing-config-local/resources/smtp-conf.json" />
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/jboss-web.xml">
       <provider editor-type-id="com.intellij.javaee.oss.jboss.editor.JBossWebRootProvider">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-authentication/src/META-INF/persistence.xml">
@@ -1726,13 +1605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/mails/form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1783,27 +1655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <marker date="1513066556522" expanded="true" signature="815:821" ph=" }" />
-            <marker date="1513066556522" expanded="true" signature="828:848" ph="@{...}" />
-            <marker date="1513066556522" expanded="true" signature="899:962" ph="{...}" />
-            <marker date="1513066556522" expanded="true" signature="968:996" ph="@{...}" />
-            <marker date="1513066556522" expanded="false" signature="1051:1066" ph=" { " />
-            <marker date="1513066556522" expanded="false" signature="1098:1104" ph=" }" />
-            <marker date="1513066556522" expanded="true" signature="1110:1138" ph="@{...}" />
-            <marker date="1513066556522" expanded="false" signature="1210:1221" ph=" { " />
-            <marker date="1513066556522" expanded="false" signature="1257:1263" ph=" }" />
-            <marker date="1513066556522" expanded="true" signature="1269:1300" ph="@{...}" />
-            <marker date="1513066556522" expanded="false" signature="1351:1366" ph=" { " />
-            <marker date="1513066556522" expanded="false" signature="1390:1396" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s-mailing-api/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1815,7 +1666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1840,18 +1690,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1866,19 +1708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding>
-            <marker date="1513066556522" expanded="true" signature="1169:1234" ph="{...}" />
-            <marker date="1513066556522" expanded="true" signature="1292:1363" ph="{...}" />
-            <marker date="1513066556522" expanded="true" signature="1426:1498" ph="{...}" />
-            <marker date="1513066556522" expanded="true" signature="1558:1633" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1925,10 +1754,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/TimingProcessQueue.java">
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourcesApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1941,18 +1777,347 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourcesApplication.java">
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/mailqueue/TimingProcessQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="375">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/views/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/module-loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="77" column="70" lean-forward="false" selection-start-line="77" selection-start-column="70" selection-end-line="77" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/src/dps/simplemailing/resources/ResourceBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        <state relative-caret-position="630">
+          <caret line="57" column="26" lean-forward="false" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/require.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/baseModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/UserManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/MailManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/ManagerBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="53" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-html-ui/web/WEB-INF/mails/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/logging/HasLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="e#362#363#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-base/src/dps/simplemailing/manage/ManagerBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="41" column="23" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding>
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="202" column="9" lean-forward="false" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+          <folding>
+            <marker date="1506614962621" expanded="true" signature="0:28" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="38:59" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="89:125" ph="/**@param {*} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="149:209" ph="/**@param {*} s ...*/" />
+            <marker date="1506614962621" expanded="true" signature="243:279" ph="/**@param {*} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="309:351" ph="/**@param {Number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="376:418" ph="/**@param {Number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="446:496" ph="/**@param {string} encodedURI ...*/" />
+            <marker date="1506614962621" expanded="true" signature="534:593" ph="/**@param {string} encodedURIComponent ...*/" />
+            <marker date="1506614962621" expanded="true" signature="649:692" ph="/**@param {string} uri ...*/" />
+            <marker date="1506614962621" expanded="true" signature="723:775" ph="/**@param {string} uriComponent ...*/" />
+            <marker date="1506614962621" expanded="true" signature="825:878" ph="/** @typedef {string|number|Symbol} PropertyKey ...*/" />
+            <marker date="1506614962621" expanded="true" signature="880:903" ph="/**@type {function} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="938:959" ph="/**@type {Object} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="992:1030" ph="/**@param {*} [value] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1057:1134" ph="/**@param {(string|string[])} [locales] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1199:1257" ph="/**@param {PropertyKey} propertyName ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1319:1361" ph="/**@param {Object} o ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1411:1469" ph="/**@param {PropertyKey} propertyName ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1537:1560" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1604:1622" ph="/**@return {*} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1666:1687" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1716:1768" ph="/**@param {...*} [args] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1793:1851" ph="/**@param {...T|Array.&lt;T&gt;} [items] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1897:1948" ph="/**@param {string} [separator] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="1996:2014" ph="/**@return {T} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2052:2097" ph="/**@param {...T} [items] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2141:2167" ph="/**@return {Array.&lt;T&gt;} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2209:2227" ph="/**@return {T} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2267:2339" ph="/**@param {Number} [start] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2388:2444" ph="/**@param {function} [compareFn] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2492:2594" ph="/**@param {Number} [start] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2658:2703" ph="/**@param {...T} [items] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2750:2772" ph="/**@return {Array} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2815:2867" ph="/**@param [value] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2895:2919" ph="/**@return {boolean} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="2964:3168" ph="/**@param {number} year ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3245:3303" ph="/**@param {string} dateString ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3342:3380" ph="/**@param {...*} args ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3404:3427" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3468:3491" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3531:3554" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3596:3619" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3664:3687" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3729:3752" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3801:3824" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3868:3891" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3935:3958" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="3999:4022" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4073:4096" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4140:4163" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4206:4229" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4277:4300" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4345:4368" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4420:4443" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4490:4513" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4558:4581" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4628:4651" ph="/**@return {number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4692:4719" ph="/**@param {number} date ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4764:4837" ph="/**@param {number} year ...*/" />
+            <marker date="1506614962621" expanded="true" signature="4896:4988" ph="/**@param {number} hour ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5045:5070" ph="/**@param {number} ms ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5121:5190" ph="/**@param {number} min ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5244:5294" ph="/**@param {number} month ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5345:5392" ph="/**@param {number} sec ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5442:5469" ph="/**@param {number} time ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5514:5541" ph="/**@param {number} date ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5589:5662" ph="/**@param {number} year ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5724:5816" ph="/**@param {number} hour ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5876:5901" ph="/**@param {number} ms ...*/" />
+            <marker date="1506614962621" expanded="true" signature="5955:6024" ph="/**@param {number} min ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6081:6131" ph="/**@param {number} month ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6185:6232" ph="/**@param {number} sec ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6285:6313" ph="/**@param {number} value ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6359:6382" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6428:6451" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6496:6573" ph="/**@param {(string|string[])} [locales] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6640:6717" ph="/**@param {(string|string[])} [locales] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6780:6857" ph="/**@param {(string|string[])} [locales] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6924:6947" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="6993:7016" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7062:7085" ph="/**@type {function} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7118:7160" ph="/**@type {function} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7245:7276" ph="/**@type {Arguments} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7311:7339" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7370:7398" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7430:7500" ph="/**@param {Object} [thisArg] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7559:7624" ph="/**@param {Object} [thisArg] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7694:7730" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7743:7779" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7795:7831" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7846:7882" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7900:7936" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="7953:7989" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8003:8039" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8058:8094" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8111:8160" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8188:8237" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8266:8315" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8344:8393" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8422:8489" ph="/**@param {number} y ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8521:8570" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8599:8648" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8676:8725" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8753:8802" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8832:8881" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8909:8961" ph="/**@param {...number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="8989:9041" ph="/**@param {...number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9069:9136" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9166:9197" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9227:9276" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9306:9355" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9383:9432" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9461:9510" ph="/**@param {number} x ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9538:9552" ph="/**@global ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9569:9605" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9628:9664" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9687:9723" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9740:9776" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9807:9843" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9874:9925" ph="/**@param [value] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="9952:10010" ph="/**@param {Number} [fractionalDigits] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10075:10133" ph="/**@param {Number} [fractionalDigits] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10192:10243" ph="/**@param {Number} [precision] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10299:10346" ph="/**@param {Number} [radix] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10395:10418" ph="/**@return {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10462:10498" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10526:10562" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10584:10620" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10646:10682" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10708:10744" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10773:10809" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10828:10864" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10883:10919" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10938:10974" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="10993:11029" ph="/**@static ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11048:11077" ph="/**@type {boolean} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11107:11136" ph="/**@type {boolean} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11170:11191" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11224:11246" ph="/**@type {boolean} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11279:11300" ph="/**@type {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11333:11411" ph="/**@param {String|RegExp} [pattern] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11448:11524" ph="/**@param {string} [String] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11570:11619" ph="/**@param {string} [String] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11666:11724" ph="/**@param {...Number} [chars] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11767:11788" ph="/**@type {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11818:11869" ph="/**@param [value] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="11896:11951" ph="/**@param {string} [nameAttribute] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12006:12029" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12068:12091" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12132:12155" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12195:12238" ph="/**@param {Number} pos ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12283:12306" ph="/**@return {Number} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12357:12409" ph="/**@param {...string} [strings] ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12458:12481" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12522:12567" ph="/**@param {string} color ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12617:12661" ph="/**@param {Number} size ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12709:12788" ph="/**@param {string} searchString ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12852:12875" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="12918:12997" ph="/**@param {string} searchString ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13065:13109" ph="/**@param {string} href ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13153:13251" ph="/**@param {string} that ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13320:13394" ph="/**@param {RegExp} regexp ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13441:13537" ph="/**@param {RegExp|string} searchValue ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13604:13645" ph="/**@param {*} regexp ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13693:13760" ph="/**@param {Number} start ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13810:13833" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13874:13941" ph="/**@param {*} separator ...*/" />
+            <marker date="1506614962621" expanded="true" signature="13997:14020" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14062:14085" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14124:14194" ph="/**@param {Number} start ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14248:14315" ph="/**@param {Number} start ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14369:14392" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14431:14454" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14501:14524" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14577:14600" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14653:14676" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14723:14746" ph="/**@return {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14790:14811" ph="/**@type {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14841:14862" ph="/**@type {string} ...*/" />
+            <marker date="1506614962621" expanded="true" signature="14895:14947" ph="/**@param {*} [msg] ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/views/mails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <marker date="1513246239373" expanded="true" signature="1414:1939" ph="..." />
+            <marker date="1513246239373" expanded="true" signature="1558:1921" ph="..." />
+            <marker date="1513246239373" expanded="true" signature="1584:1899" ph="..." />
+            <marker date="1513246239373" expanded="true" signature="2050:2109" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="255" column="13" lean-forward="true" selection-start-line="255" selection-start-column="13" selection-end-line="255" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/libs/jsUtilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s-mailing-resources/web/scripts/controllers/mails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1975,7 +2140,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>mtp-s-mailing</last-edited>
+          <last-edited>s-mailing-html-ui:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

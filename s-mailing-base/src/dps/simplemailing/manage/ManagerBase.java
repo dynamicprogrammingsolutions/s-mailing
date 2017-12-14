@@ -4,6 +4,7 @@ import dps.logging.HasLogger;
 import dps.reflect.ReflectHelper;
 import dps.simplemailing.entities.EntityBase;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.*;
 import javax.persistence.metamodel.Attribute;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @SuppressWarnings("unchecked")
@@ -33,10 +35,12 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public void create(EntityType entity) throws IllegalArgumentException
     {
+        setLogLevel(Level.FINE);
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
             for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
                 logFine(constraintViolation.getPropertyPath()+" "+constraintViolation.getMessage());
+                System.out.println(constraintViolation.getPropertyPath()+" "+constraintViolation.getMessage());
             }
 
             throw new IllegalArgumentException("Validation failed");

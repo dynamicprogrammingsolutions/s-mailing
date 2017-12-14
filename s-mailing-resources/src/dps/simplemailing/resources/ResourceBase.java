@@ -5,8 +5,11 @@ import dps.simplemailing.manage.ManagerBase;
 
 import javax.inject.Inject;
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonObject;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +17,10 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class ResourceBase<EntityType extends EntityBase<IdType>,IdType> {
+
+
+    @Context
+    HttpServletRequest request;
 
     @Inject
     ManagerBase<EntityType,IdType> manager;
@@ -23,10 +30,21 @@ public abstract class ResourceBase<EntityType extends EntityBase<IdType>,IdType>
         return manager;
     }
 
+    void sleepForTesting() {
+        if (request.getParameter("sleep") != null) {
+            try {
+                Thread.sleep(Long.valueOf(request.getParameter("sleep")));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @GET
     @Path("/")
     public List<EntityType> get(@QueryParam("first") Integer first, @QueryParam("max") Integer max)
     {
+        sleepForTesting();
         if (first == null || max == null)
             return getManager().getAll();
         else
@@ -35,9 +53,11 @@ public abstract class ResourceBase<EntityType extends EntityBase<IdType>,IdType>
 
     @GET
     @Path("/count")
-    public JsonObject count()
+    public Long count()
     {
-        return Json.createObjectBuilder().add("count",getManager().count()).build();
+        sleepForTesting();
+        return getManager().count();
+        //return Json.createArrayBuilder().add().build();
     }
 
 

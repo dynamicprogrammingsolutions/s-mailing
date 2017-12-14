@@ -1,18 +1,23 @@
 
 $(document).ready(function() {
 
-    $("#mainSection").on("click","#itemList #btnAddTask",function() {
-        $("#createItem").removeClass("hidden");
-    });
-
     function loadPage(page) {
-        $("#mainSection").load("views/"+page+".html",function(response,status) {
-            if (status == "error") {
-                $("#mainSection").load("views/404.html");
-            } else {
-                $.getScript("scripts/controllers/"+page+".js");
+        $.ajax({
+            url: "views/"+page+".html",
+            dataType: "html",
+            success: function(data) {
+                var section = $("#mainSection");
+                section.empty().append(data);
+                loadModule("controllers/"+page,function(name,module) {
+                    module.create(section);
+                });
+            },
+            error: function() {
+                $.ajax({url:"views/404.html",success:function(data){
+                    $("#mainSection").empty().append(data);
+                }})
             }
-        });
+        })
     }
 
     $("#sideBar nav a").click(function(event) {
