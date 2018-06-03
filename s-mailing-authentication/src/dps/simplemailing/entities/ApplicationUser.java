@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "ApplicationUser.getByUsername", query = "SELECT m FROM ApplicationUser m WHERE m.username = :username"),
+        @NamedQuery(name="ApplicationUser.count",query="SELECT COUNT(m) FROM ApplicationUser m"),
 })
 public class ApplicationUser implements Serializable, AuthenticableUser {
 

@@ -23,6 +23,11 @@ public interface HasLogger {
         getLogger().log(level,message);
     }
 
+    default void log(Level level, String message, Throwable e)
+    {
+        getLogger().log(level,message,e);
+    }
+
     default void logInfo(String message)
     {
         this.log(Level.INFO,message);
@@ -33,9 +38,19 @@ public interface HasLogger {
         this.log(Level.WARNING,message);
     }
 
+    default void logWarning(String message, Throwable e)
+    {
+        this.log(Level.WARNING,message,e);
+    }
+
     default void logSevere(String message)
     {
         this.log(Level.SEVERE,message);
+    }
+
+    default void logSevere(String message, Throwable e)
+    {
+        this.log(Level.SEVERE,message,e);
     }
 
     default void logFine(String message)

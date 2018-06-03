@@ -13,7 +13,6 @@ import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 
 @ApplicationScoped
 public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger {
@@ -28,7 +27,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
     MailQueue mailQueue;
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public QueuedMail createQueuedMail(User user, Mail mail, java.util.Date scheduledTime)
+    public QueuedMail createQueuedMail(User user, Mail mail, Date scheduledTime)
     {
         user = em.getReference(User.class,user.getId());
         mail = em.getReference(Mail.class,mail.getId());
@@ -49,7 +48,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
     public void removeAllUnsent()
     {
         Query query = em.createQuery("DELETE FROM QueuedMail m WHERE m.status = :status");
-        query.setParameter("status",QueuedMail.Status.unsent);
+        query.setParameter("status", QueuedMail.Status.unsent);
         query.executeUpdate();
     }
 
@@ -57,7 +56,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
     public List<QueuedMail> getQueueToSend() {
         TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getQueue",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
-        query.setParameter("now", getCurrentTime());
+        //query.setParameter("now", getCurrentTime());
         return query.getResultList();
     }
 
@@ -76,7 +75,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processQueue()
     {
-        logInfo("processing queue");
+        //logInfo("processing queue");
         if (queueStatus.getStarted()) {
             logInfo("queue is already started");
             return;

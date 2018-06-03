@@ -3,9 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
     <servlet>
         <servlet-name>RouterServlet</servlet-name>
-        <servlet-class>dps.simplemailing.resources.RouterServlet</servlet-class>
+        <servlet-class>dps.simplemailing.admin.RouterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -14,8 +21,7 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>dps.simplemailing.resources.ResourcesApplication</servlet-name>
-        <url-pattern>/application</url-pattern>
+        <servlet-name>dps.simplemailing.admin.AdminApplication</servlet-name>
         <url-pattern>/application/*</url-pattern>
     </servlet-mapping>
 
@@ -30,34 +36,39 @@
         </jsp-property-group>
     </jsp-config>
 
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
     <security-constraint>
-        <display-name>Admin REST</display-name>
+        <display-name>Admin</display-name>
         <web-resource-collection>
-            <web-resource-name>REST</web-resource-name>
+            <web-resource-name>Admin</web-resource-name>
             <description/>
-            <url-pattern>/resources/*</url-pattern>
+            <url-pattern>/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>DELETE</http-method>
-            <http-method>HEAD</http-method>
+        </web-resource-collection>
+    </security-constraint>
+
+
+    <!--<security-constraint>
+        <display-name>Admin</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <description/>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
+
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
     <security-role>
         <description/>
         <role-name>admin</role-name>
-    </security-role>
+    </security-role>-->
 
 </web-app>

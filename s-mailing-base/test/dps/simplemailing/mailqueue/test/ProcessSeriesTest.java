@@ -43,6 +43,7 @@ public class ProcessSeriesTest {
                 .addClass(MailQueueStatus.class)
                 .addClass(MailGenerator.class)
                 .addPackage("dps.reflect")
+                .addPackage("dps.logging")
                 .addAsResource("test-smtp-conf.json", "smtp-conf.json")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -108,7 +109,6 @@ public class ProcessSeriesTest {
 
         manager.processSeries(series);
         List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
-        System.out.println(queueToSend);
         assertEquals(1,queueToSend.size());
 
         simulatedCurrentTime = new Date(now+2000);
@@ -118,7 +118,6 @@ public class ProcessSeriesTest {
         manager.processSeries(series);
         queueToSend = mailQueue.getQueueToSend();
         assertEquals(2,queueToSend.size());
-
 
         mailQueue.removeAllUnsent();
         manager.remove(series);

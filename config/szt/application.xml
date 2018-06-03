@@ -9,26 +9,47 @@
     <module id="s-mailing-html-ui-Web">
         <web>
             <web-uri>s-mailing-html-ui.war</web-uri>
-            <context-root>/s-mailing/admin</context-root>
+            <context-root>s-mailing/admin</context-root>
         </web>
+        <alt-dd>s-mailing-html-ui-config/web.xml</alt-dd>
+        <!--<alt-dd>s-mailing-html-ui-config/web.xml</alt-dd>-->
         <!-- Class-Path: s-mailing-base-ejb.jar -->
         <!-- Modules included: s-mailing-authentication-ejb.jar -->
         <!-- Note: If s-mailing-authentication-ejb.jar is used by other modules it has to be a separate module -->
-    </module>
-    <module id="s-mailing-api-Web">
-        <web>
-            <web-uri>s-mailing-api.war</web-uri>
-            <context-root>/s-mailing</context-root>
-        </web>
-        <!-- Class-Path: s-mailing-base-ejb.jar -->
     </module>
     <!--<module id="s-mailing-resources-Web">
         <web>
             <web-uri>s-mailing-resources.war</web-uri>
             <context-root>s-mailing/resources</context-root>
         </web>
+        &lt;!&ndash;<alt-dd>s-mailing-html-ui-config/web.xml</alt-dd>&ndash;&gt;
+        &lt;!&ndash; Class-Path: s-mailing-base-ejb.jar &ndash;&gt;
+        &lt;!&ndash; Modules included: s-mailing-authentication-ejb.jar &ndash;&gt;
+        &lt;!&ndash; Note: If s-mailing-authentication-ejb.jar is used by other modules it has to be a separate module &ndash;&gt;
+    </module>-->
+    <module id="s-mailing-api-Web">
+        <web>
+            <web-uri>s-mailing-api.war</web-uri>
+            <context-root>s-mailing</context-root>
+        </web>
+        <alt-dd>s-mailing-api-config/web.xml</alt-dd>
+        <!--<alt-dd>s-mailing-api-config/web.xml</alt-dd>-->
+        <!-- Class-Path: s-mailing-base-ejb.jar -->
+    </module>
+    <!--<module id="s-mailing-unsubscribe-Web">
+        <web>
+            <web-uri>s-mailing-unsubscribe.war</web-uri>
+            <context-root>/s-mailing/unsubscribe</context-root>
+        </web>
         &lt;!&ndash; Class-Path: s-mailing-base-ejb.jar &ndash;&gt;
     </module>-->
+    <!--<module id="s-mailing-resources-Web">-->
+        <!--<web>-->
+            <!--<web-uri>s-mailing-resources.war</web-uri>-->
+            <!--<context-root>s-mailing/resources</context-root>-->
+        <!--</web>-->
+        <!--&lt;!&ndash; Class-Path: s-mailing-base-ejb.jar &ndash;&gt;-->
+    <!--</module>-->
     <!--<module id="s-mailing-schedule-sending-EJB">
         <ejb>s-mailing-schedule-sending.jar</ejb>
     </module>-->

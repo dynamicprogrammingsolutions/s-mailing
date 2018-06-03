@@ -9,7 +9,10 @@ import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 
 @SuppressWarnings("unchecked")
@@ -140,7 +143,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
 
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processAllSeries() {
-        logInfo("processing all series");
+        //logInfo("processing all series");
         List<Series> allSeries = this.getAll();
         if (allSeries.isEmpty()) return;
         for (Series series : allSeries) {
@@ -166,6 +169,8 @@ public class SeriesManager extends ManagerBase<Series,Long> {
                     e.printStackTrace();
                 }
             }
+
+            em.flush();
 
             for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
                 try {
@@ -198,8 +203,13 @@ public class SeriesManager extends ManagerBase<Series,Long> {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void processSeriesMails(SeriesSubscription subscription) {
+
+        List<SeriesMail> subscriptionMails = em.createNamedQuery("SeriesMail.getSubscriptionMails", SeriesMail.class)
+                .setParameter("subscription", subscription)
+                .getResultList();
+
         logFiner("processing series subscription "+subscription.getId());
-        for (SeriesMail seriesMail: subscription.getSeriesMails().values()) {
+        for (SeriesMail seriesMail: subscriptionMails) {
             logFinest("processing series mail: item #"+seriesMail.getSeriesItem().getId()+" subscription #"+seriesMail.getSeriesSubscription().getId());
             if (seriesMail.getStatus().equals(SeriesMail.Status.unsent) && (seriesMail.getSeriesItem().getSendOrder() == 0 || seriesMail.getSeriesItem().getSendOrder() == subscription.getLastItemOrder()+1)) {
                 try {
@@ -211,10 +221,8 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         }
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void processSeriesMail(SeriesMail seriesMail) {
-
-        seriesMail = em.find(SeriesMail.class,new SeriesMailId(seriesMail.getSeriesSubscription(),seriesMail.getSeriesItem()));
 
         SeriesSubscription subscription = seriesMail.getSeriesSubscription();
         SeriesItem item = seriesMail.getSeriesItem();

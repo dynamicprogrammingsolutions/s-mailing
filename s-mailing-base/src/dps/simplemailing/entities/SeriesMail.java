@@ -1,8 +1,8 @@
 package dps.simplemailing.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 /**
  *
@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="series_mails")
 @IdClass(SeriesMailId.class)
+@NamedQuery(name = "SeriesMail.getSubscriptionMails", query = "SELECT m FROM SeriesMail m WHERE m.seriesSubscription = :subscription")
 public class SeriesMail implements Serializable {
 
     private static final long serialVersionUID = 1L;

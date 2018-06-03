@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress XmlDefaultAttributeValue -->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="SimpleMailingPU" transaction-type="JTA">
+        <jta-data-source>java:/SimpleMailingDS</jta-data-source>
+        <!--<jta-data-source>java:app/SMailingDS</jta-data-source>-->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

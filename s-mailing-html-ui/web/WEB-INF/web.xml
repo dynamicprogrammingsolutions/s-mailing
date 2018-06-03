@@ -22,7 +22,6 @@
 
     <servlet-mapping>
         <servlet-name>dps.simplemailing.admin.AdminApplication</servlet-name>
-        <url-pattern>/application</url-pattern>
         <url-pattern>/application/*</url-pattern>
     </servlet-mapping>
 
@@ -50,7 +49,6 @@
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
-
 
     <!--<security-constraint>
         <display-name>Admin</display-name>

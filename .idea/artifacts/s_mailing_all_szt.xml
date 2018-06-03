@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="s-mailing-all-szt">
+    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_all_szt</output-path>
+    <root id="archive" name="s-mailing-all-szt.ear">
+      <element id="artifact" artifact-name="s-mailing-api" />
+      <element id="artifact" artifact-name="s-mailing-html-ui" />
+      <element id="directory" name="s-mailing-api-config">
+        <element id="file-copy" path="$PROJECT_DIR$/config/szt/s-mailing-api/web.xml" />
+      </element>
+      <element id="directory" name="s-mailing-html-ui-config">
+        <element id="file-copy" path="$PROJECT_DIR$/config/szt/html-ui/web.xml" />
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/config/szt/application.xml" />
+      </element>
+      <element id="artifact" artifact-name="s-mailing-base-ejb" />
+    </root>
+  </artifact>
+</component>

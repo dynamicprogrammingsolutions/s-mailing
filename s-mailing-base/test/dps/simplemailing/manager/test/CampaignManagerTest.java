@@ -33,6 +33,7 @@ public class CampaignManagerTest extends ManagerTestBase<Campaign> {
                 .addPackage("dps.simplemailing.manage")
                 .addPackage("dps.simplemailing.mailqueue")
                 .addPackage("dps.reflect")
+                .addPackage("dps.logging")
                 .addAsResource("test-smtp-conf.json", "smtp-conf.json")
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
