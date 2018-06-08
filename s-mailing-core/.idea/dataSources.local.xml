@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="simple_mailing@localhost" uuid="ea17035e-f8a3-45ef-8bec-c3568c335d7e">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <introspection-schemas>*:simple_mailing</introspection-schemas>
+    </data-source>
+    <data-source name="s_mailing_test@localhost" uuid="19c1bcd0-1ab7-47de-a6ba-312f6bbe5a97">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <introspection-schemas>*:s_mailing_test</introspection-schemas>
+    </data-source>
+  </component>
+</project>

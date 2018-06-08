@@ -1,8 +1,2 @@
-out
-s-mailing-api/generated/
-s-mailing-html-ui/generated/
-s-mailing-resources/generated/
-s-mailing-schedule-sending/generated/
-s-mailing-unsubscribe/generated/
-s-mailing-base/generated_tests/
+# Created by .ignore support plugin (hsz.mobi)
 /.idea/workspace.xml

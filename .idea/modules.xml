@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/S-Mailing-1.0-idea.iml" filepath="$PROJECT_DIR$/S-Mailing-1.0-idea.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mtp-s-mailing/mtp-s-mailing.iml" filepath="$PROJECT_DIR$/mtp-s-mailing/mtp-s-mailing.iml" />
-      <module fileurl="file://$PROJECT_DIR$/s-mailing-api/s-mailing-api.iml" filepath="$PROJECT_DIR$/s-mailing-api/s-mailing-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/s-mailing-authentication/s-mailing-authentication.iml" filepath="$PROJECT_DIR$/s-mailing-authentication/s-mailing-authentication.iml" />
-      <module fileurl="file://$PROJECT_DIR$/s-mailing-base.iml" filepath="$PROJECT_DIR$/s-mailing-base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" filepath="$PROJECT_DIR$/s-mailing-html-ui/s-mailing-html-ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/s-mailing-resources/s-mailing-resources.iml" filepath="$PROJECT_DIR$/s-mailing-resources/s-mailing-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/s-mailing-core/s-mailing-core.iml" filepath="$PROJECT_DIR$/s-mailing-core/s-mailing-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/s-mailing-ui/s-mailing-ui.iml" filepath="$PROJECT_DIR$/s-mailing-ui/s-mailing-ui.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="s-mailing-ui:war">
+    <output-path>$PROJECT_DIR$/s-mailing-ui/target</output-path>
+    <root id="archive" name="s-mailing.war">
+      <element id="artifact" artifact-name="s-mailing-ui:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <host>http://localhost:8080</host>
+    <root>/s-mailing/</root>
+    <locale>hu</locale>
+    <loglevels>
+        <entry>
+            <key>dps.webapplication.application.providers.exceptions</key>
+            <value>WARNING</value>
+        </entry>
+        <entry>
+            <key>dps.webapplication.servlets</key>
+            <value>WARNING</value>
+        </entry>
+    </loglevels>
+</settings>

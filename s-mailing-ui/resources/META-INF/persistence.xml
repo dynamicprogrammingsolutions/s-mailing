@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="DefaultPersistenceUnit">
+        <jta-data-source>java:comp/env/jdbc/DefaultDS</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <!--<property name="javax.persistence.schema-generation.scripts.action" value="create" />
+            <property name="javax.persistence.sql-load-script-source" value="file:///home/ferenci84/Dokumentumok/JEE/SZTWebsite/database/load.ddl" />
+            <property name="javax.persistence.schema-generation.scripts.create-target" value="file:///home/ferenci84/Dokumentumok/JEE/SZTWebsite/database/create.ddl" />
+            <property name="javax.persistence.schema-generation.scripts.drop-target" value="file:///home/ferenci84/Dokumentumok/JEE/SZTWebsite/database/drop.ddl" />-->
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />-->
+
+            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create" />
+            <property name="javax.persistence.schema-generation.scripts.create-target" value="file:///home/ferenci84/Dokumentumok/JEE/database/create-ui.ddl" />
+            <property name="javax.persistence.schema-generation.scripts.drop-target" value="file:///home/ferenci84/Dokumentumok/JEE/database/drop-ui.ddl" />
+
+            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />-->
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="SimpleMailingPU" transaction-type="JTA">
+        <jta-data-source>java:comp/env/jdbc/SMailingDS</jta-data-source>
+        <!--<jta-data-source>java:app/SMailingDS</jta-data-source>-->
+        <jar-file>lib/s-mailing-core-2.0.0.jar</jar-file>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create" />
+            <property name="javax.persistence.schema-generation.scripts.create-target" value="file:///home/ferenci84/Dokumentumok/JEE/database/create.ddl" />
+            <property name="javax.persistence.schema-generation.scripts.drop-target" value="file:///home/ferenci84/Dokumentumok/JEE/database/drop.ddl" />
+            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />-->
+        </properties>
+    </persistence-unit>
+
+</persistence>

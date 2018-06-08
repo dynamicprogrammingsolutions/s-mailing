@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAkBA,gCAEC;EADA,EAAG;IAAE,SAAS,EAAE,aAAa;AAE9B,wCAEC;EADA,EAAG;IAAE,iBAAiB,EAAE,aAAa",
-"sources": ["../../../scss/vendors/react-select/spinner.scss"],
-"names": [],
-"file": "spinner.css"
-}

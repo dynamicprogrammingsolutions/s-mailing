@@ -1,8 +1,0 @@
-@keyframes Select-animation-spin {
-  to {
-    transform: rotate(1turn); } }
-@-webkit-keyframes Select-animation-spin {
-  to {
-    -webkit-transform: rotate(1turn); } }
-
-/*# sourceMappingURL=spinner.css.map */

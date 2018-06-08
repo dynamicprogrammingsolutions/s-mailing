@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ejb-jar" build-on-make="true" name="s-mailing-base-ejb">
-    <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_base_ejb</output-path>
-    <root id="archive" name="s-mailing-base-ejb.jar">
-      <element id="module-output" name="s-mailing-base" />
-      <element id="jpa-descriptors" facet="s-mailing-base/jpa/JPA" />
-    </root>
-  </artifact>
-</component>

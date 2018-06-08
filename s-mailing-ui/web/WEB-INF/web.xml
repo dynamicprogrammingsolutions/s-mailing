@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>RouterServlet</servlet-name>
+        <servlet-class>dps.webapplication.servlets.RouterServlet</servlet-class>
+
+        <init-param>
+            <param-name>indexPattern</param-name>
+            <param-value>^(?:/|/index|/index\.html)?$</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>indexPath</param-name>
+            <param-value>/application/index</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jspPattern</param-name>
+            <param-value>^/(index|bemutatkozas|(?:pages/[a-zA-Z0-9-_/]+))$</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>resourcePattern</param-name>
+            <param-value>^/(?:scripts|images|styles|styles-dev|webfonts|views|[a-zA-Z0-9-_]+\.html)(?:/.*)?$</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>applicationPattern</param-name>
+            <param-value>^/(?:[a-zA-Z-_]*)(?:/.*)?$</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>resourcePath</param-name>
+            <param-value>/resources</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>applicationPath</param-name>
+            <param-value>/application</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>characterEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dps.webapplication.application.RsApplication</servlet-name>
+        <url-pattern>/application/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
+
+
+
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <lookup-name>java:/SMailingDS</lookup-name>
+    </resource-ref>
+
+    <resource-ref>
+        <res-ref-name>jdbc/SMailingDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <lookup-name>java:/SMailingDS</lookup-name>
+    </resource-ref>
+
+
+    <env-entry>
+        <env-entry-name>applicationName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>s-mailing</env-entry-value>
+    </env-entry>
+
+
+    <!--<distributable />-->
+
+</web-app>
