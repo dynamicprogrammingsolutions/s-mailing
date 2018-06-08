@@ -52,7 +52,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
         query.executeUpdate();
     }
 
-    @Transactional(Transactional.TxType.SUPPORTS)
+    @Transactional(Transactional.TxType.REQUIRED)
     public List<QueuedMail> getQueueToSend() {
         TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getQueue",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
@@ -82,7 +82,7 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
         }
         try {
             queueStatus.setStarted(true);
-            List<QueuedMail> queueToSend = getQueueToSend();
+            List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
 
             if (queueToSend.size() != 0) {
                 logFine("Queue to send: "+queueToSend.size());

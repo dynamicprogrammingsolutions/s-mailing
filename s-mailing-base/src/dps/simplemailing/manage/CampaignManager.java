@@ -43,6 +43,7 @@ public class CampaignManager extends ManagerBase<Campaign,Long> {
     }*/
 
 
+    @Transactional
     public Campaign getByName(String name)
     {
         TypedQuery<Campaign> query = em.createNamedQuery("Campaign.getByName",Campaign.class);

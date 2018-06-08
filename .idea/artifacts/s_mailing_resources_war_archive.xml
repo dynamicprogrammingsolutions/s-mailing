@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="s-mailing-resources:war archive">
+  <artifact type="war" build-on-make="true" name="s-mailing-resources:war archive">
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_resources_war_archive</output-path>
     <root id="archive" name="s-mailing-resources_war archive.war">
       <element id="artifact" artifact-name="s-mailing-resources:war" />

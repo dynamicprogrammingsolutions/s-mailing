@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="s-mailing-html-ui:war">
+  <artifact type="exploded-war" build-on-make="true" name="s-mailing-html-ui:war">
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_html_ui.war</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

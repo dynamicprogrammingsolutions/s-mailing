@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-ear" name="s-mailing-all:ear">
+  <artifact type="exploded-ear" build-on-make="true" name="s-mailing-all:ear">
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_all.ear</output-path>
     <root id="root">
       <element id="artifact" artifact-name="s-mailing-api" />

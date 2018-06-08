@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="ear" name="mtp-s-mailing">
+  <artifact type="ear" build-on-make="true" name="mtp-s-mailing">
     <output-path>$PROJECT_DIR$/out/artifacts/mtp_s_mailing</output-path>
     <root id="archive" name="mtp-s-mailing.ear">
       <element id="artifact" artifact-name="s-mailing-api" />

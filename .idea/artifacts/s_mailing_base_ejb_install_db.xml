@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="ejb-jar" name="s-mailing-base-ejb-install-db">
+  <artifact type="ejb-jar" build-on-make="true" name="s-mailing-base-ejb-install-db">
     <output-path>$PROJECT_DIR$/out/artifacts/s_mailing_base_ejb_install_db</output-path>
     <root id="archive" name="s-mailing-base-ejb.jar">
       <element id="module-output" name="s-mailing-base" />

@@ -80,6 +80,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return props;
     }
 
+    @Transactional
     public EntityType getById(IdType id)
     {
         EntityType entity = em.find(entityClass,id);
@@ -87,6 +88,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return entity;
     }
 
+    @Transactional
     public EntityType getById(IdType id, String... attributes)
     {
         EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
@@ -94,6 +96,7 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         return entity;
     }
 
+    @Transactional
     public EntityType getById(IdType id, Attribute<EntityType, ?>... attributes)
     {
         EntityType entity = em.find(entityClass,id,getLoadGraph(attributes));
@@ -173,11 +176,13 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
         this.remove(entity.getId());
     }
 
+    @Transactional
     public List<EntityType> get(int first, int max)
     {
         return em.createNamedQuery(queryName("getAll"),entityClass).setFirstResult(first).setMaxResults(max).getResultList();
     }
 
+    @Transactional
     public List<EntityType> getAll()
     {
         return em.createNamedQuery(queryName("getAll"),entityClass).getResultList();
