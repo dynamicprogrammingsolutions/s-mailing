@@ -9,10 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 
 @SuppressWarnings("unchecked")
@@ -49,7 +46,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
     @PostConstruct
     public void init()
     {
-        setLogLevel(Level.INFO);
+        setLogLevel(Level.FINEST);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -151,34 +148,15 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         }
     }
 
-    @Transactional(Transactional.TxType.REQUIRED)
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
     public void processSeries(Series series) {
 
 
         try {
 
-            series = this.reload(series/*, Series_.seriesSubscriptions*/);
+            mailSeries.updateAllSubscriptionSeriesMails(series);
+            mailSeries.processAllSubscriptionSeriesMails(series);
 
-            //System.out.println("processing series "+series.getId());
-            logFine("processing series "+series.getId());
-
-            for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
-                try {
-                    mailSeries.updateSeriesMails(subscription);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            em.flush();
-
-            for (SeriesSubscription subscription : series.getSeriesSubscriptions().values()) {
-                try {
-                    mailSeries.processSeriesMails(subscription);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,12 +164,47 @@ public class SeriesManager extends ManagerBase<Series,Long> {
 
     }
 
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    public void updateAllSubscriptionSeriesMails(Series series)
+    {
+        logFine("processing series "+series.getId());
+
+        Collection<SeriesSubscription> seriesSubscriptions = mailSeries.getSeriesSubscriptions(series);
+        for (SeriesSubscription subscription : seriesSubscriptions) {
+            try {
+                mailSeries.updateSeriesMails(subscription);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Collection<SeriesSubscription> getSeriesSubscriptions(Series series)
+    {
+        series = mailSeries.reload(series/*, Series_.seriesSubscriptions*/);
+        return series.getSeriesSubscriptions().values();
+    }
+
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    public void processAllSubscriptionSeriesMails(Series series)
+    {
+        Collection<SeriesSubscription> seriesSubscriptions = mailSeries.getSeriesSubscriptions(series);
+        for (SeriesSubscription subscription : seriesSubscriptions) {
+            try {
+                mailSeries.processSeriesMails(subscription);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void updateSeriesMails(SeriesSubscription subscription)
     {
         //Series series = mailSeries.reload(subscription.getSeries(),Series_.seriesItems);
+        subscription = subscriptionManager.reload(subscription);
         Series series = subscription.getSeries();
         for (SeriesItem item : series.getSeriesItems()) {
             SeriesMail seriesMail = mailSeries.getSeriesMail(subscription,item);
@@ -395,6 +408,7 @@ public class SeriesManager extends ManagerBase<Series,Long> {
         if (seriesMail != null) em.remove(seriesMail);
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
     public SeriesMail getSeriesMail(SeriesSubscription subscription, SeriesItem item)
     {
         SeriesMail seriesMail = em.find(SeriesMail.class,new SeriesMailId(subscription,item));

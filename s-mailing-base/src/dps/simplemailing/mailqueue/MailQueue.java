@@ -54,7 +54,8 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
 
     @Transactional(Transactional.TxType.REQUIRED)
     public List<QueuedMail> getQueueToSend() {
-        TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getQueue",QueuedMail.class);
+        //TypedQuery<QueuedMail> query = em.createNamedQuery("QueuedMail.getQueue",QueuedMail.class);
+        TypedQuery<QueuedMail> query = em.createQuery("SELECT m FROM QueuedMail m WHERE m.status = :status",QueuedMail.class);
         query.setParameter("status", QueuedMail.Status.unsent);
         //query.setParameter("now", getCurrentTime());
         return query.getResultList();

@@ -27,15 +27,16 @@ public class TimingProcessQueue {
     @Schedule(hour = "*", minute = "*", persistent = false)
     public void processQueue() {
         //TODO: processQueueAsync in MailQueue (Using managed executorservice allowing only one thread)
-        new Thread(()->mailQueue.processQueue(),"MailQueue.processQueue").start();
+        mailQueue.processQueue();
         //mailQueue.processQueue();
     }
     
     @Schedule(hour = "*", persistent = false)
     public void processAllSeries() {
+        System.out.println("processing all series");
         //TODO: processAllSeries in MailSeries
-        new Thread(()->mailSeries.processAllSeries(),"MailSeries.processAllSeries").start();
-        ;
+        mailSeries.processAllSeries();
+        System.out.println("finishing processing all series finished");
     }
 
 
