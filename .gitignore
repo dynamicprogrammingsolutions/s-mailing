@@ -6,3 +6,4 @@ s-mailing-schedule-sending/generated/
 s-mailing-unsubscribe/generated/
 s-mailing-base/generated_tests/
 /.idea/workspace.xml
+/wildfly-13.0.0.Final/

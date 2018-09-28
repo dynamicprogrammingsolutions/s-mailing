@@ -1,0 +1,127 @@
+2018-09-28 20:53:41,502 INFO  [org.jboss.as.ee] (ServerService Thread Pool -- 41) WFLYEE0118: The system property 'ee8.preview.mode' is set to 'true'. For provided EE 8 APIs where the EE 8 version of the API differs from what is supported in EE 7, the EE 8 variant of the API will be used. Support for this setting will be removed once all EE 8 APIs are provided and certified.
+2018-09-28 20:53:41,513 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 38) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-09-28 20:53:41,523 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 5.0.7.Final
+2018-09-28 20:53:41,541 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 45) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-09-28 20:53:41,549 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 46) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2018-09-28 20:53:41,580 INFO  [org.jboss.as.connector] (MSC service thread 1-8) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.9.Final)
+2018-09-28 20:53:41,587 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 47) WFLYRS0016: RESTEasy version 3.5.1.Final
+2018-09-28 20:53:41,597 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 52) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-09-28 20:53:41,611 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 62) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-09-28 20:53:41,637 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 60) WFLYSEC0002: Activating Security Subsystem
+2018-09-28 20:53:41,646 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 54) WFLYNAM0001: Activating Naming Subsystem
+2018-09-28 20:53:41,660 INFO  [org.jboss.as.security] (MSC service thread 1-4) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-09-28 20:53:41,675 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-09-28 20:53:41,680 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 64) WFLYWS0002: Activating WebServices Extension
+2018-09-28 20:53:41,749 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0003: Undertow 2.0.9.Final starting
+2018-09-28 20:53:41,786 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2018-09-28 20:53:41,819 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-09-28 20:53:42,054 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2018-09-28 20:53:42,057 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2018-09-28 20:53:42,414 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 63) WFLYUT0014: Creating file handler for path '/home/ferenci84/wildfly-13.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-09-28 20:53:42,429 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0012: Started server default-server.
+2018-09-28 20:53:42,431 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2018-09-28 20:53:42,584 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-09-28 20:53:42,611 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: EJB subsystem suspension complete
+2018-09-28 20:53:42,962 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-09-28 20:53:43,209 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-09-28 20:53:43,300 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory /home/ferenci84/wildfly-13.0.0.Final/standalone/deployments
+2018-09-28 20:53:43,339 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "postgresql-42.2.1.jar" (runtime-name: "postgresql-42.2.1.jar")
+2018-09-28 20:53:44,271 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-09-28 20:53:44,420 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 5.2.1.Final (Apache CXF 3.2.4.jbossorg-1) 
+2018-09-28 20:53:45,050 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.2)
+2018-09-28 20:53:45,069 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = postgresql-42.2.1.jar
+2018-09-28 20:53:45,072 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:/SimpleMailingDS]
+2018-09-28 20:53:45,074 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:/SMailingTestDS]
+2018-09-28 20:53:45,075 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0001: Bound data source [java:/SimpleMailingAuthentication]
+2018-09-28 20:53:45,565 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-7) ISPN000128: Infinispan version: Infinispan 'Gaina' 9.2.4.Final
+2018-09-28 20:53:45,838 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 66) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-09-28 20:53:45,928 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgresql-42.2.1.jar" (runtime-name : "postgresql-42.2.1.jar")
+2018-09-28 20:53:46,050 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-09-28 20:53:46,053 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-09-28 20:53:46,053 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-09-28 20:53:46,053 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 13.0.0.Final (WildFly Core 5.0.0.Final) started in 8126ms - Started 386 of 578 services (314 services are lazy, passive or on-demand)
+2018-09-28 20:53:46,570 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "s_mailing_all.ear" (runtime-name: "s_mailing_all.ear")
+2018-09-28 20:53:46,760 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0207: Starting subdeployment (runtime-name: "s-mailing-html-ui.war")
+2018-09-28 20:53:46,764 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0207: Starting subdeployment (runtime-name: "s-mailing-api.war")
+2018-09-28 20:53:46,764 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0207: Starting subdeployment (runtime-name: "s-mailing-base-ejb.jar")
+2018-09-28 20:53:46,832 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0059: Class Path entry s-mailing-config.jar in /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/out/artifacts/s_mailing_all.ear/s-mailing-html-ui.war  does not point to a valid jar for a Class-Path reference.
+2018-09-28 20:53:46,833 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0059: Class Path entry s-mailing-config.jar in /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/out/artifacts/s_mailing_all.ear/s-mailing-html-ui.war/WEB-INF/classes  does not point to a valid jar for a Class-Path reference.
+2018-09-28 20:53:47,079 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for SimpleMailingPU
+2018-09-28 20:53:47,271 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for UserDataPU
+2018-09-28 20:53:47,404 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment s_mailing_all.ear
+2018-09-28 20:53:47,433 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 14) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 's_mailing_all.ear/s-mailing-html-ui.war#UserDataPU'
+2018-09-28 20:53:47,434 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 66) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 's_mailing_all.ear/s-mailing-base-ejb.jar#SimpleMailingPU'
+2018-09-28 20:53:47,474 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 14) HHH000204: Processing PersistenceUnitInfo [
+	name: UserDataPU
+	...]
+2018-09-28 20:53:47,474 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 66) HHH000204: Processing PersistenceUnitInfo [
+	name: SimpleMailingPU
+	...]
+2018-09-28 20:53:47,636 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 66) HHH000412: Hibernate Core {5.3.1.Final}
+2018-09-28 20:53:47,639 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 66) HHH000206: hibernate.properties not found
+2018-09-28 20:53:47,672 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 6.0.10.Final
+2018-09-28 20:53:47,811 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 14) HCANN000001: Hibernate Commons Annotations {5.0.2.Final}
+2018-09-28 20:53:48,043 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment s-mailing-html-ui.war
+2018-09-28 20:53:48,045 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0003: Processing weld deployment s-mailing-api.war
+2018-09-28 20:53:48,089 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment s-mailing-base-ejb.jar
+2018-09-28 20:53:48,100 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'TimingProcessQueue' in deployment unit 'subdeployment "s-mailing-base-ejb.jar" of deployment "s_mailing_all.ear"' are as follows:
+
+	java:global/s-mailing/s-mailing-base-ejb/TimingProcessQueue!dps.simplemailing.mailqueue.TimingProcessQueue
+	java:app/s-mailing-base-ejb/TimingProcessQueue!dps.simplemailing.mailqueue.TimingProcessQueue
+	java:module/TimingProcessQueue!dps.simplemailing.mailqueue.TimingProcessQueue
+	ejb:s-mailing/s-mailing-base-ejb/TimingProcessQueue!dps.simplemailing.mailqueue.TimingProcessQueue
+	java:global/s-mailing/s-mailing-base-ejb/TimingProcessQueue
+	java:app/s-mailing-base-ejb/TimingProcessQueue
+	java:module/TimingProcessQueue
+
+2018-09-28 20:53:48,227 INFO  [org.jboss.weld.Version] (MSC service thread 1-6) WELD-000900: 3.0.4 (Final)
+2018-09-28 20:53:48,642 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 14) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 's_mailing_all.ear/s-mailing-html-ui.war#UserDataPU'
+2018-09-28 20:53:48,642 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 66) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 's_mailing_all.ear/s-mailing-base-ejb.jar#SimpleMailingPU'
+2018-09-28 20:53:48,854 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 14) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+2018-09-28 20:53:48,858 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 66) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+2018-09-28 20:53:49,034 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 66) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2018-09-28 20:53:49,034 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 14) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2018-09-28 20:53:49,043 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 14) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@46100569
+2018-09-28 20:53:49,043 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 66) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@46100569
+2018-09-28 20:53:49,051 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 14) Envers integration enabled? : true
+2018-09-28 20:53:49,051 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 66) Envers integration enabled? : true
+2018-09-28 20:53:50,478 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 14) HHH000397: Using ASTQueryTranslatorFactory
+2018-09-28 20:53:50,736 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 66) HHH000397: Using ASTQueryTranslatorFactory
+2018-09-28 20:53:50,853 INFO  [org.jboss.weld.Event] (MSC service thread 1-8) WELD-000411: Observer method [BackedAnnotatedMethod] public org.hibernate.validator.cdi.ValidationExtension.processAnnotatedType(@Observes ProcessAnnotatedType<T>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2018-09-28 20:53:50,916 WARN  [org.jboss.weld.Bootstrap] (MSC service thread 1-8) WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.jberet.creation.BatchBeanProducer is deprecated from CDI 1.1!
+2018-09-28 20:53:51,973 WARN  [org.jboss.weld.Validator] (MSC service thread 1-8) WELD-001471: Interceptor method init defined on class dps.simplemailing.mailqueue.MailSettings is not defined according to the specification. It should not throw java.io.IOException, which is a checked exception.
+	at dps.simplemailing.mailqueue.MailSettings.init(MailSettings.java:0)
+  StackTrace
+2018-09-28 20:53:52,096 WARN  [org.jboss.weld.Validator] (MSC service thread 1-8) WELD-001471: Interceptor method init defined on class dps.simplemailing.admin.config.AdminConfig is not defined according to the specification. It should not throw java.io.IOException, which is a checked exception.
+	at dps.simplemailing.admin.config.AdminConfig.init(AdminConfig.java:0)
+  StackTrace
+2018-09-28 20:53:52,557 INFO  [dps.simplemailing.mailqueue] (MSC service thread 1-4) settings file loaded: host: email-smtp.us-west-2.amazonaws.com port: 587
+2018-09-28 20:53:52,584 INFO  [dps.simplemailing.admin.config] (ServerService Thread Pool -- 16) html-ui config file loaded: resourcePath: https://localhost:8443/s-mailing/admin basePath: https://localhost:8443/s-mailing/admin
+2018-09-28 20:53:52,602 WARN  [io.undertow.servlet] (ServerService Thread Pool -- 16) UT015020: Path /* is secured for some HTTP methods, however it is not secured for [TRACE, HEAD, DELETE, CONNECT, OPTIONS, PUT]
+2018-09-28 20:53:52,602 WARN  [io.undertow.servlet] (ServerService Thread Pool -- 66) UT015020: Path /unsubscribe is secured for some HTTP methods, however it is not secured for [TRACE, HEAD, DELETE, POST, CONNECT, OPTIONS, PUT]
+2018-09-28 20:53:52,603 WARN  [io.undertow.servlet] (ServerService Thread Pool -- 66) UT015020: Path /api/* is secured for some HTTP methods, however it is not secured for [TRACE, HEAD, DELETE, POST, CONNECT, OPTIONS, PUT]
+2018-09-28 20:53:52,607 WARN  [io.undertow.servlet] (ServerService Thread Pool -- 66) UT015020: Path /api/admin/* is secured for some HTTP methods, however it is not secured for [TRACE, HEAD, DELETE, CONNECT, OPTIONS, PUT]
+2018-09-28 20:53:52,636 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 66) WFLYUT0021: Registered web context: '/s-mailing' for server 'default-server'
+2018-09-28 20:53:53,130 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002225: Deploying javax.ws.rs.core.Application: class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,131 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.rs.ForwardWriter from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,131 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.rs.ResponseSentWriter from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,131 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.UsersController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,131 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.admin.filters.TemplateFilter from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,132 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.SeriesController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,132 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.CampaignController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,132 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.rs.RedirectProvider from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,132 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.admin.filters.MarkdownFilter from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,132 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.AdminController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,133 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.PagesController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,133 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.admin.provider.EntityReader from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,133 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.admin.filters.SetRequestAttributesFilter from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,133 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002200: Adding class resource dps.simplemailing.admin.controllers.MailsController from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,133 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 16) RESTEASY002205: Adding provider class dps.simplemailing.admin.provider.ViewProvider from Application class dps.simplemailing.admin.AdminApplication
+2018-09-28 20:53:53,343 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 16) WFLYUT0021: Registered web context: '/s-mailing/admin' for server 'default-server'
+2018-09-28 20:53:53,375 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "s_mailing_all.ear" (runtime-name : "s_mailing_all.ear")
+2018-09-28 20:54:18,223 WARN  [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-2) RESTEASY002142: Multiple resource methods match request "GET /". Selecting one. Matching methods: [public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index1(), public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index()]
+2018-09-28 20:54:18,304 INFO  [dps.simplemailing.admin.controllers] (default task-2) not logged in: redirecting
+2018-09-28 20:54:29,387 INFO  [dps.simplemailing.admin.controllers] (default task-3) logged in
+2018-09-28 20:54:29,394 WARN  [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-3) RESTEASY002142: Multiple resource methods match request "GET /". Selecting one. Matching methods: [public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index1(), public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index()]
+2018-09-28 21:00:00,006 INFO  [stdout] (EJB default - 7) processing all series
+2018-09-28 21:00:00,029 INFO  [stdout] (EJB default - 7) finishing processing all series finished
