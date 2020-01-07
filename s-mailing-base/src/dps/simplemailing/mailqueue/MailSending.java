@@ -26,13 +26,6 @@ import javax.mail.internet.MimeMessage;
 @ApplicationScoped
 public class MailSending implements MailSender, HasLogger {
 
-    /*
-    final private String host = "email-smtp.us-west-2.amazonaws.com";
-    final private String port = "587";
-    final private String username = "AKIAJ5FEM3AFFMKMCC2A";
-    final private String password = "AjJGp8+C/yC8NuFYwhR053/JV8abWaRWI7xJ7LjFcvz4";
-    */
-
     @Inject
     MailSettings mailSettings;
 

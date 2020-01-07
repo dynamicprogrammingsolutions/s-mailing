@@ -4,11 +4,11 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="Entities" />
           <factory-entry name="SimpleMailingPU" />
         </datasource-mapping>
+        <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/s-mailing-base/config/META-INF/persistence.xml" />
       </configuration>
     </facet>

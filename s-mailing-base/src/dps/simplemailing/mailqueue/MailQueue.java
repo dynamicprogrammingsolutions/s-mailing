@@ -86,7 +86,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
             List<QueuedMail> queueToSend = mailQueue.getQueueToSend();
 
             if (queueToSend.size() != 0) {
-                logFine("Queue to send: "+queueToSend.size());
                 mailQueue.generateMails(queueToSend);
                 mailQueue.sendMails(queueToSend);
                 mailQueue.cleanupQueue();
@@ -101,7 +100,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
     public void generateMails(List<QueuedMail> queueToSend)
     {
         for (QueuedMail queuedMail: queueToSend) {
-            logFiner("Generating "+queuedMail);
             queuedMail.setGeneratedMail(generatedMails.generateMail(queuedMail));
             mailQueue.modify(queuedMail);
             queueStatus.setGenerated(queueStatus.getGenerated()+1);
@@ -137,7 +135,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
         if (!unsubscribed) {
             GeneratedMail generatedMail = queuedMail.getGeneratedMail();
             if (generatedMail != null) {
-                logFiner("sending "+generatedMail);
                 if (mailSending.sendMail(generatedMail)) {
                     queuedMail.setStatus(QueuedMail.Status.sent);
                     em.merge(queuedMail);
@@ -154,7 +151,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
             em.merge(queuedMail);
             queueStatus.setFailed(queueStatus.getFailed()+1);
 
-            logFiner("User unsubscribed from campaign");
         }
     }
 
@@ -166,7 +162,6 @@ public class MailQueue extends ManagerBase<QueuedMail,Long> implements HasLogger
         List<QueuedMail> queuedMails = query.getResultList();
 
         if (queuedMails.size() != 0) {
-            logFine("queuedMails to clean up: "+queuedMails.size());
             for (QueuedMail queuedMail: queuedMails) {
                 GeneratedMail generatedMail = queuedMail.getGeneratedMail();
                 if (generatedMail != null) {

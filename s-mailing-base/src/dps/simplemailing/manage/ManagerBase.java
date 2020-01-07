@@ -35,7 +35,6 @@ public class ManagerBase<EntityType extends EntityBase<IdType>,IdType> extends U
     @Transactional(TxType.REQUIRED)
     public void create(EntityType entity) throws IllegalArgumentException
     {
-        setLogLevel(Level.FINE);
         Set<ConstraintViolation<EntityType>> constraintViolations = validator.validate(entity);
         if (!constraintViolations.isEmpty()) {
             for (ConstraintViolation<EntityType> constraintViolation: constraintViolations) {
