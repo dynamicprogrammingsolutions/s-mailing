@@ -560,8 +560,5 @@
         <deployment name="postgresql-42.2.1.jar" runtime-name="postgresql-42.2.1.jar">
             <content sha1="b7f61848ac43ae9fa6e38935bfd75628b7fc9086"/>
         </deployment>
-        <deployment name="s_mailing_all.ear" runtime-name="s_mailing_all.ear">
-            <fs-exploded path="/home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/out/artifacts/s_mailing_all.ear"/>
-        </deployment>
     </deployments>
 </server>

@@ -37,8 +37,8 @@ public class CreateAdmin {
     @Test
     public void addAdmin()
     {
-        userProvider.addUser("mtp","***REMOVED***");
-        Assert.assertTrue(authenticationManager.login("mtp", "***REMOVED***"));
+        userProvider.addUser("mtp","e55vp089");
+        Assert.assertTrue(authenticationManager.login("mtp", "e55vp089"));
 
     }
 

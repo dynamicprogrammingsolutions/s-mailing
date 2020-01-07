@@ -13,9 +13,8 @@
     </deployment>
     <server-settings>
       <data>
+        <option name="credentialAlias" value="76f99bb1-41b1-4ce5-9e94-a05ca9615f50" />
         <option name="managementPort" value="9990" />
-        <option name="password" value="***REMOVED***" />
-        <option name="serverGroup" value="" />
         <option name="stagingRemotePath" value="" />
         <option name="transportHostId" />
         <option name="transportStagingTarget">
@@ -26,9 +25,8 @@
         </option>
         <option name="username" value="mtp" />
         <username>mtp</username>
-        <password>***REMOVED***</password>
+        <credential-alias>76f99bb1-41b1-4ce5-9e94-a05ca9615f50</credential-alias>
         <management-port>9990</management-port>
-        <server-group />
         <transport-target>
           <TransportTarget>
             <option name="id" value="2dc1b165-06ad-45ff-a7a0-e888d967c3a9" />
@@ -36,10 +34,9 @@
           </TransportTarget>
         </transport-target>
         <staging-path />
-        <host-id />
       </data>
     </server-settings>
-    <predefined_log_file id="JBoss" enabled="true" />
+    <predefined_log_file enabled="true" id="JBoss" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="55857" />
       <option name="LOCAL" value="false" />
@@ -49,6 +46,8 @@
       <option name="visualVMId" value="45570232876463" />
       <option name="LOCAL" value="false" />
     </RunnerSettings>
-    <method />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
   </configuration>
 </component>

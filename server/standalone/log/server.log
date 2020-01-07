@@ -125,3 +125,116 @@
 2018-09-28 20:54:29,394 WARN  [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-3) RESTEASY002142: Multiple resource methods match request "GET /". Selecting one. Matching methods: [public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index1(), public java.lang.Object dps.simplemailing.admin.controllers.AdminController.index()]
 2018-09-28 21:00:00,006 INFO  [stdout] (EJB default - 7) processing all series
 2018-09-28 21:00:00,029 INFO  [stdout] (EJB default - 7) finishing processing all series finished
+2018-09-28 21:12:38,070 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 16) WFLYUT0022: Unregistered web context: '/s-mailing/admin' from server 'default-server'
+2018-09-28 21:12:38,081 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 72) WFLYUT0022: Unregistered web context: '/s-mailing' from server 'default-server'
+2018-09-28 21:12:38,138 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 's_mailing_all.ear/s-mailing-base-ejb.jar#SimpleMailingPU'
+2018-09-28 21:12:38,141 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 75) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 's_mailing_all.ear/s-mailing-html-ui.war#UserDataPU'
+2018-09-28 21:12:38,142 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 74) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@3011d5a2
+2018-09-28 21:12:38,149 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 's_mailing_all.ear/s-mailing-base-ejb.jar#SimpleMailingPU'
+2018-09-28 21:12:38,145 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 75) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@156dbeb6
+2018-09-28 21:12:38,154 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 75) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 's_mailing_all.ear/s-mailing-html-ui.war#UserDataPU'
+2018-09-28 21:12:38,227 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0208: Stopped subdeployment (runtime-name: s-mailing-api.war) in 169ms
+2018-09-28 21:12:38,228 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0208: Stopped subdeployment (runtime-name: s-mailing-base-ejb.jar) in 169ms
+2018-09-28 21:12:38,253 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0208: Stopped subdeployment (runtime-name: s-mailing-html-ui.war) in 195ms
+2018-09-28 21:12:38,254 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment s_mailing_all.ear (runtime-name: s_mailing_all.ear) in 197ms
+2018-09-28 21:12:38,278 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 2) org.jboss.as.controller.persistence.ConfigurationPersistenceException: WFLYCTL0081: Failed to back up /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml: org.jboss.as.controller.persistence.ConfigurationPersistenceException: WFLYCTL0081: Failed to back up /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml
+	at org.jboss.as.controller.persistence.ConfigurationFile.backup(ConfigurationFile.java:555)
+	at org.jboss.as.controller.persistence.ConfigurationFilePersistenceResource.doCommit(ConfigurationFilePersistenceResource.java:68)
+	at org.jboss.as.controller.persistence.AbstractFilePersistenceResource.commit(AbstractFilePersistenceResource.java:58)
+	at org.jboss.as.controller.ModelControllerImpl$3.commit(ModelControllerImpl.java:729)
+	at org.jboss.as.controller.AbstractOperationContext.executeDoneStage(AbstractOperationContext.java:855)
+	at org.jboss.as.controller.AbstractOperationContext.processStages(AbstractOperationContext.java:769)
+	at org.jboss.as.controller.AbstractOperationContext.executeOperation(AbstractOperationContext.java:467)
+	at org.jboss.as.controller.OperationContextImpl.executeOperation(OperationContextImpl.java:1404)
+	at org.jboss.as.controller.ModelControllerImpl.internalExecute(ModelControllerImpl.java:423)
+	at org.jboss.as.controller.ModelControllerImpl.lambda$execute$1(ModelControllerImpl.java:243)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:263)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:229)
+	at org.jboss.as.controller.ModelControllerImpl.execute(ModelControllerImpl.java:243)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler.doExecute(ModelControllerClientOperationHandler.java:240)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler.access$400(ModelControllerClientOperationHandler.java:138)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1$1.run(ModelControllerClientOperationHandler.java:162)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1$1.run(ModelControllerClientOperationHandler.java:158)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:287)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:244)
+	at org.jboss.as.controller.AccessAuditContext.doAs(AccessAuditContext.java:254)
+	at org.jboss.as.controller.AccessAuditContext.doAs(AccessAuditContext.java:225)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1.execute(ModelControllerClientOperationHandler.java:158)
+	at org.jboss.as.protocol.mgmt.ManagementRequestContextImpl$1.doExecute(ManagementRequestContextImpl.java:70)
+	at org.jboss.as.protocol.mgmt.ManagementRequestContextImpl$AsyncTaskRunner.run(ManagementRequestContextImpl.java:160)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: java.nio.file.NoSuchFileException: /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml -> /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone_xml_history/current/standalone.v3.xml
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixCopyFile.move(UnixCopyFile.java:457)
+	at sun.nio.fs.UnixFileSystemProvider.move(UnixFileSystemProvider.java:262)
+	at java.nio.file.Files.move(Files.java:1395)
+	at org.jboss.as.controller.persistence.ConfigurationFile.moveFile(ConfigurationFile.java:590)
+	at org.jboss.as.controller.persistence.ConfigurationFile.backup(ConfigurationFile.java:537)
+	... 29 more
+
+2018-09-28 21:12:38,282 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "s_mailing_all.ear" (runtime-name: "s_mailing_all.ear")
+2018-09-28 21:12:38,307 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 2) org.jboss.as.controller.persistence.ConfigurationPersistenceException: WFLYCTL0081: Failed to back up /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml: org.jboss.as.controller.persistence.ConfigurationPersistenceException: WFLYCTL0081: Failed to back up /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml
+	at org.jboss.as.controller.persistence.ConfigurationFile.backup(ConfigurationFile.java:555)
+	at org.jboss.as.controller.persistence.ConfigurationFilePersistenceResource.doCommit(ConfigurationFilePersistenceResource.java:68)
+	at org.jboss.as.controller.persistence.AbstractFilePersistenceResource.commit(AbstractFilePersistenceResource.java:58)
+	at org.jboss.as.controller.ModelControllerImpl$3.commit(ModelControllerImpl.java:729)
+	at org.jboss.as.controller.AbstractOperationContext.executeDoneStage(AbstractOperationContext.java:855)
+	at org.jboss.as.controller.AbstractOperationContext.processStages(AbstractOperationContext.java:769)
+	at org.jboss.as.controller.AbstractOperationContext.executeOperation(AbstractOperationContext.java:467)
+	at org.jboss.as.controller.OperationContextImpl.executeOperation(OperationContextImpl.java:1404)
+	at org.jboss.as.controller.ModelControllerImpl.internalExecute(ModelControllerImpl.java:423)
+	at org.jboss.as.controller.ModelControllerImpl.lambda$execute$1(ModelControllerImpl.java:243)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:263)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:229)
+	at org.jboss.as.controller.ModelControllerImpl.execute(ModelControllerImpl.java:243)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler.doExecute(ModelControllerClientOperationHandler.java:240)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler.access$400(ModelControllerClientOperationHandler.java:138)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1$1.run(ModelControllerClientOperationHandler.java:162)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1$1.run(ModelControllerClientOperationHandler.java:158)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:287)
+	at org.wildfly.security.auth.server.SecurityIdentity.runAs(SecurityIdentity.java:244)
+	at org.jboss.as.controller.AccessAuditContext.doAs(AccessAuditContext.java:254)
+	at org.jboss.as.controller.AccessAuditContext.doAs(AccessAuditContext.java:225)
+	at org.jboss.as.controller.remote.ModelControllerClientOperationHandler$ExecuteRequestHandler$1.execute(ModelControllerClientOperationHandler.java:158)
+	at org.jboss.as.protocol.mgmt.ManagementRequestContextImpl$1.doExecute(ManagementRequestContextImpl.java:70)
+	at org.jboss.as.protocol.mgmt.ManagementRequestContextImpl$AsyncTaskRunner.run(ManagementRequestContextImpl.java:160)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: java.nio.file.NoSuchFileException: /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone.xml -> /home/ferenci84/Dokumentumok/JEE/S-Mailing-1.0-idea/server/standalone/configuration/standalone_xml_history/current/standalone.v4.xml
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixCopyFile.move(UnixCopyFile.java:457)
+	at sun.nio.fs.UnixFileSystemProvider.move(UnixFileSystemProvider.java:262)
+	at java.nio.file.Files.move(Files.java:1395)
+	at org.jboss.as.controller.persistence.ConfigurationFile.moveFile(ConfigurationFile.java:590)
+	at org.jboss.as.controller.persistence.ConfigurationFile.backup(ConfigurationFile.java:537)
+	... 29 more
+
+2018-09-28 21:12:38,393 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0236: Suspending server with no timeout.
+2018-09-28 21:12:38,396 INFO  [org.jboss.as.ejb3] (management-handler-thread - 2) WFLYEJB0493: EJB subsystem suspension complete
+2018-09-28 21:12:38,414 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2018-09-28 21:12:38,457 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0010: Unbound data source [java:/SimpleMailingDS]
+2018-09-28 21:12:38,458 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0010: Unbound data source [java:/SMailingTestDS]
+2018-09-28 21:12:38,459 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0019: Host default-host stopping
+2018-09-28 21:12:38,468 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2018-09-28 21:12:38,477 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:/SimpleMailingAuthentication]
+2018-09-28 21:12:38,478 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2018-09-28 21:12:38,483 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0019: Stopped Driver service with driver-name = postgresql-42.2.1.jar
+2018-09-28 21:12:38,505 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 76) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+2018-09-28 21:12:38,505 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTPS listener https suspending
+2018-09-28 21:12:38,506 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTP listener default suspending
+2018-09-28 21:12:38,507 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2018-09-28 21:12:38,506 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2018-09-28 21:12:38,509 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0004: Undertow 2.0.9.Final stopping
+2018-09-28 21:12:38,511 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment postgresql-42.2.1.jar (runtime-name: postgresql-42.2.1.jar) in 87ms
+2018-09-28 21:12:38,529 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0050: WildFly Full 13.0.0.Final (WildFly Core 5.0.0.Final) stopped in 105ms
